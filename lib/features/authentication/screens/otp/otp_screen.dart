@@ -13,23 +13,22 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
-            child: Column(
-              children: [
-                const OtpAppbar(),
-                37.verticalSpace,
-                const OtpHeader(),
-                TSizes.spaceBtwSections.verticalSpace,
-                const OtpTextFieldWidget(),
-                TSizes.spaceBtwSections.verticalSpace,
-                const OtpNextButton(),
-                TSizes.spaceBtwSections.verticalSpace,
-                const OtpResendCodeRow()
-              ],
-            ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
+          child: Column(
+            children: [
+              TSizes.appbarHeightSpace.verticalSpace,
+              const OtpAppbar(),
+              37.verticalSpace,
+              const OtpHeader(),
+              TSizes.spaceBtwSections.verticalSpace,
+              const OtpTextFieldWidget(),
+              TSizes.spaceBtwSections.verticalSpace,
+              const OtpNextButton(),
+              TSizes.spaceBtwSections.verticalSpace,
+              const OtpResendCodeRow()
+            ],
           ),
         ),
       ),

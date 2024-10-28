@@ -67,7 +67,7 @@ class TSizes {
   // Grid view spacing
   static const double gridViewSpacing   = 16;
 
-
+  static const double appbarHeightSpace = 40;
 
 
 

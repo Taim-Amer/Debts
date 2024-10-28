@@ -11,12 +11,14 @@ class DebtScheduleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              TSizes.appbarHeightSpace.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -35,7 +37,7 @@ class DebtScheduleScreen extends StatelessWidget {
                       children: [
                         Text(TTexts.clientName, style: Theme.of(context).textTheme.titleSmall,),
                         8.horizontalSpace,
-                        const Icon(Icons.email, color: TColors.buttonPrimary,)
+                        const Icon(Icons.person, color: TColors.buttonPrimary,)
                       ],
                     ),
                   ),
@@ -54,6 +56,198 @@ class DebtScheduleScreen extends StatelessWidget {
                 ],
               ),
               TSizes.spaceBtwInputField.verticalSpace,
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(TTexts.clientPhone, style: Theme.of(context).textTheme.titleSmall,),
+                        8.horizontalSpace,
+                        const Icon(Icons.phone_android, color: TColors.buttonPrimary,)
+                      ],
+                    ),
+                  ),
+                  12.verticalSpace,
+                  TextFormField(
+                    textAlign: TextAlign.end,
+                    decoration: InputDecoration(
+                      hintText: 'ريف دمشق-ضاحية يوسف العظمة',
+                      hintStyle: const TextStyle(color: Colors.grey),
+                      contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                      border: InputBorder.none,
+                    ),
+                    cursorColor: TColors.buttonPrimary,
+                    keyboardType: TextInputType.phone,
+                  ),
+                ],
+              ),
+              TSizes.sm.verticalSpace,
+              TextButton(onPressed: (){}, child: const Row(
+                children: [
+                  Text("إضافة رقم هاتف أخر", style: TextStyle(color: TColors.buttonPrimary),),
+                  Icon(Icons.add, size: 20, color: TColors.buttonPrimary,),
+                ],
+              )),
+              TSizes.spaceBtwSections.verticalSpace,
+              Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(TTexts.pageNumber, style: Theme.of(context).textTheme.titleSmall,),
+                              8.horizontalSpace,
+                              const Icon(Icons.phone_android, color: TColors.buttonPrimary,)
+                            ],
+                          ),
+                        ),
+                        12.verticalSpace,
+                        TextFormField(
+                          textAlign: TextAlign.end,
+                          decoration: InputDecoration(
+                            hintText: 'صفحة رقم : 450',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
+                          ),
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
+                        ),
+                      ],
+                    ),
+                  ),
+                  10.horizontalSpace,
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(TTexts.pageNumber, style: Theme.of(context).textTheme.titleSmall,),
+                              8.horizontalSpace,
+                              const Icon(Icons.phone_android, color: TColors.buttonPrimary,)
+                            ],
+                          ),
+                        ),
+                        12.verticalSpace,
+                        TextFormField(
+                          textAlign: TextAlign.end,
+                          decoration: InputDecoration(
+                            hintText: 'صفحة رقم : 450',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
+                          ),
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              TSizes.spaceBtwSections.verticalSpace,
+              Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      children: [
+                        Text(TTexts.productDescription, style: Theme.of(context).textTheme.titleSmall,),
+                        12.verticalSpace,
+                        TextFormField(
+                          textAlign: TextAlign.end,
+                          decoration: InputDecoration(
+                            hintText: 'أثاث منزل',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
+                          ),
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
+                        ),
+                      ],
+                    ),
+                  ),
+                  10.horizontalSpace,
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [
+                        Text(TTexts.amount, style: Theme.of(context).textTheme.titleSmall,),
+                        12.verticalSpace,
+                        TextFormField(
+                          textAlign: TextAlign.end,
+                          decoration: InputDecoration(
+                            hintText: '1000.000 IQD',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
+                          ),
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              TSizes.spaceBtwInputField.verticalSpace,
+              Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      children: [
+                        Text(TTexts.monthlyPayment, style: Theme.of(context).textTheme.titleSmall,),
+                        12.verticalSpace,
+                        TextFormField(
+                          textAlign: TextAlign.end,
+                          decoration: InputDecoration(
+                            hintText: '100.000 IQD',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
+                          ),
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
+                        ),
+                      ],
+                    ),
+                  ),
+                  10.horizontalSpace,
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [
+                        Text(TTexts.initialPayment, style: Theme.of(context).textTheme.titleSmall,),
+                        12.verticalSpace,
+                        TextFormField(
+                          textAlign: TextAlign.end,
+                          decoration: InputDecoration(
+                            hintText: '500.000 IQD',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
+                          ),
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
