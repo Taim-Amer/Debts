@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 
 class TSpacingStyle {
-  static const EdgeInsetsGeometry paddingWithAppBarHeight = EdgeInsets.only(
-    top: TSizes.appBarHeight,
-    left: TSizes.defaultSpace,
-    bottom: TSizes.defaultSpace,
-    right: TSizes.defaultSpace,
+  static EdgeInsetsGeometry paddingWithAppBarHeight = EdgeInsets.only(
+    top: TSizes.appBarHeight.h,
+    left: TSizes.defaultSpace.w,
+    bottom: TSizes.defaultSpace.w,
+    right: TSizes.defaultSpace.w,
   );
 }

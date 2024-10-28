@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taha_debts/common/styles/spacing_styles.dart';
 import 'package:taha_debts/common/widgets/buttons/back_icon.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -11,14 +12,12 @@ class DebtScheduleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: TSpacingStyle.paddingWithAppBarHeight,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TSizes.appbarHeightSpace.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -248,6 +247,8 @@ class DebtScheduleScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              TSizes.spaceBtwSections.verticalSpace,
+              SizedBox(width: double.infinity, height: 50, child: ElevatedButton(onPressed: (){}, child: const Text(TTexts.add)))
             ],
           ),
         ),

@@ -24,7 +24,7 @@ class TSizes {
   static const double buttonWidth = 120;
 
   // AppBar height
-  static const double appBarHeight = 56;
+  static const double appBarHeight = 40;
 
   // Image sizes
   static const double imageThumbSize = 80;
@@ -66,9 +66,4 @@ class TSizes {
 
   // Grid view spacing
   static const double gridViewSpacing   = 16;
-
-  static const double appbarHeightSpace = 40;
-
-
-
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 
-class TTextButtonTheme{
+class TTextButtonTheme {
   TTextButtonTheme._();
 
   static final lightTextButtonTheme = TextButtonThemeData(
@@ -12,6 +12,7 @@ class TTextButtonTheme{
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
+      splashFactory: NoSplash.splashFactory,
     ),
   );
 
@@ -23,6 +24,7 @@ class TTextButtonTheme{
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
+      splashFactory: NoSplash.splashFactory,
     ),
   );
 }

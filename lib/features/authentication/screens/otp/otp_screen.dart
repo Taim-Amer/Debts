@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taha_debts/common/styles/spacing_styles.dart';
 import 'package:taha_debts/features/authentication/screens/otp/widgets/otp_appbar.dart';
 import 'package:taha_debts/features/authentication/screens/otp/widgets/otp_header.dart';
 import 'package:taha_debts/features/authentication/screens/otp/widgets/otp_next_button.dart';
@@ -15,10 +16,9 @@ class OtpScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
+          padding: TSpacingStyle.paddingWithAppBarHeight,
           child: Column(
             children: [
-              TSizes.appbarHeightSpace.verticalSpace,
               const OtpAppbar(),
               37.verticalSpace,
               const OtpHeader(),
