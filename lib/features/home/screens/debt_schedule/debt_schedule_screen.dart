@@ -9,9 +9,11 @@ import 'package:taha_debts/features/home/controllers/dept_schedule_controller/de
 import 'package:taha_debts/features/home/screens/debt_schedule/widgets/add_another_phone_number_button.dart';
 import 'package:taha_debts/features/home/screens/debt_schedule/widgets/add_new_debt_button.dart';
 import 'package:taha_debts/features/home/screens/debt_schedule/widgets/add_new_item_button.dart';
+import 'package:taha_debts/features/home/screens/debt_schedule/widgets/animated_sponsor_address_text_field.dart';
 import 'package:taha_debts/features/home/screens/debt_schedule/widgets/debts_schedule_appbar.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/models/country_model.dart';
 
 class DebtScheduleScreen extends StatelessWidget {
   const DebtScheduleScreen({super.key});
@@ -30,17 +32,37 @@ class DebtScheduleScreen extends StatelessWidget {
               TSizes.spaceBtwInputField.verticalSpace,
               const TextFieldWidget(title: TTexts.clientName, hint: "تيم عامر", icon: Icons.person,),
               TSizes.spaceBtwInputField.verticalSpace,
-              AnimatedTextFieldWidget(deptScheduleController: deptScheduleController,),
+              AnimatedTextFieldWidget(
+                title: TTexts.clientAddress,
+                icon: Icons.location_on,
+                deptScheduleController: deptScheduleController,
+                hint: 'ريف دمشق-ضاحية يوسف العظمة',
+                listItem: [
+                  GlobalModel(title: 'مساكن برزة'),
+                  GlobalModel(title: 'جديدة عرطوز'),
+                  GlobalModel(title: 'جديدة الفضل'),
+                  GlobalModel(title: 'المزة'),
+                ],
+              ),
               TSizes.spaceBtwInputField.verticalSpace,
-              const TextFieldWidget(title: TTexts.clientPhone, hint: "ريف دمشق-ضاحية يوسف العظمة", icon: Icons.phone_android,),
+              const TextFieldWidget(title: TTexts.clientPhone, hint: "0997421905", icon: Icons.phone_android,),
               TSizes.sm.verticalSpace,
               const AddAnotherPhoneNumberButton(),
               TSizes.spaceBtwSections.verticalSpace,
               Row(
                 children: [
-                  const Expanded(
+                  Expanded(
                     flex: 3,
-                    child: TextFieldWidget(title: TTexts.records, hint: "سجل الأثاث"),
+                    child: AnimatedTextFieldWidget(
+                      title: TTexts.records,
+                      deptScheduleController: deptScheduleController,
+                      hint: "سجل الاثاث",
+                      listItem: [
+                        GlobalModel(title: 'سجل الأثاث'),
+                        GlobalModel(title: 'سجل المفروشات'),
+                        GlobalModel(title: 'سجل الكهربائيات'),
+                      ],
+                    ),
                   ),
                   10.horizontalSpace,
                   const Expanded(
@@ -49,7 +71,17 @@ class DebtScheduleScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              TSizes.spaceBtwSections.verticalSpace,
+              TSizes.spaceBtwInputField.verticalSpace,
+              AnimatedSponsorAddressTextField(
+                  deptScheduleController: deptScheduleController,
+                  listItem: [
+                    GlobalModel(title: 'مساكن برزة'),
+                    GlobalModel(title: 'جديدة عرطوز'),
+                    GlobalModel(title: 'جديدة الفضل'),
+                    GlobalModel(title: 'المزة'),
+                  ],
+              ),
+              TSizes.spaceBtwInputField.verticalSpace,
               Row(
                 children: [
                   const Expanded(

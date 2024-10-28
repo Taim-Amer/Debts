@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:measure_size_builder/measure_size_builder.dart';
+import 'package:taha_debts/common/widgets/fields/animated_text_field_widget.dart';
+import 'package:taha_debts/common/widgets/fields/text_field_widget.dart';
 import 'package:taha_debts/features/home/controllers/dept_schedule_controller/dept_schedule_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/utils/constants/sizes.dart';
+import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 
-class AnimatedTextFieldWidget extends StatefulWidget {
-  const AnimatedTextFieldWidget({super.key, required this.deptScheduleController, required this.hint, required this.listItem, this.title, this.icon,});
+class AnimatedSponsorAddressTextField extends StatefulWidget {
+  const AnimatedSponsorAddressTextField({
+    super.key,
+    required this.deptScheduleController,
+    required this.listItem,
+  });
 
   final DeptScheduleController deptScheduleController;
-  final String hint;
   final List<GlobalModel> listItem;
-  final String? title;
-  final IconData? icon;
 
   @override
-  State<AnimatedTextFieldWidget> createState() => _CustomPhoneCountryCodeState();
+  State<AnimatedSponsorAddressTextField> createState() =>
+      _CustomPhoneCountryCodeState();
 }
 
-class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
-  double height = 0;
+class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField> {
   bool isExpanded = false;
 
   @override
@@ -36,15 +40,20 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
                 children: [
                   Flexible(
                     child: Text(
-                      widget.title!,
+                      TTexts.addSponsor,
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  if (widget.icon != null) ...[
-                    8.horizontalSpace,
-                    Icon(widget.icon, color: TColors.buttonPrimary),
-                  ],
+                  8.horizontalSpace,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isExpanded = !isExpanded;
+                      });
+                    },
+                    child: const Icon(Icons.location_on, color: TColors.buttonPrimary),
+                  ),
                 ],
               ),
             ),
@@ -65,7 +74,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
                 child: Directionality(
                   textDirection: TextDirection.ltr,
                   child: Obx(() {
-                    final selectedCountry = widget.listItem.firstWhere((country) => country.code == widget.deptScheduleController.clientAddress.value, orElse: () => widget.listItem.first,);
+                    final selectedCountry = widget.listItem.firstWhere((country) => country.code == widget.deptScheduleController.clientAddress.value, orElse: () => widget.listItem.first);
                     return Row(
                       children: [
                         8.horizontalSpace,
@@ -73,8 +82,13 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
                         Expanded(
                           child: TextFormField(
                             readOnly: true,
+                            onTap: () {
+                              setState(() {
+                                isExpanded = !isExpanded;
+                              });
+                            },
                             decoration: InputDecoration(
-                              hintText: widget.hint,
+                              hintText: "ريف دمشق-ضاحية يوسف العظمة",
                               hintStyle: const TextStyle(color: Colors.grey),
                               contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
                               border: InputBorder.none,
@@ -95,63 +109,30 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
         16.verticalSpace,
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          height: isExpanded ? height : 0,
-          padding: EdgeInsets.all(10.w),
-          decoration: BoxDecoration(
-            color: TColors.lightGrey,
-            borderRadius: BorderRadius.circular(9.r),
-          ),
-          child: ListView.builder(
-            padding: EdgeInsets.zero,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: widget.listItem.length,
-            itemBuilder: (context, index) {
-              return MeasureSizeBuilder(
-                builder: (context, size) {
-                  height = (size.height + 10.w) * widget.listItem.length;
-                  return countryCodeItemBuilder(index);
-                },
-              );
-            },
-          ),
+          child: isExpanded ? Column(
+            children: [
+              const TextFieldWidget(
+                title: TTexts.sponsorPhone,
+                hint: "099742105",
+                icon: Icons.phone_android,
+              ),
+              TSizes.spaceBtwInputField.verticalSpace,
+              AnimatedTextFieldWidget(
+                deptScheduleController: widget.deptScheduleController,
+                icon: Icons.location_on,
+                title: "عنوان الكفيل",
+                hint: "مساكن برزة",
+                listItem: [
+                  GlobalModel(title: 'مساكن برزة'),
+                  GlobalModel(title: 'جديدة عرطوز'),
+                  GlobalModel(title: 'جديدة الفضل'),
+                  GlobalModel(title: 'المزة'),
+                ],
+              ),
+            ],
+          ) : const SizedBox.shrink(),
         ),
       ],
-    );
-  }
-
-  InkWell countryCodeItemBuilder(int index) {
-    return InkWell(
-      overlayColor: WidgetStateProperty.all(Colors.transparent),
-      onTap: () {
-        setState(() {
-          isExpanded = !isExpanded;
-          widget.deptScheduleController.clientAddress.value = widget.listItem[index].title;
-        });
-      },
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 5.h),
-        child: Row(
-          children: [
-            Radio<String>(
-              value: widget.listItem[index].title,
-              groupValue: widget.deptScheduleController.clientAddress.value,
-              activeColor: TColors.buttonPrimary,
-              onChanged: (value) {
-                setState(() {
-                  widget.deptScheduleController.clientAddress.value = value!;
-                  isExpanded = false;
-                });
-              },
-            ),
-            const Spacer(),
-            16.horizontalSpace,
-            Text(widget.listItem[index].title),
-            // 8.horizontalSpace,
-            8.horizontalSpace,
-          ],
-        ),
-      ),
     );
   }
 }
