@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class EmailTextField extends StatelessWidget {
   const EmailTextField({super.key});
@@ -14,7 +15,7 @@ class EmailTextField extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text("البريد الإلكتروني", style: Theme.of(context).textTheme.titleSmall,),
+              Text(TTexts.email, style: Theme.of(context).textTheme.titleSmall,),
               8.horizontalSpace,
               const Icon(Icons.email, color: TColors.buttonPrimary,)
             ],
