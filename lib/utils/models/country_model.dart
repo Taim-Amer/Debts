@@ -1,11 +1,11 @@
-class Country {
-  final String code;
+class GlobalModel {
+  final String? code;
   final String title;
-  final String svg;
+  final String? svg;
 
-  Country({
-    required this.code,
+  GlobalModel({
+    this.code,
     required this.title,
-    required this.svg,
+    this.svg,
   });
 }

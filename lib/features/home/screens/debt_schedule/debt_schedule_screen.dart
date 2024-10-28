@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
-import 'package:taha_debts/common/widgets/buttons/back_icon.dart';
-import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/common/widgets/fields/animated_text_field_widget.dart';
+import 'package:taha_debts/common/widgets/fields/text_field_widget.dart';
+import 'package:taha_debts/features/home/controllers/dept_schedule_controller/dept_schedule_controller.dart';
+import 'package:taha_debts/features/home/screens/debt_schedule/widgets/add_another_phone_number_button.dart';
+import 'package:taha_debts/features/home/screens/debt_schedule/widgets/add_new_debt_button.dart';
+import 'package:taha_debts/features/home/screens/debt_schedule/widgets/add_new_item_button.dart';
+import 'package:taha_debts/features/home/screens/debt_schedule/widgets/debts_schedule_appbar.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
@@ -11,6 +18,7 @@ class DebtScheduleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deptScheduleController = Get.put(DeptScheduleController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -18,237 +26,64 @@ class DebtScheduleScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const BackIcon(),
-                  Text("اضافة دين جديد", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
-                  const SizedBox()
-                ],
-              ),
+              const DebtsScheduleAppbar(),
               TSizes.spaceBtwInputField.verticalSpace,
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(TTexts.clientName, style: Theme.of(context).textTheme.titleSmall,),
-                        8.horizontalSpace,
-                        const Icon(Icons.person, color: TColors.buttonPrimary,)
-                      ],
-                    ),
-                  ),
-                  12.verticalSpace,
-                  TextFormField(
-                    textAlign: TextAlign.end,
-                    decoration: InputDecoration(
-                      hintText: 'تيم عامر',
-                      hintStyle: const TextStyle(color: Colors.grey),
-                      contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                      border: InputBorder.none,
-                    ),
-                    cursorColor: TColors.buttonPrimary,
-                    keyboardType: TextInputType.phone,
-                  ),
-                ],
-              ),
+              const TextFieldWidget(title: TTexts.clientName, hint: "تيم عامر", icon: Icons.person,),
               TSizes.spaceBtwInputField.verticalSpace,
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(TTexts.clientPhone, style: Theme.of(context).textTheme.titleSmall,),
-                        8.horizontalSpace,
-                        const Icon(Icons.phone_android, color: TColors.buttonPrimary,)
-                      ],
-                    ),
-                  ),
-                  12.verticalSpace,
-                  TextFormField(
-                    textAlign: TextAlign.end,
-                    decoration: InputDecoration(
-                      hintText: 'ريف دمشق-ضاحية يوسف العظمة',
-                      hintStyle: const TextStyle(color: Colors.grey),
-                      contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                      border: InputBorder.none,
-                    ),
-                    cursorColor: TColors.buttonPrimary,
-                    keyboardType: TextInputType.phone,
-                  ),
-                ],
-              ),
+              AnimatedTextFieldWidget(deptScheduleController: deptScheduleController,),
+              TSizes.spaceBtwInputField.verticalSpace,
+              const TextFieldWidget(title: TTexts.clientPhone, hint: "ريف دمشق-ضاحية يوسف العظمة", icon: Icons.phone_android,),
               TSizes.sm.verticalSpace,
-              TextButton(onPressed: (){}, child: const Row(
-                children: [
-                  Text("إضافة رقم هاتف أخر", style: TextStyle(color: TColors.buttonPrimary),),
-                  Icon(Icons.add, size: 20, color: TColors.buttonPrimary,),
-                ],
-              )),
+              const AddAnotherPhoneNumberButton(),
               TSizes.spaceBtwSections.verticalSpace,
               Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     flex: 3,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(TTexts.pageNumber, style: Theme.of(context).textTheme.titleSmall,),
-                              8.horizontalSpace,
-                              const Icon(Icons.phone_android, color: TColors.buttonPrimary,)
-                            ],
-                          ),
-                        ),
-                        12.verticalSpace,
-                        TextFormField(
-                          textAlign: TextAlign.end,
-                          decoration: InputDecoration(
-                            hintText: 'صفحة رقم : 450',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
-                          ),
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
-                        ),
-                      ],
-                    ),
+                    child: TextFieldWidget(title: TTexts.records, hint: "سجل الأثاث"),
                   ),
                   10.horizontalSpace,
-                  Expanded(
+                  const Expanded(
                     flex: 2,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(TTexts.pageNumber, style: Theme.of(context).textTheme.titleSmall,),
-                              8.horizontalSpace,
-                              const Icon(Icons.phone_android, color: TColors.buttonPrimary,)
-                            ],
-                          ),
-                        ),
-                        12.verticalSpace,
-                        TextFormField(
-                          textAlign: TextAlign.end,
-                          decoration: InputDecoration(
-                            hintText: 'صفحة رقم : 450',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
-                          ),
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
-                        ),
-                      ],
-                    ),
+                    child: TextFieldWidget(title: TTexts.pageNumber, hint: "صفحة رقم : 450", icon: Icons.book,),
                   ),
                 ],
               ),
               TSizes.spaceBtwSections.verticalSpace,
               Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     flex: 3,
-                    child: Column(
-                      children: [
-                        Text(TTexts.productDescription, style: Theme.of(context).textTheme.titleSmall,),
-                        12.verticalSpace,
-                        TextFormField(
-                          textAlign: TextAlign.end,
-                          decoration: InputDecoration(
-                            hintText: 'أثاث منزل',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
-                          ),
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
-                        ),
-                      ],
-                    ),
+                    child: TextFieldWidget(title: TTexts.productDescription, hint: 'أثاث منزل'),
                   ),
                   10.horizontalSpace,
-                  Expanded(
+                  const Expanded(
                     flex: 2,
-                    child: Column(
-                      children: [
-                        Text(TTexts.amount, style: Theme.of(context).textTheme.titleSmall,),
-                        12.verticalSpace,
-                        TextFormField(
-                          textAlign: TextAlign.end,
-                          decoration: InputDecoration(
-                            hintText: '1000.000 IQD',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
-                          ),
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
-                        ),
-                      ],
-                    ),
+                    child: TextFieldWidget(title: TTexts.amount, hint: '1000.000 IQD'),
                   ),
                 ],
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     flex: 3,
-                    child: Column(
-                      children: [
-                        Text(TTexts.monthlyPayment, style: Theme.of(context).textTheme.titleSmall,),
-                        12.verticalSpace,
-                        TextFormField(
-                          textAlign: TextAlign.end,
-                          decoration: InputDecoration(
-                            hintText: '100.000 IQD',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
-                          ),
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
-                        ),
-                      ],
-                    ),
+                    child: TextFieldWidget(title: TTexts.monthlyPayment, hint: '100.000 IQD'),
                   ),
                   10.horizontalSpace,
-                  Expanded(
+                  const Expanded(
                     flex: 2,
-                    child: Column(
-                      children: [
-                        Text(TTexts.initialPayment, style: Theme.of(context).textTheme.titleSmall,),
-                        12.verticalSpace,
-                        TextFormField(
-                          textAlign: TextAlign.end,
-                          decoration: InputDecoration(
-                            hintText: '500.000 IQD',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
-                          ),
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
-                        ),
-                      ],
-                    ),
+                    child: TextFieldWidget(title: TTexts.initialPayment, hint: '500.000 IQD'),
                   ),
                 ],
               ),
               TSizes.spaceBtwSections.verticalSpace,
-              SizedBox(width: double.infinity, height: 50, child: ElevatedButton(onPressed: (){}, child: const Text(TTexts.add)))
+              const Align(
+                alignment: AlignmentDirectional.topEnd,
+                child: AddNewItemButton(),
+              ),
+              TSizes.spaceBtwSections.verticalSpace,
+              const AddNewDebtButton(),
             ],
           ),
         ),
@@ -256,3 +91,5 @@ class DebtScheduleScreen extends StatelessWidget {
     );
   }
 }
+
+

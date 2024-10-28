@@ -13,6 +13,7 @@ class TTextButtonTheme {
         borderRadius: BorderRadius.circular(8.0),
       ),
       splashFactory: NoSplash.splashFactory,
+        surfaceTintColor: Colors.transparent
     ),
   );
 
@@ -25,6 +26,7 @@ class TTextButtonTheme {
         borderRadius: BorderRadius.circular(8.0),
       ),
       splashFactory: NoSplash.splashFactory,
+      surfaceTintColor: Colors.transparent
     ),
   );
 }
