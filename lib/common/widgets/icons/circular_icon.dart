@@ -13,9 +13,11 @@ class TCircularIcon extends StatelessWidget {
     this.backgroundColor,
     this.color,
     this.onPressed,
+    this.radius = 100,
   });
 
   final double? width, height, size;
+  final double? radius;
   final Color? backgroundColor;
   final Color? color;
   final IconData icon;
@@ -28,7 +30,7 @@ class TCircularIcon extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(radius!),
         color: backgroundColor ?? (dark ? TColors.black.withOpacity(.9) : TColors.white.withOpacity(.9)),
       ),
       child: IconButton(

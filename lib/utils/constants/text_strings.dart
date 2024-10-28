@@ -14,4 +14,5 @@ class TTexts {
   static const String verificationCode = "رمز التفعيل";
   static const String emptyDebts = "! الديون فارغة";
   static const String addDebts = "إضافة دين جديد";
+  static const String otpTitle = "تأكيد الحساب";
 }
