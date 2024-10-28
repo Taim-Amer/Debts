@@ -3,7 +3,6 @@ import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
-
 class TCircularIcon extends StatelessWidget {
   const TCircularIcon({
     super.key,
@@ -29,10 +28,15 @@ class TCircularIcon extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          color: backgroundColor ?? (dark ? TColors.black.withOpacity(.9) : TColors.white.withOpacity(.9))
+        borderRadius: BorderRadius.circular(100),
+        color: backgroundColor ?? (dark ? TColors.black.withOpacity(.9) : TColors.white.withOpacity(.9)),
       ),
-      child: IconButton(onPressed: onPressed, icon: Icon(icon, color: color, size: size,)),
+      child: IconButton(
+        onPressed: onPressed,
+        icon: Icon(icon, color: color, size: size),
+        padding: EdgeInsets.zero,
+        alignment: Alignment.center,
+      ),
     );
   }
 }

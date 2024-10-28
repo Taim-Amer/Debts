@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/features/authentication/screens/otp/otp_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signin/signin_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signup/signup_screen.dart';
+import 'package:taha_debts/features/home/screens/home_empty/home_empty_screen.dart';
 import 'package:taha_debts/utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -19,7 +20,7 @@ class App extends StatelessWidget {
           theme: TAppTheme.lightTheme,
           darkTheme: TAppTheme.darkTheme,
           // initialBinding: GeneralBindings(),
-          home: const OtpScreen()
+          home: const HomeEmptyScreen()
       ),
     );
   }

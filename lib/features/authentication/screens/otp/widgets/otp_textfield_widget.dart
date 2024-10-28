@@ -9,8 +9,8 @@ class OtpTextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return OtpTextField(
       mainAxisAlignment: MainAxisAlignment.center,
-      fieldWidth: 56,
-      fieldHeight: 56,
+      fieldWidth: 60,
+      fieldHeight: 60,
       showCursor: false,
       alignment: Alignment.center,
       numberOfFields: 5,

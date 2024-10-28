@@ -17,6 +17,9 @@ class TImages {
   static const String saudi = "assets/icons/flags/saudi_arabia.png";
   static const String qatar = "assets/icons/flags/qatar.png";
 
+  //Home
+  static const String money = "assets/logos/home/money.svg";
+
   // Social Logos
   static const String google = "assets/logos/google-icon.png";
   static const String facebook = "assets/logos/facebook-icon.png";

@@ -43,6 +43,9 @@ class $AssetsLogosGen {
   AssetGenImage get googleIcon =>
       const AssetGenImage('assets/logos/google-icon.png');
 
+  /// Directory path: assets/logos/home
+  $AssetsLogosHomeGen get home => const $AssetsLogosHomeGen();
+
   /// List of all assets
   List<AssetGenImage> get values => [facebookIcon, googleIcon];
 }
@@ -108,11 +111,24 @@ class $AssetsImagesUserGen {
 class $AssetsLogosAuthGen {
   const $AssetsLogosAuthGen();
 
+  /// File path: assets/logos/auth/lock.svg
+  String get lock => 'assets/logos/auth/lock.svg';
+
   /// File path: assets/logos/auth/noun-login.svg
   String get nounLogin => 'assets/logos/auth/noun-login.svg';
 
   /// List of all assets
-  List<String> get values => [nounLogin];
+  List<String> get values => [lock, nounLogin];
+}
+
+class $AssetsLogosHomeGen {
+  const $AssetsLogosHomeGen();
+
+  /// File path: assets/logos/home/money.svg
+  String get money => 'assets/logos/home/money.svg';
+
+  /// List of all assets
+  List<String> get values => [money];
 }
 
 class Assets {

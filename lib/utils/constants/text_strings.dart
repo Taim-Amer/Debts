@@ -11,4 +11,7 @@ class TTexts {
   static const String registerSubTitle = "قم بإدخال معلوماتك الشخصية لإنشاء حسابك";
   static const String resendCode = "أعد الإرسال";
   static const String resendCodeQuastion = "لم تصلك رسالة التأكيد؟";
+  static const String verificationCode = "رمز التفعيل";
+  static const String emptyDebts = "! الديون فارغة";
+  static const String addDebts = "إضافة دين جديد";
 }
