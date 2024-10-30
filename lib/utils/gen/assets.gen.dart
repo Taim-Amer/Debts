@@ -46,6 +46,9 @@ class $AssetsLogosGen {
   /// Directory path: assets/logos/home
   $AssetsLogosHomeGen get home => const $AssetsLogosHomeGen();
 
+  /// Directory path: assets/logos/profile
+  $AssetsLogosProfileGen get profile => const $AssetsLogosProfileGen();
+
   /// List of all assets
   List<AssetGenImage> get values => [facebookIcon, googleIcon];
 }
@@ -129,6 +132,17 @@ class $AssetsLogosHomeGen {
 
   /// List of all assets
   List<String> get values => [money];
+}
+
+class $AssetsLogosProfileGen {
+  const $AssetsLogosProfileGen();
+
+  /// File path: assets/logos/profile/material-symbols_person.svg
+  String get materialSymbolsPerson =>
+      'assets/logos/profile/material-symbols_person.svg';
+
+  /// List of all assets
+  List<String> get values => [materialSymbolsPerson];
 }
 
 class Assets {

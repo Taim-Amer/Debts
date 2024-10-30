@@ -31,4 +31,7 @@ class TImages {
 
   // User
   static const String user = "assets/images/user/user.png";
+
+  // Profile
+  static const String profile = "assets/logos/profile/material-symbols_person.svg";
 }

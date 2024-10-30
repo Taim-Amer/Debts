@@ -47,4 +47,6 @@ class TTexts {
 
   // Client Profile
 static const String clientInformation = "معلومات العميل";
+static const String bySponsor = "من قبل الكفيل";
+static const String clientStatus = "حالة العميل";
 }

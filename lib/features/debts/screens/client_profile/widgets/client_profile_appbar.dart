@@ -18,7 +18,7 @@ class ClientProfileAppbar extends StatelessWidget {
       children: [
         const BackIcon(),
         10.horizontalSpace,
-        Text(TTexts.clientInformation, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
+        Text(TTexts.clientInformation, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
         GestureDetector(
           onTap: (){},
           child: TRoundedContainer(
@@ -29,7 +29,7 @@ class ClientProfileAppbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Icon(Icons.keyboard_arrow_down_sharp, color: TColors.buttonPrimary, size: TSizes.iconSm),
-                Text("حالة العميل", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary)),
+                Text(TTexts.clientStatus, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary)),
               ],
             ),
           ),
