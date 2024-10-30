@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:measure_size_builder/measure_size_builder.dart';
-import 'package:taha_debts/features/home/controllers/dept_schedule_controller/dept_schedule_controller.dart';
+import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 

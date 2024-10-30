@@ -34,4 +34,5 @@ class TTexts {
   static const String initialPayment = "الدفعة الاولى (اختياري)";
   static const String monthlyPayment = "الدفعة الشهرية (اختياري)";
   static const String addNewItem = "اضافة عنصر جديد";
+  static const String totalPayment = "التسديد الكلي";
 }
