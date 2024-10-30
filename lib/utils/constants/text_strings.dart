@@ -43,4 +43,8 @@ class TTexts {
   static const String filter = "فلتر";
   static const String searchByName = "...بحث عن اسم معين";
   static const String day = "اليوم";
+  static const String debt = "الدين";
+
+  // Client Profile
+static const String clientInformation = "معلومات العميل";
 }
