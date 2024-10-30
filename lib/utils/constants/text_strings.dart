@@ -35,4 +35,12 @@ class TTexts {
   static const String monthlyPayment = "الدفعة الشهرية (اختياري)";
   static const String addNewItem = "اضافة عنصر جديد";
   static const String totalPayment = "التسديد الكلي";
+  static const String clients = "العملاء";
+  static const String totalDebts = "الدين الكلي";
+  static const String notations = "ملاحظات";
+  static const String nonPayers = "غير المسددين";
+  static const String country = "المنطقة";
+  static const String filter = "فلتر";
+  static const String searchByName = "...بحث عن اسم معين";
+  static const String day = "اليوم";
 }

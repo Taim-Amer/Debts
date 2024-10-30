@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                   Container(height: 50.h, width: 1, color: const Color(0xFFC8C8C8)),
                   Column(
                     children: [
-                      Text("العملاء", style: Theme.of(context).textTheme.titleSmall,),
+                      Text(TTexts.clients, style: Theme.of(context).textTheme.titleSmall,),
                       TSizes.md.verticalSpace,
                       Text("1", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary),),
                     ],
@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                   Container(height: 50.h, width: 1, color: const Color(0xFFC8C8C8)),
                   Column(
                     children: [
-                      Text("الدين الكلي", style: Theme.of(context).textTheme.titleSmall,),
+                      Text(TTexts.totalDebts, style: Theme.of(context).textTheme.titleSmall,),
                       TSizes.md.verticalSpace,
                       Text("1000.000 IQD", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.redColor),),
                     ],
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("ملاحظات", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
+                        Text(TTexts.notations, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
                         const Icon(Icons.add, color: TColors.buttonPrimary)
                       ],
                     ),
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("غير المسددين", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
+                        Text(TTexts.nonPayers, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
                         const Icon(Icons.add, color: TColors.buttonPrimary)
                       ],
                     ),
@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("المنطقة", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
+                        Text(TTexts.country, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
                         const Icon(Icons.add, color: TColors.buttonPrimary)
                       ],
                     ),
@@ -97,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("فلتر", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
+                        Text(TTexts.filter, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
                         const Icon(Icons.add, color: TColors.buttonPrimary)
                       ],
                     ),
@@ -108,8 +108,8 @@ class HomeScreen extends StatelessWidget {
               TextFormField(
                 textAlign: TextAlign.end,
                 decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.search),
-                  hintText: "...بحث عن اسم معين",
+                  suffixIcon: const Icon(Icons.search),
+                  hintText: TTexts.searchByName,
                   hintStyle: const TextStyle(color: Colors.grey),
                   contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
                   border: InputBorder.none,
@@ -131,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                           Text("تيم عامر 450", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14)),
                         ],
                       ),
-                      Text("اليوم", style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.redColor),)
+                      Text(TTexts.day, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.redColor),)
                     ],
                   ),
                   19.horizontalSpace,
