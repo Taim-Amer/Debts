@@ -4,6 +4,7 @@ import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_conta
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class BySponsorContainer extends StatefulWidget {
   const BySponsorContainer({super.key});
@@ -15,7 +16,7 @@ class BySponsorContainer extends StatefulWidget {
 class _BySponsorContainerState extends State<BySponsorContainer> {
   bool isExpanded = false;
 
-  void _toggleExpand() {
+  void toggleExpand() {
     setState(() {
       isExpanded = !isExpanded;
     });
@@ -28,6 +29,7 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
         TRoundedContainer(
           borderColor: TColors.grey,
           showBorder: true,
+          backgroundColor: Colors.transparent,
           radius: 20.r,
           child: Padding(
             padding: const EdgeInsets.all(TSizes.sm),
@@ -36,7 +38,7 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
-                  onTap: _toggleExpand,
+                  onTap: toggleExpand,
                   child: Icon(
                     isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
                     color: TColors.grey,
@@ -57,11 +59,13 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
         ),
         10.verticalSpace,
         TRoundedContainer(
+          backgroundColor: Colors.transparent,
           showBorder: isExpanded == true ? true : false,
           borderColor: TColors.grey,
           child: AnimatedContainer(
+            color: Colors.transparent,
             duration: const Duration(milliseconds: 300),
-            height: isExpanded ? null : 0, // Make height flexible
+            height: isExpanded ? null : 0,
             padding: EdgeInsets.all(10.w),
             curve: Curves.easeInOut,
             child: isExpanded ? SingleChildScrollView(child: Padding(

@@ -37,6 +37,7 @@ class ClientProfileScreen extends StatelessWidget {
               TRoundedContainer(
                 borderColor: TColors.grey,
                 showBorder: true,
+                backgroundColor: Colors.transparent,
                 radius: 30.r,
                 width: 270.h,
                 child: Padding(
