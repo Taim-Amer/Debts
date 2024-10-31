@@ -34,4 +34,11 @@ class TImages {
 
   // Profile
   static const String profile = "assets/logos/profile/material-symbols_person.svg";
+
+  // Settings
+  static const String translate = "assets/icons/global/Combined-Shape.svg";
+  static const String notifications = "assets/icons/global/Vector.svg";
+  static const String information = "assets/icons/global/Group 97.svg";
+  static const String logout = "assets/icons/global/Group (1).svg";
+  static const String about = "assets/icons/global/Group.svg";
 }

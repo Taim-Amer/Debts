@@ -61,4 +61,13 @@ class TTexts {
 
   // Notifications
   static const String notifications = "الإشعارات";
+
+  // Settings
+  static const String settings = "الإعدادات";
+  static const String languageChange = "تغيير اللغة";
+  static const String arabic = "العربية";
+  static const String english = "الإنكليزية";
+  static const String privacyPolicy = "سياسة الخصوصية";
+  static const String about = "عن التطبيق";
+  static const String out = "تسجيل الخروج";
 }

@@ -17,6 +17,9 @@ class $AssetsIconsGen {
 
   /// Directory path: assets/icons/flags
   $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
+
+  /// Directory path: assets/icons/global
+  $AssetsIconsGlobalGen get global => const $AssetsIconsGlobalGen();
 }
 
 class $AssetsImagesGen {
@@ -89,6 +92,28 @@ class $AssetsIconsFlagsGen {
   /// List of all assets
   List<AssetGenImage> get values =>
       [egypt, jordan, lebanon, qatar, saudiArabia];
+}
+
+class $AssetsIconsGlobalGen {
+  const $AssetsIconsGlobalGen();
+
+  /// File path: assets/icons/global/Combined-Shape.svg
+  String get combinedShape => 'assets/icons/global/Combined-Shape.svg';
+
+  /// File path: assets/icons/global/Group (1).svg
+  String get group1 => 'assets/icons/global/Group (1).svg';
+
+  /// File path: assets/icons/global/Group 97.svg
+  String get group97 => 'assets/icons/global/Group 97.svg';
+
+  /// File path: assets/icons/global/Group.svg
+  String get group => 'assets/icons/global/Group.svg';
+
+  /// File path: assets/icons/global/Vector.svg
+  String get vector => 'assets/icons/global/Vector.svg';
+
+  /// List of all assets
+  List<String> get values => [combinedShape, group1, group97, group, vector];
 }
 
 class $AssetsImagesShapesGen {

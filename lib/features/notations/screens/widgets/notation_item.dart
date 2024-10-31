@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class NotationItem extends StatelessWidget {
   const NotationItem({super.key});
@@ -15,9 +16,9 @@ class NotationItem extends StatelessWidget {
             Text("2024/7/30", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary, fontSize: 14),),
             Row(
               children: [
-                Text("ملاحظة", style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
+                Text(TTexts.notations, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
                 8.horizontalSpace,
-                const Icon(Icons.notifications, color: TColors.buttonPrimary, size: 21,),
+                const Icon(Icons.note, color: TColors.buttonPrimary, size: 21,),
               ],
             ),
           ],
