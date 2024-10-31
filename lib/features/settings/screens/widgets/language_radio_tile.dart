@@ -19,11 +19,14 @@ class LanguageRadioTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Radio(
-          value: value,
-          groupValue: groupValue,
-          onChanged: onChanged,
-          activeColor: TColors.buttonPrimary,
+        Transform.scale(
+          scale: 40 / 35,
+          child: Radio(
+            value: value,
+            groupValue: groupValue,
+            onChanged: onChanged,
+            activeColor: TColors.buttonPrimary,
+          ),
         ),
         const Spacer(),
         Text(title, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 20),

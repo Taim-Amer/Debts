@@ -6,6 +6,7 @@ import 'package:taha_debts/utils/theme/custom_themes/checkbox_theme.dart';
 import 'package:taha_debts/utils/theme/custom_themes/chip_theme.dart';
 import 'package:taha_debts/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:taha_debts/utils/theme/custom_themes/outlined_button_theme.dart';
+import 'package:taha_debts/utils/theme/custom_themes/radio_theme.dart';
 import 'package:taha_debts/utils/theme/custom_themes/text_button_theme.dart';
 import 'package:taha_debts/utils/theme/custom_themes/text_field_theme.dart';
 import 'package:taha_debts/utils/theme/custom_themes/text_theme.dart';
@@ -29,6 +30,7 @@ class TAppTheme {
     outlinedButtonTheme: TOutLinedButtonTheme.lightOutLinedButtonTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     inputDecorationTheme: TTextFieldTheme.lightInputDecorationTheme,
+    radioTheme: TRadioTheme.lightRadioTheme
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -47,5 +49,6 @@ class TAppTheme {
     outlinedButtonTheme: TOutLinedButtonTheme.darkOutLinedButtonTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     inputDecorationTheme: TTextFieldTheme.darkInputDecorationTheme,
+    radioTheme: TRadioTheme.darkRadioTheme
   );
 }

@@ -5,6 +5,7 @@ import 'package:taha_debts/features/settings/screens/widgets/language_radio_tile
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class LanguageChangingContainer extends StatefulWidget {
   const LanguageChangingContainer({super.key});
@@ -18,8 +19,9 @@ class LanguageChangingContainerState extends State<LanguageChangingContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return TRoundedContainer(
-      backgroundColor: TColors.lightGrey,
+      backgroundColor: dark ? TColors.dark :TColors.lightGrey,
       width: 394.w,
       height: 150.h,
       radius: 12.r,
