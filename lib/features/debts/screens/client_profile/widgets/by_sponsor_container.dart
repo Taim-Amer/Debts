@@ -57,34 +57,30 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
           ),
         ),
         10.verticalSpace,
-        AnimatedOpacity(
-          opacity: isExpanded ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 300),
-          child: TRoundedContainer(
-            backgroundColor: Colors.transparent,
-            showBorder: isExpanded,
-            borderColor: TColors.grey,
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 500),
-              height: isExpanded ? null : 0,
-              padding: EdgeInsets.all(10.w),
-              curve: Curves.linear,
-              child: isExpanded ? SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(TSizes.sm),
-                  child: Column(
-                    children: [
-                      Text("أسم الكفيل: محمد أنس", style: Theme.of(context).textTheme.bodyLarge),
-                      14.verticalSpace,
-                      Text("عنوان الكفيل : مساكن برزة", style: Theme.of(context).textTheme.bodyLarge),
-                      14.verticalSpace,
-                      Text("رقم الهاتف: 345-321-0939", style: Theme.of(context).textTheme.bodyLarge),
-                      // Add more text items if needed
-                    ],
-                  ),
+        TRoundedContainer(
+          backgroundColor: Colors.transparent,
+          showBorder: isExpanded,
+          borderColor: TColors.grey,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 100),
+            height: isExpanded ? null : 0,
+            padding: EdgeInsets.all(10.w),
+            curve: Curves.easeIn,
+            child: isExpanded ? SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(TSizes.sm),
+                child: Column(
+                  children: [
+                    Text("أسم الكفيل: محمد أنس", style: Theme.of(context).textTheme.bodyLarge),
+                    14.verticalSpace,
+                    Text("عنوان الكفيل : مساكن برزة", style: Theme.of(context).textTheme.bodyLarge),
+                    14.verticalSpace,
+                    Text("رقم الهاتف: 345-321-0939", style: Theme.of(context).textTheme.bodyLarge),
+                    // Add more text items if needed
+                  ],
                 ),
-              ) : null,
-            ),
+              ),
+            ) : null,
           ),
         ),
       ],

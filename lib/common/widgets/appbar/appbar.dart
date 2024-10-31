@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:taha_debts/common/widgets/buttons/back_icon.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/device/device_utility.dart';
@@ -27,12 +28,7 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         automaticallyImplyLeading: false,
         leading: showBackArrow
-            ? IconButton(
-                onPressed: () => Get.back(),
-                icon: Container(
-                  width: 34, height: 34, decoration: const BoxDecoration(
-                      color: TColors.borderPrimary, borderRadius: BorderRadius.all(Radius.circular(14))),
-                    child: const Center(child: Icon(Icons.arrow_back_ios_new, color: Color(0xFF353535),)))) : leadingIcon != null
+            ? BackIcon() : leadingIcon != null
                 ? IconButton(
                     onPressed: leadingOnPressed, icon: Icon(leadingIcon)) : null,
         title: title,

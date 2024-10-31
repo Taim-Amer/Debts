@@ -3,11 +3,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({super.key, required this.title, required this.hint, this.icon});
+  const TextFieldWidget({
+    super.key,
+    required this.title,
+    required this.hint,
+    this.icon,
+    this.hintColor = TColors.grey,
+    this.titleColor = const Color(0xFF6D6E72),
+    this.hintSize,
+    this.radius,
+  });
 
   final String title;
   final String hint;
   final IconData? icon;
+  final Color? hintColor;
+  final Color? titleColor;
+  final double? hintSize;
+  final double? radius;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +34,7 @@ class TextFieldWidget extends StatelessWidget {
               Flexible(
                 child: Text(
                   title,
-                  style: Theme.of(context).textTheme.titleSmall,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(color: titleColor),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -33,20 +46,50 @@ class TextFieldWidget extends StatelessWidget {
           ),
         ),
         12.verticalSpace,
-        TextFormField(
-          textAlign: TextAlign.end,
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: const TextStyle(color: Colors.grey),
-            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide.none,
+        radius != null ? Theme(
+          data: Theme.of(context).copyWith(
+            inputDecorationTheme: InputDecorationTheme(
+              hintStyle: TextStyle(color: hintColor, fontSize: hintSize),
+              filled: true,
+              fillColor: TColors.lightGrey,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius!),
+                borderSide: BorderSide.none,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius!),
+                borderSide: BorderSide.none,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius!),
+                borderSide: const BorderSide(color: Colors.transparent),
+              ),
             ),
           ),
-          cursorColor: TColors.buttonPrimary,
-          keyboardType: TextInputType.phone,
-        ),
+          child: TextFormField(
+            textAlign: TextAlign.end,
+            decoration: InputDecoration(
+              hintText: hint,
+              contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+            ),
+            cursorColor: TColors.buttonPrimary,
+            keyboardType: TextInputType.phone,
+          ),
+        ) : TextFormField(
+                textAlign: TextAlign.end,
+                decoration: InputDecoration(
+                  hintText: hint,
+                  hintStyle: TextStyle(color: hintColor),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                cursorColor: TColors.buttonPrimary,
+                keyboardType: TextInputType.phone,
+              ),
       ],
     );
   }
