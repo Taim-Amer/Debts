@@ -46,11 +46,19 @@ class TTexts {
   static const String debt = "الدين";
 
   // Client Profile
-static const String clientInformation = "معلومات العميل";
-static const String bySponsor = "من قبل الكفيل";
-static const String clientStatus = "حالة العميل";
-static const String collectionDate = "تاريخ التحصيل";
-static const String payment = "تسديد";
-static const String buying = "تسديد";
-static const String transactions = ":المعاملات";
+  static const String clientInformation = "معلومات العميل";
+  static const String bySponsor = "من قبل الكفيل";
+  static const String clientStatus = "حالة العميل";
+  static const String collectionDate = "تاريخ التحصيل";
+  static const String payment = "تسديد";
+  static const String buying = "تسديد";
+  static const String transactions = ":المعاملات";
+
+  // Additions
+  static const String addNewCollection = "إضافة دفعة جديدة";
+  static const String productsName = "اسم البضاعة المراد تسديد ثمنها";
+  static const String productsDescription = "وصف البضاعة";
+
+  // Notifications
+  static const String notifications = "الإشعارات";
 }
