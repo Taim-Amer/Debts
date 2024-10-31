@@ -9,6 +9,7 @@ import 'package:taha_debts/features/debts/screens/additions/pay_addition_screen.
 import 'package:taha_debts/features/debts/screens/client_profile/client_profile_screen.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/debt_schedule_screen.dart';
 import 'package:taha_debts/features/debts/screens/home/home_screen.dart';
+import 'package:taha_debts/features/notations/screens/notations_screen.dart';
 import 'package:taha_debts/features/notifications/screens/notifications_screen.dart';
 import 'package:taha_debts/utils/theme/theme.dart';
 
@@ -25,7 +26,7 @@ class App extends StatelessWidget {
           theme: TAppTheme.lightTheme,
           darkTheme: TAppTheme.darkTheme,
           // initialBinding: GeneralBindings(),
-          home: const NotificationsScreen()
+          home: const ClientProfileScreen()
       ),
     );
   }

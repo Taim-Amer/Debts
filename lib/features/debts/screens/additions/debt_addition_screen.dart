@@ -13,8 +13,8 @@ class DebtAdditionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      bottomNavigationBar: const DebtAdditionNavbar(),
+      floatingActionButton: const DebtAdditionNavbar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
