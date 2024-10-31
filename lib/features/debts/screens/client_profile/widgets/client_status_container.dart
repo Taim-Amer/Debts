@@ -34,7 +34,11 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Icon(Icons.keyboard_arrow_down_sharp, color: TColors.buttonPrimary, size: TSizes.iconSm),
+                Icon(
+                  isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down_sharp, // Toggle the icon based on expansion state
+                  color: TColors.buttonPrimary,
+                  size: TSizes.iconSm,
+                ),
                 Text(
                   TTexts.clientStatus,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary),
@@ -45,30 +49,34 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
         ),
         10.verticalSpace,
         TRoundedContainer(
-          backgroundColor: Colors.transparent,
-          showBorder: isExpanded,
-          borderColor: TColors.grey,
-          height: 100.h,
           width: 92.w,
+          backgroundColor: Colors.white,
+          showShadow: isExpanded,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
-            height: isExpanded ? null : 0,
-            color: Colors.transparent,
-            padding: EdgeInsets.all(10.w),
+            height: isExpanded ? 100.h : 0,
             curve: Curves.easeInOut,
-            child: isExpanded
-                ? SingleChildScrollView(child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const TRoundedContainer(backgroundColor: TColors.redColor, width: 18, height: 18,),
-                    9.verticalSpace,
-                    const TRoundedContainer(backgroundColor: TColors.yellowColor, width: 18, height: 18,),
-                    9.verticalSpace,
-                    const TRoundedContainer(backgroundColor: TColors.greenColor, width: 18, height: 18,),
-                  ],
-                ),
-            )
-                : const SizedBox.shrink(), // Return a SizedBox when not expanded
+            padding: EdgeInsets.all(10.w),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const TRoundedContainer(backgroundColor: TColors.redColor, width: 18, height: 18),
+                  9.verticalSpace,
+                  const TRoundedContainer(backgroundColor: TColors.yellowColor, width: 18, height: 18),
+                  9.verticalSpace,
+                  const TRoundedContainer(backgroundColor: TColors.greenColor, width: 18, height: 18),
+                ],
+              ),
+            ),
           ),
         ),
       ],

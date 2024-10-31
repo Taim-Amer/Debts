@@ -49,4 +49,8 @@ class TTexts {
 static const String clientInformation = "معلومات العميل";
 static const String bySponsor = "من قبل الكفيل";
 static const String clientStatus = "حالة العميل";
+static const String collectionDate = "تاريخ التحصيل";
+static const String payment = "تسديد";
+static const String buying = "تسديد";
+static const String transactions = ":المعاملات";
 }

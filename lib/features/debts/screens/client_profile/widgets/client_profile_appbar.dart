@@ -6,9 +6,10 @@ import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/device/device_utility.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
-class ClientProfileAppbar extends StatelessWidget {
+class ClientProfileAppbar extends StatelessWidget implements PreferredSizeWidget{
   const ClientProfileAppbar({super.key});
 
   @override
@@ -20,8 +21,12 @@ class ClientProfileAppbar extends StatelessWidget {
         const BackIcon(),
         10.horizontalSpace,
         Text(TTexts.clientInformation, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
-        ClientStatusContainer()
+        const ClientStatusContainer()
       ],
     );
   }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => Size.fromHeight(TDeviceUtils.getAppBarHeight());
 }

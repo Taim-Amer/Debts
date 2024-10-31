@@ -3,7 +3,8 @@ import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 
 class TRoundedContainer extends StatelessWidget {
-  const TRoundedContainer({super.key,
+  const TRoundedContainer({
+    super.key,
     this.width,
     this.height,
     this.padding,
@@ -13,6 +14,8 @@ class TRoundedContainer extends StatelessWidget {
     this.showBorder = false,
     this.borderColor = TColors.borderPrimary,
     this.backgroundColor = TColors.white,
+    this.boxShadow, // Existing parameter for shadow
+    this.showShadow = false, // New parameter for shadow visibility
   });
 
   final double? width;
@@ -24,6 +27,8 @@ class TRoundedContainer extends StatelessWidget {
   final Color backgroundColor;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final List<BoxShadow>? boxShadow; // Existing shadow property
+  final bool showShadow; // Shadow visibility property
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +41,9 @@ class TRoundedContainer extends StatelessWidget {
         color: backgroundColor,
         borderRadius: BorderRadius.circular(radius),
         border: showBorder ? Border.all(color: borderColor) : null,
+        boxShadow: showShadow // Apply shadow based on showShadow
+            ? (boxShadow ?? []) // Use provided boxShadow or empty list
+            : null, // No shadow if showShadow is false
       ),
       child: child,
     );
