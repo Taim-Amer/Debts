@@ -36,7 +36,7 @@ class SettingsScreen extends StatelessWidget {
               const LanguageChangingContainer(),
               TSizes.spaceBtwSections.verticalSpace,
               const Divider(color: Color(0xFFD5D5D5)),
-              const SettingsTile(title: TTexts.notifications, icon: TImages.notifications,),
+              const SettingsTile(title: TTexts.notifications, icon: TImages.notifications, showSwitch: true,),
               const SettingsTile(title: TTexts.privacyPolicy, icon: TImages.information,),
               const SettingsTile(title: TTexts.about, icon: TImages.about,),
               const SettingsTile(title: TTexts.out, icon: TImages.logout,),

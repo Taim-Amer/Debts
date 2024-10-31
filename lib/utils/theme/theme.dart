@@ -14,6 +14,7 @@ class TAppTheme {
   TAppTheme._();
 
   static ThemeData lightTheme = ThemeData(
+    primaryColorLight: TColors.buttonPrimary,
     useMaterial3: true,
     fontFamily: 'Almarai',
     brightness: Brightness.light,
@@ -31,6 +32,7 @@ class TAppTheme {
   );
 
   static ThemeData darkTheme = ThemeData(
+    primaryColorDark: TColors.buttonPrimary,
     useMaterial3: true,
     fontFamily: 'Almarai',
     brightness: Brightness.dark,

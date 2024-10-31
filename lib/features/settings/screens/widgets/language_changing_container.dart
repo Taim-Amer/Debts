@@ -6,8 +6,15 @@ import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
-class LanguageChangingContainer extends StatelessWidget {
+class LanguageChangingContainer extends StatefulWidget {
   const LanguageChangingContainer({super.key});
+
+  @override
+  State<LanguageChangingContainer> createState() => LanguageChangingContainerState();
+}
+
+class LanguageChangingContainerState extends State<LanguageChangingContainer> {
+  int selectedLanguage = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +25,36 @@ class LanguageChangingContainer extends StatelessWidget {
       radius: 12.r,
       padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w, vertical: 31.h),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisSize: MainAxisSize.min,
         children: [
-          const Expanded(child: LanguageRadioTile(title: TTexts.arabic)),
-          30.verticalSpace,
-          const Expanded(child: LanguageRadioTile(title: TTexts.english))
+          Expanded(
+            child: LanguageRadioTile(
+              title: TTexts.arabic,
+              value: 1,
+              groupValue: selectedLanguage,
+              onChanged: (value) {
+                setState(() {
+                  selectedLanguage = value!;
+                });
+              },
+            ),
+          ),
+          40.verticalSpace,
+          Expanded(
+            child: LanguageRadioTile(
+              title: TTexts.english,
+              value: 2,
+              groupValue: selectedLanguage,
+              onChanged: (value) {
+                setState(() {
+                  selectedLanguage = value!;
+                });
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 }
+
+

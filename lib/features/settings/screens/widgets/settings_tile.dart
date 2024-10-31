@@ -1,18 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
-import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
-class SettingsTile extends StatelessWidget {
-  const SettingsTile({super.key, required this.title, required this.icon});
+class SettingsTile extends StatefulWidget {
+  const SettingsTile({super.key, required this.title, required this.icon, this.showSwitch = false});
 
   final String title;
   final String icon;
+  final bool? showSwitch;
 
+  @override
+  State<SettingsTile> createState() => _SettingsTileState();
+}
 
+class _SettingsTileState extends State<SettingsTile> {
+  bool isSwitched = true;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,15 +25,23 @@ class SettingsTile extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Icon(Icons.arrow_back_ios, color: Colors.black,),
+            widget.showSwitch == true ? CupertinoSwitch(
+              value: isSwitched,
+              onChanged: (value){
+                setState(() {
+                  isSwitched = value;
+                });
+              },
+              activeColor: TColors.greenColor,
+            ) : const Icon(Icons.arrow_back_ios, color: Colors.black,),
             Padding(
               padding: EdgeInsets.symmetric(vertical: TSizes.md.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
+                  Text(widget.title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
                   8.horizontalSpace,
-                  SvgPicture.asset(icon),
+                  SvgPicture.asset(widget.icon),
                 ],
               ),
             ),
