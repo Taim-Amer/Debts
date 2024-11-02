@@ -16,7 +16,13 @@ class CollectionDateContainer extends StatefulWidget {
 }
 
 class CollectionDateContainerState extends State<CollectionDateContainer> {
-  int selectedValue = 1;
+  final ValueNotifier<int?> _selectedValueNotifier = ValueNotifier<int?>(null);
+
+  @override
+  void dispose() {
+    _selectedValueNotifier.dispose();
+    super.dispose();
+  }
 
   Future<void> showCollectionDateBottomSheet() {
     return showModalBottomSheet(
@@ -51,13 +57,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                   title: TTexts.weakReminder,
                   showRadio: true,
                   value: 1,
-                  groupValue: selectedValue,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedValue = value!;
-                      print(value);
-                    });
-                  },
+                  selectedValueNotifier: _selectedValueNotifier,
                 ),
                 TSizes.spaceBtwItems.verticalSpace,
                 ReminderTile(
@@ -65,13 +65,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                   title: TTexts.monthReminder,
                   showRadio: true,
                   value: 2,
-                  groupValue: selectedValue,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedValue = value!;
-                      print(value);
-                    });
-                  },
+                  selectedValueNotifier: _selectedValueNotifier,
                 ),
                 TSizes.spaceBtwItems.verticalSpace,
                 const ReminderTile(
