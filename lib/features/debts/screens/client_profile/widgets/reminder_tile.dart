@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:taha_debts/common/widgets/pickers/infinite_date_picker.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -34,30 +36,48 @@ class _ReminderTileState extends State<ReminderTile> {
     return showModalBottomSheet(
       context: Get.context!,
       showDragHandle: false,
-
+      isScrollControlled: true,
       builder: (context){
         return SizedBox(
-          height: 470.h,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w, vertical: TSizes.lg.h),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () => Get.back(),
-                      icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
+          height: 570.h,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w, vertical: TSizes.lg.h),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        onPressed: () => Get.back(),
+                        icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
+                      ),
+                      Text(
+                        TTexts.customizeReminder,
+                        style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
+                      ),
+                      SizedBox(width: 24.w),
+                    ],
+                  ),
+                  TSizes.spaceBtwItems.verticalSpace,
+                  const InfiniteDatePicker(),
+                  TSizes.spaceBtwSections.verticalSpace,
+                  TRoundedContainer(
+                    width: 350.w,
+                    height: 165.h,
+                    backgroundColor: TColors.lightGrey,
+                    child: TextFormField(
+                      textAlign: TextAlign.right,
+                      decoration: const InputDecoration(
+                        hintText: TTexts.notationAdd,
+                        border: OutlineInputBorder(),
+                      ),
                     ),
-                    Text(
-                      TTexts.customizeReminder,
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
-                    ),
-                    SizedBox(width: 24.w),
-                  ],
-                ),
-
-              ],
+                  ),
+                  TSizes.spaceBtwSections.verticalSpace,
+                  SizedBox(height: 50.h, width: 350.w, child: ElevatedButton(onPressed: (){}, child: const Text(TTexts.tcontinue)),)
+                ],
+              ),
             ),
           ),
         );
@@ -96,7 +116,10 @@ class _ReminderTileState extends State<ReminderTile> {
             ),
           if (widget.showArrowIcon)
             IconButton(
-              onPressed: () => showCustomizeReminderDialog(),
+              onPressed: (){
+                Get.back();
+                showCustomizeReminderDialog();
+              },
               icon: const Icon(
                 Icons.arrow_back_ios_new,
                 color: Colors.black,

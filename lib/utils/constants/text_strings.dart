@@ -59,6 +59,7 @@ class TTexts {
   static const String weakReminder = "تذكير بعد أسبوع";
   static const String monthReminder = "تذكير بعد شهر";
   static const String customizeReminder = "تذكير بشكل مخصص";
+  static const String notationAdd = "... أضف ملاحظة";
 
   // Additions
   static const String addNewCollection = "إضافة دفعة جديدة";
