@@ -5,6 +5,7 @@ import 'package:taha_debts/common/styles/spacing_styles.dart';
 import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/common/widgets/icons/circular_icon.dart';
 import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
+import 'package:taha_debts/features/debts/screens/debt_schedule/debt_schedule_screen.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/borrower_row.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/debts_filter_dialog.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/home_filter_container.dart';
@@ -22,7 +23,17 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const TAppBar(),
-      floatingActionButton: TCircularIcon(icon: Icons.add, backgroundColor: TColors.buttonPrimary, width: 64.w, height: 64.h, size: 34, color: Colors.white,),
+      floatingActionButton: TCircularIcon(
+        icon: Icons.add,
+        backgroundColor: TColors.buttonPrimary,
+        width: 64.w,
+        height: 64.h,
+        size: 34,
+        color: Colors.white,
+        onPressed: (){
+          Get.to(const DebtScheduleScreen(), transition: Transition.rightToLeft);
+        },
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,

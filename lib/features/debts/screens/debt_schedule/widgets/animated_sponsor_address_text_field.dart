@@ -7,6 +7,7 @@ import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/d
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 
 class AnimatedSponsorAddressTextField extends StatefulWidget {
@@ -29,6 +30,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Column(
       children: [
         Column(
@@ -62,7 +64,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
               height: 50,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: const Color(0xffE8E8E8),
+                color: dark ? TColors.dark : const Color(0xffE8E8E8),
                 borderRadius: BorderRadius.circular(50),
               ),
               child: InkWell(

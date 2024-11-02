@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/authentication/controllers/signin/signin_controller.dart';
+import 'package:taha_debts/features/authentication/screens/otp/otp_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signin/widgets/phone_country_code.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -37,6 +38,7 @@ class SigninForm extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   TDeviceUtils.hideKeyboard(context);
+                  Get.to(const OtpScreen(), transition: Transition.rightToLeft);
                 },
                 child: Text(
                   TTexts.next,

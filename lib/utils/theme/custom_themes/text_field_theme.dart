@@ -40,7 +40,7 @@ class TTextFieldTheme {
     errorMaxLines: 3,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
-    fillColor: TColors.darkGrey,
+    fillColor: TColors.dark,
     filled: true,
     labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),
     hintStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),

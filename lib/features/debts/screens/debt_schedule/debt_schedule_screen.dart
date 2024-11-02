@@ -50,6 +50,7 @@ class DebtScheduleScreen extends StatelessWidget {
               const AddAnotherPhoneNumberButton(),
               TSizes.spaceBtwSections.verticalSpace,
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     flex: 3,

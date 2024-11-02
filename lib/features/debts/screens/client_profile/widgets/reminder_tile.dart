@@ -67,7 +67,7 @@ class _ReminderTileState extends State<ReminderTile> {
                   TRoundedContainer(
                     width: 350.w,
                     height: 165.h,
-                    backgroundColor: dark ? TColors.darkGrey : TColors.lightGrey,
+                    backgroundColor: dark ? TColors.dark : TColors.lightGrey,
                     child: TextFormField(
                       textAlign: TextAlign.right,
                       decoration: const InputDecoration(

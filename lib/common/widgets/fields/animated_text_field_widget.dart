@@ -4,6 +4,7 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:measure_size_builder/measure_size_builder.dart';
 import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 
 class AnimatedTextFieldWidget extends StatefulWidget {
@@ -25,6 +26,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Column(
       children: [
         Column(
@@ -53,7 +55,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
               height: 50,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: const Color(0xffE8E8E8),
+                color: dark ? TColors.dark : const Color(0xffE8E8E8),
                 borderRadius: BorderRadius.circular(50),
               ),
               child: InkWell(
@@ -98,7 +100,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
           height: isExpanded ? height : 0,
           padding: EdgeInsets.all(10.w),
           decoration: BoxDecoration(
-            color: TColors.lightGrey,
+            color: dark ? TColors.dark : TColors.lightGrey,
             borderRadius: BorderRadius.circular(9.r),
           ),
           child: ListView.builder(

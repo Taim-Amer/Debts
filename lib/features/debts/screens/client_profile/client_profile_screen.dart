@@ -40,7 +40,7 @@ class ClientProfileScreen extends StatelessWidget {
               TSizes.md.verticalSpace,
               const BySponsorContainer(),
               TSizes.md.verticalSpace,
-              CollectionDateContainer(),
+              const CollectionDateContainer(),
               TSizes.spaceBtwSections.verticalSpace,
               Align(alignment: Alignment.topRight, child: Text(TTexts.transactions, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),)),
               const ClientDebtsRow(),

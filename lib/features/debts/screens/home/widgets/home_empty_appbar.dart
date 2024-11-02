@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/icons/circular_icon.dart';
+import 'package:taha_debts/features/notifications/screens/notifications_screen.dart';
+import 'package:taha_debts/features/settings/screens/settings_screen.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 
@@ -11,9 +14,17 @@ class HomeEmptyAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Icon(Icons.notifications, size: TSizes.iconMd, color: TColors.buttonPrimary,),
+        IconButton(
+            onPressed: (){
+              Get.to(const NotificationsScreen(), transition: Transition.rightToLeft);
+            },
+            icon: const Icon(Icons.notifications, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
         18.horizontalSpace,
-        const Icon(Icons.settings, size: TSizes.iconMd, color: TColors.buttonPrimary,),
+        IconButton(
+            onPressed: (){
+              Get.to(const SettingsScreen(), transition: Transition.rightToLeft);
+            }, 
+            icon: const Icon(Icons.settings, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
         const Spacer(),
         Text("اسم المستخدم", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: const Color(0xFF6D6E72)),),
         8.horizontalSpace,

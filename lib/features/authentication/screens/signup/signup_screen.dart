@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/features/authentication/screens/signup/widgets/email_textfield.dart';
 import 'package:taha_debts/features/authentication/screens/signup/widgets/signup_header.dart';
 import 'package:taha_debts/features/authentication/screens/signup/widgets/username_textfield.dart';
+import 'package:taha_debts/features/debts/screens/home/home_empty_screen.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -29,7 +31,9 @@ class SignupScreen extends StatelessWidget {
             TSizes.spaceBtwInputField.verticalSpace,
             const EmailTextField(),
             TSizes.spaceBtwSections.verticalSpace,
-            SizedBox(width: double.infinity, height: 50, child: ElevatedButton(onPressed: (){}, child: const Text(TTexts.next))),
+            SizedBox(width: double.infinity, height: 50, child: ElevatedButton(onPressed: (){
+              Get.to(HomeEmptyScreen(), transition: Transition.rightToLeft);
+            }, child: const Text(TTexts.next))),
           ],
         ),
       ),
