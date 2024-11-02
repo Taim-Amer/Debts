@@ -21,7 +21,7 @@ class TAppTheme {
     brightness: Brightness.light,
     primaryColor: TColors.primary,
     textTheme: TTextTheme.lightTextTheme,
-    chipTheme: TChipTheme.lightChipTheme,
+    chipTheme: TChipTheme.lightChipTheme(false),
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: TAppBarTheme.lightAppBarTheme,
     textButtonTheme: TTextButtonTheme.lightTextButtonTheme,
@@ -41,7 +41,7 @@ class TAppTheme {
     brightness: Brightness.dark,
     primaryColor: TColors.primary,
     textTheme: TTextTheme.darkTextTheme,
-    chipTheme: TChipTheme.darkChipTheme,
+    chipTheme: TChipTheme.darkChipTheme(false),
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: TAppBarTheme.darkAppBarTheme,
     textButtonTheme: TTextButtonTheme.darkTextButtonTheme,
@@ -51,6 +51,6 @@ class TAppTheme {
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     inputDecorationTheme: TTextFieldTheme.darkInputDecorationTheme,
     radioTheme: TRadioTheme.darkRadioTheme,
-    dividerColor: TColors.dark
+    dividerColor: TColors.dark,
   );
 }

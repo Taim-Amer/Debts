@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w, vertical: TSizes.lg.h),
             child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: 700.h), // Define height constraint
+              constraints: BoxConstraints(minHeight: 700.h),
               child: Column(
                 children: [
                   Row(
@@ -42,12 +42,12 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   TSizes.spaceBtwSections.verticalSpace,
-                  Chip(label: "label"),
+                  const ChoiceChip(label: Text("data"), selected: true, disabledColor: Colors.white,),
                   TSizes.spaceBtwSections.verticalSpace,
                   const InfiniteDatePicker(),
                   TSizes.spaceBtwSections.verticalSpace,
-                  ReminderTile(icon: "", title: "من الأعلى إلى الأدنى"),
-                  ReminderTile(icon: "", title: "من الأدنى إلى الأعلى"),
+                  const ReminderTile(icon: "", title: "من الأعلى إلى الأدنى"),
+                  const ReminderTile(icon: "", title: "من الأدنى إلى الأعلى"),
                 ],
               ),
             ),
