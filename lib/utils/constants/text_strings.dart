@@ -4,6 +4,7 @@ class TTexts {
   static const String next = "التالي";
   static const String add = "اضافة";
   static const String addAnotherPhone = "اضافة رقم هاتف اخر";
+  static const String tcontinue = "متابعة";
 
   // Authentication Form Text
   static const String welcome = "! مرحبا بك";
@@ -53,6 +54,11 @@ class TTexts {
   static const String payment = "تسديد";
   static const String buying = "تسديد";
   static const String transactions = ":المعاملات";
+  static const String reminderBy = ": تذكير حسب";
+  static const String undefined = "غير محدد";
+  static const String weakReminder = "تذكير بعد أسبوع";
+  static const String monthReminder = "تذكير بعد شهر";
+  static const String customizeReminder = "تذكير بشكل مخصص";
 
   // Additions
   static const String addNewCollection = "إضافة دفعة جديدة";

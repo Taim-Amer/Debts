@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/client_profile_screen.dart';
+import 'package:taha_debts/features/settings/screens/settings_screen.dart';
 import 'package:taha_debts/utils/theme/theme.dart';
 
 class App extends StatelessWidget {

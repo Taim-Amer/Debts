@@ -112,8 +112,29 @@ class $AssetsIconsGlobalGen {
   /// File path: assets/icons/global/Vector.svg
   String get vector => 'assets/icons/global/Vector.svg';
 
+  /// File path: assets/icons/global/calendar-simple-31-svgrepo-com 1.svg
+  String get calendarSimple31SvgrepoCom1 =>
+      'assets/icons/global/calendar-simple-31-svgrepo-com 1.svg';
+
+  /// File path: assets/icons/global/calendar-simple-31-svgrepo-com 2.svg
+  String get calendarSimple31SvgrepoCom2 =>
+      'assets/icons/global/calendar-simple-31-svgrepo-com 2.svg';
+
+  /// File path: assets/icons/global/calendar-simple-7-svgrepo-com 1.svg
+  String get calendarSimple7SvgrepoCom1 =>
+      'assets/icons/global/calendar-simple-7-svgrepo-com 1.svg';
+
   /// List of all assets
-  List<String> get values => [combinedShape, group1, group97, group, vector];
+  List<String> get values => [
+        combinedShape,
+        group1,
+        group97,
+        group,
+        vector,
+        calendarSimple31SvgrepoCom1,
+        calendarSimple31SvgrepoCom2,
+        calendarSimple7SvgrepoCom1
+      ];
 }
 
 class $AssetsImagesShapesGen {

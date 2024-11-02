@@ -34,6 +34,9 @@ class TImages {
 
   // Profile
   static const String profile = "assets/logos/profile/material-symbols_person.svg";
+  static const String weakReminder = "assets/icons/global/calendar-simple-7-svgrepo-com 1.svg";
+  static const String monthReminder = "assets/icons/global/calendar-simple-31-svgrepo-com 2.svg";
+  static const String customizeReminder = "assets/icons/global/calendar-simple-31-svgrepo-com 1.svg";
 
   // Settings
   static const String translate = "assets/icons/global/Combined-Shape.svg";

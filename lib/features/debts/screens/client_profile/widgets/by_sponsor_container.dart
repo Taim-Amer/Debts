@@ -65,7 +65,7 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
             duration: const Duration(milliseconds: 300),
             height: isExpanded ? 140.h : 0,
             padding: EdgeInsets.all(10.w),
-            curve: Curves.linear,
+            curve: Curves.easeIn,
             child: isExpanded ? SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(TSizes.sm),
