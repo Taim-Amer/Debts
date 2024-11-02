@@ -45,6 +45,10 @@ class TTexts {
   static const String searchByName = "...بحث عن اسم معين";
   static const String day = "اليوم";
   static const String debt = "الدين";
+  static const String settled = "تمت تسويته";
+  static const String totalReceived = "مجمل المقبوض";
+  static const String totalDebtors = "مجمل المديونين";
+  static const String all = "الكل";
 
   // Client Profile
   static const String clientInformation = "معلومات العميل";

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
+import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/by_sponsor_container.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_debts_row.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_profile_appbar.dart';
@@ -11,7 +13,9 @@ import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class ClientProfileScreen extends StatelessWidget {
-  const ClientProfileScreen({super.key});
+  ClientProfileScreen({super.key});
+
+  final clientProfileController = Get.put(ClientProfileController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,7 @@ class ClientProfileScreen extends StatelessWidget {
               TSizes.md.verticalSpace,
               const BySponsorContainer(),
               TSizes.md.verticalSpace,
-              const CollectionDateContainer(),
+              CollectionDateContainer(),
               TSizes.spaceBtwSections.verticalSpace,
               Align(alignment: Alignment.topRight, child: Text(TTexts.transactions, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),)),
               const ClientDebtsRow(),

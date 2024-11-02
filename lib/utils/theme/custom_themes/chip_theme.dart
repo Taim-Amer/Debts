@@ -6,17 +6,18 @@ class TChipTheme {
 
   static ChipThemeData lightChipTheme(bool isSelected) {
     return ChipThemeData(
-      disabledColor: Colors.white, // White background when disabled
+      disabledColor: Colors.white,
       backgroundColor: isSelected ? TColors.buttonPrimary : Colors.white,
       labelStyle: TextStyle(
-        color: isSelected ? Colors.white : TColors.buttonPrimary, // White text when selected, primary color otherwise
+        color: isSelected ? Colors.white : TColors.buttonPrimary, // Dynamically set the text color
       ),
       selectedColor: TColors.buttonPrimary,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-      checkmarkColor: isSelected ? Colors.white : Colors.transparent, // Only show checkmark when selected
-      shape: StadiumBorder(
+      checkmarkColor: isSelected ? Colors.white : Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
         side: BorderSide(
-          color: isSelected ? Colors.transparent : TColors.buttonPrimary, // Border only when not selected
+          color: isSelected ? Colors.transparent : TColors.buttonPrimary,
           width: 1.5,
         ),
       ),
@@ -28,12 +29,13 @@ class TChipTheme {
       disabledColor: Colors.white,
       backgroundColor: isSelected ? TColors.buttonPrimary : Colors.white,
       labelStyle: TextStyle(
-        color: isSelected ? Colors.white : TColors.buttonPrimary,
+        color: isSelected ? Colors.white : TColors.buttonPrimary, // Dynamically set the text color
       ),
       selectedColor: TColors.buttonPrimary,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       checkmarkColor: isSelected ? Colors.white : Colors.transparent,
-      shape: StadiumBorder(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
         side: BorderSide(
           color: isSelected ? Colors.transparent : TColors.buttonPrimary,
           width: 1.5,

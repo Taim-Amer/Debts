@@ -1,30 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:taha_debts/common/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class TChoiceChip extends StatelessWidget {
-  const TChoiceChip({super.key, required this.text, required this.selected, this.onSelected});
+  const TChoiceChip({
+    super.key,
+    required this.text,
+    required this.selected,
+    required this.onSelected,
+  });
 
   final String text;
   final bool selected;
-  final void Function(bool)? onSelected;
+  final void Function(bool) onSelected;
 
   @override
   Widget build(BuildContext context) {
-    // final isColor = THelperFunctions.getColor(text) != null;
-    return Theme(
-      data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
-      child: ChoiceChip(
-        label: Text(text),
-        selected: selected,
-        onSelected: onSelected,
-        labelStyle: TextStyle(color: selected ? TColors.white : null),
-        avatar: const TCircularContainer(width: 50, height: 50,),
-        shape: const CircleBorder(),
-        labelPadding: const EdgeInsets.all(0) ,
-        padding: const EdgeInsets.all(0) ,
-        // selectedColor: Colors.green,
-        // backgroundColor: isColor ? THelperFunctions.getColor(text)! : null,
+    final dark = THelperFunctions.isDarkMode(context);
+    return GestureDetector(
+      onTap: () => onSelected(!selected),
+      child: TRoundedContainer(
+        width: 189.w,
+        height: 43.h,
+        radius: 6.r,
+        backgroundColor: selected ? TColors.buttonPrimary : dark ? TColors.dark : Colors.white,
+        borderColor: TColors.buttonPrimary,
+        showBorder: true,
+        child: Center(
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(color: selected ? Colors.white : TColors.buttonPrimary),
+          ),
+        ),
       ),
     );
   }

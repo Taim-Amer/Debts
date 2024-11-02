@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taha_debts/utils/constants/colors.dart';
 
 class TTextFieldTheme {
   TTextFieldTheme._();
@@ -39,7 +40,7 @@ class TTextFieldTheme {
     errorMaxLines: 3,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
-    fillColor: const Color(0xFF2A2A2A),
+    fillColor: TColors.darkGrey,
     filled: true,
     labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),
     hintStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),

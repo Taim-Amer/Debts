@@ -7,6 +7,7 @@ import 'package:taha_debts/common/widgets/pickers/infinite_date_picker.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class ReminderTile extends StatefulWidget {
   const ReminderTile({
@@ -33,6 +34,7 @@ class ReminderTile extends StatefulWidget {
 class _ReminderTileState extends State<ReminderTile> {
 
   Future<dynamic> showCustomizeReminderDialog() {
+    final dark = THelperFunctions.isDarkMode(context);
     return showModalBottomSheet(
       context: Get.context!,
       showDragHandle: false,
@@ -65,7 +67,7 @@ class _ReminderTileState extends State<ReminderTile> {
                   TRoundedContainer(
                     width: 350.w,
                     height: 165.h,
-                    backgroundColor: TColors.lightGrey,
+                    backgroundColor: dark ? TColors.darkGrey : TColors.lightGrey,
                     child: TextFormField(
                       textAlign: TextAlign.right,
                       decoration: const InputDecoration(
@@ -81,7 +83,7 @@ class _ReminderTileState extends State<ReminderTile> {
             ),
           ),
         );
-        },
+      },
     );
   }
 
