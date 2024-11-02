@@ -62,21 +62,21 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
           showBorder: isExpanded,
           borderColor: TColors.grey,
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 100),
-            height: isExpanded ? null : 0,
+            duration: const Duration(milliseconds: 300),
+            height: isExpanded ? 140.h : 0,
             padding: EdgeInsets.all(10.w),
-            curve: Curves.easeIn,
+            curve: Curves.linear,
             child: isExpanded ? SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(TSizes.sm),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("أسم الكفيل: محمد أنس", style: Theme.of(context).textTheme.bodyLarge),
                     14.verticalSpace,
                     Text("عنوان الكفيل : مساكن برزة", style: Theme.of(context).textTheme.bodyLarge),
                     14.verticalSpace,
                     Text("رقم الهاتف: 345-321-0939", style: Theme.of(context).textTheme.bodyLarge),
-                    // Add more text items if needed
                   ],
                 ),
               ),

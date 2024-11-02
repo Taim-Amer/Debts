@@ -30,7 +30,8 @@ class TAppTheme {
     outlinedButtonTheme: TOutLinedButtonTheme.lightOutLinedButtonTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     inputDecorationTheme: TTextFieldTheme.lightInputDecorationTheme,
-    radioTheme: TRadioTheme.lightRadioTheme
+    radioTheme: TRadioTheme.lightRadioTheme,
+    dividerColor: const Color(0xFFD5D5D5),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -49,6 +50,7 @@ class TAppTheme {
     outlinedButtonTheme: TOutLinedButtonTheme.darkOutLinedButtonTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     inputDecorationTheme: TTextFieldTheme.darkInputDecorationTheme,
-    radioTheme: TRadioTheme.darkRadioTheme
+    radioTheme: TRadioTheme.darkRadioTheme,
+    dividerColor: TColors.dark
   );
 }

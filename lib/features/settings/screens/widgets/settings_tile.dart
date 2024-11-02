@@ -47,7 +47,7 @@ class _SettingsTileState extends State<SettingsTile> {
             ),
           ],
         ),
-        const Divider(color: Color(0xFFD5D5D5),),
+        const Divider(),
       ],
     );
   }
