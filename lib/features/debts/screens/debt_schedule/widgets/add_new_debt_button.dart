@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_common/get_reset.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/client_profile_screen.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
