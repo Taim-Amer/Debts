@@ -15,10 +15,11 @@ class SigninForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final signInController = Get.find<SignInController>();
+    // final signInController = Get.find<SignInController>();
+    final signInController = Get.put(SignInController());
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
-      child: SingleChildScrollView(  // Added this line
+      child: SingleChildScrollView(
         child: Column(
           children: [
             Row(
@@ -38,7 +39,7 @@ class SigninForm extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   TDeviceUtils.hideKeyboard(context);
-                  Get.to(const OtpScreen(), transition: Transition.rightToLeft);
+                  signInController.signin();
                 },
                 child: Text(
                   TTexts.next,

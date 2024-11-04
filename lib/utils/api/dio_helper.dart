@@ -1,5 +1,7 @@
-
+import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:taha_debts/utils/constants/api_constants.dart';
 
 class TDioHelper {
   static final TDioHelper _instance = TDioHelper._internal();
@@ -12,56 +14,62 @@ class TDioHelper {
   TDioHelper._internal() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://student.valuxapps.com/api/',
+        baseUrl: TApiConstants.baseUrl,
         receiveDataWhenStatusError: true,
       ),
     );
+    dio.interceptors.add(PrettyDioLogger(requestBody: true, error: true, requestHeader: true));
   }
 
-  Future<Response> getData({
-    required String url,
-    Map<String, dynamic>? query,
-    String lang = 'en',
-    String? token,
-  }) async {
+  Future<Map<String, dynamic>> get(String endPoint, {String lang = 'en', String? token}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'lang': lang,
       'Authorization': token ?? '',
     };
 
-    return await dio.get(url, queryParameters: query);
+    final response = await dio.get(endPoint);
+    return _handleResponse(response);
   }
 
-  Future<Response> postData({
-    required String url,
-    Map<String, dynamic>? query,
-    required Map<String, dynamic> data,
-    String lang = 'en',
-    String? token,
-  }) async {
+  Future<Map<String, dynamic>> post(String endPoint, Map<String, dynamic> data, {String lang = 'en', String? token}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'lang': lang,
-      'Authorization': token,
+      'Authorization': token ?? '',
     };
 
-    return await dio.post(url, queryParameters: query, data: data);
+    final response = await dio.post(endPoint, data: data);
+    return _handleResponse(response);
   }
 
-  Future<Response> putData({
-    required String url,
-    Map<String, dynamic>? query,
-    required Map<String, dynamic> data,
-    String lang = 'en',
-    String? token,
-  }) async {
+  Future<Map<String, dynamic>> put(String endPoint, Map<String, dynamic> data, {String lang = 'en', String? token}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'lang': lang,
-      'Authorization': token,
+      'Authorization': token ?? '',
     };
 
-    return await dio.put(url, queryParameters: query, data: data);
+    final response = await dio.put(endPoint, data: data);
+    return _handleResponse(response);
+  }
+
+  Future<Map<String, dynamic>> delete(String endPoint, {String lang = 'en', String? token}) async {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+      'lang': lang,
+      'Authorization': token ?? '',
+    };
+
+    final response = await dio.delete(endPoint);
+    return _handleResponse(response);
+  }
+
+  Map<String, dynamic> _handleResponse(Response response) {
+    if (response.statusCode == 200) {
+      return response.data is Map ? response.data : json.decode(response.data);
+    } else {
+      throw Exception("Failed to load data: ${response.statusCode}");
+    }
   }
 }

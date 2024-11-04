@@ -14,7 +14,7 @@ class SigninScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final signInController = Get.put(SignInController());
+    final signInController = SignInController.instance;
     return Scaffold(
       appBar: const TAppBar(),
       bottomNavigationBar: SizedBox(
@@ -25,20 +25,20 @@ class SigninScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SigninHeader(),
-            TSizes.spaceBtwSections.verticalSpace,
-            const SigninForm(),
-            TSizes.spaceBtwSections.verticalSpace,
-            SizedBox(height: 20.h),
-            SvgPicture.asset(
-              TImages.loginShape,
-              width: double.infinity,
-            )
-          ],
+          child: Column(
+            children: [
+              const SigninHeader(),
+              TSizes.spaceBtwSections.verticalSpace,
+              const SigninForm(),
+              TSizes.spaceBtwSections.verticalSpace,
+              SizedBox(height: 20.h),
+              SvgPicture.asset(
+                TImages.loginShape,
+                width: double.infinity,
+              )
+            ],
+          ),
         ),
-      ),
     );
   }
 }

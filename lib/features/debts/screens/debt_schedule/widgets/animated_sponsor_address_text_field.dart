@@ -21,8 +21,7 @@ class AnimatedSponsorAddressTextField extends StatefulWidget {
   final List<GlobalModel> listItem;
 
   @override
-  State<AnimatedSponsorAddressTextField> createState() =>
-      _CustomPhoneCountryCodeState();
+  State<AnimatedSponsorAddressTextField> createState() => _CustomPhoneCountryCodeState();
 }
 
 class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField> {

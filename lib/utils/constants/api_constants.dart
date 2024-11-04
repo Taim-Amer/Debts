@@ -1,5 +1,6 @@
-// Example
-/* -- List of constant use in API -- */
-class ApiConstants {
-  static const String tSecretAPIKey = "";
+class TApiConstants {
+
+  static const String baseUrl = 'https://tahadebt.technoplus.dev/api/';
+
+  static const String checkPhone = "check_phone";
 }

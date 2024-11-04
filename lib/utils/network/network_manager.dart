@@ -8,16 +8,16 @@
 //   static NetworkManager get instance => Get.find();
 //
 //   final Connectivity _connectivity = Connectivity();
-//   late StreamSubscription _connectivitySubscription;
+//   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 //   final Rx<ConnectivityResult> _connectivityStatus = ConnectivityResult.none.obs;
 //
 //   @override
 //   void onInit() {
 //     super.onInit();
-//     _connectivitySubscription = _connectivity.onConnectivityChanged.listen((result) {
-//       _updateConnectionStatus(result);
-//       },
-//     );
+//     // Subscribe to connectivity changes
+//     _connectivitySubscription = _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
+//       _updateConnectionStatus(result); // Pass a single ConnectivityResult
+//     });
 //   }
 //
 //   Future<void> _updateConnectionStatus(ConnectivityResult result) async {
@@ -30,11 +30,7 @@
 //   Future<bool> isConnected() async {
 //     try {
 //       final result = await _connectivity.checkConnectivity();
-//       if (result == ConnectivityResult.none) {
-//         return false;
-//       } else {
-//         return true;
-//       }
+//       return result != ConnectivityResult.none;
 //     } on PlatformException catch (_) {
 //       return false;
 //     }
