@@ -26,24 +26,26 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
     return Column(
       children: [
         GestureDetector(
-          onTap: toggleExpand, // Call the toggleExpand method here
+          onTap: toggleExpand,
           child: TRoundedContainer(
-            height: 32.h,
+            height: 38.h,
             padding: const EdgeInsets.all(TSizes.sm),
             backgroundColor: const Color(0xFFBFE3FF),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down_sharp, // Toggle the icon based on expansion state
-                  color: TColors.buttonPrimary,
-                  size: TSizes.iconSm,
-                ),
-                Text(
-                  TTexts.clientStatus,
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary),
-                ),
-              ],
+            child: Flexible(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down_sharp,
+                    color: TColors.buttonPrimary,
+                    size: TSizes.iconSm,
+                  ),
+                  Text(
+                    TTexts.clientStatus,
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

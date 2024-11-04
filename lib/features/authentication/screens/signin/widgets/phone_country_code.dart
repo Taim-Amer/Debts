@@ -6,6 +6,7 @@ import 'package:taha_debts/features/authentication/controllers/signin/signin_con
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
+import 'package:taha_debts/utils/storage/cache_helper.dart';
 
 class PhoneCountryCode extends StatefulWidget {
   const PhoneCountryCode({super.key, required this.signInController});
@@ -135,8 +136,13 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                 setState(() {
                   widget.signInController.countryCode.value = value!;
                   isExpanded = false;
+                  TCacheHelper.saveData(key: "code", value: value);
+                  print(TCacheHelper.getData(key: "code"));
+                  print(TCacheHelper.getData(key: "code"));
+                  print(TCacheHelper.getData(key: "code"));
+                  print(TCacheHelper.getData(key: "code"));
                 });
-              },
+                },
             ),
             8.horizontalSpace,
           ],

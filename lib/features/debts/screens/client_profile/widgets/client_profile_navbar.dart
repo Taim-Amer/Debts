@@ -17,13 +17,13 @@ class ClientProfileNavBar extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Expanded(child: SizedBox(height: 50.h, child: OutlinedButton(onPressed: (){
+          Expanded(child: SizedBox(height: 55.h, child: OutlinedButton(onPressed: (){
             Get.to(const PayAdditionScreen(), transition: Transition.rightToLeft);
-          }, child: Text(TTexts.buying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))),
+          }, child: Flexible(child: Center(child: Text(TTexts.buying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))))),
           15.horizontalSpace,
           Expanded(
             child: SizedBox(
-              height: 50.h,
+              height: 55.h,
               child: ElevatedButton(
                 onPressed: () {
                   Get.to(const DebtAdditionScreen(), transition: Transition.rightToLeft);

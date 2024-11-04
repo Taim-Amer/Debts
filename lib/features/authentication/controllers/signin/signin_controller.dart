@@ -5,13 +5,12 @@ import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/authentication/repositories/signin/signin_repo_impl.dart';
 import 'package:taha_debts/features/authentication/screens/otp/otp_screen.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
-import 'package:taha_debts/utils/formatters/formatter.dart';
-import 'package:taha_debts/utils/storage/local_storage.dart';
+import 'package:taha_debts/utils/storage/cache_helper.dart';
 
 class SignInController extends GetxController {
   static SignInController get instance => Get.find();
 
-  RxString countryCode = "+962".obs;
+  RxString countryCode = "+963".obs;
   final phoneController = TextEditingController();
   final GlobalKey<FormState> signinFormKey = GlobalKey<FormState>();
 
@@ -40,6 +39,7 @@ class SignInController extends GetxController {
       final response = await SigninRepositoryImpl.instance.signin(phoneController.text.trim());
       updateStatus(value: RequestState.success);
       showToast("تم ارسال رمز التوثيق بنجاح", ToastState.success);
+      TCacheHelper.saveData(key: "phone", value: phoneController.text.trim());
       Get.to(const OtpScreen(), transition: Transition.rightToLeft);
     } catch (error) {
       updateStatus(value: RequestState.onError);

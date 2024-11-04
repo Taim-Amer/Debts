@@ -10,13 +10,13 @@ class AddNewItemButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TRoundedContainer(
-      width: 144.w,
+      width: 160.w,
       height: 32.h,
       backgroundColor: const Color(0xFFBFE3FF),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(TTexts.addNewItem, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),),
+          Flexible(child: Text(TTexts.addNewItem, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),)),
           const Icon(Icons.add, color: TColors.buttonPrimary)
         ],
       ),

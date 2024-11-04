@@ -12,7 +12,7 @@ class DebtAdditionAddNew extends StatelessWidget {
     return Align(
       alignment: Alignment.topRight,
       child: TRoundedContainer(
-        width: 144.w,
+        width: 160.w,
         height: 32.h,
         backgroundColor: const Color(0xFFBFE3FF),
         child: Row(

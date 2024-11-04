@@ -14,7 +14,6 @@ class SigninScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final signInController = SignInController.instance;
     return Scaffold(
       appBar: const TAppBar(),
       bottomNavigationBar: SizedBox(

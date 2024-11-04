@@ -3,23 +3,30 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 
 class OtpTextFieldWidget extends StatelessWidget {
-  const OtpTextFieldWidget({super.key});
+  const OtpTextFieldWidget({super.key, required this.controller});
+
+  final TextEditingController controller; // Accept the controller
 
   @override
   Widget build(BuildContext context) {
-    return OtpTextField(
-      mainAxisAlignment: MainAxisAlignment.center,
-      fieldWidth: 60,
-      fieldHeight: 60,
-      showCursor: false,
-      alignment: Alignment.center,
-      numberOfFields: 5,
-      borderRadius: BorderRadius.circular(12),
-      focusedBorderColor: TColors.buttonPrimary,
-      showFieldAsBox: true,
-      onCodeChanged: (String code) {},
-      borderColor: TColors.buttonPrimary,
-      onSubmit: (String code) {},
+    return Center(
+      child: OtpTextField(
+        mainAxisAlignment: MainAxisAlignment.center,
+        fieldWidth: 50,
+        fieldHeight: 60,
+        showCursor: false,
+        alignment: Alignment.center,
+        numberOfFields: 5,
+        borderRadius: BorderRadius.circular(12),
+        focusedBorderColor: TColors.buttonPrimary,
+        showFieldAsBox: true,
+        borderColor: TColors.buttonPrimary,
+        onCodeChanged: (String code) {
+          controller.text = code;
+        },
+        onSubmit: (String code) {
+        },
+      ),
     );
   }
 }

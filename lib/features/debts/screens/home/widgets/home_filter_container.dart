@@ -22,13 +22,13 @@ class HomeFilterContainer extends StatelessWidget {
     return GestureDetector(
       onTap: function,
       child: TRoundedContainer(
-        height: 32.h,
+        height: 35.h,
         padding: const EdgeInsets.all(TSizes.sm),
         backgroundColor: const Color(0xFFBFE3FF),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(title, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary)),
+            Flexible(child: Text(title, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 10, color: TColors.buttonPrimary))),
             if (icon != null) ...[
               const SizedBox(width: 4),
               Icon(icon, color: TColors.buttonPrimary, size: TSizes.iconSm),

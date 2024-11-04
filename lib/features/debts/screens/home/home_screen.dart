@@ -44,13 +44,18 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  HomeFilterContainer(title: TTexts.notations, function: (){}, icon: Icons.note_add,),
-                  HomeFilterContainer(title: TTexts.nonPayers, function: (){},),
-                  HomeFilterContainer(title: TTexts.country, function: (){}, icon: Icons.search,),
-                  HomeFilterContainer(
-                    title: TTexts.filter,
-                    function: () => DebtsFilterDialog.showDebtsFilterDialog(),
-                    icon: Icons.file_copy,
+                  Expanded(child: HomeFilterContainer(title: TTexts.notations, function: (){}, icon: Icons.note_add,)),
+                  3.horizontalSpace,
+                  Expanded(child: HomeFilterContainer(title: TTexts.nonPayers, function: (){},)),
+                  3.horizontalSpace,
+                  Expanded(child: HomeFilterContainer(title: TTexts.country, function: (){}, icon: Icons.search,)),
+                  3.horizontalSpace,
+                  Expanded(
+                    child: HomeFilterContainer(
+                      title: TTexts.filter,
+                      function: () => DebtsFilterDialog.showDebtsFilterDialog(),
+                      icon: Icons.file_copy,
+                    ),
                   ),
                 ],
               ),
