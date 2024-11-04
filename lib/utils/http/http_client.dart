@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class THttpClient {
 
-  static const String _baseUrl = "Replace with API base URL";
+  static const String _baseUrl = "https://tahadebt.technoplus.dev/api";
 
   static Future<Map<String, dynamic>> get(String endPoint) async {
     final response = await http.get(Uri.parse("$_baseUrl/$endPoint"));
