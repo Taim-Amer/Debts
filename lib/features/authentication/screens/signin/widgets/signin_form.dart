@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/authentication/controllers/signin/signin_controller.dart';
 import 'package:taha_debts/features/authentication/screens/signin/widgets/phone_country_code.dart';
-import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -37,13 +37,7 @@ class SigninForm extends StatelessWidget {
               TSizes.spaceBtwItems.verticalSpace,
               Obx(() {
                 if (signInController.apiStatus.value == RequestState.loading) {
-                  return const SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: Center(
-                      child: CircularProgressIndicator(color: TColors.buttonPrimary,),
-                    ),
-                  );
+                  return const LoadingWidget();
                 } else {
                   return SizedBox(
                     width: double.infinity,

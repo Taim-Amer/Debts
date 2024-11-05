@@ -24,10 +24,10 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
 
   final List<GlobalModel> countries = [
     GlobalModel(code: "+963",title: "الاردن", svg: TImages.jordan),
-    GlobalModel(code: '+966', title: 'السعودية', svg: TImages.saudi),
-    GlobalModel(code: '+974', title: 'قطر', svg: TImages.qatar),
-    GlobalModel(code: '+20', title: 'مصر', svg: TImages.egypt),
-    GlobalModel(code: '+961', title: 'لبنان', svg: TImages.lebanon),
+    GlobalModel(code: '+966', title: 'العراق', svg: TImages.saudi),
+    // GlobalModel(code: '+974', title: 'قطر', svg: TImages.qatar),
+    // GlobalModel(code: '+20', title: 'مصر', svg: TImages.egypt),
+    // GlobalModel(code: '+961', title: 'لبنان', svg: TImages.lebanon),
   ];
 
   @override

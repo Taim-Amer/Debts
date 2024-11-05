@@ -10,6 +10,7 @@ class SignupController extends GetxController{
 
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   var apiStatus = RequestState.begin.obs;
 
@@ -18,6 +19,12 @@ class SignupController extends GetxController{
   }
 
   Future<void> signup() async{
+
+    if (!signupFormKey.currentState!.validate()) {
+      updateStatus(value: RequestState.begin);
+      return;
+    }
+
     final phone = TCacheHelper.getData(key: "phone");
     try{
       await SignupRepositoryImpl.instance.signup(usernameController.text.trim(), phone, emailController.text.trim(), "fcmToken");

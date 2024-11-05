@@ -20,10 +20,10 @@ class App extends StatelessWidget {
           themeMode: ThemeMode.system,
           theme: TAppTheme.lightTheme,
           darkTheme: TAppTheme.darkTheme,
-          // initialRoute: AppRoutes.signin,
+          initialRoute: AppRoutes.signin,
           getPages: AppRoutes.routes,
           initialBinding: SigninBinding(),
-          home: const SigninScreen()
+          // home: const SigninScreen()
       ),
     );
   }
