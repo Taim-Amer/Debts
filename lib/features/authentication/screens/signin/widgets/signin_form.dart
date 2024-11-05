@@ -16,7 +16,7 @@ class SigninForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final signInController = Get.put(SignInController());
+    final signInController = Get.find<SignInController>();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
       child: SingleChildScrollView(

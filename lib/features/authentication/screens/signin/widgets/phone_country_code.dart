@@ -137,10 +137,6 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                   widget.signInController.countryCode.value = value!;
                   isExpanded = false;
                   TCacheHelper.saveData(key: "code", value: value);
-                  print(TCacheHelper.getData(key: "code"));
-                  print(TCacheHelper.getData(key: "code"));
-                  print(TCacheHelper.getData(key: "code"));
-                  print(TCacheHelper.getData(key: "code"));
                 });
                 },
             ),

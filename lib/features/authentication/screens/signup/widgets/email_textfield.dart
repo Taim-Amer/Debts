@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:taha_debts/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
+import 'package:taha_debts/utils/validators/validation.dart';
 
 class EmailTextField extends StatelessWidget {
-  const EmailTextField({super.key});
+  EmailTextField({super.key});
+
+  final signupController = Get.find<SignupController>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +29,8 @@ class EmailTextField extends StatelessWidget {
         ),
         12.verticalSpace,
         TextFormField(
+          validator: (value) => TValidator.validateEmail(value),
+          controller: signupController.emailController,
           textAlign: TextAlign.end,
           decoration: InputDecoration(
             hintText: 'username1234@gmail.com',
@@ -31,7 +39,7 @@ class EmailTextField extends StatelessWidget {
             border: InputBorder.none,
           ),
           cursorColor: TColors.buttonPrimary,
-          keyboardType: TextInputType.phone,
+          keyboardType: TextInputType.emailAddress,
         ),
       ],
     );

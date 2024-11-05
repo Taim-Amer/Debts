@@ -29,12 +29,6 @@ class SigninScreen extends StatelessWidget {
               const SigninHeader(),
               TSizes.spaceBtwSections.verticalSpace,
               const SigninForm(),
-              TSizes.spaceBtwSections.verticalSpace,
-              SizedBox(height: 20.h),
-              SvgPicture.asset(
-                TImages.loginShape,
-                width: double.infinity,
-              )
             ],
           ),
         ),

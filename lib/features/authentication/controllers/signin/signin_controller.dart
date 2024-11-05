@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/authentication/repositories/signin/signin_repo_impl.dart';
-import 'package:taha_debts/features/authentication/screens/otp/otp_screen.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
+import 'package:taha_debts/utils/router/app_router.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
 
 class SignInController extends GetxController {
@@ -36,14 +36,14 @@ class SignInController extends GetxController {
     // }
 
     try {
-      final response = await SigninRepositoryImpl.instance.signin(phoneController.text.trim());
+      await SigninRepositoryImpl.instance.signin(phoneController.text.trim());
       updateStatus(value: RequestState.success);
       showToast("تم ارسال رمز التوثيق بنجاح", ToastState.success);
       TCacheHelper.saveData(key: "phone", value: phoneController.text.trim());
-      Get.to(const OtpScreen(), transition: Transition.rightToLeft);
+      Get.toNamed(AppRoutes.otp);
     } catch (error) {
       updateStatus(value: RequestState.onError);
-      showToast(error.toString(), ToastState.error);
+      showToast("حدث خطأ ما يرجى التاكد ثم اعادة المحاولة", ToastState.error);
     }
   }
 }

@@ -4,6 +4,7 @@ import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/authentication/repositories/otp/otp_repo_impl.dart';
 import 'package:taha_debts/features/authentication/screens/signup/signup_screen.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
+import 'package:taha_debts/utils/router/app_router.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
 
 class OtpController extends GetxController{
@@ -23,11 +24,11 @@ class OtpController extends GetxController{
     if(apiStatus.value == RequestState.loading){
       const CircularProgressIndicator();
     }
-    int code = int.tryParse(codeController.text.trim())!;
     try{
-      final response = await OtpRepositoryImpl.instance.verify(phone, code);
+      final response = await OtpRepositoryImpl.instance.verify(phone, codeController.text);
       updateStatus(value: RequestState.success);
-      Get.to(const SignupScreen(), transition: Transition.rightToLeft);
+      TCacheHelper.saveData(key: "token", value: response.token);
+      Get.toNamed(AppRoutes.signup);
     }catch(error){
       updateStatus(value: RequestState.onError);
       showToast(error.toString(), ToastState.error);

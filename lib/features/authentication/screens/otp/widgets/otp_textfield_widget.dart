@@ -5,7 +5,7 @@ import 'package:taha_debts/utils/constants/colors.dart';
 class OtpTextFieldWidget extends StatelessWidget {
   const OtpTextFieldWidget({super.key, required this.controller});
 
-  final TextEditingController controller; // Accept the controller
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class OtpTextFieldWidget extends StatelessWidget {
         showFieldAsBox: true,
         borderColor: TColors.buttonPrimary,
         onCodeChanged: (String code) {
-          controller.text = code;
         },
         onSubmit: (String code) {
+          controller.text = code;
         },
       ),
     );

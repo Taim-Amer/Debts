@@ -6,7 +6,6 @@ import 'package:taha_debts/features/authentication/models/signin/signin_model.da
 import 'package:taha_debts/features/authentication/repositories/signin/signin_repo.dart';
 import 'package:taha_debts/utils/api/dio_helper.dart';
 import 'package:taha_debts/utils/constants/api_constants.dart';
-import 'package:taha_debts/utils/constants/enums.dart';
 
 class SigninRepositoryImpl implements SigninRepository {
   static SigninRepositoryImpl get instance => Get.find();
@@ -16,9 +15,6 @@ class SigninRepositoryImpl implements SigninRepository {
     TDioHelper dioHelper = TDioHelper();
 
     return dioHelper.post(TApiConstants.checkPhone, {"phone" : phone})
-        .then((response) => SigninModel.fromJson(response))
-        .catchError((error) => printError());
+        .then((response) => SigninModel.fromJson(response));
   }
-
-
 }

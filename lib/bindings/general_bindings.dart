@@ -10,5 +10,7 @@ class GeneralBindings extends Bindings{
     // ---Signin binding
     Get.put(SignInController());
     Get.put(SigninRepositoryImpl());
+
+    // ---Verify binding
   }
 }

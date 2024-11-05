@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:taha_debts/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/validators/validation.dart';
 
 class UsernameTextField extends StatelessWidget {
-  const UsernameTextField({super.key});
+  UsernameTextField({super.key});
 
+  final signupController = Get.find<SignupController>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,6 +27,8 @@ class UsernameTextField extends StatelessWidget {
         ),
         12.verticalSpace,
         TextFormField(
+          controller: signupController.usernameController,
+          validator: (value) => TValidator.validateEmptyText("", value),
           textAlign: TextAlign.end,
           decoration: InputDecoration(
             hintText: TTexts.username,
@@ -31,7 +37,7 @@ class UsernameTextField extends StatelessWidget {
             border: InputBorder.none,
           ),
           cursorColor: TColors.buttonPrimary,
-          keyboardType: TextInputType.phone,
+          keyboardType: TextInputType.text,
         ),
       ],
     );

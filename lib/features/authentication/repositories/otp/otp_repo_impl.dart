@@ -11,7 +11,7 @@ class OtpRepositoryImpl implements OtpRepository{
   static OtpRepositoryImpl get instance => Get.find();
 
   @override
-  Future<OtpModel> verify(String phone, int code) async {
+  Future<OtpModel> verify(String phone, String code) async {
     TDioHelper dioHelper = TDioHelper();
     return dioHelper.post(TApiConstants.verifyOtp, {"phone" : phone, "code" : code})
     .then((response) => OtpModel.fromJson(response))
