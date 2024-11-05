@@ -30,10 +30,10 @@ class SignInController extends GetxController {
     //   return;
     // }
 
-    // if (!signinFormKey.currentState!.validate()) {
-    //   updateStatus(value: RequestState.begin);
-    //   return;
-    // }
+    if (!signinFormKey.currentState!.validate()) {
+      updateStatus(value: RequestState.begin);
+      return;
+    }
 
     try {
       await SigninRepositoryImpl.instance.signin(phoneController.text.trim());

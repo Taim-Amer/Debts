@@ -17,49 +17,52 @@ class SigninForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final signInController = Get.find<SignInController>();
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(TTexts.phone, style: Theme.of(context).textTheme.titleSmall),
-                4.horizontalSpace,
-                SvgPicture.asset(TImages.mobile),
-              ],
-            ),
-            TSizes.spaceBtwItems.verticalSpace,
-            PhoneCountryCode(signInController: signInController),
-            TSizes.spaceBtwItems.verticalSpace,
-            Obx(() {
-              if (signInController.apiStatus.value == RequestState.loading) {
-                return const SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: Center(
-                    child: CircularProgressIndicator(color: TColors.buttonPrimary,),
-                  ),
-                );
-              } else {
-                return SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      TDeviceUtils.hideKeyboard(context);
-                      signInController.signin();
-                    },
-                    child: Text(
-                      TTexts.next,
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
+    return Form(
+      key: signInController.signinFormKey,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(TTexts.phone, style: Theme.of(context).textTheme.titleSmall),
+                  4.horizontalSpace,
+                  SvgPicture.asset(TImages.mobile),
+                ],
+              ),
+              TSizes.spaceBtwItems.verticalSpace,
+              PhoneCountryCode(signInController: signInController),
+              TSizes.spaceBtwItems.verticalSpace,
+              Obx(() {
+                if (signInController.apiStatus.value == RequestState.loading) {
+                  return const SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: Center(
+                      child: CircularProgressIndicator(color: TColors.buttonPrimary,),
                     ),
-                  ),
-                );
-              }
-            }),
-          ],
+                  );
+                } else {
+                  return SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        TDeviceUtils.hideKeyboard(context);
+                        signInController.signin();
+                      },
+                      child: Text(
+                        TTexts.next,
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
+                      ),
+                    ),
+                  );
+                }
+              }),
+            ],
+          ),
         ),
       ),
     );

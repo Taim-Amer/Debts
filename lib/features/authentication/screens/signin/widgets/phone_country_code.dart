@@ -7,6 +7,7 @@ import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
+import 'package:taha_debts/utils/validators/validation.dart';
 
 class PhoneCountryCode extends StatefulWidget {
   const PhoneCountryCode({super.key, required this.signInController});
@@ -56,6 +57,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                       Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
                       Expanded(
                         child: TextFormField(
+                          validator: (value) => TValidator.validatePhoneNumber(value),
                           controller: widget.signInController.phoneController,
                           decoration: InputDecoration(
                             hintText: '000_000_000',

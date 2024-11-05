@@ -28,7 +28,7 @@ class UsernameTextField extends StatelessWidget {
         12.verticalSpace,
         TextFormField(
           controller: signupController.usernameController,
-          validator: (value) => TValidator.validateEmptyText("", value),
+          validator: (value) => TValidator.validateEmptyText("اسم المستخدم", value),
           textAlign: TextAlign.end,
           decoration: InputDecoration(
             hintText: TTexts.username,
