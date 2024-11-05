@@ -50,11 +50,11 @@ class TValidator {
       return "ادخل رقم الهاتف" ;
     }
 
-    final phoneRegExp = RegExp(r'^\d{10}$');
-
-    if(!phoneRegExp.hasMatch(value)) {
-      return "Invalid phone number Format (10 digits required)";
-    }
+    // final phoneRegExp = RegExp(r'^\d{10}$');
+    //
+    // if(!phoneRegExp.hasMatch(value)) {
+    //   return "خطأ في تنسيق رقم الهاتف يرجى ادخال 13 رقم";
+    // }
     return null;
   }
 

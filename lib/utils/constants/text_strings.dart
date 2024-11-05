@@ -5,6 +5,7 @@ class TTexts {
   static const String add = "اضافة";
   static const String addAnotherPhone = "اضافة رقم هاتف اخر";
   static const String tcontinue = "متابعة";
+  static const String errorMessage = "حدث خطأ ما يرجى اعادة المحاولة";
 
   // Authentication Form Text
   static const String welcome = "! مرحبا بك";

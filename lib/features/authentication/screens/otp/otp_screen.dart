@@ -35,8 +35,8 @@ class OtpScreen extends StatelessWidget {
               SizedBox(width : THelperFunctions.screenWidth(context), child: OtpTextFieldWidget(controller: otpController.codeController)),
               TSizes.spaceBtwSections.verticalSpace,
               Obx(() {
-                otpController.apiStatus.value == RequestState.loading ? const LoadingWidget() : const OtpNextButton();
-                return const SizedBox();
+                Widget current = otpController.otpApiStatus.value == RequestState.loading ? const LoadingWidget() : const OtpNextButton();
+                return current;
               }),
               TSizes.spaceBtwSections.verticalSpace,
               const OtpResendCodeRow()

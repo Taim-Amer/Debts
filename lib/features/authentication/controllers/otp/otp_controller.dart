@@ -4,6 +4,7 @@ import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/authentication/repositories/otp/otp_repo_impl.dart';
 import 'package:taha_debts/features/authentication/screens/signup/signup_screen.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
+import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
 
@@ -12,16 +13,16 @@ class OtpController extends GetxController{
 
   final codeController = TextEditingController();
 
-  var apiStatus = RequestState.begin.obs;
+  var otpApiStatus = RequestState.begin.obs;
   var phone = TCacheHelper.getData(key: "phone");
 
   void updateStatus({required RequestState value}) {
-    apiStatus.value = value;
+    otpApiStatus.value = value;
   }
 
   Future<void> verify() async{
     updateStatus(value: RequestState.loading);
-    if(apiStatus.value == RequestState.loading){
+    if(otpApiStatus.value == RequestState.loading){
       const CircularProgressIndicator();
     }
     try{
@@ -31,7 +32,7 @@ class OtpController extends GetxController{
       Get.toNamed(AppRoutes.signup);
     }catch(error){
       updateStatus(value: RequestState.onError);
-      showToast(error.toString(), ToastState.error);
+      showToast(TTexts.errorMessage, ToastState.error);
     }
   }
 

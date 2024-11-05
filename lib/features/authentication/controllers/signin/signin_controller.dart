@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/authentication/repositories/signin/signin_repo_impl.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
+import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
 
@@ -14,10 +15,10 @@ class SignInController extends GetxController {
   final phoneController = TextEditingController();
   final GlobalKey<FormState> signinFormKey = GlobalKey<FormState>();
 
-  var apiStatus = RequestState.begin.obs;
+  var signinApiStatus = RequestState.begin.obs;
 
   void updateStatus({required RequestState value}) {
-    apiStatus.value = value;
+    signinApiStatus.value = value;
   }
 
   Future<void> signin() async {
@@ -43,7 +44,7 @@ class SignInController extends GetxController {
       Get.toNamed(AppRoutes.otp);
     } catch (error) {
       updateStatus(value: RequestState.onError);
-      showToast("حدث خطأ ما يرجى التاكد ثم اعادة المحاولة", ToastState.error);
+      showToast(TTexts.errorMessage, ToastState.error);
     }
   }
 }

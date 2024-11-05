@@ -36,24 +36,21 @@ class SigninForm extends StatelessWidget {
               PhoneCountryCode(signInController: signInController),
               TSizes.spaceBtwItems.verticalSpace,
               Obx(() {
-                if (signInController.apiStatus.value == RequestState.loading) {
-                  return const LoadingWidget();
-                } else {
-                  return SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        TDeviceUtils.hideKeyboard(context);
-                        signInController.signin();
-                      },
-                      child: Text(
-                        TTexts.next,
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
-                      ),
+                Widget current = signInController.signinApiStatus.value == RequestState.loading ? const LoadingWidget() : SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      TDeviceUtils.hideKeyboard(context);
+                      signInController.signin();
+                    },
+                    child: Text(
+                      TTexts.next,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
                     ),
-                  );
-                }
+                  ),
+                );
+                return current;
               }),
             ],
           ),
