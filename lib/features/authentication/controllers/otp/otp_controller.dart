@@ -28,7 +28,6 @@ class OtpController extends GetxController{
     try{
       final response = await OtpRepositoryImpl.instance.verify(phone, codeController.text);
       updateStatus(value: RequestState.success);
-      TCacheHelper.saveData(key: "token", value: response.token);
       Get.toNamed(AppRoutes.signup);
     }catch(error){
       updateStatus(value: RequestState.onError);

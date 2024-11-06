@@ -11,8 +11,8 @@ class OtpModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['massage'] = this.massage;
-    data['token'] = this.token;
+    data['massage'] = massage;
+    data['token'] = token;
     return data;
   }
 }

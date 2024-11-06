@@ -12,10 +12,10 @@ class SignupController extends GetxController{
   final emailController = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
-  var apiStatus = RequestState.begin.obs;
+  var signupApiStatus = RequestState.begin.obs;
 
   void updateStatus({required RequestState value}) {
-    apiStatus.value = value;
+    signupApiStatus.value = value;
   }
 
   Future<void> signup() async{
@@ -27,12 +27,13 @@ class SignupController extends GetxController{
 
     final phone = TCacheHelper.getData(key: "phone");
     try{
-      await SignupRepositoryImpl.instance.signup(usernameController.text.trim(), phone, emailController.text.trim(), "fcmToken");
+      final response = await SignupRepositoryImpl.instance.signup(usernameController.text.trim(), phone, emailController.text.trim(), "fcmToken");
       updateStatus(value: RequestState.success);
-      showToast("تم ارسال رمز التوثيق بنجاح", ToastState.success);
+      TCacheHelper.saveData(key: "token", value: response.token);
+      showToast("تم انشاء الحساب بنجاح", ToastState.success);
     }catch (error){
       updateStatus(value: RequestState.onError);
-      showToast("حدث خطأ ما يرجى التاكد ثم اعادة المحاولة", ToastState.error);
+      showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
     }
   }
 }
