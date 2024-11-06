@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:taha_debts/features/authentication/controllers/otp/otp_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class OtpResendCodeRow extends StatelessWidget {
-  const OtpResendCodeRow({super.key});
+  const OtpResendCodeRow({super.key, required this.otpController});
+
+  final OtpController otpController;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,9 @@ class OtpResendCodeRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            otpController.resendOtp();
+          },
           child: Text(
             TTexts.resendCode,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(

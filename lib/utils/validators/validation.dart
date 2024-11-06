@@ -9,13 +9,13 @@ class TValidator {
 
   static String? validateEmail(String? value) {
     if(value == null || value.isEmpty){
-      return "Email is required" ;
+      return "يجب ادخال البريد الالكتروني" ;
     }
 
     final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
     if(!emailRegExp.hasMatch(value)){
-      return "بريديك الالكتروني غير مقبول" ;
+      return "البريد الالكتروني غير مقبول" ;
     }
     return null;
   }

@@ -3,6 +3,7 @@
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:taha_debts/features/authentication/models/otp/otp_model.dart';
+import 'package:taha_debts/features/authentication/models/otp/resend_otp_model.dart';
 import 'package:taha_debts/features/authentication/repositories/otp/otp_repo.dart';
 import 'package:taha_debts/utils/api/dio_helper.dart';
 import 'package:taha_debts/utils/constants/api_constants.dart';
@@ -13,8 +14,12 @@ class OtpRepositoryImpl implements OtpRepository{
   @override
   Future<OtpModel> verify(String phone, String code) async {
     TDioHelper dioHelper = TDioHelper();
-    return dioHelper.post(TApiConstants.verifyOtp, {"phone" : phone, "code" : code})
-    .then((response) => OtpModel.fromJson(response))
-    .catchError((error) => print(error));
+    return dioHelper.post(TApiConstants.verifyOtp, {"phone" : phone, "code" : code}).then((response) => OtpModel.fromJson(response));
+  }
+
+  @override
+  Future<ResendOtpModel> resendCode(String phone) async{
+    TDioHelper dioHelper = TDioHelper();
+    return dioHelper.post(TApiConstants.resendOtp, {"phone" : phone}).then((response) => ResendOtpModel.fromJson(response));
   }
 }

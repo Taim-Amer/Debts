@@ -36,5 +36,9 @@ class OtpController extends GetxController{
     }
   }
 
+  Future<void> resendOtp() async{
+    await OtpRepositoryImpl.instance.resendCode(phone);
+  }
+
 }
 

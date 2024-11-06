@@ -5,6 +5,7 @@ import 'package:measure_size_builder/measure_size_builder.dart';
 import 'package:taha_debts/features/authentication/controllers/signin/signin_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
 import 'package:taha_debts/utils/validators/validation.dart';
@@ -32,13 +33,14 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Column(
         children: [
           Container(
             height: 50,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: const Color(0xffE8E8E8),
+              color: dark ? TColors.dark : const Color(0xffE8E8E8),
               borderRadius: BorderRadius.circular(50),
             ),
             child: InkWell(
@@ -54,7 +56,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                   return Row(
                     children: [
                       8.horizontalSpace,
-                      Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
+                      Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey :const Color(0xFF353535), size: 28.h),
                       Expanded(
                         child: TextFormField(
                           validator: (value) => TValidator.validatePhoneNumber(value),
@@ -70,7 +72,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                         ),
                       ),
                       16.horizontalSpace,
-                      Container(height: 17.h, width: 1, color: Colors.black),
+                      Container(height: 17.h, width: 1, color: dark ? TColors.lightGrey :Colors.black),
                       8.horizontalSpace,
                       Text('(${selectedCountry.code})'),
                       8.horizontalSpace,
@@ -88,7 +90,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
             height: isExpanded ? height : 0,
             padding: EdgeInsets.all(10.w),
             decoration: BoxDecoration(
-              color: TColors.lightGrey,
+              color: dark ? TColors.dark :TColors.lightGrey,
               borderRadius: BorderRadius.circular(9.r),
             ),
             child: ListView.builder(

@@ -39,7 +39,7 @@ class OtpScreen extends StatelessWidget {
                 return current;
               }),
               TSizes.spaceBtwSections.verticalSpace,
-              const OtpResendCodeRow()
+              OtpResendCodeRow(otpController: otpController,)
             ],
           ),
         ),

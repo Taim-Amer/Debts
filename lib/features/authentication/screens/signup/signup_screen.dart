@@ -23,31 +23,34 @@ class SignupScreen extends StatelessWidget {
     return Scaffold(
       appBar: const TAppBar(),
       bottomNavigationBar: SizedBox(width: double.infinity, child: SvgPicture.asset(TImages.loginShape, fit: BoxFit.cover)),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              const SignupHeader(),
-              TSizes.spaceBtwInputField.verticalSpace,
-              UsernameTextField(),
-              TSizes.spaceBtwInputField.verticalSpace,
-              EmailTextField(),
-              TSizes.spaceBtwSections.verticalSpace,
-              SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      signupController.signup();
-                    },
-                    child: const Text(TTexts.next),
-                  ),
-              )
-            ],
+      body: Form(
+        key: signupController.signupFormKey,
+        child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const SignupHeader(),
+                  TSizes.spaceBtwInputField.verticalSpace,
+                  UsernameTextField(),
+                  TSizes.spaceBtwInputField.verticalSpace,
+                  EmailTextField(),
+                  TSizes.spaceBtwSections.verticalSpace,
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        signupController.signup();
+                      },
+                      child: const Text(TTexts.next),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
-        ),
       ),
     );
   }
