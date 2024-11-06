@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/authentication/repositories/otp/otp_repo_impl.dart';
-import 'package:taha_debts/features/authentication/screens/signup/signup_screen.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
@@ -22,11 +21,8 @@ class OtpController extends GetxController{
 
   Future<void> verify() async{
     updateStatus(value: RequestState.loading);
-    if(otpApiStatus.value == RequestState.loading){
-      const CircularProgressIndicator();
-    }
     try{
-      final response = await OtpRepositoryImpl.instance.verify(phone, codeController.text);
+      await OtpRepositoryImpl.instance.verify(phone, codeController.text);
       updateStatus(value: RequestState.success);
       Get.toNamed(AppRoutes.signup);
     }catch(error){
@@ -38,6 +34,5 @@ class OtpController extends GetxController{
   Future<void> resendOtp() async{
     await OtpRepositoryImpl.instance.resendCode(phone);
   }
-
 }
 

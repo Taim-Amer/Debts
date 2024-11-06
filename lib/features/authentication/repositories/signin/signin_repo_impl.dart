@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_return_type_for_catch_error
-
 import 'dart:async';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/authentication/models/signin/signin_model.dart';
@@ -14,7 +12,6 @@ class SigninRepositoryImpl implements SigninRepository {
   Future<SigninModel> signin(String phone) async {
     TDioHelper dioHelper = TDioHelper();
 
-    return dioHelper.post(TApiConstants.checkPhone, {"phone" : phone})
-        .then((response) => SigninModel.fromJson(response));
+    return dioHelper.post(TApiConstants.checkPhone, {"phone" : phone}).then((response) => SigninModel.fromJson(response));
   }
 }

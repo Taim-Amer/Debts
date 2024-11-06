@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/icons/circular_icon.dart';
 import 'package:taha_debts/features/notifications/screens/notifications_screen.dart';
-import 'package:taha_debts/features/settings/screens/settings_screen.dart';
+import 'package:taha_debts/features/personalization/screens/settings/settings_screen.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 
@@ -28,7 +28,15 @@ class HomeEmptyAppbar extends StatelessWidget {
         const Spacer(),
         Text("اسم المستخدم", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: const Color(0xFF6D6E72)),),
         8.horizontalSpace,
-        const TCircularIcon(icon: Icons.person, size: TSizes.iconMd, color: Colors.black, backgroundColor: TColors.borderPrimary, width: 36, height: 36,)
+        TCircularIcon(
+          icon: Icons.person,
+          size: TSizes.iconMd,
+          color: Colors.black,
+          backgroundColor: TColors.borderPrimary,
+          width: 36,
+          height: 36,
+          onPressed: (){},
+        )
       ],
     );
   }

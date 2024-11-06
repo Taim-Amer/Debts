@@ -82,4 +82,5 @@ class TTexts {
   static const String privacyPolicy = "سياسة الخصوصية";
   static const String about = "عن التطبيق";
   static const String out = "تسجيل الخروج";
+  static const String accountInfo = "معلومات الحساب";
 }

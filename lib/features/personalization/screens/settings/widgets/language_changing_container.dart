@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:taha_debts/features/settings/screens/widgets/language_radio_tile.dart';
+import 'package:taha_debts/features/personalization/screens/settings/widgets/language_radio_tile.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';

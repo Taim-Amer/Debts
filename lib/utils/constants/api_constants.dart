@@ -9,4 +9,6 @@ class TApiConstants {
   static const String createAccount = "create_account";
 
   static const String resendOtp = "resend_otp";
+
+  static const String getUserProfile = "user/get_my_profile";
 }

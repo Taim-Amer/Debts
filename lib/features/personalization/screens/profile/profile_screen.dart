@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taha_debts/common/widgets/appbar/appbar.dart';
+import 'package:taha_debts/common/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:taha_debts/features/personalization/screens/profile/widgets/profile_appbar.dart';
+import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/utils/constants/image_strings.dart';
+import 'package:taha_debts/utils/constants/sizes.dart';
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const TAppBar(title: ProfileAppbar()),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          TCircularContainer(backgroundColor: TColors.borderPrimary, width: 150.w, height: 150.h, child: SvgPicture.asset(TImages.userProfile)),
+          TSizes.spaceBtwItems.verticalSpace,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(onPressed: (){}, icon: const Icon(Icons.edit, color: TColors.buttonPrimary, size: 20,)),
+                  Text("أسم مستخدم التطبيق", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary)),
+                  30.horizontalSpace,
+                ],
+              ),
+              Text("username1234@gmail.com", style: Theme.of(context).textTheme.titleMedium?.copyWith(color: TColors.softGrey)),
+            ],
+          ),
+
+        ],
+      ),
+    );
+  }
+}

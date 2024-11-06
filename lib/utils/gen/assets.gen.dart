@@ -183,12 +183,15 @@ class $AssetsLogosHomeGen {
 class $AssetsLogosProfileGen {
   const $AssetsLogosProfileGen();
 
+  /// File path: assets/logos/profile/Vector.svg
+  String get vector => 'assets/logos/profile/Vector.svg';
+
   /// File path: assets/logos/profile/material-symbols_person.svg
   String get materialSymbolsPerson =>
       'assets/logos/profile/material-symbols_person.svg';
 
   /// List of all assets
-  List<String> get values => [materialSymbolsPerson];
+  List<String> get values => [vector, materialSymbolsPerson];
 }
 
 class Assets {
