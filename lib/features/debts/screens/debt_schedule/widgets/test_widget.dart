@@ -78,7 +78,6 @@ class _TestWidgetState extends State<TestWidget> {
                       ),
                       Expanded(
                         child: Obx(() {
-                          // Display selected title instead of hint
                           return TextFormField(
                             readOnly: true,
                             controller: TextEditingController(
@@ -137,9 +136,7 @@ class _TestWidgetState extends State<TestWidget> {
       highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          // Update clientAddress with the selected title
           DebtScheduleController.instance.clientAddress.value = widget.listItem[index].title!;
-          isExpanded = false; // Close the dropdown after selection
         });
       },
       child: Padding(
