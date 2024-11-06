@@ -13,11 +13,9 @@ import 'package:taha_debts/utils/models/country_model.dart';
 class AnimatedSponsorAddressTextField extends StatefulWidget {
   const AnimatedSponsorAddressTextField({
     super.key,
-    required this.deptScheduleController,
     required this.listItem,
   });
 
-  final DeptScheduleController deptScheduleController;
   final List<GlobalModel> listItem;
 
   @override
@@ -75,7 +73,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 child: Directionality(
                   textDirection: TextDirection.ltr,
                   child: Obx(() {
-                    final selectedCountry = widget.listItem.firstWhere((country) => country.code == widget.deptScheduleController.clientAddress.value, orElse: () => widget.listItem.first);
+                    final selectedCountry = widget.listItem.firstWhere((country) => country.code == DebtScheduleController.instance.clientAddress.value, orElse: () => widget.listItem.first);
                     return Row(
                       children: [
                         8.horizontalSpace,
@@ -119,7 +117,6 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               AnimatedTextFieldWidget(
-                deptScheduleController: widget.deptScheduleController,
                 icon: Icons.location_on,
                 title: "عنوان الكفيل",
                 hint: "مساكن برزة",

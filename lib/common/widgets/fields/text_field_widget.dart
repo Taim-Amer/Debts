@@ -84,7 +84,7 @@ class TextFieldWidget extends StatelessWidget {
           ),
         ) : TextFormField(
           controller: controller,
-          validator: validator!,
+          validator: validator ?? (value) => null,
           textAlign: TextAlign.end,
           decoration: InputDecoration(
                   hintText: hint,

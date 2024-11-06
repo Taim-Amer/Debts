@@ -11,9 +11,9 @@ class DebtScheduleRepositoryImpl implements DebtScheduleRepository{
   final token = TCacheHelper.getData(key: "token");
 
   @override
-  Future<RegionsModel> getRegions() {
+  Future<RegionsModel> getRegions() async{
     TDioHelper dioHelper = TDioHelper();
-    return dioHelper.get(TApiConstants.getRegions, token: token).then((response) => RegionsModel.fromJson(response));
+    return await dioHelper.get(TApiConstants.getRegions, token: token).then((response) => RegionsModel.fromJson(response));
   }
 
 }

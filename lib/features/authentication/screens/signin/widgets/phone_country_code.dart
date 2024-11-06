@@ -11,9 +11,7 @@ import 'package:taha_debts/utils/storage/cache_helper.dart';
 import 'package:taha_debts/utils/validators/validation.dart';
 
 class PhoneCountryCode extends StatefulWidget {
-  const PhoneCountryCode({super.key, required this.signInController});
-
-  final SignInController signInController;
+  const PhoneCountryCode({super.key});
 
   @override
   State<PhoneCountryCode> createState() => _CustomPhoneCountryCodeState();
@@ -43,44 +41,52 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
               color: dark ? TColors.dark : const Color(0xffE8E8E8),
               borderRadius: BorderRadius.circular(50),
             ),
-            child: InkWell(
-              onTap: () {
-                setState(() {
-                  isExpanded = !isExpanded;
-                });
-              },
-              child: Directionality(
-                textDirection: TextDirection.ltr,
-                child: Obx(() {
-                  final selectedCountry = countries.firstWhere((country) => country.code == widget.signInController.countryCode.value, orElse: () => countries.first,);
-                  return Row(
-                    children: [
-                      8.horizontalSpace,
-                      Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey :const Color(0xFF353535), size: 28.h),
-                      Expanded(
-                        child: TextFormField(
-                          validator: (value) => TValidator.validatePhoneNumber(value),
-                          controller: widget.signInController.phoneController,
-                          decoration: InputDecoration(
-                            hintText: '000_000_000',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
+            child: Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () {
+                  setState(() {
+                    isExpanded = !isExpanded;
+                  });
+                },
+                child: Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: Obx(() {
+                    final selectedCountry = countries.firstWhere(
+                          (country) => country.code == SignInController.instance.countryCode.value,
+                      orElse: () => countries.first,
+                    );
+                    return Row(
+                      children: [
+                        8.horizontalSpace,
+                        Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey : const Color(0xFF353535), size: 28.h),
+                        Expanded(
+                          child: TextFormField(
+                            validator: (value) => TValidator.validatePhoneNumber(value),
+                            controller: SignInController.instance.phoneController,
+                            decoration: InputDecoration(
+                              hintText: '000_000_000',
+                              hintStyle: const TextStyle(color: Colors.grey),
+                              contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                              border: InputBorder.none,
+                            ),
+                            cursorColor: TColors.buttonPrimary,
+                            keyboardType: TextInputType.phone,
                           ),
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
                         ),
-                      ),
-                      16.horizontalSpace,
-                      Container(height: 17.h, width: 1, color: dark ? TColors.lightGrey :Colors.black),
-                      8.horizontalSpace,
-                      Text('(${selectedCountry.code})'),
-                      8.horizontalSpace,
-                      Image.asset(selectedCountry.svg!, height: 24.h, width: 24.w),
-                      8.horizontalSpace,
-                    ],
-                  );
-                }),
+                        16.horizontalSpace,
+                        Container(height: 17.h, width: 1, color: dark ? TColors.lightGrey : Colors.black),
+                        8.horizontalSpace,
+                        Text('(${selectedCountry.code})'),
+                        8.horizontalSpace,
+                        Image.asset(selectedCountry.svg!, height: 24.h, width: 24.w),
+                        8.horizontalSpace,
+                      ],
+                    );
+                  }),
+                ),
               ),
             ),
           ),
@@ -112,13 +118,12 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
       );
   }
 
-  InkWell countryCodeItemBuilder(int index) {
-    return InkWell(
-      overlayColor: WidgetStateProperty.all(Colors.transparent),
+  GestureDetector countryCodeItemBuilder(int index) {
+    return GestureDetector(
       onTap: () {
         setState(() {
           isExpanded = !isExpanded;
-          widget.signInController.countryCode.value = countries[index].code!;
+          SignInController.instance.countryCode.value = countries[index].code!;
         });
       },
       child: Padding(
@@ -134,11 +139,11 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
             const Spacer(),
             Radio<String>(
               value: countries[index].code!,
-              groupValue: widget.signInController.countryCode.value,
+              groupValue: SignInController.instance.countryCode.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
                 setState(() {
-                  widget.signInController.countryCode.value = value!;
+                  SignInController.instance.countryCode.value = value!;
                   isExpanded = false;
                   TCacheHelper.saveData(key: "code", value: value);
                 });

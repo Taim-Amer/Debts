@@ -8,9 +8,9 @@ import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 
 class AnimatedTextFieldWidget extends StatefulWidget {
-  const AnimatedTextFieldWidget({super.key, required this.deptScheduleController, required this.hint, required this.listItem, this.title, this.icon,});
+  const AnimatedTextFieldWidget({super.key, required this.hint, required this.listItem, this.title, this.icon,});
 
-  final DeptScheduleController deptScheduleController;
+  // final DebtScheduleController deptScheduleController;
   final String hint;
   final List<GlobalModel> listItem;
   final String? title;
@@ -67,7 +67,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
                 child: Directionality(
                   textDirection: TextDirection.ltr,
                   child: Obx(() {
-                    final selectedCountry = widget.listItem.firstWhere((country) => country.code == widget.deptScheduleController.clientAddress.value, orElse: () => widget.listItem.first,);
+                    final selectedCountry = widget.listItem.firstWhere((country) => country.code == DebtScheduleController.instance.clientAddress.value, orElse: () => widget.listItem.first,);
                     return Row(
                       children: [
                         8.horizontalSpace,
@@ -125,10 +125,12 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
   InkWell countryCodeItemBuilder(int index) {
     return InkWell(
       overlayColor: WidgetStateProperty.all(Colors.transparent),
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
           isExpanded = !isExpanded;
-          widget.deptScheduleController.clientAddress.value = widget.listItem[index].title;
+          DebtScheduleController.instance.clientAddress.value = widget.listItem[index].title;
         });
       },
       child: Padding(
@@ -137,11 +139,11 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
           children: [
             Radio<String>(
               value: widget.listItem[index].title,
-              groupValue: widget.deptScheduleController.clientAddress.value,
+              groupValue: DebtScheduleController.instance.clientAddress.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
                 setState(() {
-                  widget.deptScheduleController.clientAddress.value = value!;
+                  DebtScheduleController.instance.clientAddress.value = value!;
                   isExpanded = false;
                 });
               },

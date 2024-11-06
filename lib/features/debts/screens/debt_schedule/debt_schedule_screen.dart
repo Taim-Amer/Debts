@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
+import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/common/widgets/fields/animated_text_field_widget.dart';
 import 'package:taha_debts/common/widgets/fields/text_field_widget.dart';
 import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
@@ -20,22 +21,19 @@ class DebtScheduleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final deptScheduleController = Get.put(DeptScheduleController());
     return Scaffold(
+      appBar: const TAppBar(title: DebtsScheduleAppbar(),),
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const DebtsScheduleAppbar(),
-              TSizes.spaceBtwInputField.verticalSpace,
               const TextFieldWidget(title: TTexts.clientName, hint: "تيم عامر", icon: Icons.person,),
               TSizes.spaceBtwInputField.verticalSpace,
               AnimatedTextFieldWidget(
                 title: TTexts.clientAddress,
                 icon: Icons.location_on,
-                deptScheduleController: deptScheduleController,
                 hint: 'ريف دمشق-ضاحية يوسف العظمة',
                 listItem: [
                   GlobalModel(title: 'مساكن برزة'),
@@ -56,7 +54,6 @@ class DebtScheduleScreen extends StatelessWidget {
                     flex: 3,
                     child: AnimatedTextFieldWidget(
                       title: TTexts.records,
-                      deptScheduleController: deptScheduleController,
                       hint: "سجل الاثاث",
                       listItem: [
                         GlobalModel(title: 'سجل الأثاث'),
@@ -74,7 +71,6 @@ class DebtScheduleScreen extends StatelessWidget {
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               AnimatedSponsorAddressTextField(
-                  deptScheduleController: deptScheduleController,
                   listItem: [
                     GlobalModel(title: 'مساكن برزة'),
                     GlobalModel(title: 'جديدة عرطوز'),

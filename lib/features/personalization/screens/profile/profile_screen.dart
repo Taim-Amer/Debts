@@ -38,7 +38,7 @@ class ProfileScreen extends StatelessWidget {
                   IconButton(onPressed: () => Get.toNamed(AppRoutes.profileEdit), icon: const Icon(Icons.edit, color: TColors.buttonPrimary, size: 20,)),
                   Obx(() {
                     return Text(
-                      ProfileController.instance.userProfile.value.data?.name ?? "",
+                      ProfileController.instance.userProfileModel.value.data?.name ?? "",
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
                     );
                   }),
@@ -47,7 +47,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               Obx(() {
                 return Text(
-                  ProfileController.instance.userProfile.value.data?.email ?? "",
+                  ProfileController.instance.userProfileModel.value.data?.email ?? "",
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(color: TColors.softGrey),
                 );
               })

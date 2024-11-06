@@ -16,9 +16,8 @@ class SigninForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final signInController = Get.find<SignInController>();
     return Form(
-      key: signInController.signinFormKey,
+      key: SignInController.instance.signinFormKey,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
         child: SingleChildScrollView(
@@ -33,16 +32,16 @@ class SigninForm extends StatelessWidget {
                 ],
               ),
               TSizes.spaceBtwItems.verticalSpace,
-              PhoneCountryCode(signInController: signInController),
+              const PhoneCountryCode(),
               TSizes.spaceBtwItems.verticalSpace,
               Obx(() {
-                Widget current = signInController.signinApiStatus.value == RequestState.loading ? const LoadingWidget() : SizedBox(
+                Widget current = SignInController.instance.signinApiStatus.value == RequestState.loading ? const LoadingWidget() : SizedBox(
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
                       TDeviceUtils.hideKeyboard(context);
-                      signInController.signin();
+                      SignInController.instance.signin();
                     },
                     child: Text(
                       TTexts.next,

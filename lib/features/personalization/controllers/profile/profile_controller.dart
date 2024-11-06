@@ -12,7 +12,7 @@ class ProfileController extends GetxController{
   var editProfileApiStatus = RequestState.begin.obs;
 
   final newNameController = TextEditingController();
-  var userProfile = UserProfileModel().obs;
+  var userProfileModel = UserProfileModel().obs;
   GlobalKey<FormState> profileKey = GlobalKey<FormState>();
 
   @override
@@ -34,7 +34,7 @@ class ProfileController extends GetxController{
     updateGetProfileStatus(value: RequestState.loading);
 
     try{
-      userProfile.value = await ProfileRepositoryImpl.instance.getProfile();
+      userProfileModel.value = await ProfileRepositoryImpl.instance.getProfile();
       updateGetProfileStatus(value: RequestState.success);
     } catch(error){
       updateGetProfileStatus(value: RequestState.onError);

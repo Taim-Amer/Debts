@@ -9,6 +9,6 @@ class LoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: LoadingAnimationWidget.waveDots(color: TColors.buttonSecondary, size: 100));
+    return LoadingAnimationWidget.waveDots(color: TColors.buttonSecondary, size: 80);
   }
 }

@@ -23,7 +23,7 @@ class HomeEmptyScreen extends StatelessWidget {
                 130.verticalSpace,
                 const HomeEmptyHeader(),
                 TSizes.spaceBtwSections.verticalSpace,
-                const HomeEmptyAddDebtsButton(),
+                const HomeAddDebtsButton(),
               ],
             ),
           ),
