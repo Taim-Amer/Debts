@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/personalization/models/profile/user_profile_model.dart';
 import 'package:taha_debts/features/personalization/repositories/profile/profile_repo_impl.dart';
@@ -7,7 +8,10 @@ class ProfileController extends GetxController{
   static ProfileController get instance => Get.find();
 
   var getProfileApiStatus = RequestState.begin.obs;
+
+  final newNameController = TextEditingController();
   var userProfile = UserProfileModel().obs;
+  GlobalKey<FormState> profileKey = GlobalKey<FormState>();
 
   @override
   void onReady() {
@@ -29,5 +33,12 @@ class ProfileController extends GetxController{
     } catch(error){
       updateStatus(value: RequestState.onError);
     }
+  }
+
+  Future<void> editProfile() async{
+
+    if(!profileKey.currentState!.validate()) return;
+
+    await ProfileRepositoryImpl.instance.editProfile(newNameController.text.trim()).then((response) => null);
   }
 }

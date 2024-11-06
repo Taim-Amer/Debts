@@ -2,4 +2,6 @@ import 'package:taha_debts/features/personalization/models/profile/user_profile_
 
 abstract class ProfileRepository{
   Future<UserProfileModel> getProfile();
+
+  Future<void> editProfile(String newName);
 }

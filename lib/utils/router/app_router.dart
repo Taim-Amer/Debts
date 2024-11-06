@@ -7,8 +7,8 @@ import 'package:taha_debts/features/authentication/screens/otp/otp_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signin/signin_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signup/signup_screen.dart';
 import 'package:taha_debts/features/debts/screens/home/home_empty_screen.dart';
-import 'package:taha_debts/features/personalization/models/profile/user_profile_model.dart';
 import 'package:taha_debts/features/personalization/screens/profile/profile_screen.dart';
+import 'package:taha_debts/features/personalization/screens/profile_edit/profile_edit_screen.dart';
 
 class AppRoutes {
   static const signin = '/signin';
@@ -16,6 +16,7 @@ class AppRoutes {
   static const signup = '/signup';
   static const home = '/home';
   static const profile = '/profile';
+  static const profileEdit = '/profileEdit';
 
   static List<GetPage> routes = [
     GetPage(
@@ -50,7 +51,13 @@ class AppRoutes {
       page: () => const ProfileScreen(),
       transition: Transition.rightToLeft,
       binding: ProfileBinding(),
-      // arguments: UserProfileModel()
-    )
+    ),
+
+    GetPage(
+      name: profileEdit,
+      page: () => const ProfileEditScreen(),
+      binding: ProfileBinding(),
+      transition: Transition.rightToLeft
+    ),
   ];
 }

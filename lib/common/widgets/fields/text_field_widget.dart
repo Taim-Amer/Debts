@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 
 class TextFieldWidget extends StatelessWidget {
@@ -12,6 +13,8 @@ class TextFieldWidget extends StatelessWidget {
     this.titleColor = const Color(0xFF6D6E72),
     this.hintSize,
     this.radius,
+    this.validator,
+    this.controller,
   });
 
   final String title;
@@ -21,6 +24,8 @@ class TextFieldWidget extends StatelessWidget {
   final Color? titleColor;
   final double? hintSize;
   final double? radius;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -76,12 +81,13 @@ class TextFieldWidget extends StatelessWidget {
             keyboardType: TextInputType.phone,
           ),
         ) : TextFormField(
-                textAlign: TextAlign.end,
-                decoration: InputDecoration(
+          controller: controller,
+          validator: validator!,
+          textAlign: TextAlign.end,
+          decoration: InputDecoration(
                   hintText: hint,
                   hintStyle: TextStyle(color: hintColor),
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                  contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
                     borderSide: BorderSide.none,

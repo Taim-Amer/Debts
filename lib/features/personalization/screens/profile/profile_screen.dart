@@ -9,6 +9,7 @@ import 'package:taha_debts/features/personalization/screens/profile/widgets/prof
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
+import 'package:taha_debts/utils/router/app_router.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -34,7 +35,7 @@ class ProfileScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.edit, color: TColors.buttonPrimary, size: 20,)),
+                  IconButton(onPressed: () => Get.toNamed(AppRoutes.profileEdit), icon: const Icon(Icons.edit, color: TColors.buttonPrimary, size: 20,)),
                   Obx(() {
                     return Text(
                       ProfileController.instance.userProfile.value.data?.name ?? "",
