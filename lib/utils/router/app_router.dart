@@ -7,6 +7,7 @@ import 'package:taha_debts/features/authentication/screens/otp/otp_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signin/signin_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signup/signup_screen.dart';
 import 'package:taha_debts/features/debts/screens/home/home_empty_screen.dart';
+import 'package:taha_debts/features/personalization/models/profile/user_profile_model.dart';
 import 'package:taha_debts/features/personalization/screens/profile/profile_screen.dart';
 
 class AppRoutes {
@@ -43,11 +44,13 @@ class AppRoutes {
       page: () => const HomeEmptyScreen(),
       transition: Transition.rightToLeft
     ),
+
     GetPage(
       name: profile,
       page: () => const ProfileScreen(),
       transition: Transition.rightToLeft,
-      binding: ProfileBinding()
+      binding: ProfileBinding(),
+      // arguments: UserProfileModel()
     )
   ];
 }

@@ -6,6 +6,7 @@ import 'package:taha_debts/features/notifications/screens/notifications_screen.d
 import 'package:taha_debts/features/personalization/screens/settings/settings_screen.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
+import 'package:taha_debts/utils/router/app_router.dart';
 
 class HomeEmptyAppbar extends StatelessWidget {
   const HomeEmptyAppbar({super.key});
@@ -35,7 +36,9 @@ class HomeEmptyAppbar extends StatelessWidget {
           backgroundColor: TColors.borderPrimary,
           width: 36,
           height: 36,
-          onPressed: (){},
+          onPressed: (){
+            Get.toNamed(AppRoutes.profile);
+          },
         )
       ],
     );
