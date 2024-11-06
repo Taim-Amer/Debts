@@ -12,6 +12,7 @@ import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/add_new_
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/add_new_item_button.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/animated_sponsor_address_text_field.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/debts_schedule_appbar.dart';
+import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/test_widget.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
@@ -25,28 +26,34 @@ class DebtScheduleScreen extends StatelessWidget {
       appBar: const TAppBar(title: DebtsScheduleAppbar(),),
       body: SingleChildScrollView(
         child: Padding(
-          padding: TSpacingStyle.paddingWithAppBarHeight,
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const TextFieldWidget(title: TTexts.clientName, hint: "تيم عامر", icon: Icons.person,),
-              TSizes.spaceBtwInputField.verticalSpace,
-              AnimatedTextFieldWidget(
+              TSizes.spaceBtwSections.verticalSpace,
+              // AnimatedTextFieldWidget(
+              //   title: TTexts.clientAddress,
+              //   icon: Icons.location_on,
+              //   hint: 'ريف دمشق-ضاحية يوسف العظمة',
+              //   listItem: [
+              //     GlobalModel(title: 'مساكن برزة'),
+              //     GlobalModel(title: 'جديدة عرطوز'),
+              //     GlobalModel(title: 'جديدة الفضل'),
+              //     GlobalModel(title: 'المزة'),
+              //   ],
+              // ),
+              TestWidget(
                 title: TTexts.clientAddress,
                 icon: Icons.location_on,
                 hint: 'ريف دمشق-ضاحية يوسف العظمة',
-                listItem: [
-                  GlobalModel(title: 'مساكن برزة'),
-                  GlobalModel(title: 'جديدة عرطوز'),
-                  GlobalModel(title: 'جديدة الفضل'),
-                  GlobalModel(title: 'المزة'),
-                ],
+                listItem: DebtScheduleController.instance.regionsModel.value.data ?? []
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               const TextFieldWidget(title: TTexts.clientPhone, hint: "0997421905", icon: Icons.phone_android,),
               TSizes.sm.verticalSpace,
               const AddAnotherPhoneNumberButton(),
-              TSizes.spaceBtwSections.verticalSpace,
+              TSizes.sm.verticalSpace,
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

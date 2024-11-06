@@ -11,10 +11,7 @@ import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 
 class AnimatedSponsorAddressTextField extends StatefulWidget {
-  const AnimatedSponsorAddressTextField({
-    super.key,
-    required this.listItem,
-  });
+  const AnimatedSponsorAddressTextField({super.key, required this.listItem});
 
   final List<GlobalModel> listItem;
 

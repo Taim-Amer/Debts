@@ -24,9 +24,6 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
   final List<GlobalModel> countries = [
     GlobalModel(code: "+963",title: "الاردن", svg: TImages.jordan),
     GlobalModel(code: '+966', title: 'العراق', svg: TImages.saudi),
-    // GlobalModel(code: '+974', title: 'قطر', svg: TImages.qatar),
-    // GlobalModel(code: '+20', title: 'مصر', svg: TImages.egypt),
-    // GlobalModel(code: '+961', title: 'لبنان', svg: TImages.lebanon),
   ];
 
   @override
@@ -41,52 +38,44 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
               color: dark ? TColors.dark : const Color(0xffE8E8E8),
               borderRadius: BorderRadius.circular(50),
             ),
-            child: Material(
-              type: MaterialType.transparency,
-              child: InkWell(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () {
-                  setState(() {
-                    isExpanded = !isExpanded;
-                  });
-                },
-                child: Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: Obx(() {
-                    final selectedCountry = countries.firstWhere(
-                          (country) => country.code == SignInController.instance.countryCode.value,
-                      orElse: () => countries.first,
-                    );
-                    return Row(
-                      children: [
-                        8.horizontalSpace,
-                        Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey : const Color(0xFF353535), size: 28.h),
-                        Expanded(
-                          child: TextFormField(
-                            validator: (value) => TValidator.validatePhoneNumber(value),
-                            controller: SignInController.instance.phoneController,
-                            decoration: InputDecoration(
-                              hintText: '000_000_000',
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                              border: InputBorder.none,
-                            ),
-                            cursorColor: TColors.buttonPrimary,
-                            keyboardType: TextInputType.phone,
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  isExpanded = !isExpanded;
+                });
+              },
+              child: Directionality(
+                textDirection: TextDirection.ltr,
+                child: Obx(() {
+                  final selectedCountry = countries.firstWhere((country) => country.code == SignInController.instance.countryCode.value, orElse: () => countries.first,);
+                  return Row(
+                    children: [
+                      8.horizontalSpace,
+                      Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey :const Color(0xFF353535), size: 28.h),
+                      Expanded(
+                        child: TextFormField(
+                          validator: (value) => TValidator.validatePhoneNumber(value),
+                          controller: SignInController.instance.phoneController,
+                          decoration: InputDecoration(
+                            hintText: '000_000_000',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
                           ),
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
                         ),
-                        16.horizontalSpace,
-                        Container(height: 17.h, width: 1, color: dark ? TColors.lightGrey : Colors.black),
-                        8.horizontalSpace,
-                        Text('(${selectedCountry.code})'),
-                        8.horizontalSpace,
-                        Image.asset(selectedCountry.svg!, height: 24.h, width: 24.w),
-                        8.horizontalSpace,
-                      ],
-                    );
-                  }),
-                ),
+                      ),
+                      16.horizontalSpace,
+                      Container(height: 17.h, width: 1, color: dark ? TColors.lightGrey :Colors.black),
+                      8.horizontalSpace,
+                      Text('(${selectedCountry.code})'),
+                      8.horizontalSpace,
+                      Image.asset(selectedCountry.svg!, height: 24.h, width: 24.w),
+                      8.horizontalSpace,
+                    ],
+                  );
+                }),
               ),
             ),
           ),
@@ -118,8 +107,9 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
       );
   }
 
-  GestureDetector countryCodeItemBuilder(int index) {
-    return GestureDetector(
+  InkWell countryCodeItemBuilder(int index) {
+    return InkWell(
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: () {
         setState(() {
           isExpanded = !isExpanded;
@@ -147,7 +137,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                   isExpanded = false;
                   TCacheHelper.saveData(key: "code", value: value);
                 });
-                },
+              },
             ),
             8.horizontalSpace,
           ],

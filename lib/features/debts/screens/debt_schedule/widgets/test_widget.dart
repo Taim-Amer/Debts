@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 import 'package:measure_size_builder/measure_size_builder.dart';
 import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
+import 'package:taha_debts/features/debts/models/debt_schedule/regions_model.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
-import 'package:taha_debts/utils/models/country_model.dart';
 
-class AnimatedTextFieldWidget extends StatefulWidget {
-  const AnimatedTextFieldWidget({super.key, required this.hint, required this.listItem, this.title, this.icon,});
+class TestWidget extends StatefulWidget {
+  const TestWidget({super.key, required this.hint, this.title, this.icon, required this.listItem});
 
   final String hint;
-  final List<GlobalModel> listItem;
+  final List<Data> listItem;
   final String? title;
   final IconData? icon;
 
   @override
-  State<AnimatedTextFieldWidget> createState() => _CustomPhoneCountryCodeState();
+  State<TestWidget> createState() => _TestWidgetState();
 }
 
-class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
+class _TestWidgetState extends State<TestWidget> {
   double height = 0;
   bool isExpanded = false;
 
@@ -65,29 +65,38 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
                 },
                 child: Directionality(
                   textDirection: TextDirection.ltr,
-                  child: Obx(() {
-                    final selectedCountry = widget.listItem.firstWhere((country) => country.code == DebtScheduleController.instance.clientAddress.value, orElse: () => widget.listItem.first,);
-                    return Row(
-                      children: [
-                        8.horizontalSpace,
-                        Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
-                        Expanded(
-                          child: TextFormField(
+                  child: Row(
+                    children: [
+                      8.horizontalSpace,
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isExpanded = !isExpanded;
+                          });
+                        },
+                        icon: Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
+                      ),
+                      Expanded(
+                        child: Obx(() {
+                          // Display selected title instead of hint
+                          return TextFormField(
                             readOnly: true,
+                            controller: TextEditingController(
+                              text: DebtScheduleController.instance.clientAddress.value ?? widget.hint,
+                            ),
                             decoration: InputDecoration(
-                              hintText: widget.hint,
-                              hintStyle: const TextStyle(color: Colors.grey),
+                              hintText: null,  // Remove hintText
                               contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
                               border: InputBorder.none,
                             ),
                             textAlign: TextAlign.end,
                             cursorColor: TColors.buttonPrimary,
                             keyboardType: TextInputType.phone,
-                          ),
-                        ),
-                      ],
-                    );
-                  }),
+                          );
+                        }),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -128,8 +137,9 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
       highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          isExpanded = !isExpanded;
-          DebtScheduleController.instance.clientAddress.value = widget.listItem[index].title;
+          // Update clientAddress with the selected title
+          DebtScheduleController.instance.clientAddress.value = widget.listItem[index].title!;
+          isExpanded = false; // Close the dropdown after selection
         });
       },
       child: Padding(
@@ -137,7 +147,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
         child: Row(
           children: [
             Radio<String>(
-              value: widget.listItem[index].title,
+              value: widget.listItem[index].title!,
               groupValue: DebtScheduleController.instance.clientAddress.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
@@ -149,12 +159,12 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
             ),
             const Spacer(),
             16.horizontalSpace,
-            Text(widget.listItem[index].title),
-            // 8.horizontalSpace,
+            Text(widget.listItem[index].title!),
             8.horizontalSpace,
           ],
         ),
       ),
     );
   }
+
 }
