@@ -22,7 +22,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
   bool isExpanded = false;
 
   final List<GlobalModel> countries = [
-    GlobalModel(code: "+963",title: "الاردن", svg: TImages.jordan),
+    GlobalModel(code: "+963", title: "الاردن", svg: TImages.jordan),
     GlobalModel(code: '+966', title: 'العراق', svg: TImages.saudi),
   ];
 
@@ -30,81 +30,91 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Column(
-        children: [
-          Container(
-            height: 50,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: dark ? TColors.dark : const Color(0xffE8E8E8),
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: InkWell(
-              onTap: () {
-                setState(() {
-                  isExpanded = !isExpanded;
-                });
-              },
-              child: Directionality(
-                textDirection: TextDirection.ltr,
-                child: Obx(() {
-                  final selectedCountry = countries.firstWhere((country) => country.code == SignInController.instance.countryCode.value, orElse: () => countries.first,);
-                  return Row(
-                    children: [
-                      8.horizontalSpace,
-                      Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey :const Color(0xFF353535), size: 28.h),
-                      Expanded(
-                        child: TextFormField(
-                          validator: (value) => TValidator.validatePhoneNumber(value),
-                          controller: SignInController.instance.phoneController,
-                          decoration: InputDecoration(
-                            hintText: '000_000_000',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
-                          ),
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
-                        ),
-                      ),
-                      16.horizontalSpace,
-                      Container(height: 17.h, width: 1, color: dark ? TColors.lightGrey :Colors.black),
-                      8.horizontalSpace,
-                      Text('(${selectedCountry.code})'),
-                      8.horizontalSpace,
-                      Image.asset(selectedCountry.svg!, height: 24.h, width: 24.w),
-                      8.horizontalSpace,
-                    ],
-                  );
-                }),
-              ),
-            ),
+      children: [
+        Container(
+          height: 50,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: dark ? TColors.dark : const Color(0xffE8E8E8),
+            borderRadius: BorderRadius.circular(50),
           ),
-          16.verticalSpace,
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
-            height: isExpanded ? height : 0,
-            padding: EdgeInsets.all(10.w),
-            decoration: BoxDecoration(
-              color: dark ? TColors.dark :TColors.lightGrey,
-              borderRadius: BorderRadius.circular(9.r),
-            ),
-            child: ListView.builder(
-              padding: EdgeInsets.zero,
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: countries.length,
-              itemBuilder: (context, index) {
-                return MeasureSizeBuilder(
-                  builder: (context, size) {
-                    height = (size.height + 10.w) * countries.length;
-                    return countryCodeItemBuilder(index);
-                  },
+          child: InkWell(
+            onTap: () {
+              setState(() {
+                isExpanded = !isExpanded;
+              });
+            },
+            child: Directionality(
+              textDirection: TextDirection.ltr,
+              child: Obx(() {
+                final selectedCountry = countries.firstWhere(
+                      (country) => country.code == SignInController.instance.countryCode.value,
+                  orElse: () => countries.first,
                 );
-              },
+                return Row(
+                  children: [
+                    8.horizontalSpace,
+                    Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey : const Color(0xFF353535), size: 28.h),
+                    Expanded(
+                      child: TextFormField(
+                        validator: (value) => TValidator.validatePhoneNumber(value),
+                        controller: SignInController.instance.phoneController,
+                        decoration: InputDecoration(
+                          hintText: '000_000_000',
+                          hintStyle: const TextStyle(color: Colors.grey),
+                          contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                          border: InputBorder.none,
+                        ),
+                        cursorColor: TColors.buttonPrimary,
+                        keyboardType: TextInputType.phone,
+                        onChanged: (value) {
+                          // Prepend the selected country code when the user types.
+                          if (!value.startsWith(selectedCountry.code!)) {
+                            SignInController.instance.phoneController.text = selectedCountry.code! + value;
+                            SignInController.instance.phoneController.selection = TextSelection.fromPosition(TextPosition(offset: SignInController.instance.phoneController.text.length));
+                          }
+                        },
+                      ),
+                    ),
+                    16.horizontalSpace,
+                    Container(height: 17.h, width: 1, color: dark ? TColors.lightGrey : Colors.black),
+                    8.horizontalSpace,
+                    Text('(${selectedCountry.code})'),
+                    8.horizontalSpace,
+                    Image.asset(selectedCountry.svg!, height: 24.h, width: 24.w),
+                    8.horizontalSpace,
+                  ],
+                );
+              }),
             ),
           ),
-        ],
-      );
+        ),
+        16.verticalSpace,
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          height: isExpanded ? height : 0,
+          padding: EdgeInsets.all(10.w),
+          decoration: BoxDecoration(
+            color: dark ? TColors.dark : TColors.lightGrey,
+            borderRadius: BorderRadius.circular(9.r),
+          ),
+          child: ListView.builder(
+            padding: EdgeInsets.zero,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: countries.length,
+            itemBuilder: (context, index) {
+              return MeasureSizeBuilder(
+                builder: (context, size) {
+                  height = (size.height + 10.w) * countries.length;
+                  return countryCodeItemBuilder(index);
+                },
+              );
+            },
+          ),
+        ),
+      ],
+    );
   }
 
   InkWell countryCodeItemBuilder(int index) {
