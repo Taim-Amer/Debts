@@ -14,7 +14,8 @@ class ProfileEditScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const TAppBar(title: ProfileAppbar()),
-      bottomNavigationBar: const SaveButton(),
+      floatingActionButton: const SaveButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Padding(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Form(
@@ -24,6 +25,7 @@ class ProfileEditScreen extends StatelessWidget {
               children: [
                 TextFieldWidget(
                   controller: ProfileController.instance.newNameController,
+                  keyboardType: TextInputType.text,
                   title: "اسم المستخدم الجديد",
                   hint: "اسم المستخدم و الكنية",
                   icon: Icons.person,

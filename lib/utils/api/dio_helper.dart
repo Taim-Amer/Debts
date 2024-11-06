@@ -36,7 +36,7 @@ class TDioHelper {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'lang': lang,
-      'Authorization': token ?? '',
+      'Authorization': token != null ? 'Bearer $token' : '',
     };
 
     final response = await dio.post(endPoint, data: data);

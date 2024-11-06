@@ -21,6 +21,6 @@ class ProfileRepositoryImpl implements ProfileRepository{
   Future<void> editProfile(String newName) async{
     TDioHelper dioHelper = TDioHelper();
 
-    return dioHelper.post(TApiConstants.editProfile, {"name" : newName}).then((response) => null);
+    return dioHelper.post(TApiConstants.editProfile, {"name" : newName}, token: token).then((response) => print(response));
   }
 }

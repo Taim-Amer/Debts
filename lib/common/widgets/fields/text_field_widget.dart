@@ -15,6 +15,7 @@ class TextFieldWidget extends StatelessWidget {
     this.radius,
     this.validator,
     this.controller,
+    this.keyboardType = TextInputType.phone,
   });
 
   final String title;
@@ -26,6 +27,7 @@ class TextFieldWidget extends StatelessWidget {
   final double? radius;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,7 @@ class TextFieldWidget extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
             ),
             cursorColor: TColors.buttonPrimary,
-            keyboardType: TextInputType.phone,
+            keyboardType: keyboardType,
           ),
         ) : TextFormField(
           controller: controller,
@@ -94,7 +96,7 @@ class TextFieldWidget extends StatelessWidget {
                   ),
                 ),
                 cursorColor: TColors.buttonPrimary,
-                keyboardType: TextInputType.phone,
+                keyboardType: keyboardType,
               ),
       ],
     );

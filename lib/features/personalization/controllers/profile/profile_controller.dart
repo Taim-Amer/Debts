@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/personalization/models/profile/user_profile_model.dart';
 import 'package:taha_debts/features/personalization/repositories/profile/profile_repo_impl.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
@@ -39,6 +40,9 @@ class ProfileController extends GetxController{
 
     if(!profileKey.currentState!.validate()) return;
 
-    await ProfileRepositoryImpl.instance.editProfile(newNameController.text.trim()).then((response) => null);
+    await ProfileRepositoryImpl.instance.editProfile(newNameController.text).then((response) => print(""));
+    showToast("تم تعديل الاسم بنجاح", ToastState.success);
+    Get.back();
+    await getUserProfile();
   }
 }
