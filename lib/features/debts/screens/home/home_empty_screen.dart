@@ -12,19 +12,20 @@ class HomeEmptyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(),
+      appBar: const TAppBar(title: HomeAppbar(),),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const HomeEmptyAppbar(),
-              100.verticalSpace,
-              const HomeEmptyHeader(),
-              TSizes.spaceBtwSections.verticalSpace,
-              const HomeEmptyAddDebtsButton(),
-            ],
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                130.verticalSpace,
+                const HomeEmptyHeader(),
+                TSizes.spaceBtwSections.verticalSpace,
+                const HomeEmptyAddDebtsButton(),
+              ],
+            ),
           ),
         ),
       ),

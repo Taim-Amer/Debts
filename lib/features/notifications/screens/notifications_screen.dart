@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
+import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/features/notifications/screens/widgets/notification_item.dart';
 import 'package:taha_debts/features/notifications/screens/widgets/notifications_appbar.dart';
-import 'package:taha_debts/utils/constants/sizes.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
@@ -11,22 +10,21 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const TAppBar(title: NotificationsAppbar(),),
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const NotificationsAppbar(),
-              TSizes.spaceBtwSections.verticalSpace,
-              const NotificationItem(),
-              const NotificationItem(),
-              const NotificationItem(),
-              const NotificationItem(),
-              const NotificationItem(),
-              const NotificationItem(),
-              const NotificationItem(),
-              const NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
             ],
           ),
         ),

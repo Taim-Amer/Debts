@@ -24,9 +24,9 @@ class App extends StatelessWidget {
           themeMode: ThemeMode.system,
           theme: TAppTheme.lightTheme,
           darkTheme: TAppTheme.darkTheme,
-          initialRoute: AppRoutes.home,
+          initialRoute: AppRoutes.signin,
           getPages: AppRoutes.routes,
-          // initialBinding: SigninBinding(),
+          initialBinding: SigninBinding(),
           // home: const HomeEmptyScreen()
       ),
     );

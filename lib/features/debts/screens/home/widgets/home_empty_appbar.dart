@@ -8,8 +8,8 @@ import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 
-class HomeEmptyAppbar extends StatelessWidget {
-  const HomeEmptyAppbar({super.key});
+class HomeAppbar extends StatelessWidget {
+  const HomeAppbar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +20,14 @@ class HomeEmptyAppbar extends StatelessWidget {
               Get.to(const NotificationsScreen(), transition: Transition.rightToLeft);
             },
             icon: const Icon(Icons.notifications, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
-        18.horizontalSpace,
+        5.horizontalSpace,
         IconButton(
             onPressed: (){
               Get.to(const SettingsScreen(), transition: Transition.rightToLeft);
             }, 
             icon: const Icon(Icons.settings, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
         const Spacer(),
+        // Text(ProfileController.instance.userProfile.value.data!.name ?? "", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: const Color(0xFF6D6E72)),),
         Text("اسم المستخدم", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: const Color(0xFF6D6E72)),),
         8.horizontalSpace,
         TCircularIcon(

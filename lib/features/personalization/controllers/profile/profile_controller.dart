@@ -9,6 +9,7 @@ class ProfileController extends GetxController{
   static ProfileController get instance => Get.find();
 
   var getProfileApiStatus = RequestState.begin.obs;
+  var editProfileApiStatus = RequestState.begin.obs;
 
   final newNameController = TextEditingController();
   var userProfile = UserProfileModel().obs;
@@ -21,26 +22,32 @@ class ProfileController extends GetxController{
     getUserProfile();
   }
 
-  void updateStatus({required RequestState value}) {
+  void updateGetProfileStatus({required RequestState value}) {
     getProfileApiStatus.value = value;
   }
 
+  void updateEditProfileStatus({required RequestState value}) {
+    editProfileApiStatus.value = value;
+  }
+
   Future<void> getUserProfile() async{
-    updateStatus(value: RequestState.loading);
+    updateGetProfileStatus(value: RequestState.loading);
 
     try{
       userProfile.value = await ProfileRepositoryImpl.instance.getProfile();
-      updateStatus(value: RequestState.success);
+      updateGetProfileStatus(value: RequestState.success);
     } catch(error){
-      updateStatus(value: RequestState.onError);
+      updateGetProfileStatus(value: RequestState.onError);
     }
   }
 
   Future<void> editProfile() async{
 
     if(!profileKey.currentState!.validate()) return;
-
+    updateEditProfileStatus(value: RequestState.loading);
+    
     await ProfileRepositoryImpl.instance.editProfile(newNameController.text).then((response) => print(""));
+    updateEditProfileStatus(value: RequestState.success);
     showToast("تم تعديل الاسم بنجاح", ToastState.success);
     Get.back();
     await getUserProfile();

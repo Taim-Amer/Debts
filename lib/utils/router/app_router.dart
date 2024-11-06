@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:taha_debts/bindings/home_binding.dart';
 import 'package:taha_debts/bindings/otp_binding.dart';
 import 'package:taha_debts/bindings/profile_binding.dart';
 import 'package:taha_debts/bindings/signin_binding.dart';
@@ -43,6 +44,7 @@ class AppRoutes {
     GetPage(
       name: home,
       page: () => const HomeEmptyScreen(),
+      binding: HomeBinding(),
       transition: Transition.rightToLeft
     ),
 
