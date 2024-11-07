@@ -75,7 +75,7 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
                         return TextFormField(
                           readOnly: true,
                           controller: TextEditingController(
-                            text: DebtScheduleController.instance.clientAddress.value ?? "مساكن برزة",
+                            text: DebtScheduleController.instance.sponsorAddress.value ?? "مساكن برزة",
                           ),
                           decoration: InputDecoration(
                             hintText: null,
@@ -131,7 +131,7 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
       highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          DebtScheduleController.instance.clientAddress.value =
+          DebtScheduleController.instance.sponsorAddress.value =
           DebtScheduleController.instance.regionsList[index].title!;
           isExpanded = false;
         });
@@ -142,11 +142,11 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
           children: [
             Radio<String>(
               value: DebtScheduleController.instance.regionsList[index].title!,
-              groupValue: DebtScheduleController.instance.clientAddress.value,
+              groupValue: DebtScheduleController.instance.sponsorAddress.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
                 setState(() {
-                  DebtScheduleController.instance.clientAddress.value = value!;
+                  DebtScheduleController.instance.sponsorAddress.value = value!;
                   isExpanded = false;
                 });
               },

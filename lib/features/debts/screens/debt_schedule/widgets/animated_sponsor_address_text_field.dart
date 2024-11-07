@@ -100,7 +100,8 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
         ),
         16.verticalSpace,
         AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 400),
+          // height: isExpanded ? 210.h : 0,
           child: isExpanded ? Column(
             children: [
               const TextFieldWidget(

@@ -6,7 +6,9 @@ class DebtScheduleController extends GetxController{
   static DebtScheduleController get instance => Get.find();
 
   RxString clientAddress = "دمشق".obs;
-  // var regionsModel = RegionsModel().obs;
+  RxString sponsorAddress = "دمشق".obs;
+  RxString goodsRecord = "سجل الاثاث".obs;
+
   RxList<Data> regionsList = <Data>[].obs;
 
   // @override

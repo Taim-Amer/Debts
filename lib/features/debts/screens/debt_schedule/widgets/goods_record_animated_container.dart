@@ -78,7 +78,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
                         return TextFormField(
                           readOnly: true,
                           controller: TextEditingController(
-                            text: DebtScheduleController.instance.clientAddress.value ?? widget.hint,
+                            text: DebtScheduleController.instance.goodsRecord.value ?? widget.hint,
                           ),
                           decoration: InputDecoration(
                             hintText: null,
@@ -134,7 +134,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
       highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          DebtScheduleController.instance.clientAddress.value =
+          DebtScheduleController.instance.goodsRecord.value =
           DebtScheduleController.instance.regionsList[index].title!;
           isExpanded = false;
         });
@@ -145,11 +145,11 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
           children: [
             Radio<String>(
               value: DebtScheduleController.instance.regionsList[index].title!,
-              groupValue: DebtScheduleController.instance.clientAddress.value,
+              groupValue: DebtScheduleController.instance.goodsRecord.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
                 setState(() {
-                  DebtScheduleController.instance.clientAddress.value = value!;
+                  DebtScheduleController.instance.goodsRecord.value = value!;
                   isExpanded = false;
                 });
               },
