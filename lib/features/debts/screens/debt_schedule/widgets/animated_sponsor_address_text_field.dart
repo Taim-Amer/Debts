@@ -4,6 +4,7 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:taha_debts/common/widgets/fields/animated_text_field_widget.dart';
 import 'package:taha_debts/common/widgets/fields/text_field_widget.dart';
 import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
+import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/address_sponsor_animated_container.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -11,9 +12,7 @@ import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
 
 class AnimatedSponsorAddressTextField extends StatefulWidget {
-  const AnimatedSponsorAddressTextField({super.key, required this.listItem});
-
-  final List<GlobalModel> listItem;
+  const AnimatedSponsorAddressTextField({super.key});
 
   @override
   State<AnimatedSponsorAddressTextField> createState() => _CustomPhoneCountryCodeState();
@@ -69,34 +68,31 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 },
                 child: Directionality(
                   textDirection: TextDirection.ltr,
-                  child: Obx(() {
-                    final selectedCountry = widget.listItem.firstWhere((country) => country.code == DebtScheduleController.instance.clientAddress.value, orElse: () => widget.listItem.first);
-                    return Row(
-                      children: [
-                        8.horizontalSpace,
-                        Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
-                        Expanded(
-                          child: TextFormField(
-                            readOnly: true,
-                            onTap: () {
-                              setState(() {
-                                isExpanded = !isExpanded;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              hintText: "ريف دمشق-ضاحية يوسف العظمة",
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                              border: InputBorder.none,
-                            ),
-                            textAlign: TextAlign.end,
-                            cursorColor: TColors.buttonPrimary,
-                            keyboardType: TextInputType.phone,
+                  child: Row(
+                    children: [
+                      8.horizontalSpace,
+                      Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
+                      Expanded(
+                        child: TextFormField(
+                          readOnly: true,
+                          onTap: () {
+                            setState(() {
+                              isExpanded = !isExpanded;
+                            });
+                          },
+                          decoration: InputDecoration(
+                            hintText: "ريف دمشق-ضاحية يوسف العظمة",
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
                           ),
+                          textAlign: TextAlign.end,
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
                         ),
-                      ],
-                    );
-                  }),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -113,17 +109,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 icon: Icons.phone_android,
               ),
               TSizes.spaceBtwInputField.verticalSpace,
-              AnimatedTextFieldWidget(
-                icon: Icons.location_on,
-                title: "عنوان الكفيل",
-                hint: "مساكن برزة",
-                listItem: [
-                  GlobalModel(title: 'مساكن برزة'),
-                  GlobalModel(title: 'جديدة عرطوز'),
-                  GlobalModel(title: 'جديدة الفضل'),
-                  GlobalModel(title: 'المزة'),
-                ],
-              ),
+              const AddressSponsorAnimatedContainer()
             ],
           ) : const SizedBox.shrink(),
         ),

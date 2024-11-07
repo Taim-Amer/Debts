@@ -6,18 +6,18 @@ import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/d
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
-class TestWidget extends StatefulWidget {
-  const TestWidget({super.key, required this.hint, this.title, this.icon});
+class AddressClientAnimatedContainer extends StatefulWidget {
+  const AddressClientAnimatedContainer({super.key, required this.hint, this.title, this.icon});
 
   final String hint;
   final String? title;
   final IconData? icon;
 
   @override
-  State<TestWidget> createState() => _TestWidgetState();
+  State<AddressClientAnimatedContainer> createState() => _AddressClientAnimatedContainerState();
 }
 
-class _TestWidgetState extends State<TestWidget> {
+class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedContainer> {
   bool isExpanded = false;
   bool isLoading = false;
 
@@ -100,14 +100,8 @@ class _TestWidgetState extends State<TestWidget> {
         16.verticalSpace,
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          // Set max height for scrollability if items exceed height
-          height: isExpanded
-              ? isLoading
-              ? 50.h
-              : (DebtScheduleController.instance.regionsList.length > 5
-              ? 300.h // Set max height for scrolling
-              : DebtScheduleController.instance.regionsList.length * 70.h)
-              : 0,
+          height: isExpanded ? isLoading ? 50.h : (DebtScheduleController.instance.regionsList.length > 5 ? 300.h
+              : DebtScheduleController.instance.regionsList.length * 70.h) : 0,
           padding: EdgeInsets.all(10.w),
           decoration: BoxDecoration(
             color: dark ? TColors.dark : TColors.lightGrey,
@@ -117,17 +111,15 @@ class _TestWidgetState extends State<TestWidget> {
             if (isLoading) {
               return const Center(child: LoadingWidget());
             }
-            return ListView.builder(
-              scrollDirection: Axis.vertical,
-              padding: EdgeInsets.zero,
-              physics: DebtScheduleController.instance.regionsList.length > 5
-                  ? const BouncingScrollPhysics()
-                  : const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: DebtScheduleController.instance.regionsList.length,
-              itemBuilder: (context, index) {
-                return countryCodeItemBuilder(index);
-              },
+            return SingleChildScrollView(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: DebtScheduleController.instance.regionsList.length,
+                itemBuilder: (context, index) {
+                  return countryCodeItemBuilder(index);
+                },
+              ),
             );
           }),
         ),

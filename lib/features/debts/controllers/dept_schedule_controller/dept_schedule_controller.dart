@@ -6,15 +6,15 @@ class DebtScheduleController extends GetxController{
   static DebtScheduleController get instance => Get.find();
 
   RxString clientAddress = "دمشق".obs;
-  var regionsModel = RegionsModel().obs;
+  // var regionsModel = RegionsModel().obs;
   RxList<Data> regionsList = <Data>[].obs;
 
-  @override
-  void onReady() {
-    // TODO: implement onReady
-    super.onReady();
-    getRegions();
-  }
+  // @override
+  // void onReady() {
+  //   // TODO: implement onReady
+  //   super.onReady();
+  //   getRegions();
+  // }
 
   Future<void> getRegions() async{
     final fetchedRegions = await DebtScheduleRepositoryImpl.instance.getRegions();

@@ -10,9 +10,11 @@ import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/d
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/add_another_phone_number_button.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/add_new_debt_button.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/add_new_item_button.dart';
+import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/address_sponsor_animated_container.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/animated_sponsor_address_text_field.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/debts_schedule_appbar.dart';
-import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/test_widget.dart';
+import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/address_client_animated_container.dart';
+import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/goods_record_animated_container.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/models/country_model.dart';
@@ -43,11 +45,10 @@ class DebtScheduleScreen extends StatelessWidget {
               //     GlobalModel(title: 'المزة'),
               //   ],
               // ),
-              TestWidget(
+              const AddressClientAnimatedContainer(
                 title: TTexts.clientAddress,
                 icon: Icons.location_on,
                 hint: 'دمشق',
-                // listItem: DebtScheduleController.instance.regionsModel.value.data ?? []
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               const TextFieldWidget(title: TTexts.clientPhone, hint: "0997421905", icon: Icons.phone_android,),
@@ -57,18 +58,21 @@ class DebtScheduleScreen extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
+                  // Expanded(
+                  //   flex: 3,
+                  //   child: AnimatedTextFieldWidget(
+                  //     title: TTexts.records,
+                  //     hint: "سجل الاثاث",
+                  //     listItem: [
+                  //       GlobalModel(title: 'سجل الأثاث'),
+                  //       GlobalModel(title: 'سجل المفروشات'),
+                  //       GlobalModel(title: 'سجل الكهربائيات'),
+                  //     ],
+                  //   ),
+                  // ),
+                  const Expanded(
                     flex: 3,
-                    child: AnimatedTextFieldWidget(
-                      title: TTexts.records,
-                      hint: "سجل الاثاث",
-                      listItem: [
-                        GlobalModel(title: 'سجل الأثاث'),
-                        GlobalModel(title: 'سجل المفروشات'),
-                        GlobalModel(title: 'سجل الكهربائيات'),
-                      ],
-                    ),
-                  ),
+                    child: GoodsRecordAnimatedContainer(title: TTexts.records, hint: "سجل الاثاث",)),
                   10.horizontalSpace,
                   const Expanded(
                     flex: 2,
@@ -77,14 +81,7 @@ class DebtScheduleScreen extends StatelessWidget {
                 ],
               ),
               TSizes.spaceBtwInputField.verticalSpace,
-              AnimatedSponsorAddressTextField(
-                  listItem: [
-                    GlobalModel(title: 'مساكن برزة'),
-                    GlobalModel(title: 'جديدة عرطوز'),
-                    GlobalModel(title: 'جديدة الفضل'),
-                    GlobalModel(title: 'المزة'),
-                  ],
-              ),
+              const AnimatedSponsorAddressTextField(),
               TSizes.spaceBtwInputField.verticalSpace,
               Row(
                 children: [
