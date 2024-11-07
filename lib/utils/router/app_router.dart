@@ -23,6 +23,7 @@ class AppRoutes {
   static const debtSchedule = '/debtSchedule';
 
   static List<GetPage> routes = [
+
     GetPage(
       name: signin,
       page: () => const SigninScreen(),

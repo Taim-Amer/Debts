@@ -5,17 +5,20 @@ import 'package:taha_debts/features/debts/repositories/debt_schedule/debt_schedu
 class DebtScheduleController extends GetxController{
   static DebtScheduleController get instance => Get.find();
 
-  RxString clientAddress = "ريف دمشق-ضاحية يوسف العظمة".obs;
+  RxString clientAddress = "دمشق".obs;
   var regionsModel = RegionsModel().obs;
+  RxList<Data> regionsList = <Data>[].obs;
 
-  // @override
-  // void onReady() {
-  //   // TODO: implement onReady
-  //   super.onReady();
-  //   getRegions();
-  // }
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+    getRegions();
+  }
 
   Future<void> getRegions() async{
-    regionsModel.value = await DebtScheduleRepositoryImpl.instance.getRegions();
+    final fetchedRegions = await DebtScheduleRepositoryImpl.instance.getRegions();
+    regionsList.assignAll(fetchedRegions.data ?? []);
+    // regionsModel.value = await DebtScheduleRepositoryImpl.instance.getRegions();
   }
 }

@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:measure_size_builder/measure_size_builder.dart';
+import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
-import 'package:taha_debts/features/debts/models/debt_schedule/regions_model.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class TestWidget extends StatefulWidget {
-  const TestWidget({super.key, required this.hint, this.title, this.icon, required this.listItem});
+  const TestWidget({super.key, required this.hint, this.title, this.icon});
 
   final String hint;
-  final List<Data> listItem;
   final String? title;
   final IconData? icon;
 
@@ -20,8 +18,8 @@ class TestWidget extends StatefulWidget {
 }
 
 class _TestWidgetState extends State<TestWidget> {
-  double height = 0;
   bool isExpanded = false;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -57,45 +55,43 @@ class _TestWidgetState extends State<TestWidget> {
                 color: dark ? TColors.dark : const Color(0xffE8E8E8),
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: InkWell(
-                onTap: () {
-                  setState(() {
-                    isExpanded = !isExpanded;
-                  });
-                },
-                child: Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: Row(
-                    children: [
-                      8.horizontalSpace,
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isExpanded = !isExpanded;
-                          });
-                        },
-                        icon: Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
-                      ),
-                      Expanded(
-                        child: Obx(() {
-                          return TextFormField(
-                            readOnly: true,
-                            controller: TextEditingController(
-                              text: DebtScheduleController.instance.clientAddress.value ?? widget.hint,
-                            ),
-                            decoration: InputDecoration(
-                              hintText: null,  // Remove hintText
-                              contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                              border: InputBorder.none,
-                            ),
-                            textAlign: TextAlign.end,
-                            cursorColor: TColors.buttonPrimary,
-                            keyboardType: TextInputType.phone,
-                          );
-                        }),
-                      ),
-                    ],
-                  ),
+              child: Directionality(
+                textDirection: TextDirection.ltr,
+                child: Row(
+                  children: [
+                    8.horizontalSpace,
+                    IconButton(
+                      onPressed: () async {
+                        setState(() {
+                          isLoading = true;
+                          isExpanded = !isExpanded;
+                        });
+                        await DebtScheduleController.instance.getRegions();
+                        setState(() {
+                          isLoading = false;
+                        });
+                      },
+                      icon: Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
+                    ),
+                    Expanded(
+                      child: Obx(() {
+                        return TextFormField(
+                          readOnly: true,
+                          controller: TextEditingController(
+                            text: DebtScheduleController.instance.clientAddress.value ?? widget.hint,
+                          ),
+                          decoration: InputDecoration(
+                            hintText: null,
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                            border: InputBorder.none,
+                          ),
+                          textAlign: TextAlign.end,
+                          cursorColor: TColors.buttonPrimary,
+                          keyboardType: TextInputType.phone,
+                        );
+                      }),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -104,26 +100,36 @@ class _TestWidgetState extends State<TestWidget> {
         16.verticalSpace,
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          height: isExpanded ? height : 0,
+          // Set max height for scrollability if items exceed height
+          height: isExpanded
+              ? isLoading
+              ? 50.h
+              : (DebtScheduleController.instance.regionsList.length > 5
+              ? 300.h // Set max height for scrolling
+              : DebtScheduleController.instance.regionsList.length * 70.h)
+              : 0,
           padding: EdgeInsets.all(10.w),
           decoration: BoxDecoration(
             color: dark ? TColors.dark : TColors.lightGrey,
             borderRadius: BorderRadius.circular(9.r),
           ),
-          child: ListView.builder(
-            padding: EdgeInsets.zero,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: widget.listItem.length,
-            itemBuilder: (context, index) {
-              return MeasureSizeBuilder(
-                builder: (context, size) {
-                  height = (size.height + 10.w) * widget.listItem.length;
-                  return countryCodeItemBuilder(index);
-                },
-              );
-            },
-          ),
+          child: Obx(() {
+            if (isLoading) {
+              return const Center(child: LoadingWidget());
+            }
+            return ListView.builder(
+              scrollDirection: Axis.vertical,
+              padding: EdgeInsets.zero,
+              physics: DebtScheduleController.instance.regionsList.length > 5
+                  ? const BouncingScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: DebtScheduleController.instance.regionsList.length,
+              itemBuilder: (context, index) {
+                return countryCodeItemBuilder(index);
+              },
+            );
+          }),
         ),
       ],
     );
@@ -136,7 +142,9 @@ class _TestWidgetState extends State<TestWidget> {
       highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          DebtScheduleController.instance.clientAddress.value = widget.listItem[index].title!;
+          DebtScheduleController.instance.clientAddress.value =
+          DebtScheduleController.instance.regionsList[index].title!;
+          isExpanded = false;
         });
       },
       child: Padding(
@@ -144,7 +152,7 @@ class _TestWidgetState extends State<TestWidget> {
         child: Row(
           children: [
             Radio<String>(
-              value: widget.listItem[index].title!,
+              value: DebtScheduleController.instance.regionsList[index].title!,
               groupValue: DebtScheduleController.instance.clientAddress.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
@@ -156,12 +164,11 @@ class _TestWidgetState extends State<TestWidget> {
             ),
             const Spacer(),
             16.horizontalSpace,
-            Text(widget.listItem[index].title!),
+            Text(DebtScheduleController.instance.regionsList[index].title!),
             8.horizontalSpace,
           ],
         ),
       ),
     );
   }
-
 }

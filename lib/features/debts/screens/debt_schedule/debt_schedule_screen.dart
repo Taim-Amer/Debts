@@ -46,8 +46,8 @@ class DebtScheduleScreen extends StatelessWidget {
               TestWidget(
                 title: TTexts.clientAddress,
                 icon: Icons.location_on,
-                hint: 'ريف دمشق-ضاحية يوسف العظمة',
-                listItem: DebtScheduleController.instance.regionsModel.value.data ?? []
+                hint: 'دمشق',
+                // listItem: DebtScheduleController.instance.regionsModel.value.data ?? []
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               const TextFieldWidget(title: TTexts.clientPhone, hint: "0997421905", icon: Icons.phone_android,),
