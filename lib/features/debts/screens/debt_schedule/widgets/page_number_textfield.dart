@@ -14,7 +14,7 @@ class PageNumberTextField extends StatelessWidget {
       hint: "صفحة رقم : 450",
       icon: Icons.book,
       controller: DebtScheduleController.instance.pageNumberController,
-      validator: (value) => TValidator.validateEmptyText("رقم الصفحة", value),
+      validator: (value) => TValidator.validateEmptyText("الصفحة", value),
       keyboardType: TextInputType.number,
     );
   }

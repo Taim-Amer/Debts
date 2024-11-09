@@ -38,7 +38,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
             color: dark ? TColors.dark : const Color(0xffE8E8E8),
             borderRadius: BorderRadius.circular(50),
           ),
-          child: InkWell(
+          child: GestureDetector(
             onTap: () {
               setState(() {
                 isExpanded = !isExpanded;
@@ -69,6 +69,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                         cursorColor: TColors.buttonPrimary,
                         keyboardType: TextInputType.phone,
                         onChanged: (value) {
+                          // Prepend the selected country code when the user types.
                           if (!value.startsWith(selectedCountry.code!)) {
                             SignInController.instance.phoneController.text = selectedCountry.code! + value;
                             SignInController.instance.phoneController.selection = TextSelection.fromPosition(TextPosition(offset: SignInController.instance.phoneController.text.length));
@@ -117,11 +118,9 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
     );
   }
 
-  InkWell countryCodeItemBuilder(int index) {
-    return InkWell(
-      splashColor: Colors.transparent, // Disable splash color
-      highlightColor: Colors.transparent,
-      overlayColor: WidgetStateProperty.all(Colors.transparent),
+  Widget countryCodeItemBuilder(int index) {
+    return GestureDetector(
+      // overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: () {
         setState(() {
           isExpanded = !isExpanded;

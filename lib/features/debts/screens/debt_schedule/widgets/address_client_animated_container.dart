@@ -127,12 +127,9 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
     );
   }
 
-  InkWell countryCodeItemBuilder(int index) {
+  GestureDetector countryCodeItemBuilder(int index) {
     final regionData = DebtScheduleController.instance.regionsModel.value.data?[index];
-    return InkWell(
-      overlayColor: WidgetStateProperty.all(Colors.transparent),
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
+    return GestureDetector(
       onTap: () {
         setState(() {
           DebtScheduleController.instance.clientAddress.value = regionData?.title ?? "";

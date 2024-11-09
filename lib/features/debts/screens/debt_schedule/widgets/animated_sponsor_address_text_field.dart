@@ -57,7 +57,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 color: dark ? TColors.dark : const Color(0xffE8E8E8),
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: InkWell(
+              child: GestureDetector(
                 onTap: () {
                   setState(() {
                     isExpanded = !isExpanded;
@@ -98,7 +98,6 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
         16.verticalSpace,
         AnimatedContainer(
           duration: const Duration(milliseconds: 400),
-          // height: isExpanded ? 210.h : 0,
           child: isExpanded ? Column(
             children: [
               TextFieldWidget(

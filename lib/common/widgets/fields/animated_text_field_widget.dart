@@ -57,7 +57,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
                 color: dark ? TColors.dark : const Color(0xffE8E8E8),
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: InkWell(
+              child: GestureDetector(
                 onTap: () {
                   setState(() {
                     isExpanded = !isExpanded;
@@ -121,11 +121,8 @@ class _CustomPhoneCountryCodeState extends State<AnimatedTextFieldWidget> {
     );
   }
 
-  InkWell countryCodeItemBuilder(int index) {
-    return InkWell(
-      overlayColor: WidgetStateProperty.all(Colors.transparent),
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
+  GestureDetector countryCodeItemBuilder(int index) {
+    return GestureDetector(
       onTap: () {
         setState(() {
           isExpanded = !isExpanded;
