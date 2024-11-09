@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/debts/models/debt_schedule/records_model.dart';
 import 'package:taha_debts/features/debts/models/debt_schedule/regions_model.dart';
@@ -12,6 +13,17 @@ class DebtScheduleController extends GetxController {
 
   Rx<RegionsModel> regionsModel = RegionsModel().obs;
   Rx<RecordsModel> recordsModel = RecordsModel().obs;
+
+  final clientNameController = TextEditingController();
+  final clientNumberController = TextEditingController();
+  final pageNumberController = TextEditingController();
+  final sponsorNumberController = TextEditingController();
+  final goodsDescriptionController = TextEditingController();
+  final initialPaymentController = TextEditingController();
+  final monthlyPaymentController = TextEditingController();
+  final amountController = TextEditingController();
+
+  GlobalKey<FormState> debtScheduleKey = GlobalKey<FormState>();
 
   RxInt selectedGoodsId = RxInt(0);
   RxInt selectedSponsorId = RxInt(0);

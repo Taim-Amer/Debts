@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/widgets/fields/text_field_widget.dart';
+import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/address_sponsor_animated_container.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -100,10 +101,12 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
           // height: isExpanded ? 210.h : 0,
           child: isExpanded ? Column(
             children: [
-              const TextFieldWidget(
+              TextFieldWidget(
                 title: TTexts.sponsorPhone,
                 hint: "0000-000-000",
                 icon: Icons.phone_android,
+                controller: DebtScheduleController.instance.sponsorNumberController,
+                keyboardType: TextInputType.phone,
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               const AddressSponsorAnimatedContainer()
