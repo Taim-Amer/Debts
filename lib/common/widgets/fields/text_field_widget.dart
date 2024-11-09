@@ -75,6 +75,7 @@ class TextFieldWidget extends StatelessWidget {
           ),
           child: TextFormField(
             textAlign: TextAlign.end,
+            enableInteractiveSelection: false,
             decoration: InputDecoration(
               hintText: hint,
               contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),

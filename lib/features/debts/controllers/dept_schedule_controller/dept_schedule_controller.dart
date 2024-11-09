@@ -7,6 +7,7 @@ import 'package:taha_debts/features/debts/models/debt_schedule/records_model.dar
 import 'package:taha_debts/features/debts/models/debt_schedule/regions_model.dart';
 import 'package:taha_debts/features/debts/repositories/debt_schedule/debt_schedule_repo_impl.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
+import 'package:taha_debts/utils/logging/logger.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 
 class DebtScheduleController extends GetxController {
@@ -58,13 +59,13 @@ class DebtScheduleController extends GetxController {
     }
 
     int? pageNumber = int.tryParse(pageNumberController.text);
-
     try{
       await DebtScheduleRepositoryImpl.instance.createDebt(clientNameController.text, clientNumberController.text, selectedClientId.value, selectedGoodsId.value, pageNumber!, amountController.text, goodsDescriptionController.text, monthlyPaymentController.text, sponsorNameController.text, sponsorNumberController.text, selectedSponsorId.value);
       updateStatus(value: RequestState.success);
       showToast("تم اضافة دين جديد", ToastState.success);
       Get.offAllNamed(AppRoutes.home);
     }catch (error){
+      TLoggerHelper.error(error.toString());
       showToast("حدث خطأ ما يرجى التأكد من البيانات المدخلة ثم اعادة المحاولة", ToastState.error);
       updateStatus(value: RequestState.onError);
     }
