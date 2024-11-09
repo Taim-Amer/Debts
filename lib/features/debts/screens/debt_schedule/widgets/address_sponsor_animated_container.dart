@@ -97,8 +97,13 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
         16.verticalSpace,
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          height: isExpanded ? isLoading ? 50.h : (DebtScheduleController.instance.regionsModel.value.data!.length > 5 ? 300.h
-              : DebtScheduleController.instance.regionsModel.value.data!.length * 70.h) : 0,
+          height: isExpanded
+              ? isLoading
+              ? 50.h
+              : (DebtScheduleController.instance.regionsModel.value.data?.length ?? 0) > 5
+              ? 300.h
+              : (DebtScheduleController.instance.regionsModel.value.data?.length ?? 0) * 70.h
+              : 0,
           padding: EdgeInsets.all(10.w),
           decoration: BoxDecoration(
             color: dark ? TColors.dark : TColors.lightGrey,
@@ -112,36 +117,28 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: DebtScheduleController.instance.regionsModel.value.data?.length,
+                itemCount: DebtScheduleController.instance.regionsModel.value.data?.length ?? 0,
                 itemBuilder: (context, index) {
                   return countryCodeItemBuilder(index);
                 },
               ),
             );
           }),
-          // child: isLoading ? Center(child: LoadingWidget(),): SingleChildScrollView(
-          //   child: ListView.builder(
-          //     shrinkWrap: true,
-          //     physics: const NeverScrollableScrollPhysics(),
-          //     itemCount: DebtScheduleController.instance.regionsModel.data?.length,
-          //     itemBuilder: (context, index) {
-          //       return countryCodeItemBuilder(index);
-          //     },
-          //   ),
-          // ),
         ),
       ],
     );
   }
 
   InkWell countryCodeItemBuilder(int index) {
+    final regionData = DebtScheduleController.instance.regionsModel.value.data?[index];
     return InkWell(
-      overlayColor: WidgetStateProperty.all(Colors.transparent),
+      overlayColor: MaterialStateProperty.all(Colors.transparent),
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          DebtScheduleController.instance.sponsorAddress.value = DebtScheduleController.instance.regionsModel.value.data?[index].title ?? "";
+          DebtScheduleController.instance.sponsorAddress.value = regionData?.title ?? "";
+          DebtScheduleController.instance.selectedSponsorId.value = regionData?.id ?? 0; // Save the sponsor ID
           isExpanded = false;
         });
       },
@@ -150,19 +147,20 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
         child: Row(
           children: [
             Radio<String>(
-              value: DebtScheduleController.instance.regionsModel.value.data?[index].title ?? "",
+              value: regionData?.title ?? "",
               groupValue: DebtScheduleController.instance.sponsorAddress.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
                 setState(() {
-                  DebtScheduleController.instance.sponsorAddress.value = value!;
+                  DebtScheduleController.instance.sponsorAddress.value = value ?? "";
+                  DebtScheduleController.instance.selectedSponsorId.value = regionData?.id ?? 0;
                   isExpanded = false;
                 });
               },
             ),
             const Spacer(),
             16.horizontalSpace,
-            Text(DebtScheduleController.instance.regionsModel.value.data?[index].title ?? ""),
+            Text(regionData?.title ?? ""),
             8.horizontalSpace,
           ],
         ),

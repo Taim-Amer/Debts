@@ -18,8 +18,22 @@ class GoodsRecordAnimatedContainer extends StatefulWidget {
 }
 
 class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContainer> {
+  final controller = DebtScheduleController.instance;
   bool isExpanded = false;
   bool isLoading = false;
+  late TextEditingController textController;
+
+  @override
+  void initState() {
+    super.initState();
+    textController = TextEditingController(text: controller.goodsRecord.value ?? widget.hint);
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +49,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
                 children: [
                   Flexible(
                     child: Text(
-                      widget.title!,
+                      widget.title ?? '',
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -55,44 +69,40 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
                 color: dark ? TColors.dark : const Color(0xffE8E8E8),
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: Directionality(
-                textDirection: TextDirection.ltr,
-                child: Row(
-                  children: [
-                    8.horizontalSpace,
-                    IconButton(
-                      onPressed: () async {
-                        setState(() {
-                          isLoading = true;
-                          isExpanded = !isExpanded;
-                        });
-                        await DebtScheduleController.instance.getRecords();
-                        setState(() {
-                          isLoading = false;
-                        });
-                      },
-                      icon: Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
-                    ),
-                    Expanded(
-                      child: Obx(() {
-                        return TextFormField(
-                          readOnly: true,
-                          controller: TextEditingController(
-                            text: DebtScheduleController.instance.goodsRecord.value ?? widget.hint,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: null,
-                            contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                            border: InputBorder.none,
-                          ),
-                          textAlign: TextAlign.end,
-                          cursorColor: TColors.buttonPrimary,
-                          keyboardType: TextInputType.phone,
-                        );
-                      }),
-                    ),
-                  ],
-                ),
+              child: Row(
+                children: [
+                  8.horizontalSpace,
+                  IconButton(
+                    onPressed: () async {
+                      setState(() {
+                        isLoading = true;
+                        isExpanded = !isExpanded;
+                      });
+                      await controller.getRecords();
+                      setState(() {
+                        isLoading = false;
+                      });
+                    },
+                    icon: Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
+                  ),
+                  Expanded(
+                    child: Obx(() {
+                      textController.text = controller.goodsRecord.value ?? widget.hint;
+                      return TextFormField(
+                        readOnly: true,
+                        controller: textController,
+                        decoration: InputDecoration(
+                          hintText: null,
+                          contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                          border: InputBorder.none,
+                        ),
+                        textAlign: TextAlign.end,
+                        cursorColor: TColors.buttonPrimary,
+                        keyboardType: TextInputType.phone,
+                      );
+                    }),
+                  ),
+                ],
               ),
             ),
           ],
@@ -100,8 +110,13 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
         16.verticalSpace,
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          height: isExpanded ? isLoading ? 50.h : (DebtScheduleController.instance.recordsModel.value.data!.length > 5 ? 300.h
-              : DebtScheduleController.instance.recordsModel.value.data!.length * 70.h) : 0,
+          height: isExpanded
+              ? isLoading
+              ? 50.h
+              : (controller.recordsModel.value.data?.length ?? 0) > 5
+              ? 300.h
+              : (controller.recordsModel.value.data?.length ?? 0) * 70.h
+              : 0,
           padding: EdgeInsets.all(10.w),
           decoration: BoxDecoration(
             color: dark ? TColors.dark : TColors.lightGrey,
@@ -115,36 +130,25 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: DebtScheduleController.instance.recordsModel.value.data?.length,
+                itemCount: controller.recordsModel.value.data?.length ?? 0,
                 itemBuilder: (context, index) {
                   return countryCodeItemBuilder(index);
                 },
               ),
             );
           }),
-          //child: isLoading ? Center(child: LoadingWidget(),): SingleChildScrollView(
-          //             child: ListView.builder(
-          //               shrinkWrap: true,
-          //               physics: const NeverScrollableScrollPhysics(),
-          //               itemCount: DebtScheduleController.instance.recordsModel.data?.length,
-          //               itemBuilder: (context, index) {
-          //                 return countryCodeItemBuilder(index);
-          //               },
-          //             ),
-          //           ),
         ),
       ],
     );
   }
 
   InkWell countryCodeItemBuilder(int index) {
+    final item = controller.recordsModel.value.data?[index];
     return InkWell(
-      overlayColor: WidgetStateProperty.all(Colors.transparent),
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          DebtScheduleController.instance.goodsRecord.value = DebtScheduleController.instance.recordsModel.value.data![index].title ?? "";
+          controller.goodsRecord.value = item?.title ?? "";
+          controller.selectedGoodsId.value = item?.id ?? 0;
           isExpanded = false;
         });
       },
@@ -153,19 +157,20 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
         child: Row(
           children: [
             Radio<String>(
-              value: DebtScheduleController.instance.recordsModel.value.data![index].title ?? "",
-              groupValue: DebtScheduleController.instance.goodsRecord.value,
+              value: item?.title ?? "",
+              groupValue: controller.goodsRecord.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
                 setState(() {
-                  DebtScheduleController.instance.goodsRecord.value = value!;
+                  controller.goodsRecord.value = value ?? "";
+                  controller.selectedGoodsId.value = item?.id ?? 0;
                   isExpanded = false;
                 });
               },
             ),
             const Spacer(),
             16.horizontalSpace,
-            Text(DebtScheduleController.instance.recordsModel.value.data![index].title ?? ""),
+            Text(item?.title ?? ""),
             8.horizontalSpace,
           ],
         ),
@@ -173,3 +178,4 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
     );
   }
 }
+

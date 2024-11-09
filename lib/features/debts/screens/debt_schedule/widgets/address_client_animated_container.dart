@@ -35,7 +35,7 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
                 children: [
                   Flexible(
                     child: Text(
-                      widget.title!,
+                      widget.title ?? '',
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -100,7 +100,13 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
         16.verticalSpace,
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          height: isExpanded ? isLoading ? 50.h : (DebtScheduleController.instance.regionsModel.value.data!.length > 5 ? 300.h : DebtScheduleController.instance.regionsModel.value.data!.length * 70.h) : 0,
+          height: isExpanded
+              ? isLoading
+              ? 50.h
+              : (DebtScheduleController.instance.regionsModel.value.data?.length ?? 0) > 5
+              ? 300.h
+              : (DebtScheduleController.instance.regionsModel.value.data?.length ?? 0) * 70.h
+              : 0,
           padding: EdgeInsets.all(10.w),
           decoration: BoxDecoration(
             color: dark ? TColors.dark : TColors.lightGrey,
@@ -114,36 +120,28 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: DebtScheduleController.instance.regionsModel.value.data?.length,
+                itemCount: DebtScheduleController.instance.regionsModel.value.data?.length ?? 0,
                 itemBuilder: (context, index) {
                   return countryCodeItemBuilder(index);
                 },
               ),
             );
           }),
-          //child: isLoading ? const Center(child: LoadingWidget()): SingleChildScrollView(
-          //             child: ListView.builder(
-          //               shrinkWrap: true,
-          //               physics: const NeverScrollableScrollPhysics(),
-          //               itemCount: DebtScheduleController.instance.regionsModel.data?.length,
-          //               itemBuilder: (context, index) {
-          //                 return countryCodeItemBuilder(index);
-          //               },
-          //             ),
-          //           ),
         ),
       ],
     );
   }
 
   InkWell countryCodeItemBuilder(int index) {
+    final regionData = DebtScheduleController.instance.regionsModel.value.data?[index];
     return InkWell(
       overlayColor: WidgetStateProperty.all(Colors.transparent),
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          DebtScheduleController.instance.clientAddress.value = DebtScheduleController.instance.regionsModel.value.data?[index].title ?? "";
+          DebtScheduleController.instance.clientAddress.value = regionData?.title ?? "";
+          DebtScheduleController.instance.selectedClientId.value = regionData?.id ?? 0;
           isExpanded = false;
         });
       },
@@ -152,19 +150,20 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
         child: Row(
           children: [
             Radio<String>(
-              value: DebtScheduleController.instance.regionsModel.value.data?[index].title ?? "",
+              value: regionData?.title ?? "",
               groupValue: DebtScheduleController.instance.clientAddress.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
                 setState(() {
-                  DebtScheduleController.instance.clientAddress.value = value!;
+                  DebtScheduleController.instance.clientAddress.value = value ?? "";
+                  DebtScheduleController.instance.selectedClientId.value = regionData?.id ?? 0;
                   isExpanded = false;
                 });
               },
             ),
             const Spacer(),
             16.horizontalSpace,
-            Text(DebtScheduleController.instance.regionsModel.value.data?[index].title ?? ""),
+            Text(regionData?.title ?? ""),
             8.horizontalSpace,
           ],
         ),
