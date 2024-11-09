@@ -4,14 +4,11 @@ import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class AddressClientAnimatedContainer extends StatefulWidget {
-  const AddressClientAnimatedContainer({super.key, required this.hint, this.title, this.icon});
-
-  final String hint;
-  final String? title;
-  final IconData? icon;
+  const AddressClientAnimatedContainer({super.key});
 
   @override
   State<AddressClientAnimatedContainer> createState() => _AddressClientAnimatedContainerState();
@@ -35,15 +32,13 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
                 children: [
                   Flexible(
                     child: Text(
-                      widget.title ?? '',
+                      TTexts.clientAddress ?? '',
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  if (widget.icon != null) ...[
-                    8.horizontalSpace,
-                    Icon(widget.icon, color: TColors.buttonPrimary),
-                  ],
+                  8.horizontalSpace,
+                  const Icon(Icons.location_on, color: TColors.buttonPrimary),
                 ],
               ),
             ),
@@ -78,7 +73,7 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
                         return TextFormField(
                           readOnly: true,
                           controller: TextEditingController(
-                            text: DebtScheduleController.instance.clientAddress.value ?? widget.hint,
+                            text: DebtScheduleController.instance.clientAddress.value ?? 'دمشق',
                           ),
                           decoration: InputDecoration(
                             hintText: null,
