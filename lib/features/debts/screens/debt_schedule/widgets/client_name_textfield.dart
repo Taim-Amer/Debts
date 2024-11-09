@@ -11,7 +11,7 @@ class ClientNameTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldWidget(
       title: TTexts.clientName,
-      hint: "تيم عامر",
+      hint: "اسم العميل الكامل",
       icon: Icons.person,
       controller: DebtScheduleController.instance.clientNameController,
       validator: (value) => TValidator.validateEmptyText("اسم العميل", value),

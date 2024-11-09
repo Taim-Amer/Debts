@@ -58,6 +58,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                     Expanded(
                       child: TextFormField(
                         validator: (value) => TValidator.validatePhoneNumber(value),
+                        enableInteractiveSelection: false,
                         controller: SignInController.instance.phoneController,
                         decoration: InputDecoration(
                           hintText: '000_000_000',
@@ -68,7 +69,6 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                         cursorColor: TColors.buttonPrimary,
                         keyboardType: TextInputType.phone,
                         onChanged: (value) {
-                          // Prepend the selected country code when the user types.
                           if (!value.startsWith(selectedCountry.code!)) {
                             SignInController.instance.phoneController.text = selectedCountry.code! + value;
                             SignInController.instance.phoneController.selection = TextSelection.fromPosition(TextPosition(offset: SignInController.instance.phoneController.text.length));
@@ -119,6 +119,8 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
 
   InkWell countryCodeItemBuilder(int index) {
     return InkWell(
+      splashColor: Colors.transparent, // Disable splash color
+      highlightColor: Colors.transparent,
       overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: () {
         setState(() {

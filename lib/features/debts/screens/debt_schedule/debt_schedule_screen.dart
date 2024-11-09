@@ -44,9 +44,9 @@ class DebtScheduleScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const ClientNameTextField(),
-                TSizes.spaceBtwInputField.verticalSpace,
+                TSizes.lg.verticalSpace,
                 const AddressClientAnimatedContainer(),
-                TSizes.spaceBtwInputField.verticalSpace,
+                TSizes.sm.verticalSpace,
                 const ClientPhoneTextField(),
                 TSizes.sm.verticalSpace,
                 const AddAnotherPhoneNumberButton(),

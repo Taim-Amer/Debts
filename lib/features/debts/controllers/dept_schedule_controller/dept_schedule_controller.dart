@@ -1,3 +1,5 @@
+import 'dart:math';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
@@ -57,18 +59,6 @@ class DebtScheduleController extends GetxController {
 
     int? pageNumber = int.tryParse(pageNumberController.text);
 
-    print('Client Name: ${clientNameController.text}');
-    print('Client Number: ${clientNumberController.text}');
-    print('Selected Client ID: ${selectedClientId.value}');
-    print('Selected Goods ID: ${selectedGoodsId.value}');
-    print('Page Number: $pageNumber');
-    print('Amount: ${amountController.text}');
-    print('Goods Description: ${goodsDescriptionController.text}');
-    print('Monthly Payment: ${monthlyPaymentController.text}');
-    print('Sponsor Name: ${sponsorNameController.text}');
-    print('Sponsor Number: ${sponsorNumberController.text}');
-    print('Selected Sponsor ID: ${selectedSponsorId.value}');
-
     try{
       await DebtScheduleRepositoryImpl.instance.createDebt(clientNameController.text, clientNumberController.text, selectedClientId.value, selectedGoodsId.value, pageNumber!, amountController.text, goodsDescriptionController.text, monthlyPaymentController.text, sponsorNameController.text, sponsorNumberController.text, selectedSponsorId.value);
       updateStatus(value: RequestState.success);
@@ -79,4 +69,37 @@ class DebtScheduleController extends GetxController {
       updateStatus(value: RequestState.onError);
     }
   }
+
+  Future<void> addNewDebtItem() async {
+    int pageNumber = int.tryParse(pageNumberController.text) ?? Random().nextInt(100);
+
+    try {
+      final response = await DebtScheduleRepositoryImpl.instance.createDebt(
+        clientNameController.text,
+        clientNumberController.text,
+        selectedClientId.value ?? 0,
+        selectedGoodsId.value ?? 0,
+        pageNumber,
+        amountController.text,
+        goodsDescriptionController.text,
+        monthlyPaymentController.text,
+        sponsorNameController.text,
+        sponsorNumberController.text,
+        selectedSponsorId.value ?? 0,
+      );
+
+      if (response.status == true) {
+        updateStatus(value: RequestState.success);
+        showToast("تم اضافة دين جديد", ToastState.success);
+        Get.offAndToNamed(AppRoutes.debtSchedule);
+      } else if (response.status == null) {
+        showToast("يجب اكمال هذا الطلب اولا", ToastState.warning);
+      }
+    } catch (e) {
+      if (e is DioException && e.response?.statusCode == 422) {
+        showToast("يجب اكمال هذا الطلب اولا", ToastState.warning);
+      }
+    }
+  }
+
 }
