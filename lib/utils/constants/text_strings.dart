@@ -65,6 +65,7 @@ class TTexts {
   static const String monthReminder = "تذكير بعد شهر";
   static const String customizeReminder = "تذكير بشكل مخصص";
   static const String notationAdd = "... أضف ملاحظة";
+  static const String sponsorName = "اسم الكفيل";
 
   // Additions
   static const String addNewCollection = "إضافة دفعة جديدة";

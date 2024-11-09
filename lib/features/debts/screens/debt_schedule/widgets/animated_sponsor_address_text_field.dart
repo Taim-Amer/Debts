@@ -102,6 +102,14 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
           child: isExpanded ? Column(
             children: [
               TextFieldWidget(
+                title: TTexts.sponsorName,
+                hint: "اسم الكفيل الكامل",
+                icon: Icons.person,
+                controller: DebtScheduleController.instance.sponsorNameController,
+                keyboardType: TextInputType.name,
+              ),
+              TSizes.spaceBtwInputField.verticalSpace,
+              TextFieldWidget(
                 title: TTexts.sponsorPhone,
                 hint: "0000-000-000",
                 icon: Icons.phone_android,

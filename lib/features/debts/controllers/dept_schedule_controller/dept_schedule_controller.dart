@@ -22,6 +22,7 @@ class DebtScheduleController extends GetxController {
   final initialPaymentController = TextEditingController();
   final monthlyPaymentController = TextEditingController();
   final amountController = TextEditingController();
+  final sponsorNameController = TextEditingController();
 
   GlobalKey<FormState> debtScheduleKey = GlobalKey<FormState>();
 
@@ -35,5 +36,9 @@ class DebtScheduleController extends GetxController {
 
   Future<void> getRecords() async {
     recordsModel.value = await DebtScheduleRepositoryImpl.instance.getRecords();
+  }
+
+  Future<void> createDebt() async{
+
   }
 }

@@ -17,4 +17,6 @@ class TApiConstants {
   static const String getRegions = "user/get_regions";
 
   static const String getRecords = "user/get_records";
+
+  static const String createDebt = "user/create_debt";
 }
