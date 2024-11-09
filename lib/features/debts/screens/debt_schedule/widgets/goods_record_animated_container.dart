@@ -66,7 +66,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
                           isLoading = true;
                           isExpanded = !isExpanded;
                         });
-                        await DebtScheduleController.instance.getRegions();
+                        await DebtScheduleController.instance.getRecords();
                         setState(() {
                           isLoading = false;
                         });
@@ -100,8 +100,8 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
         16.verticalSpace,
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          height: isExpanded ? isLoading ? 50.h : (DebtScheduleController.instance.regionsList.length > 5 ? 300.h
-              : DebtScheduleController.instance.regionsList.length * 70.h) : 0,
+          height: isExpanded ? isLoading ? 50.h : (DebtScheduleController.instance.recordsModel.value.data!.length > 5 ? 300.h
+              : DebtScheduleController.instance.recordsModel.value.data!.length * 70.h) : 0,
           padding: EdgeInsets.all(10.w),
           decoration: BoxDecoration(
             color: dark ? TColors.dark : TColors.lightGrey,
@@ -115,13 +115,23 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: DebtScheduleController.instance.regionsList.length,
+                itemCount: DebtScheduleController.instance.recordsModel.value.data?.length,
                 itemBuilder: (context, index) {
                   return countryCodeItemBuilder(index);
                 },
               ),
             );
           }),
+          //child: isLoading ? Center(child: LoadingWidget(),): SingleChildScrollView(
+          //             child: ListView.builder(
+          //               shrinkWrap: true,
+          //               physics: const NeverScrollableScrollPhysics(),
+          //               itemCount: DebtScheduleController.instance.recordsModel.data?.length,
+          //               itemBuilder: (context, index) {
+          //                 return countryCodeItemBuilder(index);
+          //               },
+          //             ),
+          //           ),
         ),
       ],
     );
@@ -134,8 +144,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
       highlightColor: Colors.transparent,
       onTap: () {
         setState(() {
-          DebtScheduleController.instance.goodsRecord.value =
-          DebtScheduleController.instance.regionsList[index].title!;
+          DebtScheduleController.instance.goodsRecord.value = DebtScheduleController.instance.recordsModel.value.data![index].title ?? "";
           isExpanded = false;
         });
       },
@@ -144,7 +153,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
         child: Row(
           children: [
             Radio<String>(
-              value: DebtScheduleController.instance.regionsList[index].title!,
+              value: DebtScheduleController.instance.recordsModel.value.data![index].title ?? "",
               groupValue: DebtScheduleController.instance.goodsRecord.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
@@ -156,7 +165,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
             ),
             const Spacer(),
             16.horizontalSpace,
-            Text(DebtScheduleController.instance.regionsList[index].title!),
+            Text(DebtScheduleController.instance.recordsModel.value.data![index].title ?? ""),
             8.horizontalSpace,
           ],
         ),

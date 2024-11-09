@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:taha_debts/features/debts/models/debt_schedule/records_model.dart';
 import 'package:taha_debts/features/debts/models/debt_schedule/regions_model.dart';
 import 'package:taha_debts/features/debts/repositories/debt_schedule/debt_schedule_repo_impl.dart';
 
@@ -9,18 +10,18 @@ class DebtScheduleController extends GetxController{
   RxString sponsorAddress = "دمشق".obs;
   RxString goodsRecord = "سجل الاثاث".obs;
 
-  RxList<Data> regionsList = <Data>[].obs;
+  // RxList<RegionsModel> regionsList = <RegionsModel>[].obs;
+  // RxList<RecordsModel> recordsList = <RecordsModel>[].obs;
 
-  // @override
-  // void onReady() {
-  //   // TODO: implement onReady
-  //   super.onReady();
-  //   getRegions();
-  // }
+  Rx<RegionsModel> regionsModel = RegionsModel().obs;
+  Rx<RecordsModel> recordsModel = RecordsModel().obs;
+
 
   Future<void> getRegions() async{
-    final fetchedRegions = await DebtScheduleRepositoryImpl.instance.getRegions();
-    regionsList.assignAll(fetchedRegions.data ?? []);
-    // regionsModel.value = await DebtScheduleRepositoryImpl.instance.getRegions();
+    regionsModel.value = await DebtScheduleRepositoryImpl.instance.getRegions();
+  }
+
+  Future<void> getRecords() async{
+    recordsModel.value = await DebtScheduleRepositoryImpl.instance.getRecords();
   }
 }
