@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:taha_debts/bindings/additions_binding.dart';
 import 'package:taha_debts/bindings/debt_schedule_binding.dart';
 import 'package:taha_debts/bindings/home_binding.dart';
 import 'package:taha_debts/bindings/otp_binding.dart';
@@ -8,6 +9,8 @@ import 'package:taha_debts/bindings/signup_binding.dart';
 import 'package:taha_debts/features/authentication/screens/otp/otp_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signin/signin_screen.dart';
 import 'package:taha_debts/features/authentication/screens/signup/signup_screen.dart';
+import 'package:taha_debts/features/debts/screens/additions/debt_addition_screen.dart';
+import 'package:taha_debts/features/debts/screens/additions/pay_addition_screen.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/debt_schedule_screen.dart';
 import 'package:taha_debts/features/debts/screens/home/home_empty_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile/profile_screen.dart';
@@ -21,6 +24,8 @@ class AppRoutes {
   static const profile = '/profile';
   static const profileEdit = '/profileEdit';
   static const debtSchedule = '/debtSchedule';
+  static const addPayment = '/addPayment';
+  static const addDebt = '/addDebt';
 
   static List<GetPage> routes = [
 
@@ -71,6 +76,20 @@ class AppRoutes {
       page: () => const DebtScheduleScreen(),
       binding: DebtScheduleBinding(),
       transition: Transition.rightToLeft,
-    )
+    ),
+
+    GetPage(
+      name: addPayment,
+      page: () => const PayAdditionScreen(),
+      binding: AdditionBinding(),
+      transition: Transition.rightToLeft
+    ),
+
+    GetPage(
+        name: addDebt,
+        page: () => const DebtAdditionScreen(),
+        binding: AdditionBinding(),
+        transition: Transition.rightToLeft
+    ),
   ];
 }
