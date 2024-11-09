@@ -138,7 +138,7 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
       onTap: () {
         setState(() {
           DebtScheduleController.instance.sponsorAddress.value = regionData?.title ?? "";
-          DebtScheduleController.instance.selectedSponsorId.value = regionData?.id ?? 0; // Save the sponsor ID
+          DebtScheduleController.instance.selectedSponsorId.value = regionData?.id ?? 0;
           isExpanded = false;
         });
       },

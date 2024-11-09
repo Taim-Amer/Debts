@@ -12,7 +12,7 @@ class MonthlyPaymentTextField extends StatelessWidget {
       title: TTexts.monthlyPayment,
       hint: '100.000 IQD',
       controller: DebtScheduleController.instance.monthlyPaymentController,
-      keyboardType: TextInputType.text,
+      keyboardType: TextInputType.number,
     );
   }
 }

@@ -11,8 +11,8 @@ class InitialPaymentTextField extends StatelessWidget {
     return TextFieldWidget(
       title: TTexts.initialPayment,
       hint: '500.000 IQD',
-      controller: DebtScheduleController.instance.monthlyPaymentController,
-      keyboardType: TextInputType.text,
+      controller: DebtScheduleController.instance.initialPaymentController,
+      keyboardType: TextInputType.number,
     );
   }
 }

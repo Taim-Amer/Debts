@@ -31,7 +31,7 @@ class TTexts {
   static const String addSponsor = "اضافة كفيل ان وجد";
   static const String sponsorPhone = "رقم هاتف الكفيل";
   static const String sponsorAddress = "عنوان الكفيل";
-  static const String amount = "المبلغ (اختياري)";
+  static const String amount = "المبلغ";
   static const String productDescription = "وصف البضاعة (اختياري)";
   static const String initialPayment = "الدفعة الاولى (اختياري)";
   static const String monthlyPayment = "الدفعة الشهرية (اختياري)";

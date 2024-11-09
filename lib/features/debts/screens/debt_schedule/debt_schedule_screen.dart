@@ -44,7 +44,7 @@ class DebtScheduleScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const ClientNameTextField(),
-                TSizes.spaceBtwSections.verticalSpace,
+                TSizes.spaceBtwInputField.verticalSpace,
                 const AddressClientAnimatedContainer(),
                 TSizes.spaceBtwInputField.verticalSpace,
                 const ClientPhoneTextField(),
@@ -69,6 +69,7 @@ class DebtScheduleScreen extends StatelessWidget {
                 const AnimatedSponsorAddressTextField(),
                 TSizes.spaceBtwInputField.verticalSpace,
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Expanded(
                       flex: 3,
