@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/borrower_row.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
+import 'package:taha_debts/utils/formatters/formatter.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class BorrowersList extends StatelessWidget {
@@ -20,7 +21,7 @@ class BorrowersList extends StatelessWidget {
               amount: model.debts?[index].amount.toString() ?? "",
               name: model.debts?[index].name ?? "",
               status: model.debts?[index].status ?? "",
-              lastUpdate: model.debts?[index].lastUpdate ?? DateTime.now().toString(),
+              lastUpdate: model.debts?[index].lastUpdate ?? TFormatter.formatData(null),
         ),
       ),
     );

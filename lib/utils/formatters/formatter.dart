@@ -4,8 +4,9 @@ class TFormatter {
 
   static String formatData(DateTime? date) {
     date ??= DateTime.now();
-    return DateFormat("dd-MMM-yyyy").format(date);
+    return DateFormat("yyyy-MM-dd").format(date);
   }
+
 
   static String formatCurrency(double amount) {
     return NumberFormat.currency(locale: "en_Us", symbol: "\$").format(amount);
@@ -21,14 +22,11 @@ class TFormatter {
   }
 
   static String internationalFormatPhoneNumber(String phoneNumber) {
-    // Remove any non-digit character from the phone number
     var digitsOnly = phoneNumber.replaceAll(RegExp(r'\D'), '');
 
-    // Extract the country code from the digitOnly
     String countryCode = "+${digitsOnly.substring(0,2)}";
     digitsOnly = digitsOnly.substring(2);
 
-    // Add the remaining digits with proper formatting
     final formattedNumber = StringBuffer();
     formattedNumber.write("($countryCode) ");
 

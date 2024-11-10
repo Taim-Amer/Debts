@@ -22,7 +22,7 @@ class BorrowerRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(amount, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.redColor)),
+            Text(amount, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: status == "allowed" ? TColors.greenColor : TColors.redColor)),
             Text(TTexts.debt, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
           ],
         ),
@@ -35,8 +35,7 @@ class BorrowerRow extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    //=================================
-                    TRoundedContainer(width: 16.w, height: 16.h, radius: 10.r, backgroundColor: TColors.redColor),
+                    TRoundedContainer(width: 16.w, height: 16.h, radius: 10.r, backgroundColor: status == "allowed" ? TColors.greenColor : TColors.redColor),
                     10.horizontalSpace,
                     Text(name, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14)),
                   ],
@@ -54,7 +53,7 @@ class BorrowerRow extends StatelessWidget {
               width: 34,
               height: 34,
               backgroundColor: TColors.lightGrey,
-              child: Text("ت", style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.black),),
+              child: Text(name[0], style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.black),),
             ),
           ],
         ),
