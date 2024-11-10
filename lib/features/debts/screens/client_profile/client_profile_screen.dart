@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
+import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/by_sponsor_container.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_debts_row.dart';
@@ -9,17 +10,16 @@ import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_profile_header.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_profile_navbar.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/collection_date_container.dart';
+import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class ClientProfileScreen extends StatelessWidget {
-  ClientProfileScreen({super.key});
-
-  final clientProfileController = Get.put(ClientProfileController());
+  const ClientProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ClientProfileController.instance.getClientProfileStatus.value != RequestState.success ? const Center(child: LoadingWidget()) : Scaffold(
       bottomNavigationBar: const ClientProfileNavBar(),
       body: SingleChildScrollView(
         child: Padding(
