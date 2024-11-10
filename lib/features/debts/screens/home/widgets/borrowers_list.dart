@@ -13,15 +13,18 @@ class BorrowersList extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = HomeController.instance.myDebtsModel.value;
     return SizedBox(
-      height: THelperFunctions.screenHeight(context),
-      child: ListView.separated(
-        itemCount: model.debts?.length ?? 0,
-        separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
-        itemBuilder: (context, index) => BorrowerRow(
-              amount: model.debts?[index].amount.toString() ?? "",
-              name: model.debts?[index].name ?? "",
-              status: model.debts?[index].status ?? "",
-              lastUpdate: model.debts?[index].lastUpdate ?? TFormatter.formatData(null),
+      height: 600.h,
+      child: Padding(
+        padding: EdgeInsets.only(bottom: TSizes.spaceBtwSections.h),
+        child: ListView.separated(
+          itemCount: model.debts?.length ?? 0,
+          separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
+          itemBuilder: (context, index) => BorrowerRow(
+                amount: model.debts?[index].amount.toString() ?? "",
+                name: model.debts?[index].name ?? "",
+                status: model.debts?[index].status ?? "",
+                lastUpdate: model.debts?[index].lastUpdate ?? TFormatter.formatData(null),
+          ),
         ),
       ),
     );

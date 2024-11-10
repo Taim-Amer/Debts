@@ -23,4 +23,6 @@ class TApiConstants {
   static const String addPayment = "user/add_payment";
 
   static const String getMyDebts = "user/get_my_debts";
+
+  static const String getClientProfile = "user/get_customer_profile";
 }

@@ -5,6 +5,7 @@ import 'package:taha_debts/features/debts/controllers/home_controller/home_contr
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:get/get.dart';
+import 'package:taha_debts/utils/router/app_router.dart';
 
 class HomeFloatingActionButton extends StatelessWidget {
   const HomeFloatingActionButton({super.key});
@@ -19,10 +20,7 @@ class HomeFloatingActionButton extends StatelessWidget {
         height: 64.h,
         size: 34,
         color: Colors.white,
-        onPressed: () {
-          // Navigate to DebtScheduleScreen
-          // Get.to(const DebtScheduleScreen(), transition: Transition.rightToLeft);
-        },
+        onPressed: () => Get.toNamed(AppRoutes.debtSchedule),
       ) : const SizedBox();
     });
   }
