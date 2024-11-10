@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
-import 'package:taha_debts/features/debts/screens/home/widgets/borrower_row.dart';
+import 'package:taha_debts/features/debts/screens/home/widgets/borrowers_list.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/debts_filter_dialog.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/home_filter_container.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/search_by_name_field.dart';
@@ -41,8 +41,8 @@ class HomeWithDataForm extends StatelessWidget {
             ),
             TSizes.spaceBtwInputField.verticalSpace,
             const SearchByNameTextField(),
-            TSizes.spaceBtwSections.verticalSpace,
-            const BorrowerRow()
+            TSizes.spaceBtwItems.verticalSpace,
+            const BorrowersList(),
           ],
         ),
       ),

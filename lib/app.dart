@@ -8,7 +8,6 @@ import 'package:taha_debts/bindings/profile_binding.dart';
 import 'package:taha_debts/bindings/signin_binding.dart';
 import 'package:taha_debts/features/authentication/screens/signin/signin_screen.dart';
 import 'package:taha_debts/features/debts/screens/additions/debt_addition_screen.dart';
-import 'package:taha_debts/features/debts/screens/home/home_empty_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile/profile_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile_edit/profile_edit_screen.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';

@@ -6,9 +6,12 @@ import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class BorrowerRow extends StatelessWidget {
-  const BorrowerRow({
-    super.key,
-  });
+  const BorrowerRow({super.key, required this.amount, required this.name, required this.status, required this.lastUpdate});
+
+  final String amount;
+  final String name;
+  final String status;
+  final String lastUpdate;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class BorrowerRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text("500.000 IQD", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.redColor)),
+            Text(amount, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.redColor)),
             Text(TTexts.debt, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
           ],
         ),
@@ -32,14 +35,15 @@ class BorrowerRow extends StatelessWidget {
               children: [
                 Row(
                   children: [
+                    //=================================
                     TRoundedContainer(width: 16.w, height: 16.h, radius: 10.r, backgroundColor: TColors.redColor),
                     10.horizontalSpace,
-                    Text("تيم عامر 450", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14)),
+                    Text(name, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14)),
                   ],
                 ),
                 Row(
                   children: [
-                    Text(TTexts.day, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
+                    Text(lastUpdate, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
                     const Icon(Icons.calendar_month, color: TColors.softGrey, size: 12,)
                   ],
                 )

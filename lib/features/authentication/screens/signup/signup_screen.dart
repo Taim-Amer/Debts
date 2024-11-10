@@ -8,8 +8,6 @@ import 'package:taha_debts/features/authentication/controllers/signup/signup_con
 import 'package:taha_debts/features/authentication/screens/signup/widgets/email_textfield.dart';
 import 'package:taha_debts/features/authentication/screens/signup/widgets/signup_header.dart';
 import 'package:taha_debts/features/authentication/screens/signup/widgets/username_textfield.dart';
-import 'package:taha_debts/features/debts/screens/home/home_empty_screen.dart';
-import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';

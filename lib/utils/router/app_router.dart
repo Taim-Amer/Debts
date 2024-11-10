@@ -12,7 +12,6 @@ import 'package:taha_debts/features/authentication/screens/signup/signup_screen.
 import 'package:taha_debts/features/debts/screens/additions/debt_addition_screen.dart';
 import 'package:taha_debts/features/debts/screens/additions/pay_addition_screen.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/debt_schedule_screen.dart';
-import 'package:taha_debts/features/debts/screens/home/home_empty_screen.dart';
 import 'package:taha_debts/features/debts/screens/home/home_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile/profile_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile_edit/profile_edit_screen.dart';

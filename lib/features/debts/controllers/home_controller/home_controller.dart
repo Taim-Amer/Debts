@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
+import 'package:taha_debts/features/debts/models/home/my_debts_model.dart';
 import 'package:taha_debts/features/debts/repositories/home/home_repo_impl.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/logging/logger.dart';
@@ -11,7 +12,7 @@ class HomeController extends GetxController {
   RxBool isAllSelected = true.obs;
   RxBool isTotalReceivedSelected = false.obs;
   RxBool isSettledSelected = false.obs;
-
+  final myDebtsModel = MyDebtsModel().obs;
 
   var getDebtsApiStatus = RequestState.begin.obs;
 
@@ -29,17 +30,13 @@ class HomeController extends GetxController {
     updateStatus(value: RequestState.loading);
 
     try{
-      final response = await HomeRepositoryImpl.instance.getMyDebts(filter);
-      if(response.status == true && response.debts!.isNotEmpty){
+      myDebtsModel.value = await HomeRepositoryImpl.instance.getMyDebts(filter);
+      if(myDebtsModel.value.status == true && myDebtsModel.value.debts!.isNotEmpty){
         updateStatus(value: RequestState.success);
-      } else if(response.debts!.isEmpty){
+      } else if(myDebtsModel.value.debts!.isEmpty){
         updateStatus(value: RequestState.noData);
       }
     } catch(error){
-      TLoggerHelper.debug(error.toString());
-      TLoggerHelper.error(error.toString());
-      TLoggerHelper.info(error.toString());
-      TLoggerHelper.warning(error.toString());
       updateStatus(value: RequestState.onError);
       showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
     }
