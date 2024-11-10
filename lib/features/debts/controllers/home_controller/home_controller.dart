@@ -30,7 +30,7 @@ class HomeController extends GetxController {
 
     try{
       final response = await HomeRepositoryImpl.instance.getMyDebts(filter);
-      if(response.status == true){
+      if(response.status == true && response.debts!.isNotEmpty){
         updateStatus(value: RequestState.success);
       } else if(response.debts!.isEmpty){
         updateStatus(value: RequestState.noData);

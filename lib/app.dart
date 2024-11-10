@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/bindings/additions_binding.dart';
 import 'package:taha_debts/bindings/general_bindings.dart';
+import 'package:taha_debts/bindings/home_binding.dart';
 import 'package:taha_debts/bindings/profile_binding.dart';
 import 'package:taha_debts/bindings/signin_binding.dart';
 import 'package:taha_debts/features/authentication/screens/signin/signin_screen.dart';
@@ -26,9 +27,9 @@ class App extends StatelessWidget {
           themeMode: ThemeMode.system,
           theme: TAppTheme.lightTheme,
           darkTheme: TAppTheme.darkTheme,
-          initialRoute: AppRoutes.addPayment,
+          initialRoute: AppRoutes.home,
           getPages: AppRoutes.routes,
-          initialBinding: AdditionBinding(),
+          initialBinding: HomeBinding(),
           // home: const DebtAdditionScreen()
       ),
     );
