@@ -13,6 +13,6 @@ class AdditionsRepositoryImpl implements AdditionsRepository{
   @override
   Future<AddPaymentModel> addPayment(int clientId, int amount, String goodsDescription) async{
     final dioHelper = TDioHelper();
-    return await dioHelper.post(TApiConstants.addPayment, token: token,{"customer_id" : clientId, "amount" : amount, "goods_description" : goodsDescription}).then((response) => AddPaymentModel.fromJson(response));
+    return await dioHelper.post(TApiConstants.addPayment, token: token, {"customer_id" : clientId, "amount" : amount, "goods_description" : goodsDescription}).then((response) => AddPaymentModel.fromJson(response));
   }
 }

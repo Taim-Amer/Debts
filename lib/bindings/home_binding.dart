@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:taha_debts/features/personalization/controllers/profile/profile_controller.dart';
-import 'package:taha_debts/features/personalization/repositories/profile/profile_repo_impl.dart';
+import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
+import 'package:taha_debts/features/debts/repositories/home/home_repo_impl.dart';
 
 class HomeBinding extends Bindings{
   @override
@@ -9,5 +9,8 @@ class HomeBinding extends Bindings{
     // من احل اسم المستخدم يلي بالهوم
     // Get.put(ProfileController());
     // Get.put(ProfileRepositoryImpl());
+    
+    Get.put(HomeController());
+    Get.put(HomeRepositoryImpl());
   }
 }

@@ -16,8 +16,7 @@ import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
-  final HomeController homeController = Get.put(HomeController());
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

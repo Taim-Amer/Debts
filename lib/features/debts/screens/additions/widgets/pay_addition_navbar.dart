@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taha_debts/features/debts/controllers/additions_controller/additions_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
@@ -13,7 +14,9 @@ class PayAdditionNavbar extends StatelessWidget {
         width: 400,
         height: 50,
         child: ElevatedButton(
-          onPressed: (){},
+          onPressed: (){
+            AdditionsController.instance.addPayment();
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: TColors.greenColor,
             foregroundColor: TColors.greenColor,
