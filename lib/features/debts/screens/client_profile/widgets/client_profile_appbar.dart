@@ -6,7 +6,7 @@ import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/device/device_utility.dart';
 
-class ClientProfileAppbar extends StatelessWidget implements PreferredSizeWidget{
+class ClientProfileAppbar extends StatelessWidget{
   const ClientProfileAppbar({super.key});
 
   @override
@@ -25,8 +25,4 @@ class ClientProfileAppbar extends StatelessWidget implements PreferredSizeWidget
       ],
     );
   }
-
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(TDeviceUtils.getAppBarHeight());
 }

@@ -10,15 +10,19 @@ class TransactionsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final clientProfileModel = ClientProfileController.instance.clientProfileModel.value;
-    return ListView.separated(
-      itemCount: clientProfileModel.payments?.length ?? 0,
-      separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
-      itemBuilder: (context, index) => ClientDebtsRow(
-        isDebt: clientProfileModel.payments?[index].type == "debt" ? true : false,
-        goodsDescription: clientProfileModel.payments?[index].goodsDescription ?? "",
-        afterPay: clientProfileModel.payments?[index].afterPay ?? "",
-        amount: clientProfileModel.payments?[index].amount ?? "",
-        date: clientProfileModel.payments?[index].date ?? "",
+    return SizedBox(
+      height: 600.h,
+      child: ListView.builder(
+        itemCount: clientProfileModel.payments?.length ?? 0,
+        // separatorBuilder: (context, _) => TSizes.sm.verticalSpace,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) => ClientDebtsRow(
+          isDebt: clientProfileModel.payments?[index].type == "debt" ? true : false,
+          goodsDescription: clientProfileModel.payments?[index].goodsDescription.toString() ?? "",
+          afterPay: clientProfileModel.payments?[index].afterPay.toString() ?? "",
+          amount: clientProfileModel.payments?[index].amount.toString() ?? "",
+          date: clientProfileModel.payments?[index].date.toString() ?? "",
+        ),
       ),
     );
   }
