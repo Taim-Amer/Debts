@@ -16,7 +16,7 @@ class ClientProfileHeader extends StatelessWidget {
       children: [
         SvgPicture.asset(TImages.profile),
         TSizes.xs.verticalSpace,
-        Text("${clientProfileModel.value.customer!.name}: ${clientProfileModel.value.customer!.id}", style: Theme.of(context).textTheme.headlineMedium),
+        Text("${clientProfileModel.value.customer!.name}: ${clientProfileModel.value.customer!.pageNumber}", style: Theme.of(context).textTheme.headlineMedium),
         TSizes.sm.verticalSpace,
         Text(clientProfileModel.value.customer?.phone?.first ?? "", style: Theme.of(context).textTheme.headlineSmall,),
         TSizes.sm.verticalSpace,

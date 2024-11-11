@@ -13,23 +13,27 @@ class AdditionsController extends GetxController{
   final amountController = TextEditingController();
   final goodsDescriptionController = TextEditingController();
 
-  GlobalKey<FormState> additionsKey = GlobalKey<FormState>();
+  GlobalKey<FormState> paymentAdditionsKey = GlobalKey<FormState>();
+  GlobalKey<FormState> debtAdditionsKey = GlobalKey<FormState>();
 
   var addPaymentApiStatus = RequestState.begin.obs;
+  var addDebtApiStatus = RequestState.begin.obs;
 
-  void updateStatus({required RequestState value}) {
+  void updatePaymentStatus({required RequestState value}) {
     addPaymentApiStatus.value = value;
   }
 
-  Future<void> addPayment() async{
-    updateStatus(value: RequestState.loading);
+  void updateDebtStatus({required RequestState value}) {
+    addDebtApiStatus.value = value;
+  }
 
-    print(amountController.text);
-    print(goodsDescriptionController.text);
-    if (!additionsKey.currentState!.validate()) {
-      updateStatus(value: RequestState.begin);
-      return;
-    }
+  Future<void> addPayment() async{
+    updatePaymentStatus(value: RequestState.loading);
+
+    if (!paymentAdditionsKey.currentState!.validate()) {
+        updatePaymentStatus(value: RequestState.begin);
+        return;
+      }
 
     int? amount = int.tryParse(amountController.text);
     int id = ClientProfileController.instance.clientProfileModel.value.customer!.id!;
@@ -37,13 +41,35 @@ class AdditionsController extends GetxController{
     try{
       final response = await AdditionsRepositoryImpl.instance.addPayment(id, amount!, goodsDescriptionController.text);
       if(response.status == true){
-        showToast("تم اضافة عملية الدفع بنجاح", ToastState.success);
-      }
-
-      //Nav===================
+          showToast("تم اضافة عملية الدفع بنجاح", ToastState.success);
+        }
     } catch(error){
       TLoggerHelper.error(error.toString());
       showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
     }
   }
+
+  Future<void> addDebt() async{
+    updateDebtStatus(value: RequestState.loading);
+
+    if (!debtAdditionsKey.currentState!.validate()) {
+      updateDebtStatus(value: RequestState.begin);
+      return;
+    }
+
+    int? amount = int.tryParse(amountController.text);
+    int id = ClientProfileController.instance.clientProfileModel.value.customer!.id!;
+
+    try{
+      final response = await AdditionsRepositoryImpl.instance.addDebt(id, amount!, goodsDescriptionController.text);
+      if(response.status == true){
+        showToast("تم اضافة دين جديد بنجاح", ToastState.success);
+      }
+    } catch(error){
+      TLoggerHelper.error(error.toString());
+      showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
+    }
+
+  }
+
 }

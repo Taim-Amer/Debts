@@ -7,6 +7,7 @@ import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
+import 'package:taha_debts/utils/validators/validation.dart';
 
 class AnimatedSponsorAddressTextField extends StatefulWidget {
   const AnimatedSponsorAddressTextField({super.key});
@@ -106,6 +107,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 icon: Icons.person,
                 controller: DebtScheduleController.instance.sponsorNameController,
                 keyboardType: TextInputType.name,
+                validator: (value) => TValidator.validateEmptyText("اسم الكفيل", value),
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               TextFieldWidget(
@@ -114,6 +116,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 icon: Icons.phone_android,
                 controller: DebtScheduleController.instance.sponsorNumberController,
                 keyboardType: TextInputType.phone,
+                validator: (value) => TValidator.validatePhoneNumber(value),
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               const AddressSponsorAnimatedContainer()

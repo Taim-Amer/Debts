@@ -20,7 +20,7 @@ class PayAdditionScreen extends StatelessWidget {
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
           child: Form(
-            key: AdditionsController.instance.additionsKey,
+            key: AdditionsController.instance.paymentAdditionsKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

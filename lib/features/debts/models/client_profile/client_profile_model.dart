@@ -34,30 +34,37 @@ class Customer {
   List<String>? phone;
   int? regionId;
   String? status;
-  Null customerRegion;
+  dynamic customerRegion;  // Adjusted to handle dynamic types if needed
   int? pageNumber;
   Sponsor? sponsor;
 
-  Customer(
-      {this.id,
-        this.name,
-        this.phone,
-        this.regionId,
-        this.status,
-        this.customerRegion,
-        this.pageNumber,
-        this.sponsor});
+  Customer({
+    this.id,
+    this.name,
+    this.phone,
+    this.regionId,
+    this.status,
+    this.customerRegion,
+    this.pageNumber,
+    this.sponsor,
+  });
 
   Customer.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    phone = json['phone'].cast<String>();
+
+    // Handle 'phone' as either a single string or a list of strings
+    if (json['phone'] is List) {
+      phone = List<String>.from(json['phone']);
+    } else if (json['phone'] is String) {
+      phone = [json['phone']];
+    }
+
     regionId = json['region_id'];
     status = json['status'];
     customerRegion = json['customer_region'];
     pageNumber = json['page_number'];
-    sponsor =
-    json['sponsor'] != null ? Sponsor.fromJson(json['sponsor']) : null;
+    sponsor = json['sponsor'] != null ? Sponsor.fromJson(json['sponsor']) : null;
   }
 
   Map<String, dynamic> toJson() {

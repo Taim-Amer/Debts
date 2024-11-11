@@ -4,6 +4,7 @@ import 'package:taha_debts/features/debts/models/client_profile/client_profile_m
 import 'package:taha_debts/features/debts/repositories/client_profile/client_profile_repo_impl.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/logging/logger.dart';
+import 'package:taha_debts/utils/storage/cache_helper.dart';
 
 class ClientProfileController extends GetxController{
   static ClientProfileController get instance => Get.find();
@@ -22,6 +23,7 @@ class ClientProfileController extends GetxController{
     try{
       clientProfileModel.value = await ClientProfileRepositoryImpl.instance.getClientProfile(id);
       updateStatus(value: RequestState.success);
+      TCacheHelper.saveData(key: "client_id", value: id);
     }catch(error){
       TLoggerHelper.warning(error.toString());
       updateStatus(value: RequestState.onError);

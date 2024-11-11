@@ -77,7 +77,7 @@ class DebtScheduleController extends GetxController {
     try {
       final response = await DebtScheduleRepositoryImpl.instance.createDebt(
         clientNameController.text,
-        clientNumberController.text,
+        clientNumberController.text.toString(),
         selectedClientId.value ?? 0,
         selectedGoodsId.value ?? 0,
         pageNumber,
@@ -85,7 +85,7 @@ class DebtScheduleController extends GetxController {
         goodsDescriptionController.text,
         monthlyPaymentController.text,
         sponsorNameController.text,
-        sponsorNumberController.text,
+        sponsorNumberController.text.toString(),
         selectedSponsorId.value ?? 0,
       );
 
