@@ -19,7 +19,6 @@ class ClientDebtsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TSizes.spaceBtwSections.verticalSpace,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

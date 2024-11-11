@@ -12,9 +12,9 @@ class TransactionsList extends StatelessWidget {
     final clientProfileModel = ClientProfileController.instance.clientProfileModel.value;
     return SizedBox(
       height: 600.h,
-      child: ListView.builder(
+      child: ListView.separated(
         itemCount: clientProfileModel.payments?.length ?? 0,
-        // separatorBuilder: (context, _) => TSizes.sm.verticalSpace,
+        separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) => ClientDebtsRow(
           isDebt: clientProfileModel.payments?[index].type == "debt" ? true : false,
