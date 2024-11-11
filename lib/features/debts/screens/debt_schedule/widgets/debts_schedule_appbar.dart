@@ -11,7 +11,7 @@ class DebtsScheduleAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const BackIcon(),
-        Text(TTexts.addDebts, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
+        Text(TArabicTexts.addDebts, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
         const SizedBox()
       ],
     );

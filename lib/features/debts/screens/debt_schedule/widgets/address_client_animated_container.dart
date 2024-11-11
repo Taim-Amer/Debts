@@ -32,7 +32,7 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
                 children: [
                   Flexible(
                     child: Text(
-                      TTexts.clientAddress ?? '',
+                      TArabicTexts.clientAddress ?? '',
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),

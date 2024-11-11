@@ -23,7 +23,7 @@ class PayAdditionNavbar extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-          child: Text(TTexts.payment, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white, fontSize: 20),),
+          child: Text(TArabicTexts.payment, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white, fontSize: 20),),
         ),
       ),
     );

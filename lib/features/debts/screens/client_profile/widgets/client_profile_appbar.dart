@@ -24,7 +24,7 @@ class ClientProfileAppbar extends StatelessWidget{
           10.horizontalSpace,
           Padding(
             padding: EdgeInsets.only(top: 5.0.h),
-            child: Text(TTexts.clientInformation, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
+            child: Text(TArabicTexts.clientInformation, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
           ),
           const ClientStatusContainer()
         ],

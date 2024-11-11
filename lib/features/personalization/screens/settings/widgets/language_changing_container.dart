@@ -30,7 +30,7 @@ class LanguageChangingContainerState extends State<LanguageChangingContainer> {
         children: [
           Expanded(
             child: LanguageRadioTile(
-              title: TTexts.arabic,
+              title: TArabicTexts.arabic,
               value: 1,
               groupValue: selectedLanguage,
               onChanged: (value) {
@@ -43,7 +43,7 @@ class LanguageChangingContainerState extends State<LanguageChangingContainer> {
           40.verticalSpace,
           Expanded(
             child: LanguageRadioTile(
-              title: TTexts.english,
+              title: TArabicTexts.english,
               value: 2,
               groupValue: selectedLanguage,
               onChanged: (value) {

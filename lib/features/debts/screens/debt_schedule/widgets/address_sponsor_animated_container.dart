@@ -34,7 +34,7 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
                 children: [
                   Flexible(
                     child: Text(
-                      TTexts.sponsorAddress,
+                      TArabicTexts.sponsorAddress,
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),

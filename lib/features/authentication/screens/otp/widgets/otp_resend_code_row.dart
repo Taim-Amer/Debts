@@ -18,7 +18,7 @@ class OtpResendCodeRow extends StatelessWidget {
             otpController.resendOtp();
           },
           child: Text(
-            TTexts.resendCode,
+            TArabicTexts.resendCode,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontSize: 16,
               color: TColors.buttonSecondary,
@@ -29,7 +29,7 @@ class OtpResendCodeRow extends StatelessWidget {
             ),
           ),
         ),
-        Text(TTexts.resendCodeQuastion, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),),
+        Text(TArabicTexts.resendCodeQuastion, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),),
       ],
     );
   }

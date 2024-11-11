@@ -11,7 +11,7 @@ class DeptAdditionAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const BackIcon(),
-        Text(TTexts.addDebts, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700, fontSize: 18),),
+        Text(TArabicTexts.addDebts, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700, fontSize: 18),),
         const SizedBox()
       ],
     );

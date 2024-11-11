@@ -33,7 +33,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 children: [
                   Flexible(
                     child: Text(
-                      TTexts.addSponsor,
+                      TArabicTexts.addSponsor,
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -102,7 +102,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
           child: isExpanded ? Column(
             children: [
               TextFieldWidget(
-                title: TTexts.sponsorName,
+                title: TArabicTexts.sponsorName,
                 hint: "اسم الكفيل الكامل",
                 icon: Icons.person,
                 controller: DebtScheduleController.instance.sponsorNameController,
@@ -111,7 +111,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               TextFieldWidget(
-                title: TTexts.sponsorPhone,
+                title: TArabicTexts.sponsorPhone,
                 hint: "0000-000-000",
                 icon: Icons.phone_android,
                 controller: DebtScheduleController.instance.sponsorNumberController,

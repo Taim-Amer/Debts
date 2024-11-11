@@ -9,7 +9,7 @@ class MonthlyPaymentTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldWidget(
-      title: TTexts.monthlyPayment,
+      title: TArabicTexts.monthlyPayment,
       hint: '100.000 IQD',
       controller: DebtScheduleController.instance.monthlyPaymentController,
       keyboardType: TextInputType.number,

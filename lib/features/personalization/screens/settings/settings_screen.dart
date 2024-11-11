@@ -27,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(TTexts.languageChange, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
+                  Text(TArabicTexts.languageChange, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
                   8.horizontalSpace,
                   SvgPicture.asset(TImages.translate),
                 ],
@@ -36,10 +36,10 @@ class SettingsScreen extends StatelessWidget {
               const LanguageChangingContainer(),
               TSizes.spaceBtwSections.verticalSpace,
               const Divider(),
-              const SettingsTile(title: TTexts.notifications, icon: TImages.notifications, showSwitch: true,),
-              const SettingsTile(title: TTexts.privacyPolicy, icon: TImages.information,),
-              const SettingsTile(title: TTexts.about, icon: TImages.about,),
-              const SettingsTile(title: TTexts.out, icon: TImages.logout,),
+              SettingsTile(title: TArabicTexts.notifications, icon: TImages.notifications, showSwitch: true,),
+              SettingsTile(title: TArabicTexts.privacyPolicy, icon: TImages.information,),
+              SettingsTile(title: TArabicTexts.about, icon: TImages.about,),
+              SettingsTile(title: TArabicTexts.out, icon: TImages.logout,),
             ],
           ),
         ),

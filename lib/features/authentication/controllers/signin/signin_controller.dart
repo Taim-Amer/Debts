@@ -48,7 +48,7 @@ class SignInController extends GetxController {
       TCacheHelper.saveData(key: "phone", value: phoneController.text.trim());
     } catch (error) {
       updateStatus(value: RequestState.onError);
-      showToast(TTexts.errorMessage, ToastState.error);
+      showToast(TArabicTexts.errorMessage, ToastState.error);
     }
   }
 }

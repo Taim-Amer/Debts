@@ -45,7 +45,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                       icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
                     ),
                     Text(
-                      TTexts.reminderBy,
+                      TArabicTexts.reminderBy,
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
                     ),
                     SizedBox(width: 24.w),
@@ -54,7 +54,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                 TSizes.spaceBtwSections.verticalSpace,
                 ReminderTile(
                   icon: TImages.weakReminder,
-                  title: TTexts.weakReminder,
+                  title: TArabicTexts.weakReminder,
                   showRadio: true,
                   value: 1,
                   selectedValueNotifier: _selectedValueNotifier,
@@ -62,15 +62,15 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                 TSizes.spaceBtwItems.verticalSpace,
                 ReminderTile(
                   icon: TImages.monthReminder,
-                  title: TTexts.monthReminder,
+                  title: TArabicTexts.monthReminder,
                   showRadio: true,
                   value: 2,
                   selectedValueNotifier: _selectedValueNotifier,
                 ),
                 TSizes.spaceBtwItems.verticalSpace,
-                const ReminderTile(
+                ReminderTile(
                   icon: TImages.customizeReminder,
-                  title: TTexts.customizeReminder,
+                  title: TArabicTexts.customizeReminder,
                   showArrowIcon: true,
                 ),
                 TSizes.spaceBtwSections.verticalSpace,
@@ -79,7 +79,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                   height: 44.h,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: const Text(TTexts.tcontinue),
+                    child: Text(TArabicTexts.tcontinue),
                   ),
                 ),
               ],
@@ -104,9 +104,9 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
           padding: const EdgeInsets.all(TSizes.sm),
           child: Column(
             children: [
-              Text(TTexts.collectionDate, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.buttonPrimary, fontWeight: FontWeight.w700)),
+              Text(TArabicTexts.collectionDate, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.buttonPrimary, fontWeight: FontWeight.w700)),
               5.verticalSpace,
-              Text(TTexts.undefined, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
+              Text(TArabicTexts.undefined, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
             ],
           ),
         ),

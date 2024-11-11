@@ -12,7 +12,7 @@ class SettingAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const BackIcon(),
-        Text(TTexts.settings, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
+        Text(TArabicTexts.settings, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
         const SizedBox()
       ],
     );

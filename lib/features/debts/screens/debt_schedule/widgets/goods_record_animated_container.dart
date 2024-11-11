@@ -46,7 +46,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
                 children: [
                   Flexible(
                     child: Text(
-                      TTexts.records,
+                      TArabicTexts.records,
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),

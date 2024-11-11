@@ -10,7 +10,7 @@ class PageNumberTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldWidget(
-      title: TTexts.pageNumber,
+      title: TArabicTexts.pageNumber,
       hint: "صفحة رقم : 450",
       icon: Icons.book,
       controller: DebtScheduleController.instance.pageNumberController,

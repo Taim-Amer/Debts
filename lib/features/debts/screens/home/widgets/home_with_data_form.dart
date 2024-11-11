@@ -24,15 +24,15 @@ class HomeWithDataForm extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(child: HomeFilterContainer(title: TTexts.notations, function: (){}, icon: Icons.note_add,)),
+                Expanded(child: HomeFilterContainer(title: TArabicTexts.notations, function: (){}, icon: Icons.note_add,)),
                 3.horizontalSpace,
-                Expanded(child: HomeFilterContainer(title: TTexts.nonPayers, function: (){},)),
+                Expanded(child: HomeFilterContainer(title: TArabicTexts.nonPayers, function: (){},)),
                 3.horizontalSpace,
-                Expanded(child: HomeFilterContainer(title: TTexts.country, function: (){}, icon: Icons.search,)),
+                Expanded(child: HomeFilterContainer(title: TArabicTexts.country, function: (){}, icon: Icons.search,)),
                 3.horizontalSpace,
                 Expanded(
                   child: HomeFilterContainer(
-                    title: TTexts.filter,
+                    title: TArabicTexts.filter,
                     function: () => DebtsFilterDialog.showDebtsFilterDialog(),
                     icon: Icons.file_copy,
                   ),

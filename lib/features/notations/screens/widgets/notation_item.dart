@@ -16,7 +16,7 @@ class NotationItem extends StatelessWidget {
             Text("2024/7/30", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary, fontSize: 14),),
             Row(
               children: [
-                Text(TTexts.notations, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
+                Text(TArabicTexts.notations, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
                 8.horizontalSpace,
                 const Icon(Icons.note, color: TColors.buttonPrimary, size: 21,),
               ],

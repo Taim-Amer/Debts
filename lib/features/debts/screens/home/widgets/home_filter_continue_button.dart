@@ -7,6 +7,6 @@ class HomeFilterContinueButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: 260.w, height: 50.h, child: ElevatedButton(onPressed: (){}, child: const Text(TTexts.tcontinue)));
+    return SizedBox(width: 260.w, height: 50.h, child: ElevatedButton(onPressed: (){}, child: Text(TArabicTexts.tcontinue)));
   }
 }

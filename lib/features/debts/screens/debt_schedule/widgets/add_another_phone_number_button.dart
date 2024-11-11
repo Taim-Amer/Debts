@@ -7,10 +7,10 @@ class AddAnotherPhoneNumberButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(onPressed: (){}, child: const Row(
+    return TextButton(onPressed: (){}, child: Row(
       children: [
-        Text(TTexts.addAnotherPhone, style: TextStyle(color: TColors.buttonPrimary),),
-        Icon(Icons.add, size: 20, color: TColors.buttonPrimary,),
+        Text(TArabicTexts.addAnotherPhone, style: const TextStyle(color: TColors.buttonPrimary),),
+        const Icon(Icons.add, size: 20, color: TColors.buttonPrimary,),
       ],
     ));
   }

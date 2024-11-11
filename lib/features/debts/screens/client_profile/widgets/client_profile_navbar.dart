@@ -21,7 +21,7 @@ class ClientProfileNavBar extends StatelessWidget {
                   height: 55.h,
                   child: OutlinedButton(
                       onPressed: () => Get.toNamed(AppRoutes.addDebt),
-                      child: Flexible(child: Center(child: Text(TTexts.buying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))))),
+                      child: Flexible(child: Center(child: Text(TArabicTexts.buying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))))),
           15.horizontalSpace,
           Expanded(
             child: SizedBox(
@@ -35,7 +35,7 @@ class ClientProfileNavBar extends StatelessWidget {
                   backgroundColor: TColors.greenColor,
                   side: const BorderSide(color: TColors.greenColor, width: 2),
                 ),
-                child: Text(TTexts.payment, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: Colors.white)),
+                child: Text(TArabicTexts.payment, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: Colors.white)),
               ),
             ),
           ),

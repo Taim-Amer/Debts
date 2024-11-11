@@ -31,7 +31,7 @@ class UsernameTextField extends StatelessWidget {
           validator: (value) => TValidator.validateEmptyText("اسم المستخدم", value),
           textAlign: TextAlign.end,
           decoration: InputDecoration(
-            hintText: TTexts.username,
+            hintText: TArabicTexts.username,
             hintStyle: const TextStyle(color: Colors.grey),
             contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
             border: InputBorder.none,

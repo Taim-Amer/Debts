@@ -15,7 +15,7 @@ class StatisticsRow extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text(TTexts.totalPayment, style: Theme.of(context).textTheme.titleSmall,),
+            Text(TArabicTexts.totalPayment, style: Theme.of(context).textTheme.titleSmall,),
             TSizes.md.verticalSpace,
             Text(HomeController.instance.myDebtsModel.value.data?.totalPayment.toString() ?? "0", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary)),
           ],
@@ -23,7 +23,7 @@ class StatisticsRow extends StatelessWidget {
         Container(height: 50.h, width: 1, color: const Color(0xFFC8C8C8)),
         Column(
           children: [
-            Text(TTexts.clients, style: Theme.of(context).textTheme.titleSmall,),
+            Text(TArabicTexts.clients, style: Theme.of(context).textTheme.titleSmall,),
             TSizes.md.verticalSpace,
             Text(HomeController.instance.myDebtsModel.value.data?.totalCount.toString() ?? "1", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary),),
           ],
@@ -31,7 +31,7 @@ class StatisticsRow extends StatelessWidget {
         Container(height: 50.h, width: 1, color: const Color(0xFFC8C8C8)),
         Column(
           children: [
-            Text(TTexts.totalDebts, style: Theme.of(context).textTheme.titleSmall,),
+            Text(TArabicTexts.totalDebts, style: Theme.of(context).textTheme.titleSmall,),
             TSizes.md.verticalSpace,
             Text(HomeController.instance.myDebtsModel.value.data?.totalAmount.toString() ?? "0", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.redColor),),
           ],

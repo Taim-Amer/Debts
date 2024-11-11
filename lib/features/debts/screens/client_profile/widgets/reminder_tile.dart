@@ -55,7 +55,7 @@ class _ReminderTileState extends State<ReminderTile> {
                         icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
                       ),
                       Text(
-                        TTexts.customizeReminder,
+                        TArabicTexts.customizeReminder,
                         style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
                       ),
                       SizedBox(width: 24.w),
@@ -70,14 +70,14 @@ class _ReminderTileState extends State<ReminderTile> {
                     backgroundColor: dark ? TColors.dark : TColors.lightGrey,
                     child: TextFormField(
                       textAlign: TextAlign.right,
-                      decoration: const InputDecoration(
-                        hintText: TTexts.notationAdd,
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        hintText: TArabicTexts.notationAdd,
+                        border: const OutlineInputBorder(),
                       ),
                     ),
                   ),
                   TSizes.spaceBtwSections.verticalSpace,
-                  SizedBox(height: 50.h, width: 350.w, child: ElevatedButton(onPressed: (){}, child: const Text(TTexts.tcontinue)),)
+                  SizedBox(height: 50.h, width: 350.w, child: ElevatedButton(onPressed: (){}, child: Text(TArabicTexts.tcontinue)),)
                 ],
               ),
             ),

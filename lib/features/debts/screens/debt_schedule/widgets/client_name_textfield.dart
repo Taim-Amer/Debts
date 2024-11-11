@@ -10,7 +10,7 @@ class ClientNameTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldWidget(
-      title: TTexts.clientName,
+      title: TArabicTexts.clientName,
       hint: "اسم العميل الكامل",
       icon: Icons.person,
       controller: DebtScheduleController.instance.clientNameController,

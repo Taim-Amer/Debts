@@ -12,7 +12,7 @@ class SearchByNameTextField extends StatelessWidget {
       textAlign: TextAlign.end,
       decoration: InputDecoration(
         suffixIcon: const Icon(Icons.search),
-        hintText: TTexts.searchByName,
+        hintText: TArabicTexts.searchByName,
         hintStyle: const TextStyle(color: Colors.grey),
         contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
         border: InputBorder.none,

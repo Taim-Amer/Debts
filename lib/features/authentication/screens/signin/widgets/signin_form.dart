@@ -26,7 +26,7 @@ class SigninForm extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(TTexts.phone, style: Theme.of(context).textTheme.titleSmall),
+                  Text(TArabicTexts.phone, style: Theme.of(context).textTheme.titleSmall),
                   4.horizontalSpace,
                   SvgPicture.asset(TImages.mobile),
                 ],
@@ -44,7 +44,7 @@ class SigninForm extends StatelessWidget {
                       SignInController.instance.signin();
                     },
                     child: Text(
-                      TTexts.next,
+                      TArabicTexts.next,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
                     ),
                   ),

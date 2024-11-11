@@ -12,7 +12,7 @@ class ProfileAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const BackIcon(),
-        Text(TTexts.accountInfo, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
+        Text(TArabicTexts.accountInfo, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
         const SizedBox()
       ],
     );

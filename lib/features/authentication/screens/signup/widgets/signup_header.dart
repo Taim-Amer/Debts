@@ -12,9 +12,9 @@ class SignupHeader extends StatelessWidget {
     return Column(
       children: [
         103.verticalSpace,
-        Text(TTexts.registerTitle, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.buttonPrimary)),
+        Text(TArabicTexts.registerTitle, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.buttonPrimary)),
         TSizes.spaceBtwItems.verticalSpace,
-        Text(TTexts.registerSubTitle, style: Theme.of(context).textTheme.headlineSmall),
+        Text(TArabicTexts.registerSubTitle, style: Theme.of(context).textTheme.headlineSmall),
       ],
     );
   }

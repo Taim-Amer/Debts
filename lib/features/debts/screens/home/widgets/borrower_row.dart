@@ -38,7 +38,7 @@ class BorrowerRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(amount, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: status == "allowed" ? TColors.greenColor : TColors.redColor)),
-              Text(TTexts.debt, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
+              Text(TArabicTexts.debt, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
             ],
           ),
           Row(

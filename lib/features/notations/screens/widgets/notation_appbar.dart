@@ -11,7 +11,7 @@ class NotationAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const BackIcon(),
-        Text(TTexts.notations, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
+        Text(TArabicTexts.notations, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
         const SizedBox()
       ],
     );

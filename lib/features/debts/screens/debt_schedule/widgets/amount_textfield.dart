@@ -10,7 +10,7 @@ class AmountTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldWidget(
-      title: TTexts.amount,
+      title: TArabicTexts.amount,
       hint: '1000.000 IQD',
       controller: DebtScheduleController.instance.amountController,
       keyboardType: TextInputType.number,

@@ -11,7 +11,7 @@ class NotificationsAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const BackIcon(),
-        Text(TTexts.notifications, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
+        Text(TArabicTexts.notifications, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
         const SizedBox()
       ],
     );

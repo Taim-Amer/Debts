@@ -49,7 +49,7 @@ class ClientProfileScreen extends StatelessWidget {
                           Align(
                             alignment: Alignment.topRight,
                             child: Text(
-                              TTexts.transactions,
+                              TArabicTexts.transactions,
                               style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),
                             ),
                           ),

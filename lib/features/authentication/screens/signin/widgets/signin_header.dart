@@ -15,9 +15,9 @@ class SigninHeader extends StatelessWidget {
         80.verticalSpace,
         SvgPicture.asset(TImages.login),
         TSizes.spaceBtwItems.verticalSpace,
-        Text(TTexts.welcome, style: Theme.of(context).textTheme.headlineMedium),
+        Text(TArabicTexts.welcome, style: Theme.of(context).textTheme.headlineMedium),
         TSizes.spaceBtwItems.verticalSpace,
-        Text(TTexts.phoneInput, style: Theme.of(context).textTheme.headlineSmall),
+        Text(TArabicTexts.phoneInput, style: Theme.of(context).textTheme.headlineSmall),
       ],
     );
   }

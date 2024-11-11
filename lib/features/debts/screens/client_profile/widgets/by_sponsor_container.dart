@@ -48,7 +48,7 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: TSizes.xs),
                   child: Text(
-                    TTexts.bySponsor,
+                    TArabicTexts.bySponsor,
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),
                   ),
                 ),

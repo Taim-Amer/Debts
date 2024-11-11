@@ -18,7 +18,7 @@ class OtpHeader extends StatelessWidget {
       children: [
         SvgPicture.asset(TImages.lock),
         TSizes.spaceBtwSections.verticalSpace,
-        Text(TTexts.verificationCode, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),),
+        Text(TArabicTexts.verificationCode, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),),
         8.verticalSpace,
         Text(
           "أدخل الرقم المكون من خمس خانات الذي أرسل إلى\nالرقم التالي : 000-000 ($code)",

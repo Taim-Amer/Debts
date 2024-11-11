@@ -12,7 +12,7 @@ class HomeEmptyHeader extends StatelessWidget {
     return Column(
       children: [
         SvgPicture.asset(TImages.money),
-        Text(TTexts.emptyDebts, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.buttonPrimary)),
+        Text(TArabicTexts.emptyDebts, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.buttonPrimary)),
       ],
     );
   }

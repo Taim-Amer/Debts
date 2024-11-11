@@ -45,7 +45,7 @@ class SignupScreen extends StatelessWidget {
                         onPressed: () {
                           signupController.signup();
                         },
-                        child: const Text(TTexts.next),
+                        child: Text(TArabicTexts.next),
                       ),
                     );
                     return current;

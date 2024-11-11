@@ -21,7 +21,7 @@ class EmailTextField extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(TTexts.email, style: Theme.of(context).textTheme.titleSmall,),
+              Text(TArabicTexts.email, style: Theme.of(context).textTheme.titleSmall,),
               8.horizontalSpace,
               const Icon(Icons.email, color: TColors.buttonPrimary,)
             ],

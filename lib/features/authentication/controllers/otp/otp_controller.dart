@@ -27,7 +27,7 @@ class OtpController extends GetxController{
       Get.toNamed(AppRoutes.signup);
     }catch(error){
       updateStatus(value: RequestState.onError);
-      showToast(TTexts.errorMessage, ToastState.error);
+      showToast(TArabicTexts.errorMessage, ToastState.error);
     }
   }
 

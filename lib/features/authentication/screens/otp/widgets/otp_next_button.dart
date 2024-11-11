@@ -18,7 +18,7 @@ class OtpNextButton extends StatelessWidget {
       height: 50,
       child: ElevatedButton(onPressed: (){
         otpController.verify();
-      }, child: const Text(TTexts.next)),
+      }, child: Text(TArabicTexts.next)),
     );
   }
 }

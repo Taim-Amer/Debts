@@ -42,7 +42,7 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
                     size: TSizes.iconSm,
                   ),
                   Text(
-                    TTexts.clientStatus,
+                    TArabicTexts.clientStatus,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary),
                   ),
                 ],

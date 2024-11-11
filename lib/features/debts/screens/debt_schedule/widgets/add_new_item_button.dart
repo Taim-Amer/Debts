@@ -23,7 +23,7 @@ class AddNewItemButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Flexible(child: Text(TTexts.addNewItem, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),)),
+            Flexible(child: Text(TArabicTexts.addNewItem, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),)),
             const Icon(Icons.add, color: TColors.buttonPrimary)
           ],
         ),

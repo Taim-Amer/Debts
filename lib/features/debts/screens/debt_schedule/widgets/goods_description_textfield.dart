@@ -9,7 +9,7 @@ class GoodsDescriptionTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldWidget(
-      title: TTexts.productDescription,
+      title: TArabicTexts.productDescription,
       hint: 'أثاث منزل',
       controller: DebtScheduleController.instance.goodsDescriptionController,
       keyboardType: TextInputType.text,

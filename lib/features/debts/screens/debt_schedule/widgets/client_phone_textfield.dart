@@ -10,7 +10,7 @@ class ClientPhoneTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldWidget(
-      title: TTexts.clientPhone,
+      title: TArabicTexts.clientPhone,
       hint: "000-000-000",
       icon: Icons.phone_android,
       controller: DebtScheduleController.instance.clientNumberController,

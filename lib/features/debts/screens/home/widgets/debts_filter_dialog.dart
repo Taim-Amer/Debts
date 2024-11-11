@@ -42,7 +42,7 @@ class DebtsFilterDialog{
                     children: [
                       Expanded(
                         child: Obx(() => TChoiceChip(
-                          text: TTexts.totalDebtors,
+                          text: TArabicTexts.totalDebtors,
                           selected: homeController.isTotalDebtorsSelected.value,
                           onSelected: (value) => homeController.isTotalDebtorsSelected.value = value,
                         ),
@@ -51,7 +51,7 @@ class DebtsFilterDialog{
                       TSizes.sm.horizontalSpace,
                       Expanded(
                         child: Obx(() => TChoiceChip(
-                          text: TTexts.all,
+                          text: TArabicTexts.all,
                           selected: homeController.isAllSelected.value,
                           onSelected: (value) => homeController.isAllSelected.value = value,
                         ),
@@ -64,7 +64,7 @@ class DebtsFilterDialog{
                     children: [
                       Expanded(
                         child: Obx(() => TChoiceChip(
-                          text: TTexts.totalReceived,
+                          text: TArabicTexts.totalReceived,
                           selected: homeController.isTotalReceivedSelected.value,
                           onSelected: (value) => homeController.isTotalReceivedSelected.value = value,
                         ),
@@ -73,7 +73,7 @@ class DebtsFilterDialog{
                       TSizes.sm.horizontalSpace,
                       Expanded(
                         child: Obx(() => TChoiceChip(
-                          text: TTexts.settled,
+                          text: TArabicTexts.settled,
                           selected: homeController.isSettledSelected.value,
                           onSelected: (value) => homeController.isSettledSelected.value = value,
                         ),
