@@ -57,7 +57,7 @@ class TTexts {
   static const String clientStatus = "حالة العميل";
   static const String collectionDate = "تاريخ التحصيل";
   static const String payment = "تسديد";
-  static const String buying = "تسديد";
+  static const String buying = "شراء";
   static const String transactions = ":المعاملات";
   static const String reminderBy = ": تذكير حسب";
   static const String undefined = "غير محدد";

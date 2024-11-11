@@ -13,29 +13,29 @@ class DebtAdditionRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
     children: [
-      const Expanded(
+      Expanded(
           flex: 3,
           child: TextFieldWidget(
-            // controller: AdditionsController.instance.goodsDescriptionController,
+            controller: AdditionsController.instance.debtGoodsDescriptionController,
             title: TTexts.productsDescription,
             hint: "وصف تفصيلي عن البضاعة",
             titleColor: TColors.grey,
             hintSize: 14,
             radius: 6,
-            // validator: (value) => TValidator.validateEmptyText("وصف البضاعة", value),
+            validator: (value) => TValidator.validateEmptyText("وصف البضاعة", value),
           )),
       8.horizontalSpace,
-      const Expanded(
+      Expanded(
           flex: 2,
           child: TextFieldWidget(
-            // controller: AdditionsController.instance.amountController,
+            controller: AdditionsController.instance.debtAmountController,
             title: "المبلغ",
             hint: "0.00 IQD",
             titleColor: TColors.grey,
             hintColor: TColors.redColor,
             hintSize: 14,
             radius: 6,
-            // validator: (value) => TValidator.validateEmptyText("المبلغ", value),
+            validator: (value) => TValidator.validateEmptyText("المبلغ", value),
           )),
     ],
         );

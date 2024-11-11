@@ -13,6 +13,9 @@ class AdditionsController extends GetxController{
   final amountController = TextEditingController();
   final goodsDescriptionController = TextEditingController();
 
+  final debtAmountController = TextEditingController();
+  final debtGoodsDescriptionController = TextEditingController();
+
   GlobalKey<FormState> paymentAdditionsKey = GlobalKey<FormState>();
   GlobalKey<FormState> debtAdditionsKey = GlobalKey<FormState>();
 
@@ -57,16 +60,18 @@ class AdditionsController extends GetxController{
       return;
     }
 
-    int? amount = int.tryParse(amountController.text);
+    int? amount = int.tryParse(debtAmountController.text);
     int id = ClientProfileController.instance.clientProfileModel.value.customer!.id!;
 
     try{
-      final response = await AdditionsRepositoryImpl.instance.addDebt(id, amount!, goodsDescriptionController.text);
+      final response = await AdditionsRepositoryImpl.instance.addDebt(id, amount!, debtGoodsDescriptionController.text);
       if(response.status == true){
+        updateDebtStatus(value: RequestState.success);
         showToast("تم اضافة دين جديد بنجاح", ToastState.success);
       }
     } catch(error){
       TLoggerHelper.error(error.toString());
+      updateDebtStatus(value: RequestState.onError);
       showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
     }
 
