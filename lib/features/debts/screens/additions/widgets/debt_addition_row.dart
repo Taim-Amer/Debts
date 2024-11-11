@@ -13,7 +13,7 @@ class DebtAdditionRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
     children: [
-      Expanded(
+      const Expanded(
           flex: 3,
           child: TextFieldWidget(
             // controller: AdditionsController.instance.goodsDescriptionController,
@@ -25,7 +25,7 @@ class DebtAdditionRow extends StatelessWidget {
             // validator: (value) => TValidator.validateEmptyText("وصف البضاعة", value),
           )),
       8.horizontalSpace,
-      Expanded(
+      const Expanded(
           flex: 2,
           child: TextFieldWidget(
             // controller: AdditionsController.instance.amountController,

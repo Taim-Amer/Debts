@@ -6,6 +6,7 @@ import 'package:taha_debts/features/debts/screens/additions/pay_addition_screen.
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/router/app_router.dart';
 
 class ClientProfileNavBar extends StatelessWidget {
   const ClientProfileNavBar({super.key});
@@ -26,7 +27,7 @@ class ClientProfileNavBar extends StatelessWidget {
               height: 55.h,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.to(const DebtAdditionScreen(), transition: Transition.rightToLeft);
+                  Get.toNamed(AppRoutes.addPayment);
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: TColors.greenColor,
