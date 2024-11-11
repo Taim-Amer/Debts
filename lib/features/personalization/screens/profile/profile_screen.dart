@@ -4,9 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/personalization/controllers/profile/profile_controller.dart';
 import 'package:taha_debts/features/personalization/screens/profile/widgets/profile_appbar.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
+import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
@@ -18,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const TAppBar(title: ProfileAppbar()),
-      body: Column(
+      body: Obx(() => ProfileController.instance.getProfileApiStatus.value == RequestState.loading ? const Center(child: LoadingWidget()) : Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -54,7 +56,7 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ],
-      ),
+      )),
     );
   }
 }

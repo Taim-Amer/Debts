@@ -15,7 +15,7 @@ class DebtAdditionNavbar extends StatelessWidget {
         height: 50,
         child: ElevatedButton(
           onPressed: (){
-            // AdditionsController.instance.addPayment();
+            AdditionsController.instance.addDebt();
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: TColors.redColor,
