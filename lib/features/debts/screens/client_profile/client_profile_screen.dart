@@ -10,6 +10,7 @@ import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_profile_header.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_profile_navbar.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/collection_date_container.dart';
+import 'package:taha_debts/features/debts/screens/client_profile/widgets/transactions_list.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -19,9 +20,9 @@ class ClientProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClientProfileController.instance.getClientProfileStatus.value != RequestState.success ? const Center(child: LoadingWidget()) : Scaffold(
-      bottomNavigationBar: const ClientProfileNavBar(),
-      body: SingleChildScrollView(
+    return Scaffold(
+      bottomNavigationBar: ClientProfileController.instance.getClientProfileStatus.value != RequestState.success ? const Center(child: LoadingWidget()) : const ClientProfileNavBar(),
+      body: ClientProfileController.instance.getClientProfileStatus.value != RequestState.success ? const Center(child: LoadingWidget()) : SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
           child: Column(
@@ -43,7 +44,7 @@ class ClientProfileScreen extends StatelessWidget {
               const CollectionDateContainer(),
               TSizes.spaceBtwSections.verticalSpace,
               Align(alignment: Alignment.topRight, child: Text(TTexts.transactions, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),)),
-              const ClientDebtsRow(),
+              const TransactionsList()
             ],
           ),
         ),

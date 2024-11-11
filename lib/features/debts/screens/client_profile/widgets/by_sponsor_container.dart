@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -72,11 +73,11 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("أسم الكفيل: محمد أنس", style: Theme.of(context).textTheme.bodyLarge),
+                    Text("أسم الكفيل: ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName}", style: Theme.of(context).textTheme.bodyLarge),
                     14.verticalSpace,
-                    Text("عنوان الكفيل : مساكن برزة", style: Theme.of(context).textTheme.bodyLarge),
+                    Text("عنوان الكفيل : ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorRegion}", style: Theme.of(context).textTheme.bodyLarge),
                     14.verticalSpace,
-                    Text("رقم الهاتف: 345-321-0939", style: Theme.of(context).textTheme.bodyLarge),
+                    Text("رقم الهاتف: ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorPhone}", style: Theme.of(context).textTheme.bodyLarge),
                   ],
                 ),
               ),

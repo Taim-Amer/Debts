@@ -100,6 +100,9 @@ class $AssetsIconsGlobalGen {
   /// File path: assets/icons/global/Combined-Shape.svg
   String get combinedShape => 'assets/icons/global/Combined-Shape.svg';
 
+  /// File path: assets/icons/global/Down.svg
+  String get down => 'assets/icons/global/Down.svg';
+
   /// File path: assets/icons/global/Group (1).svg
   String get group1 => 'assets/icons/global/Group (1).svg';
 
@@ -108,6 +111,9 @@ class $AssetsIconsGlobalGen {
 
   /// File path: assets/icons/global/Group.svg
   String get group => 'assets/icons/global/Group.svg';
+
+  /// File path: assets/icons/global/Up.svg
+  String get up => 'assets/icons/global/Up.svg';
 
   /// File path: assets/icons/global/Vector.svg
   String get vector => 'assets/icons/global/Vector.svg';
@@ -127,9 +133,11 @@ class $AssetsIconsGlobalGen {
   /// List of all assets
   List<String> get values => [
         combinedShape,
+        down,
         group1,
         group97,
         group,
+        up,
         vector,
         calendarSimple31SvgrepoCom1,
         calendarSimple31SvgrepoCom2,

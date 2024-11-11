@@ -45,4 +45,8 @@ class TImages {
   static const String logout = "assets/icons/global/Group (1).svg";
   static const String about = "assets/icons/global/Group.svg";
   static const String userProfile = "assets/logos/profile/Vector.svg";
+
+  // Client Profile
+  static const String down = "assets/icons/global/Down.svg";
+  static const String up = "assets/icons/global/Up.svg";
 }

@@ -100,9 +100,9 @@ class Sponsor {
 
 class Payments {
   String? date;
-  int? afterPay;
+  String? afterPay;
   String? goodsDescription;
-  int? amount;
+  String? amount;
   String? type;
 
   Payments(

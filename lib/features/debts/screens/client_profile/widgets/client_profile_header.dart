@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -10,20 +11,21 @@ class ClientProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final clientProfileModel = ClientProfileController.instance.clientProfileModel;
     return Column(
       children: [
         SvgPicture.asset(TImages.profile),
         TSizes.xs.verticalSpace,
-        Text("تيم عامر: 405", style: Theme.of(context).textTheme.headlineMedium),
+        Text("${clientProfileModel.value.customer!.name}: ${clientProfileModel.value.customer!.id}", style: Theme.of(context).textTheme.headlineMedium),
         TSizes.sm.verticalSpace,
-        Text("0997-421-905", style: Theme.of(context).textTheme.headlineSmall,),
+        Text(clientProfileModel.value.customer?.phone?.first ?? "", style: Theme.of(context).textTheme.headlineSmall,),
         TSizes.sm.verticalSpace,
-        Text("0997-421-905", style: Theme.of(context).textTheme.headlineSmall,),
+        Text(clientProfileModel.value.customer?.phone?.last ?? "", style: Theme.of(context).textTheme.headlineSmall,),
         TSizes.md.verticalSpace,
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("ريف دمشق-ضاحية يوسف العظمة", style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),),
+            Text(clientProfileModel.value.customer?.regionId.toString() ?? "", style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),),
             const Icon(Icons.location_on, size: TSizes.iconMd, color: TColors.buttonPrimary,)
           ],
         ),
