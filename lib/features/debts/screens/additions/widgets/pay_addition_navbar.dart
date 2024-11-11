@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:taha_debts/features/debts/controllers/additions_controller/additions_controller.dart';
-import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 

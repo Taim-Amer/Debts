@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
@@ -20,7 +21,10 @@ class TChoiceChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => onSelected(!selected),
+      onTap: (){
+        onSelected(!selected);
+        HomeController.instance.debtFilter();
+      },
       child: TRoundedContainer(
         width: 189.w,
         height: 43.h,

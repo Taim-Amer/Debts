@@ -41,4 +41,19 @@ class HomeController extends GetxController {
     }
   }
 
+  Future<void> debtFilter() async{
+    if(isAllSelected.value == true){
+      await getMyDebts(null);
+    }
+    if(isTotalDebtorsSelected.value == true){
+      await getMyDebts("total_debtors");
+    }
+    if(isTotalReceivedSelected.value == true){
+      await getMyDebts("total_receipts");
+    }
+    if(isSettledSelected.value == true){
+      await getMyDebts("receipts_done");
+    }
+  }
+
 }
