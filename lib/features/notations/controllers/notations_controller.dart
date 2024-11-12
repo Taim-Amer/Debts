@@ -9,6 +9,12 @@ class NotationsController extends GetxController{
   var getNotesStatus = RequestState.begin.obs;
   final notesModel = NotesModel().obs;
 
+  @override
+  void onReady() {
+    super.onReady();
+    getNotes();
+  }
+
   void updateStatus({required RequestState value}) {
     getNotesStatus.value = value;
   }
