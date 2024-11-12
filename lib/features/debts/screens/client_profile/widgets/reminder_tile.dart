@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -54,15 +52,15 @@ class _ReminderTileState extends State<ReminderTile> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                        onPressed: () => Get.back(),
-                        icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
-                      ),
+                      SizedBox(width: 24.w),
                       Text(
                         TArabicTexts.customizeReminder,
                         style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
                       ),
-                      SizedBox(width: 24.w),
+                      IconButton(
+                        onPressed: () => Get.back(),
+                        icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
+                      ),
                     ],
                   ),
                   TSizes.spaceBtwItems.verticalSpace,
@@ -113,14 +111,18 @@ class _ReminderTileState extends State<ReminderTile> {
     return Expanded(
       child: Row(
         children: [
-          if (widget.showRadio)
-            Radio<int>(
-              value: widget.value!,
-              groupValue: widget.selectedValueNotifier!.value,
-              onChanged: (newValue) {
-                widget.selectedValueNotifier!.value = newValue;
-              },
-            ),
+          Row(
+            children: [
+              SvgPicture.asset(widget.icon),
+              SizedBox(width: 8.w),
+              Text(
+                widget.title,
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18),
+              ),
+
+            ],
+          ),
+          const Spacer(),
           if (widget.showArrowIcon)
             IconButton(
               onPressed: (){
@@ -130,22 +132,20 @@ class _ReminderTileState extends State<ReminderTile> {
                 showCustomizeReminderDialog();
               },
               icon: const Icon(
-                Icons.arrow_back_ios_new,
+                Icons.arrow_forward_ios_rounded,
                 color: Colors.black,
                 size: 16,
               ),
             ),
-          const Spacer(),
-          Row(
-            children: [
-              Text(
-                widget.title,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18),
-              ),
-              SizedBox(width: 8.w),
-              SvgPicture.asset(widget.icon),
-            ],
-          ),
+          if (widget.showRadio)
+            Radio<int>(
+              value: widget.value!,
+              groupValue: widget.selectedValueNotifier!.value,
+              onChanged: (newValue) {
+                widget.selectedValueNotifier!.value = newValue;
+              },
+            ),
+
         ],
       ),
     );

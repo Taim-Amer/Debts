@@ -35,15 +35,15 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      onPressed: () => Get.back(),
-                      icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
-                    ),
+                    SizedBox(width: 24.w),
                     Text(
                       TArabicTexts.reminderBy,
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
                     ),
-                    SizedBox(width: 24.w),
+                    IconButton(
+                      onPressed: () => Get.back(),
+                      icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
+                    ),
                   ],
                 ),
                 TSizes.spaceBtwSections.verticalSpace,
