@@ -107,7 +107,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 icon: Icons.person,
                 controller: DebtScheduleController.instance.sponsorNameController,
                 keyboardType: TextInputType.name,
-                validator: (value) => TValidator.validateEmptyText("اسم الكفيل", value),
+                // validator: (value) => TValidator.validateEmptyText("اسم الكفيل", value),
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               TextFieldWidget(
@@ -116,7 +116,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                 icon: Icons.phone_android,
                 controller: DebtScheduleController.instance.sponsorNumberController,
                 keyboardType: TextInputType.phone,
-                validator: (value) => TValidator.validatePhoneNumber(value),
+                // validator: (value) => TValidator.validatePhoneNumber(value),
               ),
               TSizes.spaceBtwInputField.verticalSpace,
               const AddressSponsorAnimatedContainer()

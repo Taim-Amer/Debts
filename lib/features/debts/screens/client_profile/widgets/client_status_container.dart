@@ -29,7 +29,7 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
           onTap: toggleExpand,
           child: TRoundedContainer(
             height: 38.h,
-            width: 92.w,
+            width: 100.w,
             padding: const EdgeInsets.all(TSizes.sm),
             backgroundColor: const Color(0xFFBFE3FF),
             child: Flexible(

@@ -19,9 +19,10 @@ class AddNewDebtButton extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () {
                         DebtScheduleController.instance.createDebt();
-                        // DebtScheduleController.instance.printAllVariables();
                       },
-                      child: Text(TArabicTexts.add)));
+                      child: Text(TArabicTexts.add),
+                  ),
+      );
       return current;
     });
   }
