@@ -1,16 +1,19 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/common/widgets/pickers/infinite_date_picker.dart';
+import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class ReminderTile extends StatefulWidget {
-  const ReminderTile({
+  ReminderTile({
     super.key,
     required this.icon,
     required this.title,
@@ -23,8 +26,8 @@ class ReminderTile extends StatefulWidget {
   final String icon;
   final String title;
   final bool showRadio;
-  final int? value;
-  final ValueNotifier<int?>? selectedValueNotifier;
+  int? value;
+  ValueNotifier<int?>? selectedValueNotifier;
   final bool showArrowIcon;
 
   @override
@@ -39,6 +42,7 @@ class _ReminderTileState extends State<ReminderTile> {
       context: Get.context!,
       showDragHandle: false,
       isScrollControlled: true,
+      backgroundColor: dark ? TColors.black : TColors.lightContainer,
       builder: (context){
         return SizedBox(
           height: 570.h,
@@ -66,6 +70,7 @@ class _ReminderTileState extends State<ReminderTile> {
                     width: 350.w,
                     height: 165.h,
                     backgroundColor: dark ? TColors.dark : TColors.lightGrey,
+                    showBorder: dark ? true : false,
                     child: TextFormField(
                       textAlign: TextAlign.right,
                       decoration: InputDecoration(
@@ -77,7 +82,7 @@ class _ReminderTileState extends State<ReminderTile> {
                   TSizes.spaceBtwSections.verticalSpace,
                   const InfiniteDatePicker(),
                   TSizes.spaceBtwSections.verticalSpace,
-                  SizedBox(height: 50.h, width: 350.w, child: ElevatedButton(onPressed: (){}, child: Text(TArabicTexts.tcontinue)),)
+                  SizedBox(height: 50.h, width: 350.w, child: ElevatedButton(onPressed: () => ClientProfileController.instance.selectReminder(), child: Text(TArabicTexts.tcontinue)),)
                 ],
               ),
             ),
@@ -119,6 +124,8 @@ class _ReminderTileState extends State<ReminderTile> {
           if (widget.showArrowIcon)
             IconButton(
               onPressed: (){
+                widget.value = null;
+                widget.selectedValueNotifier?.value = null;
                 Get.back();
                 showCustomizeReminderDialog();
               },

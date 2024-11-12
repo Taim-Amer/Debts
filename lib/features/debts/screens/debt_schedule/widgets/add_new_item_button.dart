@@ -10,24 +10,27 @@ class AddNewItemButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // await DebtScheduleController.instance.createDebt();
-        // Get.offAndToNamed(AppRoutes.debtSchedule);
-        DebtScheduleController.instance.addNewDebtItem();
-      },
-      child: TRoundedContainer(
-        width: 160.w,
-        height: 32.h,
-        backgroundColor: const Color(0xFFBFE3FF),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Flexible(child: Text(TArabicTexts.addNewItem, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),)),
-            const Icon(Icons.add, color: TColors.buttonPrimary)
-          ],
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        GestureDetector(
+          onTap: () {
+            DebtScheduleController.instance.addNewDebtItem();
+          },
+          child: TRoundedContainer(
+            width: 160.w,
+            height: 32.h,
+            backgroundColor: const Color(0xFFBFE3FF),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Flexible(child: Text(TArabicTexts.addNewItem, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary),)),
+                const Icon(Icons.add, color: TColors.buttonPrimary)
+              ],
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }

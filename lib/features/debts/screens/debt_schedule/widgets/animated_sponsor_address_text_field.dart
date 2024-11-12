@@ -31,6 +31,8 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  const Icon(Icons.location_on, color: TColors.buttonPrimary),
+                  8.horizontalSpace,
                   Flexible(
                     child: Text(
                       TArabicTexts.addSponsor,
@@ -38,15 +40,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  8.horizontalSpace,
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isExpanded = !isExpanded;
-                      });
-                    },
-                    child: const Icon(Icons.location_on, color: TColors.buttonPrimary),
-                  ),
+
                 ],
               ),
             ),

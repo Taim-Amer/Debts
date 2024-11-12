@@ -27,4 +27,6 @@ class TApiConstants {
   static const String getMyDebts = "user/get_my_debts";
 
   static const String getClientProfile = "user/get_customer_profile";
+
+  static const String selectReminder = "user/select_reminder";
 }

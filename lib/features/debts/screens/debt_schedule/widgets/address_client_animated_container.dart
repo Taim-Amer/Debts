@@ -30,6 +30,8 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  const Icon(Icons.location_on, color: TColors.buttonPrimary),
+                  8.horizontalSpace,
                   Flexible(
                     child: Text(
                       TArabicTexts.clientAddress ?? '',
@@ -37,8 +39,7 @@ class _AddressClientAnimatedContainerState extends State<AddressClientAnimatedCo
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  8.horizontalSpace,
-                  const Icon(Icons.location_on, color: TColors.buttonPrimary),
+
                 ],
               ),
             ),

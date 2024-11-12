@@ -32,6 +32,8 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  const Icon(Icons.location_on, color: TColors.buttonPrimary),
+                  8.horizontalSpace,
                   Flexible(
                     child: Text(
                       TArabicTexts.sponsorAddress,
@@ -39,8 +41,6 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  8.horizontalSpace,
-                  const Icon(Icons.location_on, color: TColors.buttonPrimary),
                 ],
               ),
             ),

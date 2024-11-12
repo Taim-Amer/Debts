@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/reminder_tile.dart';
+import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -16,13 +18,6 @@ class CollectionDateContainer extends StatefulWidget {
 }
 
 class CollectionDateContainerState extends State<CollectionDateContainer> {
-  final ValueNotifier<int?> _selectedValueNotifier = ValueNotifier<int?>(null);
-
-  @override
-  void dispose() {
-    _selectedValueNotifier.dispose();
-    super.dispose();
-  }
 
   Future<void> showCollectionDateBottomSheet() {
     return showModalBottomSheet(
@@ -57,7 +52,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                   title: TArabicTexts.weakReminder,
                   showRadio: true,
                   value: 1,
-                  selectedValueNotifier: _selectedValueNotifier,
+                  selectedValueNotifier: ClientProfileController.instance.selectedValue,
                 ),
                 TSizes.spaceBtwItems.verticalSpace,
                 ReminderTile(
@@ -65,20 +60,22 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                   title: TArabicTexts.monthReminder,
                   showRadio: true,
                   value: 2,
-                  selectedValueNotifier: _selectedValueNotifier,
+                  selectedValueNotifier: ClientProfileController.instance.selectedValue,
                 ),
                 TSizes.spaceBtwItems.verticalSpace,
                 ReminderTile(
                   icon: TImages.customizeReminder,
                   title: TArabicTexts.customizeReminder,
+                  value: 3,
                   showArrowIcon: true,
+                  selectedValueNotifier: ClientProfileController.instance.selectedValue,
                 ),
                 TSizes.spaceBtwSections.verticalSpace,
                 SizedBox(
                   width: 270.w,
                   height: 44.h,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => ClientProfileController.instance.selectReminder(),
                     child: Text(TArabicTexts.tcontinue),
                   ),
                 ),
@@ -106,7 +103,10 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
             children: [
               Text(TArabicTexts.collectionDate, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.buttonPrimary, fontWeight: FontWeight.w700)),
               5.verticalSpace,
-              Text(TArabicTexts.undefined, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
+              Text(TAppTranslations.kUndefined, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
+              // Text(TFormatter.formatData(TCacheHelper.getData(key: "collection_date").isNotEmpty
+              //     ? DateTime.parse(TCacheHelper.getData(key: "collection_date"))
+              //     : null), style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
             ],
           ),
         ),

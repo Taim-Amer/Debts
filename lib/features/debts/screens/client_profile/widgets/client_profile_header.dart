@@ -5,6 +5,7 @@ import 'package:taha_debts/features/debts/controllers/client_profile_controller/
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
+import 'package:taha_debts/utils/formatters/formatter.dart';
 
 class ClientProfileHeader extends StatelessWidget {
   const ClientProfileHeader({super.key});
@@ -18,9 +19,9 @@ class ClientProfileHeader extends StatelessWidget {
         TSizes.xs.verticalSpace,
         Text("${clientProfileModel.value.customer!.name}: ${clientProfileModel.value.customer!.pageNumber}", style: Theme.of(context).textTheme.headlineMedium),
         TSizes.sm.verticalSpace,
-        Text(clientProfileModel.value.customer?.phone?.first ?? "", style: Theme.of(context).textTheme.headlineSmall,),
+        Text(TFormatter.formatPhoneNumber(clientProfileModel.value.customer?.phone?.first ?? ""), style: Theme.of(context).textTheme.headlineSmall,),
         TSizes.sm.verticalSpace,
-        Text(clientProfileModel.value.customer?.phone?.last ?? "", style: Theme.of(context).textTheme.headlineSmall,),
+        Text(TFormatter.formatPhoneNumber(clientProfileModel.value.customer?.phone?.last ?? ""), style: Theme.of(context).textTheme.headlineSmall,),
         TSizes.md.verticalSpace,
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

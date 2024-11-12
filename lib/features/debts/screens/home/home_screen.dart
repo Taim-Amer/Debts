@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: const TAppBar(title: HomeAppbar()),
       floatingActionButton: const HomeFloatingActionButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: Obx((){
         var isLoading = HomeController.instance.getDebtsApiStatus.value == RequestState.loading;
         return isLoading ? const Center(child: LoadingWidget()) : HomeController.instance.getDebtsApiStatus.value == RequestState.success ? const HomeWithDataForm() : const HomeEmptyForm();

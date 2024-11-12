@@ -8,6 +8,7 @@ class AddAnotherPhoneNumberButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(onPressed: (){}, child: Row(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         const Icon(Icons.add, size: 20, color: TColors.buttonPrimary,),
         Text(TArabicTexts.addAnotherPhone, style: const TextStyle(color: TColors.buttonPrimary),),

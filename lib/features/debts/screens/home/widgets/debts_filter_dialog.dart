@@ -30,25 +30,16 @@ class DebtsFilterDialog{
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      SizedBox(width: 24.w),
                       IconButton(
                         onPressed: () => Get.back(),
                         icon: Icon(Icons.close, color: const Color(0xFF6D6E72), size: 24.sp),
                       ),
-                      SizedBox(width: 24.w),
                     ],
                   ),
                   TSizes.spaceBtwSections.verticalSpace,
                   Row(
                     children: [
-                      Expanded(
-                        child: Obx(() => TChoiceChip(
-                          text: TArabicTexts.totalDebtors,
-                          selected: homeController.isTotalDebtorsSelected.value,
-                          onSelected: (value) => homeController.isTotalDebtorsSelected.value = value,
-                        ),
-                        ),
-                      ),
-                      TSizes.sm.horizontalSpace,
                       Expanded(
                         child: Obx(() => TChoiceChip(
                           text: TArabicTexts.all,
@@ -57,20 +48,21 @@ class DebtsFilterDialog{
                         ),
                         ),
                       ),
+                      TSizes.sm.horizontalSpace,
+                      Expanded(
+                        child: Obx(() => TChoiceChip(
+                          text: TArabicTexts.totalDebtors,
+                          selected: homeController.isTotalDebtorsSelected.value,
+                          onSelected: (value) => homeController.isTotalDebtorsSelected.value = value,
+                        ),
+                        ),
+                      ),
+
                     ],
                   ),
                   TSizes.sm.verticalSpace,
                   Row(
                     children: [
-                      Expanded(
-                        child: Obx(() => TChoiceChip(
-                          text: TArabicTexts.totalReceived,
-                          selected: homeController.isTotalReceivedSelected.value,
-                          onSelected: (value) => homeController.isTotalReceivedSelected.value = value,
-                        ),
-                        ),
-                      ),
-                      TSizes.sm.horizontalSpace,
                       Expanded(
                         child: Obx(() => TChoiceChip(
                           text: TArabicTexts.settled,
@@ -79,13 +71,19 @@ class DebtsFilterDialog{
                         ),
                         ),
                       ),
+                      TSizes.sm.horizontalSpace,
+                      Expanded(
+                        child: Obx(() => TChoiceChip(
+                          text: TArabicTexts.totalReceived,
+                          selected: homeController.isTotalReceivedSelected.value,
+                          onSelected: (value) => homeController.isTotalReceivedSelected.value = value,
+                        ),
+                        ),
+                      ),
                     ],
                   ),
                   TSizes.spaceBtwSections.verticalSpace,
-                  const InfiniteDatePicker(),
-                  TSizes.spaceBtwSections.verticalSpace,
-                  const ReminderTile(icon: "", title: "من الأعلى إلى الأدنى"),
-                  const ReminderTile(icon: "", title: "من الأدنى إلى الأعلى"),
+                  InfiniteDatePicker(),
                   const HomeFilterContinueButton()
                 ],
               ),

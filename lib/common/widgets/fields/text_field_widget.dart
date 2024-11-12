@@ -38,6 +38,10 @@ class TextFieldWidget extends StatelessWidget {
           child: Row(
             // mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              if (icon != null) ...[
+                Icon(icon, color: TColors.buttonPrimary),
+                8.horizontalSpace,
+              ],
               Flexible(
                 child: Text(
                   title,
@@ -45,10 +49,6 @@ class TextFieldWidget extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              if (icon != null) ...[
-                8.horizontalSpace,
-                Icon(icon, color: TColors.buttonPrimary),
-              ],
             ],
           ),
         ),

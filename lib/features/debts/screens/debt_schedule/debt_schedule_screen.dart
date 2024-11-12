@@ -88,10 +88,7 @@ class DebtScheduleScreen extends StatelessWidget {
                   ],
                 ),
                 TSizes.spaceBtwSections.verticalSpace,
-                const Align(
-                  alignment: AlignmentDirectional.topEnd,
-                  child: AddNewItemButton(),
-                ),
+                const AddNewItemButton(),
                 TSizes.spaceBtwSections.verticalSpace,
                 const AddNewDebtButton(),
               ],
