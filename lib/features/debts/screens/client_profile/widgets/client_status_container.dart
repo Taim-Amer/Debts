@@ -36,14 +36,14 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  Text(
+                    TArabicTexts.clientStatus,
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary),
+                  ),
                   Icon(
                     isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down_sharp,
                     color: TColors.buttonPrimary,
                     size: TSizes.iconSm,
-                  ),
-                  Text(
-                    TArabicTexts.clientStatus,
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary),
                   ),
                 ],
               ),

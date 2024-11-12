@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_common/get_reset.dart';
 import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
+import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -15,15 +18,15 @@ class StatisticsRow extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text(TArabicTexts.totalPayment, style: Theme.of(context).textTheme.titleSmall,),
+            Text(TAppTranslations.kTotalDebtors, style: Theme.of(context).textTheme.titleSmall,),
             TSizes.md.verticalSpace,
-            Text(HomeController.instance.myDebtsModel.value.data?.totalPayment.toString() ?? "0", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary)),
+            Text(HomeController.instance.myDebtsModel.value.data?.totalAmount.toString() ?? "0", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.redColor),),
           ],
         ),
         Container(height: 50.h, width: 1, color: const Color(0xFFC8C8C8)),
         Column(
           children: [
-            Text(TArabicTexts.clients, style: Theme.of(context).textTheme.titleSmall,),
+            Text(TAppTranslations.kClients, style: Theme.of(context).textTheme.titleSmall,),
             TSizes.md.verticalSpace,
             Text(HomeController.instance.myDebtsModel.value.data?.totalCount.toString() ?? "1", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary),),
           ],
@@ -31,9 +34,10 @@ class StatisticsRow extends StatelessWidget {
         Container(height: 50.h, width: 1, color: const Color(0xFFC8C8C8)),
         Column(
           children: [
-            Text(TArabicTexts.totalDebts, style: Theme.of(context).textTheme.titleSmall,),
+            // Text(TArabicTexts.totalPayment, style: Theme.of(context).textTheme.titleSmall,),
+            Text(TAppTranslations.kTotalPayment, style: Theme.of(context).textTheme.titleSmall,),
             TSizes.md.verticalSpace,
-            Text(HomeController.instance.myDebtsModel.value.data?.totalAmount.toString() ?? "0", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.redColor),),
+            Text(HomeController.instance.myDebtsModel.value.data?.totalPayment.toString() ?? "0", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary)),
           ],
         ),
       ],

@@ -17,13 +17,6 @@ class ClientProfileNavBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
-              child: SizedBox(
-                  height: 55.h,
-                  child: OutlinedButton(
-                      onPressed: () => Get.toNamed(AppRoutes.addDebt),
-                      child: Flexible(child: Center(child: Text(TArabicTexts.buying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))))),
-          15.horizontalSpace,
-          Expanded(
             child: SizedBox(
               height: 55.h,
               child: ElevatedButton(
@@ -39,6 +32,13 @@ class ClientProfileNavBar extends StatelessWidget {
               ),
             ),
           ),
+          15.horizontalSpace,
+          Expanded(
+              child: SizedBox(
+                  height: 55.h,
+                  child: OutlinedButton(
+                      onPressed: () => Get.toNamed(AppRoutes.addDebt),
+                      child: Flexible(child: Center(child: Text(TArabicTexts.buying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))))),
         ],
       ),
     );

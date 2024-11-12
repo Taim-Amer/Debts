@@ -13,19 +13,19 @@ class NotationItem extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("2024/7/30", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary, fontSize: 14),),
             Row(
               children: [
-                Text(TArabicTexts.notations, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
-                8.horizontalSpace,
                 const Icon(Icons.note, color: TColors.buttonPrimary, size: 21,),
+                8.horizontalSpace,
+                Text(TArabicTexts.notations, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
               ],
             ),
+            Text("2024/7/30", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary, fontSize: 14),),
           ],
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 7.h),
-          child: Text("هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14, fontWeight: FontWeight.w400), textDirection: TextDirection.rtl,),
+          child: Text("هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14, fontWeight: FontWeight.w400)),
         ),
         const Divider(color: Color(0xFFE3E3E3),)
       ],

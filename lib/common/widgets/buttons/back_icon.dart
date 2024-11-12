@@ -13,7 +13,7 @@ class BackIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return TCircularIcon(
-      icon: Icons.arrow_back_ios_new,
+      icon: Icons.arrow_forward_ios_rounded,
       size: TSizes.iconMd,
       color: dark ? TColors.lightGrey :const Color(0xFF353535),
       backgroundColor: dark ? TColors.darkGrey :TColors.borderPrimary,

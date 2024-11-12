@@ -45,13 +45,13 @@ class DebtScheduleScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Expanded(
-                      flex: 3,
-                      child: GoodsRecordAnimatedContainer(),
+                      flex: 2,
+                      child: PageNumberTextField(),
                     ),
                     10.horizontalSpace,
                     const Expanded(
-                      flex: 2,
-                      child: PageNumberTextField(),
+                      flex: 3,
+                      child: GoodsRecordAnimatedContainer(),
                     ),
                   ],
                 ),
@@ -62,13 +62,13 @@ class DebtScheduleScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Expanded(
-                      flex: 3,
-                      child: GoodsDescriptionTextField(),
+                      flex: 2,
+                      child: AmountTextField(),
                     ),
                     10.horizontalSpace,
                     const Expanded(
-                      flex: 2,
-                      child: AmountTextField(),
+                      flex: 3,
+                      child: GoodsDescriptionTextField(),
                     ),
                   ],
                 ),
@@ -76,13 +76,14 @@ class DebtScheduleScreen extends StatelessWidget {
                 Row(
                   children: [
                     const Expanded(
-                      flex: 3,
-                      child: MonthlyPaymentTextField(),
-                    ),
-                    10.horizontalSpace,
-                    const Expanded(
                       flex: 2,
                       child: InitialPaymentTextField(),
+                    ),
+                    10.horizontalSpace,
+
+                    const Expanded(
+                      flex: 3,
+                      child: MonthlyPaymentTextField(),
                     ),
                   ],
                 ),

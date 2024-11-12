@@ -9,9 +9,9 @@ class SearchByNameTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      textAlign: TextAlign.end,
+      // textAlign: TextAlign.end,
       decoration: InputDecoration(
-        suffixIcon: const Icon(Icons.search),
+        prefixIcon: const Icon(Icons.search),
         hintText: TArabicTexts.searchByName,
         hintStyle: const TextStyle(color: Colors.grey),
         contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),

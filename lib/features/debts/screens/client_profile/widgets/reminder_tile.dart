@@ -62,8 +62,6 @@ class _ReminderTileState extends State<ReminderTile> {
                     ],
                   ),
                   TSizes.spaceBtwItems.verticalSpace,
-                  const InfiniteDatePicker(),
-                  TSizes.spaceBtwSections.verticalSpace,
                   TRoundedContainer(
                     width: 350.w,
                     height: 165.h,
@@ -76,6 +74,8 @@ class _ReminderTileState extends State<ReminderTile> {
                       ),
                     ),
                   ),
+                  TSizes.spaceBtwSections.verticalSpace,
+                  const InfiniteDatePicker(),
                   TSizes.spaceBtwSections.verticalSpace,
                   SizedBox(height: 50.h, width: 350.w, child: ElevatedButton(onPressed: (){}, child: Text(TArabicTexts.tcontinue)),)
                 ],

@@ -22,45 +22,46 @@ class ClientDebtsRow extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(amount.toString(), style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: isDebt ? TColors.redColor.withOpacity(.8) : TColors.greenColor.withOpacity(.8))),
-                Text(isDebt ? "دين" : "قبضت", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: isDebt ? TColors.redColor.withOpacity(.8) : TColors.greenColor.withOpacity(.8), fontWeight: FontWeight.w400)),
-              ],
-            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Row(
-                      children: [
-                        Text("ساعة $date", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary)),
-                        5.horizontalSpace,
-                        const Icon(Icons.calendar_month, color: TColors.buttonPrimary, size: TSizes.iconSm,)
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text("باقي الحساب", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
-                        5.horizontalSpace,
-                        Text(afterPay.toString(), style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
-                      ],
-                    ),
-                    Text(goodsDescription, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
-                  ],
-                ),
-                19.horizontalSpace,
                 TCircularContainer(
                   width: 40,
                   height: 40,
                   backgroundColor: isDebt ? TColors.redColor.withOpacity(.2) : TColors.greenColor.withOpacity(.2),
                   child: isDebt ? SvgPicture.asset(TImages.up) : SvgPicture.asset(TImages.down),
                 ),
+                19.horizontalSpace,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        const Icon(Icons.calendar_month, color: TColors.buttonPrimary, size: TSizes.iconSm,),
+                        5.horizontalSpace,
+
+                        Text("ساعة $date", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.buttonPrimary)),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(afterPay.toString(), style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
+                        5.horizontalSpace,
+                        Text("باقي الحساب", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
+                      ],
+                    ),
+                    Text(goodsDescription, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
+                  ],
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(amount.toString(), style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: isDebt ? TColors.redColor.withOpacity(.8) : TColors.greenColor.withOpacity(.8))),
+                Text(isDebt ? "دين" : "قبضت", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: isDebt ? TColors.redColor.withOpacity(.8) : TColors.greenColor.withOpacity(.8), fontWeight: FontWeight.w400)),
               ],
             ),
           ],

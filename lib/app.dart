@@ -22,8 +22,10 @@ class App extends StatelessWidget {
           initialRoute: AppRoutes.home,
           getPages: AppRoutes.routes,
           translations: TAppTranslations(),
-          fallbackLocale: const Locale('ar', 'AE'),
-          locale: const Locale('en', 'US'),
+          locale: const Locale('ar', 'AE'),
+          fallbackLocale: const Locale('en', 'US'),
+          // locale: const Locale('en', 'US'),
+          // fallbackLocale: const Locale('ar', 'AE'),
           initialBinding: HomeBinding(),
           // home: const DebtAdditionScreen()
       ),

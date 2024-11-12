@@ -10,9 +10,9 @@ class PayAdditionAppbar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const BackIcon(),
+        const SizedBox(),
         Text(TArabicTexts.addNewCollection, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700, fontSize: 18),),
-        const SizedBox()
+        const BackIcon(),
       ],
     );
   }

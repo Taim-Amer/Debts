@@ -42,8 +42,8 @@ class ClientProfileScreen extends StatelessWidget {
                         children: [
                           const ClientProfileHeader(),
                           TSizes.md.verticalSpace,
-                          const BySponsorContainer(),
-                          TSizes.md.verticalSpace,
+                          Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? const BySponsorContainer() : const SizedBox()),
+                          Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? TSizes.md.verticalSpace : const SizedBox()),
                           const CollectionDateContainer(),
                           TSizes.spaceBtwSections.verticalSpace,
                           Align(

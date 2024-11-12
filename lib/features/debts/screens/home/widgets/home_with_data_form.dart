@@ -24,12 +24,6 @@ class HomeWithDataForm extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(child: HomeFilterContainer(title: TArabicTexts.notations, function: (){}, icon: Icons.note_add,)),
-                3.horizontalSpace,
-                Expanded(child: HomeFilterContainer(title: TArabicTexts.nonPayers, function: (){},)),
-                3.horizontalSpace,
-                Expanded(child: HomeFilterContainer(title: TArabicTexts.country, function: (){}, icon: Icons.search,)),
-                3.horizontalSpace,
                 Expanded(
                   child: HomeFilterContainer(
                     title: TArabicTexts.filter,
@@ -37,6 +31,15 @@ class HomeWithDataForm extends StatelessWidget {
                     icon: Icons.file_copy,
                   ),
                 ),
+                3.horizontalSpace,
+
+                Expanded(child: HomeFilterContainer(title: TArabicTexts.country, function: (){}, icon: Icons.search,)),
+                3.horizontalSpace,
+
+                Expanded(child: HomeFilterContainer(title: TArabicTexts.nonPayers, function: (){},)),
+                3.horizontalSpace,
+
+                Expanded(child: HomeFilterContainer(title: TArabicTexts.notations, function: (){}, icon: Icons.note_add,)),
               ],
             ),
             TSizes.spaceBtwInputField.verticalSpace,

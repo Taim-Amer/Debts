@@ -1,177 +1,173 @@
-import 'package:get/get.dart';
-
 class TArabicTexts {
   // Global Texts
-  static String get next => 'next'.tr;
-  static String get add => 'add'.tr;
-  static String get addAnotherPhone => 'addAnotherPhone'.tr;
-  static String get tcontinue => 'tcontinue'.tr;
-  static String get errorMessage => 'errorMessage'.tr;
+  static String get next => 'التالي';
+  static String get add => 'إضافة';
+  static String get addAnotherPhone => 'إضافة هاتف آخر';
+  static String get tcontinue => 'استمر';
+  static String get errorMessage => 'حدث خطأ، يرجى المحاولة مرة أخرى';
 
   // Authentication Form Text
-  static String get welcome => 'welcome'.tr;
-  static String get phoneInput => 'phoneInput'.tr;
-  static String get phone => 'phone'.tr;
-  static String get registerTitle => 'registerTitle'.tr;
-  static String get registerSubTitle => 'registerSubTitle'.tr;
-  static String get resendCode => 'resendCode'.tr;
-  static String get resendCodeQuastion => 'resendCodeQuestion'.tr;
-  static String get verificationCode => 'verificationCode'.tr;
-  static String get emptyDebts => 'emptyDebts'.tr;
-  static String get addDebts => 'addDebts'.tr;
-  static String get otpTitle => 'otpTitle'.tr;
-  static String get username => 'username'.tr;
-  static String get email => 'email'.tr;
+  static String get welcome => 'مرحباً!';
+  static String get phoneInput => 'أدخل رقم هاتفك لاستلام رمز التحقق';
+  static String get phone => 'رقم الهاتف';
+  static String get registerTitle => 'قريباً من الانتهاء!';
+  static String get registerSubTitle => 'أدخل معلوماتك الشخصية لإنشاء حسابك';
+  static String get resendCode => 'إعادة إرسال';
+  static String get resendCodeQuastion => 'لم تستلم رسالة التحقق؟';
+  static String get verificationCode => 'رمز التحقق';
+  static String get emptyDebts => 'لا توجد ديون!';
+  static String get addDebts => 'إضافة ديون';
+  static String get otpTitle => 'رمز التحقق';
+  static String get username => 'اسم المستخدم';
+  static String get email => 'البريد الإلكتروني';
 
   // Home
-  static String get clientName => 'clientName'.tr;
-  static String get clientAddress => 'clientAddress'.tr;
-  static String get clientPhone => 'clientPhone'.tr;
-  static String get pageNumber => 'pageNumber'.tr;
-  static String get records => 'records'.tr;
-  static String get addSponsor => 'addSponsor'.tr;
-  static String get sponsorPhone => 'sponsorPhone'.tr;
-  static String get sponsorAddress => 'sponsorAddress'.tr;
-  static String get amount => 'amount'.tr;
-  static String get productDescription => 'productDescription'.tr;
-  static String get initialPayment => 'initialPayment'.tr;
-  static String get monthlyPayment => 'monthlyPayment'.tr;
-  static String get addNewItem => 'addNewItem'.tr;
-  static String get totalPayment => 'totalPayment'.tr;
-  static String get clients => 'clients'.tr;
-  static String get totalDebts => 'totalDebts'.tr;
-  static String get notations => 'notations'.tr;
-  static String get nonPayers => 'nonPayers'.tr;
-  static String get country => 'country'.tr;
-  static String get filter => 'filter'.tr;
-  static String get searchByName => 'searchByName'.tr;
-  static String get day => 'day'.tr;
-  static String get debt => 'debt'.tr;
-  static String get settled => 'settled'.tr;
-  static String get totalReceived => 'totalReceived'.tr;
-  static String get totalDebtors => 'totalDebtors'.tr;
-  static String get all => 'all'.tr;
+  static String get clientName => 'اسم العميل';
+  static String get clientAddress => 'عنوان العميل';
+  static String get clientPhone => 'هاتف العميل';
+  static String get pageNumber => 'رقم الصفحة';
+  static String get records => 'السجلات';
+  static String get addSponsor => 'إضافة ممول';
+  static String get sponsorPhone => 'هاتف الممول';
+  static String get sponsorAddress => 'عنوان الممول';
+  static String get amount => 'المبلغ';
+  static String get productDescription => 'وصف المنتج';
+  static String get initialPayment => 'الدفعة الأولية';
+  static String get monthlyPayment => 'الدفع الشهري';
+  static String get addNewItem => 'إضافة عنصر جديد';
+  static String get totalPayment => 'إجمالي الدفعات';
+  static String get clients => 'العملاء';
+  static String get totalDebts => 'إجمالي الديون';
+  static String get notations => 'الملاحظات';
+  static String get nonPayers => 'غير المدفوعين';
+  static String get country => 'الدولة';
+  static String get filter => 'تصفية';
+  static String get searchByName => 'البحث بالاسم';
+  static String get day => 'اليوم';
+  static String get debt => 'دين';
+  static String get settled => 'تم التسوية';
+  static String get totalReceived => 'إجمالي المدفوعات';
+  static String get totalDebtors => 'إجمالي المدينين';
+  static String get all => 'الكل';
 
   // Client Profile
-  static String get clientInformation => 'clientInformation'.tr;
-  static String get bySponsor => 'bySponsor'.tr;
-  static String get clientStatus => 'clientStatus'.tr;
-  static String get collectionDate => 'collectionDate'.tr;
-  static String get payment => 'payment'.tr;
-  static String get buying => 'buying'.tr;
-  static String get transactions => 'transactions'.tr;
-  static String get reminderBy => 'reminderBy'.tr;
-  static String get undefined => 'undefined'.tr;
-  static String get weakReminder => 'weakReminder'.tr;
-  static String get monthReminder => 'monthReminder'.tr;
-  static String get customizeReminder => 'customizeReminder'.tr;
-  static String get notationAdd => 'notationAdd'.tr;
-  static String get sponsorName => 'sponsorName'.tr;
+  static String get clientInformation => 'معلومات العميل';
+  static String get bySponsor => 'بواسطة الممول';
+  static String get clientStatus => 'حالة العميل';
+  static String get collectionDate => 'تاريخ التحصيل';
+  static String get payment => 'الدفع';
+  static String get buying => 'شراء';
+  static String get transactions => 'المعاملات';
+  static String get reminderBy => 'التذكير بواسطة';
+  static String get undefined => 'غير معرف';
+  static String get weakReminder => 'تذكير ضعيف';
+  static String get monthReminder => 'تذكير شهري';
+  static String get customizeReminder => 'تخصيص التذكير';
+  static String get notationAdd => 'إضافة ملاحظة';
+  static String get sponsorName => 'اسم الممول';
 
   // Additions
-  static String get addNewCollection => 'addNewCollection'.tr;
-  static String get productsName => 'productsName'.tr;
-  static String get productsDescription => 'productsDescription'.tr;
+  static String get addNewCollection => 'إضافة مجموعة جديدة';
+  static String get productsName => 'اسم المنتج';
+  static String get productsDescription => 'وصف المنتج';
 
   // Notifications
-  static String get notifications => 'notifications'.tr;
+  static String get notifications => 'الإشعارات';
 
   // Settings
-  static String get settings => 'settings'.tr;
-  static String get languageChange => 'languageChange'.tr;
-  static String get arabic => 'arabic'.tr;
-  static String get english => 'english'.tr;
-  static String get privacyPolicy => 'privacyPolicy'.tr;
-  static String get about => 'about'.tr;
-  static String get out => 'out'.tr;
-  static String get accountInfo => 'accountInfo'.tr;
+  static String get settings => 'الإعدادات';
+  static String get languageChange => 'تغيير اللغة';
+  static String get arabic => 'العربية';
+  static String get english => 'الإنجليزية';
+  static String get privacyPolicy => 'سياسة الخصوصية';
+  static String get about => 'حول';
+  static String get out => 'خروج';
+  static String get accountInfo => 'معلومات الحساب';
 }
 
 class TEnglishTexts {
-
   // Global Texts
-  static const String next = "Next";
-  static const String add = "Add";
-  static const String addAnotherPhone = "Add Another Phone";
-  static const String tcontinue = "Continue";
-  static const String errorMessage = "An error occurred, please try again.";
+  static String get next => 'Next';
+  static String get add => 'Add';
+  static String get addAnotherPhone => 'Add Another Phone';
+  static String get tcontinue => 'Continue';
+  static String get errorMessage => 'An error occurred, please try again';
 
   // Authentication Form Text
-  static const String welcome = "Welcome!";
-  static const String phoneInput = "Enter your phone number to receive the verification code";
-  static const String phone = "Phone Number";
-  static const String registerTitle = "Almost done!";
-  static const String registerSubTitle = "Enter your personal information to create your account";
-  static const String resendCode = "Resend";
-  static const String resendCodeQuestion = "Didn't receive the verification message?";
-  static const String verificationCode = "Verification Code";
-  static const String emptyDebts = "No Debts!";
-  static const String addDebts = "Add New Debt";
-  static const String otpTitle = "Account Verification";
-  static const String username = 'Full Name';
-  static const String email = "Email";
+  static String get welcome => 'Welcome!';
+  static String get phoneInput => 'Enter your phone number to receive the verification code';
+  static String get phone => 'Phone Number';
+  static String get registerTitle => 'Almost there!';
+  static String get registerSubTitle => 'Enter your personal information to create your account';
+  static String get resendCode => 'Resend Code';
+  static String get resendCodeQuastion => 'Didn’t receive the verification message?';
+  static String get verificationCode => 'Verification Code';
+  static String get emptyDebts => 'No debts!';
+  static String get addDebts => 'Add Debts';
+  static String get otpTitle => 'OTP Verification';
+  static String get username => 'Username';
+  static String get email => 'Email';
 
   // Home
-  static const String clientName = "Client Name";
-  static const String clientAddress = "Client Address";
-  static const String clientPhone = "Client Phone";
-  static const String pageNumber = "Page Number";
-  static const String records = "Records";
-  static const String addSponsor = "Add Sponsor (if any)";
-  static const String sponsorPhone = "Sponsor's Phone Number";
-  static const String sponsorAddress = "Sponsor's Address";
-  static const String amount = "Amount";
-  static const String productDescription = "Product Description (Optional)";
-  static const String initialPayment = "Initial Payment (Optional)";
-  static const String monthlyPayment = "Monthly Payment (Optional)";
-  static const String addNewItem = "Add New Item";
-  static const String totalPayment = "Total Payment";
-  static const String clients = "Clients";
-  static const String totalDebts = "Total Debt";
-  static const String notations = "Notations";
-  static const String nonPayers = "Non-Payers";
-  static const String country = "Country";
-  static const String filter = "Filter";
-  static const String searchByName = "Search by Name...";
-  static const String day = "Day";
-  static const String debt = "Debt";
-  static const String settled = "Settled";
-  static const String totalReceived = "Total Received";
-  static const String totalDebtors = "Total Debtors";
-  static const String all = "All";
+  static String get clientName => 'Client Name';
+  static String get clientAddress => 'Client Address';
+  static String get clientPhone => 'Client Phone';
+  static String get pageNumber => 'Page Number';
+  static String get records => 'Records';
+  static String get addSponsor => 'Add Sponsor';
+  static String get sponsorPhone => 'Sponsor Phone';
+  static String get sponsorAddress => 'Sponsor Address';
+  static String get amount => 'Amount';
+  static String get productDescription => 'Product Description';
+  static String get initialPayment => 'Initial Payment';
+  static String get monthlyPayment => 'Monthly Payment';
+  static String get addNewItem => 'Add New Item';
+  static String get totalPayment => 'Total Payment';
+  static String get clients => 'Clients';
+  static String get totalDebts => 'Total Debts';
+  static String get notations => 'Notations';
+  static String get nonPayers => 'Non Payers';
+  static String get country => 'Country';
+  static String get filter => 'Filter';
+  static String get searchByName => 'Search By Name';
+  static String get day => 'Day';
+  static String get debt => 'Debt';
+  static String get settled => 'Settled';
+  static String get totalReceived => 'Total Received';
+  static String get totalDebtors => 'Total Debtors';
+  static String get all => 'All';
 
   // Client Profile
-  static const String clientInformation = "Client Information";
-  static const String bySponsor = "By Sponsor";
-  static const String clientStatus = "Client Status";
-  static const String collectionDate = "Collection Date";
-  static const String payment = "Payment";
-  static const String buying = "Buying";
-  static const String transactions = "Transactions:";
-  static const String reminderBy = "Reminder by:";
-  static const String undefined = "Undefined";
-  static const String weakReminder = "Reminder after a Week";
-  static const String monthReminder = "Reminder after a Month";
-  static const String customizeReminder = "Custom Reminder";
-  static const String notationAdd = "Add a Note...";
-  static const String sponsorName = "Sponsor's Name";
+  static String get clientInformation => 'Client Information';
+  static String get bySponsor => 'By Sponsor';
+  static String get clientStatus => 'Client Status';
+  static String get collectionDate => 'Collection Date';
+  static String get payment => 'Payment';
+  static String get buying => 'Buying';
+  static String get transactions => 'Transactions';
+  static String get reminderBy => 'Reminder By';
+  static String get undefined => 'Undefined';
+  static String get weakReminder => 'Weak Reminder';
+  static String get monthReminder => 'Monthly Reminder';
+  static String get customizeReminder => 'Customize Reminder';
+  static String get notationAdd => 'Add Notation';
+  static String get sponsorName => 'Sponsor Name';
 
   // Additions
-  static const String addNewCollection = "Add New Collection";
-  static const String productsName = "Product Name";
-  static const String productsDescription = "Product Description";
+  static String get addNewCollection => 'Add New Collection';
+  static String get productsName => 'Product Name';
+  static String get productsDescription => 'Product Description';
 
   // Notifications
-  static const String notifications = "Notifications";
+  static String get notifications => 'Notifications';
 
   // Settings
-  static const String settings = "Settings";
-  static const String languageChange = "Change Language";
-  static const String arabic = "Arabic";
-  static const String english = "English";
-  static const String privacyPolicy = "Privacy Policy";
-  static const String about = "About the App";
-  static const String out = "Log Out";
-  static const String accountInfo = "Account Information";
+  static String get settings => 'Settings';
+  static String get languageChange => 'Change Language';
+  static String get arabic => 'Arabic';
+  static String get english => 'English';
+  static String get privacyPolicy => 'Privacy Policy';
+  static String get about => 'About';
+  static String get out => 'Log Out';
+  static String get accountInfo => 'Account Info';
 }
-

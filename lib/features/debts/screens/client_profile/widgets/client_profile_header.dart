@@ -25,8 +25,8 @@ class ClientProfileHeader extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Icon(Icons.location_on, size: TSizes.iconMd, color: TColors.buttonPrimary,),
             Text(clientProfileModel.value.customer?.customerRegion.toString() ?? "", style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),),
-            const Icon(Icons.location_on, size: TSizes.iconMd, color: TColors.buttonPrimary,)
           ],
         ),
       ],

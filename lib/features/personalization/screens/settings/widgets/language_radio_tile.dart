@@ -19,6 +19,8 @@ class LanguageRadioTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        Text(title, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 20)),
+        const Spacer(),
         Transform.scale(
           scale: 40 / 35,
           child: Radio(
@@ -28,9 +30,7 @@ class LanguageRadioTile extends StatelessWidget {
             activeColor: TColors.buttonPrimary,
           ),
         ),
-        const Spacer(),
-        Text(title, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 20),
-        ),
+
       ],
     );
   }

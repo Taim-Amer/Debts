@@ -29,7 +29,7 @@ class _CustomPhoneCountryCodeState extends State<AnimatedSponsorAddressTextField
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                // mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Flexible(
                     child: Text(

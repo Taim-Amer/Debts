@@ -1,5 +1,6 @@
-import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:scroll_date_picker/scroll_date_picker.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class InfiniteDatePicker extends StatefulWidget {
   const InfiniteDatePicker({super.key});
@@ -9,19 +10,24 @@ class InfiniteDatePicker extends StatefulWidget {
 }
 
 class _InfiniteDatePickerState extends State<InfiniteDatePicker> {
-  DateTime focusDate = DateTime.now();
+  DateTime _selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
-    return EasyInfiniteDateTimeLine(
-      firstDate: DateTime(2020, 1, 1),
-      focusDate: focusDate,
-      lastDate: DateTime.now(),
-      onDateChange: (selectedDate) {
-        setState(() {
-          focusDate = selectedDate;
-        });
-      },
+    final dark = THelperFunctions.isDarkMode(context);
+
+    return SizedBox(
+      height: 150,
+      width: double.infinity,
+      child: ScrollDatePicker(
+        selectedDate: _selectedDate,
+        locale: const Locale('en'),
+        onDateTimeChanged: (DateTime value) {
+          setState(() {
+            _selectedDate = value;
+          });
+        },
+      ),
     );
   }
 }

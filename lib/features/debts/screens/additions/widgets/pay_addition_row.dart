@@ -14,19 +14,6 @@ class PayAdditionRow extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-            flex: 3,
-            child: TextFieldWidget(
-              controller: AdditionsController.instance.goodsDescriptionController,
-              title: TArabicTexts.productsDescription,
-              hint: TArabicTexts.productsName,
-              titleColor: TColors.grey,
-              hintSize: 14,
-              radius: 6,
-              validator: (value) => TValidator.validateEmptyText("وصف البضاعة", value),
-              keyboardType: TextInputType.text,
-            )),
-        8.horizontalSpace,
-        Expanded(
             flex: 2,
             child: TextFieldWidget(
               controller: AdditionsController.instance.amountController,
@@ -37,6 +24,19 @@ class PayAdditionRow extends StatelessWidget {
               hintSize: 14,
               radius: 6,
               validator: (value) => TValidator.validateEmptyText("المبلغ", value),
+            )),
+        8.horizontalSpace,
+        Expanded(
+            flex: 3,
+            child: TextFieldWidget(
+              controller: AdditionsController.instance.goodsDescriptionController,
+              title: TArabicTexts.productsDescription,
+              hint: TArabicTexts.productsName,
+              titleColor: TColors.grey,
+              hintSize: 14,
+              radius: 6,
+              validator: (value) => TValidator.validateEmptyText("وصف البضاعة", value),
+              keyboardType: TextInputType.text,
             )),
       ],
     );

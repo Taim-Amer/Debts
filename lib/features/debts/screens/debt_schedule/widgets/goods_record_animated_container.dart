@@ -42,7 +42,7 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                // mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Flexible(
                     child: Text(
@@ -63,8 +63,26 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
                 borderRadius: BorderRadius.circular(50),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  8.horizontalSpace,
+                  Expanded(
+                    child: Obx(() {
+                      textController.text = controller.goodsRecord.value;
+                      return TextFormField(
+                        readOnly: true,
+                        controller: textController,
+                        decoration: InputDecoration(
+                          hintText: null,
+                          contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
+                          border: InputBorder.none,
+                        ),
+                        // textAlign: TextAlign.end,
+                        cursorColor: TColors.buttonPrimary,
+                        keyboardType: TextInputType.phone,
+                      );
+                    }),
+                  ),
+
                   IconButton(
                     onPressed: () async {
                       setState(() {
@@ -78,23 +96,8 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
                     },
                     icon: Icon(Icons.keyboard_arrow_down, color: const Color(0xFF353535), size: 28.h),
                   ),
-                  Expanded(
-                    child: Obx(() {
-                      textController.text = controller.goodsRecord.value;
-                      return TextFormField(
-                        readOnly: true,
-                        controller: textController,
-                        decoration: InputDecoration(
-                          hintText: null,
-                          contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
-                          border: InputBorder.none,
-                        ),
-                        textAlign: TextAlign.end,
-                        cursorColor: TColors.buttonPrimary,
-                        keyboardType: TextInputType.phone,
-                      );
-                    }),
-                  ),
+
+                  8.horizontalSpace,
                 ],
               ),
             ),
@@ -149,6 +152,10 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
         padding: EdgeInsets.symmetric(vertical: 5.h),
         child: Row(
           children: [
+            8.horizontalSpace,
+            Text(item?.title ?? ""),
+            16.horizontalSpace,
+            const Spacer(),
             Radio<String>(
               value: item?.title ?? "",
               groupValue: controller.goodsRecord.value,
@@ -161,10 +168,6 @@ class _GoodsRecordAnimatedContainerState extends State<GoodsRecordAnimatedContai
                 });
               },
             ),
-            const Spacer(),
-            16.horizontalSpace,
-            Text(item?.title ?? ""),
-            8.horizontalSpace,
           ],
         ),
       ),

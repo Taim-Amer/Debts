@@ -25,6 +25,17 @@ class _SettingsTileState extends State<SettingsTile> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: TSizes.md.h),
+              child: Row(
+                children: [
+                  SvgPicture.asset(widget.icon),
+                  8.horizontalSpace,
+                  Text(widget.title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
+
+                ],
+              ),
+            ),
             widget.showSwitch == true ? CupertinoSwitch(
               value: isSwitched,
               onChanged: (value){
@@ -33,18 +44,7 @@ class _SettingsTileState extends State<SettingsTile> {
                 });
               },
               activeColor: TColors.greenColor,
-            ) : const Icon(Icons.arrow_back_ios, color: Colors.black,),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: TSizes.md.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(widget.title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
-                  8.horizontalSpace,
-                  SvgPicture.asset(widget.icon),
-                ],
-              ),
-            ),
+            ) : const Icon(Icons.arrow_forward_ios_sharp, color: Colors.black,),
           ],
         ),
         const Divider(),

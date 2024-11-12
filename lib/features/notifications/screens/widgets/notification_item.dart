@@ -12,19 +12,19 @@ class NotificationItem extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("2024/7/30", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14),),
             Row(
               children: [
-                Text("إشعار تذكير", style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
-                8.horizontalSpace,
                 const Icon(Icons.notifications, color: TColors.buttonPrimary, size: 21,),
+                8.horizontalSpace,
+                Text("إشعار تذكير", style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
               ],
             ),
+            Text("2024/7/30", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14),),
           ],
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 7.h),
-          child: Text("لديك إشعار تذكير بقبض دفعة من السيد( هنا أسم الزبون) بقيمة( هنا قيمة الدفعة المتفق عليها )عن بضاعة ( هنا أسم البضاعة المشتراة)", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14, fontWeight: FontWeight.w400), textDirection: TextDirection.rtl,),
+          child: Text("لديك إشعار تذكير بقبض دفعة من السيد( هنا أسم الزبون) بقيمة( هنا قيمة الدفعة المتفق عليها )عن بضاعة ( هنا أسم البضاعة المشتراة)", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14, fontWeight: FontWeight.w400)),
         ),
         const Divider(color: Color(0xFFE3E3E3),)
       ],

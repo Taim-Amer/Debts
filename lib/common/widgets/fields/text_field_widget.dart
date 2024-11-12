@@ -36,7 +36,7 @@ class TextFieldWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            // mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Flexible(
                 child: Text(
@@ -74,7 +74,7 @@ class TextFieldWidget extends StatelessWidget {
             ),
           ),
           child: TextFormField(
-            textAlign: TextAlign.end,
+            // textAlign: TextAlign.end,
             controller: controller,
             enableInteractiveSelection: false,
             validator: validator ?? (value) => null,
@@ -89,7 +89,7 @@ class TextFieldWidget extends StatelessWidget {
           controller: controller,
           validator: validator ?? (value) => null,
           enableInteractiveSelection: false,
-          textAlign: TextAlign.end,
+          // textAlign: TextAlign.end,
           decoration: InputDecoration(
                   hintText: hint,
                   hintStyle: TextStyle(color: hintColor),

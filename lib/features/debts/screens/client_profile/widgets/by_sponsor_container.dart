@@ -37,6 +37,14 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                const Icon(Icons.group, color: TColors.buttonPrimary, size: TSizes.iconMd),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: TSizes.xs),
+                  child: Text(
+                    TArabicTexts.bySponsor,
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),
+                  ),
+                ),
                 GestureDetector(
                   onTap: toggleExpand,
                   child: Icon(
@@ -45,14 +53,6 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
                     size: TSizes.iconMd,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: TSizes.xs),
-                  child: Text(
-                    TArabicTexts.bySponsor,
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),
-                  ),
-                ),
-                const Icon(Icons.group, color: TColors.buttonPrimary, size: TSizes.iconMd),
               ],
             ),
           ),

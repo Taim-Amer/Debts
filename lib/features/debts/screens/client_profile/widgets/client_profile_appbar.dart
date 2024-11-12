@@ -20,13 +20,14 @@ class ClientProfileAppbar extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const BackIcon(),
-          10.horizontalSpace,
+          const ClientStatusContainer(),
           Padding(
             padding: EdgeInsets.only(top: 5.0.h),
             child: Text(TArabicTexts.clientInformation, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20, color: TColors.grey)),
           ),
-          const ClientStatusContainer()
+          10.horizontalSpace,
+          const BackIcon(),
+
         ],
       ),
     );

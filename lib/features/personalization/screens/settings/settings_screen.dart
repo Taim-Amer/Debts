@@ -25,11 +25,10 @@ class SettingsScreen extends StatelessWidget {
               const SettingAppbar(),
               TSizes.spaceBtwSections.verticalSpace,
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(TArabicTexts.languageChange, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
-                  8.horizontalSpace,
                   SvgPicture.asset(TImages.translate),
+                  8.horizontalSpace,
+                  Text(TArabicTexts.languageChange, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
                 ],
               ),
               TSizes.spaceBtwSections.verticalSpace,

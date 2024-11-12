@@ -30,7 +30,7 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                // mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Flexible(
                     child: Text(
@@ -132,7 +132,7 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
   InkWell countryCodeItemBuilder(int index) {
     final regionData = DebtScheduleController.instance.regionsModel.value.data?[index];
     return InkWell(
-      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () {
@@ -146,6 +146,10 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
         padding: EdgeInsets.symmetric(vertical: 5.h),
         child: Row(
           children: [
+            8.horizontalSpace,
+            Text(regionData?.title ?? ""),
+            16.horizontalSpace,
+            const Spacer(),
             Radio<String>(
               value: regionData?.title ?? "",
               groupValue: DebtScheduleController.instance.sponsorAddress.value,
@@ -158,10 +162,6 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
                 });
               },
             ),
-            const Spacer(),
-            16.horizontalSpace,
-            Text(regionData?.title ?? ""),
-            8.horizontalSpace,
           ],
         ),
       ),
