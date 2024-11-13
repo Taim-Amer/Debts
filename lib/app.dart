@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/bindings/home_binding.dart';
+import 'package:taha_debts/features/personalization/controllers/settings/settings_controller.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
@@ -12,22 +13,20 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsController = Get.put(SettingsController());
     return ScreenUtilInit(
       designSize: Size(THelperFunctions.screenWidth(context), THelperFunctions.screenHeight(context)),
       builder: (_, child) =>  GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          themeMode: ThemeMode.system,
-          theme: TAppTheme.lightTheme,
-          darkTheme: TAppTheme.darkTheme,
-          initialRoute: AppRoutes.home,
-          getPages: AppRoutes.routes,
-          translations: TAppTranslations(),
-          locale: const Locale('ar', 'AE'),
-          fallbackLocale: const Locale('en', 'US'),
-          // locale: const Locale('en', 'US'),
-          // fallbackLocale: const Locale('ar', 'AE'),
-          initialBinding: HomeBinding(),
-          // home: const DebtAdditionScreen()
+        debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.system,
+        theme: TAppTheme.lightTheme,
+        darkTheme: TAppTheme.darkTheme,
+        initialRoute: AppRoutes.home,
+        getPages: AppRoutes.routes,
+        translations: TAppTranslations(),
+        locale: settingsController.locale.value,
+        initialBinding: HomeBinding(),
+        // home: const DebtAdditionScreen()
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
+import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/language_changing_container.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/setting_appbar.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/settings_tile.dart';
@@ -16,14 +17,13 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const TAppBar(title: SettingAppbar()),
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SettingAppbar(),
-              TSizes.spaceBtwSections.verticalSpace,
               Row(
                 children: [
                   SvgPicture.asset(TImages.translate),

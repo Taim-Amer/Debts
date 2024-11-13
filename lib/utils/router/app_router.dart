@@ -6,6 +6,7 @@ import 'package:taha_debts/bindings/home_binding.dart';
 import 'package:taha_debts/bindings/notations_binding.dart';
 import 'package:taha_debts/bindings/otp_binding.dart';
 import 'package:taha_debts/bindings/profile_binding.dart';
+import 'package:taha_debts/bindings/settings_binding.dart';
 import 'package:taha_debts/bindings/signin_binding.dart';
 import 'package:taha_debts/bindings/signup_binding.dart';
 import 'package:taha_debts/features/authentication/screens/otp/otp_screen.dart';
@@ -19,6 +20,7 @@ import 'package:taha_debts/features/debts/screens/home/home_screen.dart';
 import 'package:taha_debts/features/notations/screens/notations_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile/profile_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile_edit/profile_edit_screen.dart';
+import 'package:taha_debts/features/personalization/screens/settings/settings_screen.dart';
 
 class AppRoutes {
   static const signin = '/signin';
@@ -32,6 +34,7 @@ class AppRoutes {
   static const addDebt = '/addDebt';
   static const clientProfile = '/clientProfile';
   static const notations = '/notations';
+  static const settings = '/settings';
 
   static List<GetPage> routes = [
 
@@ -109,6 +112,13 @@ class AppRoutes {
         name: notations,
         page: () => const NotationsScreen(),
         binding: NotationsBinding(),
+        transition: Transition.rightToLeft
+    ),
+
+    GetPage(
+        name: settings,
+        page: () => const SettingsScreen(),
+        binding: SettingsBinding(),
         transition: Transition.rightToLeft
     ),
   ];

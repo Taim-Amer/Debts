@@ -8,6 +8,7 @@ import 'package:taha_debts/features/debts/controllers/client_profile_controller/
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/device/device_utility.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class ReminderTile extends StatefulWidget {
@@ -36,7 +37,7 @@ class _ReminderTileState extends State<ReminderTile> {
 
   Future<dynamic> showCustomizeReminderDialog() async{
     final dark = THelperFunctions.isDarkMode(context);
-    // final isKeyboardVisible = await TDeviceUtils.isKeyboardVisible();
+    final isKeyboardVisible = await TDeviceUtils.isKeyboardVisible();
     return showModalBottomSheet(
       context: Get.context!,
       showDragHandle: false,
@@ -44,7 +45,7 @@ class _ReminderTileState extends State<ReminderTile> {
       backgroundColor: dark ? TColors.black : TColors.white,
       builder: (context){
         return SizedBox(
-          height: 570.h,
+          height: 570.h + TDeviceUtils.getKeyboardHeight(),
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w, vertical: TSizes.lg.h),

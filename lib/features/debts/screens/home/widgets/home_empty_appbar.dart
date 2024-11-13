@@ -31,7 +31,8 @@ class HomeAppbar extends StatelessWidget {
         const Spacer(),
         IconButton(
             onPressed: (){
-              Get.to(const SettingsScreen(), transition: Transition.rightToLeft);
+              // Get.to(const SettingsScreen(), transition: Transition.rightToLeft);
+              Get.toNamed(AppRoutes.settings);
             },
             icon: const Icon(Icons.settings, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
         IconButton(

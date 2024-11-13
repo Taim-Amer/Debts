@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:scroll_date_picker/scroll_date_picker.dart';
 import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_debts_row.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
+import 'package:taha_debts/utils/device/device_utility.dart';
 
 class TransactionsList extends StatelessWidget {
   const TransactionsList({super.key});
@@ -11,8 +13,9 @@ class TransactionsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final clientProfileModel = ClientProfileController.instance.clientProfileModel.value;
     return SizedBox(
-      height: 600.h,
+      height: MediaQuery.of(context).size.height - kToolbarHeight,
       child: ListView.separated(
+        shrinkWrap: true,
         itemCount: clientProfileModel.payments?.length ?? 0,
         separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
         physics: const NeverScrollableScrollPhysics(),

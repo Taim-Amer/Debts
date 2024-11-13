@@ -17,6 +17,7 @@ class HomeBinding extends Bindings{
     
     Get.put<HomeController>(HomeController());
     Get.put<HomeRepositoryImpl>(HomeRepositoryImpl());
+    // Get.put<SettingsController>(SettingsController());
 
     Get.put(DatePickerController());
 

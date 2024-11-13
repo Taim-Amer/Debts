@@ -4,7 +4,7 @@ import 'package:taha_debts/utils/constants/text_strings.dart';
 class TAppTranslations extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
-    'en_US': {
+    'en': {
       'next': TEnglishTexts.next,
       'add': TEnglishTexts.add,
       'addAnotherPhone': TEnglishTexts.addAnotherPhone,
@@ -80,7 +80,7 @@ class TAppTranslations extends Translations {
       'goodsDescription' : TEnglishTexts.goodsDescription,
       'goodsDescription2' : TEnglishTexts.goodsDescription2,
     },
-    'ar_AE': {
+    'ar': {
       'next': TArabicTexts.next,
       'add': TArabicTexts.add,
       'addAnotherPhone': TArabicTexts.addAnotherPhone,
