@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -12,9 +13,9 @@ class SignupHeader extends StatelessWidget {
     return Column(
       children: [
         103.verticalSpace,
-        Text(TArabicTexts.registerTitle, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.buttonPrimary)),
+        Text(TAppTranslations.kRegisterTitle, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.buttonPrimary)),
         TSizes.spaceBtwItems.verticalSpace,
-        Text(TArabicTexts.registerSubTitle, style: Theme.of(context).textTheme.headlineSmall),
+        Text(TAppTranslations.kRegisterSubTitle, style: Theme.of(context).textTheme.headlineSmall),
       ],
     );
   }

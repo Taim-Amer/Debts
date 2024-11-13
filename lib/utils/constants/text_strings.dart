@@ -20,6 +20,7 @@ class TArabicTexts {
   static String get otpTitle => 'رمز التحقق';
   static String get username => 'اسم المستخدم';
   static String get email => 'البريد الإلكتروني';
+  static String get otpEnter => 'أدخل الرقم المكون من خمس خانات الذي أرسل إلى\nالرقم التالي : 000-000 ';
 
   // Home
   static String get clientName => 'اسم العميل';
@@ -49,6 +50,8 @@ class TArabicTexts {
   static String get totalReceived => 'إجمالي المدفوعات';
   static String get totalDebtors => 'إجمالي المدينين';
   static String get all => 'الكل';
+  static String get goodsDescription => 'وصف البضاعة';
+  static String get goodsDescription2 => "وصف تفصيلي عن البضاعة";
 
   // Client Profile
   static String get clientInformation => 'معلومات العميل';
@@ -107,6 +110,7 @@ class TEnglishTexts {
   static String get otpTitle => 'OTP Verification';
   static String get username => 'Username';
   static String get email => 'Email';
+  static String get otpEnter => '====== ';
 
   // Home
   static String get clientName => 'Client Name';
@@ -136,6 +140,8 @@ class TEnglishTexts {
   static String get totalReceived => 'Total Received';
   static String get totalDebtors => 'Total Debtors';
   static String get all => 'All';
+  static String get goodsDescription => 'Goods Description';
+  static String get goodsDescription2 => 'Goods Description';
 
   // Client Profile
   static String get clientInformation => 'Client Information';

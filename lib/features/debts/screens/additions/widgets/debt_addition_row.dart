@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/widgets/fields/text_field_widget.dart';
 import 'package:taha_debts/features/debts/controllers/additions_controller/additions_controller.dart';
+import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/validators/validation.dart';
@@ -17,13 +18,13 @@ class DebtAdditionRow extends StatelessWidget {
           flex: 2,
           child: TextFieldWidget(
             controller: AdditionsController.instance.debtAmountController,
-            title: "المبلغ",
+            title: TAppTranslations.kAmount,
             hint: "0.00 IQD",
             titleColor: TColors.grey,
             hintColor: TColors.redColor,
             hintSize: 14,
             radius: 6,
-            validator: (value) => TValidator.validateEmptyText("المبلغ", value),
+            validator: (value) => TValidator.validateEmptyText(TAppTranslations.kAmount, value),
           )),
       8.horizontalSpace,
       Expanded(
@@ -31,11 +32,11 @@ class DebtAdditionRow extends StatelessWidget {
           child: TextFieldWidget(
             controller: AdditionsController.instance.debtGoodsDescriptionController,
             title: TArabicTexts.productsDescription,
-            hint: "وصف تفصيلي عن البضاعة",
+            hint: TAppTranslations.kGoodsDescription2,
             titleColor: TColors.grey,
             hintSize: 14,
             radius: 6,
-            validator: (value) => TValidator.validateEmptyText("وصف البضاعة", value),
+            validator: (value) => TValidator.validateEmptyText(TAppTranslations.kGoodsDescription, value),
           )),
       ],
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taha_debts/features/debts/controllers/additions_controller/additions_controller.dart';
+import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
@@ -23,7 +24,7 @@ class PayAdditionNavbar extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-          child: Text(TArabicTexts.payment, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white, fontSize: 20),),
+          child: Text(TAppTranslations.kPayment, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white, fontSize: 20),),
         ),
       ),
     );

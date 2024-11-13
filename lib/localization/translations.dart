@@ -76,6 +76,9 @@ class TAppTranslations extends Translations {
       'about': TEnglishTexts.about,
       'out': TEnglishTexts.out,
       'accountInfo': TEnglishTexts.accountInfo,
+      'otpEnter' : TEnglishTexts.otpEnter,
+      'goodsDescription' : TEnglishTexts.goodsDescription,
+      'goodsDescription2' : TEnglishTexts.goodsDescription2,
     },
     'ar_AE': {
       'next': TArabicTexts.next,
@@ -149,6 +152,9 @@ class TAppTranslations extends Translations {
       'about': TArabicTexts.about,
       'out': TArabicTexts.out,
       'accountInfo': TArabicTexts.accountInfo,
+      'otpEnter' : TArabicTexts.otpEnter,
+      'goodsDescription' : TArabicTexts.goodsDescription,
+      'goodsDescription2' : TArabicTexts.goodsDescription2,
     },
   };
 
@@ -223,4 +229,7 @@ class TAppTranslations extends Translations {
   static String kAbout = "about".tr;
   static String kOut = "out".tr;
   static String kAccountInfo = "accountInfo".tr;
+  static String kOtpEnter = "otpEnter".tr;
+  static String kGoodsDescription = "goodsDescription".tr;
+  static String kGoodsDescription2 = "goodsDescription2".tr;
 }

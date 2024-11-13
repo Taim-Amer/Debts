@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:taha_debts/features/authentication/controllers/otp/otp_controller.dart';
+import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class OtpResendCodeRow extends StatelessWidget {
-  const OtpResendCodeRow({super.key, required this.otpController});
+  const OtpResendCodeRow({super.key});
 
-  final OtpController otpController;
+  // final OtpController otpController;
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,10 @@ class OtpResendCodeRow extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {
-            otpController.resendOtp();
+            OtpController.instance.resendOtp();
           },
           child: Text(
-            TArabicTexts.resendCode,
+            TAppTranslations.kResendCode,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontSize: 16,
               color: TColors.buttonSecondary,
@@ -29,7 +29,7 @@ class OtpResendCodeRow extends StatelessWidget {
             ),
           ),
         ),
-        Text(TArabicTexts.resendCodeQuastion, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),),
+        Text(TAppTranslations.kResendCodeQuestion, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),),
       ],
     );
   }

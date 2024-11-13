@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/authentication/controllers/signin/signin_controller.dart';
 import 'package:taha_debts/features/authentication/screens/signin/widgets/phone_country_code.dart';
+import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -26,7 +27,7 @@ class SigninForm extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(TArabicTexts.phone, style: Theme.of(context).textTheme.titleSmall),
+                  Text(TAppTranslations.kPhone, style: Theme.of(context).textTheme.titleSmall),
                   4.horizontalSpace,
                   SvgPicture.asset(TImages.mobile),
                 ],
@@ -44,7 +45,7 @@ class SigninForm extends StatelessWidget {
                       SignInController.instance.signin();
                     },
                     child: Text(
-                      TArabicTexts.next,
+                      TAppTranslations.kNext,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
                     ),
                   ),

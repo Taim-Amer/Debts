@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
+import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class BySponsorContainer extends StatefulWidget {
   const BySponsorContainer({super.key});
@@ -41,7 +41,7 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: TSizes.xs),
                   child: Text(
-                    TArabicTexts.bySponsor,
+                    TAppTranslations.kBySponsor,
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),
                   ),
                 ),

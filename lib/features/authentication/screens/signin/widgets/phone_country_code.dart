@@ -69,7 +69,6 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                         cursorColor: TColors.buttonPrimary,
                         keyboardType: TextInputType.phone,
                         onChanged: (value) {
-                          // Prepend the selected country code when the user types.
                           if (!value.startsWith(selectedCountry.code!)) {
                             SignInController.instance.phoneController.text = selectedCountry.code! + value;
                             SignInController.instance.phoneController.selection = TextSelection.fromPosition(TextPosition(offset: SignInController.instance.phoneController.text.length));
