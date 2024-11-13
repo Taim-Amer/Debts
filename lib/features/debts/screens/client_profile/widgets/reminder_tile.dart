@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -37,7 +39,6 @@ class _ReminderTileState extends State<ReminderTile> {
 
   Future<dynamic> showCustomizeReminderDialog() async{
     final dark = THelperFunctions.isDarkMode(context);
-    final isKeyboardVisible = await TDeviceUtils.isKeyboardVisible();
     return showModalBottomSheet(
       context: Get.context!,
       showDragHandle: false,

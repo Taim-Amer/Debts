@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/device/device_utility.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 
 class ClientProfileNavBar extends StatelessWidget {
@@ -18,6 +19,7 @@ class ClientProfileNavBar extends StatelessWidget {
           Expanded(
             child: SizedBox(
               height: 55.h,
+              // height: TDeviceUtils.getBottomNavigationBarHeight(),
               child: ElevatedButton(
                 onPressed: () {
                   Get.toNamed(AppRoutes.addPayment);

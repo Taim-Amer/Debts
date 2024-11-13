@@ -51,7 +51,16 @@ class BorrowerRow extends StatelessWidget {
                     children: [
                       Text(name, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14)),
                       10.horizontalSpace,
-                      TRoundedContainer(width: 16.w, height: 16.h, radius: 10.r, backgroundColor: status == "allowed" ? TColors.greenColor : TColors.redColor),
+                      TRoundedContainer(
+                        width: 16.w,
+                        height: 16.h,
+                        radius: 10.r,
+                        backgroundColor: (int.tryParse(amount) ?? 0) > 1000000
+                            ? TColors.redColor
+                            : (int.tryParse(amount) ?? 0) > 500000
+                            ? TColors.yellowColor
+                            : TColors.greenColor,
+                      )
                     ],
                   ),
                   Row(
@@ -71,7 +80,11 @@ class BorrowerRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(amount, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: status == "allowed" ? TColors.greenColor : TColors.redColor)),
+              Text(amount, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: (int.tryParse(amount) ?? 0) > 1000000
+                  ? TColors.redColor
+                  : (int.tryParse(amount) ?? 0) > 500000
+                  ? TColors.yellowColor
+                  : TColors.greenColor,)),
               Text(TArabicTexts.debt, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
             ],
           ),

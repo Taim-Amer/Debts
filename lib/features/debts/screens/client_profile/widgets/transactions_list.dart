@@ -13,7 +13,7 @@ class TransactionsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final clientProfileModel = ClientProfileController.instance.clientProfileModel.value;
     return SizedBox(
-      height: MediaQuery.of(context).size.height - kToolbarHeight,
+      height: TDeviceUtils.getScreenHeight() - kToolbarHeight,
       child: ListView.separated(
         shrinkWrap: true,
         itemCount: clientProfileModel.payments?.length ?? 0,

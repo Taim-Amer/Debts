@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/icons/circular_icon.dart';
 import 'package:taha_debts/features/notifications/screens/notifications_screen.dart';
+import 'package:taha_debts/features/personalization/controllers/profile/profile_controller.dart';
 import 'package:taha_debts/features/personalization/screens/settings/settings_screen.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -27,7 +28,7 @@ class HomeAppbar extends StatelessWidget {
           },
         ),
         8.horizontalSpace,
-        Text("اسم المستخدم", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: const Color(0xFF6D6E72)),),
+        Obx(() => Text(ProfileController.instance.userProfileModel.value.data?.name ?? "", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: const Color(0xFF6D6E72)))),
         const Spacer(),
         IconButton(
             onPressed: (){
