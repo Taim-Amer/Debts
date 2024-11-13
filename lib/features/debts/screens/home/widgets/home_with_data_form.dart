@@ -7,7 +7,7 @@ import 'package:taha_debts/features/debts/screens/home/widgets/debts_filter_dial
 import 'package:taha_debts/features/debts/screens/home/widgets/home_filter_container.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/search_by_name_field.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/statistics_row.dart';
-import 'package:taha_debts/features/notations/screens/notations_screen.dart';
+import 'package:taha_debts/features/notations/controllers/notations_controller.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
@@ -25,7 +25,7 @@ class HomeWithDataForm extends StatelessWidget {
             const StatisticsRow(),
             TSizes.spaceBtwSections.verticalSpace,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Expanded(
                   child: HomeFilterContainer(
@@ -35,7 +35,6 @@ class HomeWithDataForm extends StatelessWidget {
                   ),
                 ),
                 3.horizontalSpace,
-
                 Expanded(child: HomeFilterContainer(title: TArabicTexts.country, function: (){}, icon: Icons.search,)),
                 3.horizontalSpace,
 
@@ -44,7 +43,7 @@ class HomeWithDataForm extends StatelessWidget {
 
                 Expanded(child: HomeFilterContainer(title: TArabicTexts.notations, function: (){
                   Get.toNamed(AppRoutes.notations);
-                }, icon: Icons.note_add,)),
+                }, icon: Icons.note_add, showCounter: true, count: NotationsController.instance.notesModel.value.data?.length)),
               ],
             ),
             TSizes.spaceBtwInputField.verticalSpace,

@@ -3,7 +3,7 @@ class TArabicTexts {
   static String get next => 'التالي';
   static String get add => 'إضافة';
   static String get addAnotherPhone => 'إضافة هاتف آخر';
-  static String get tcontinue => 'استمر';
+  static String get tcontinue => 'متابعة';
   static String get errorMessage => 'حدث خطأ، يرجى المحاولة مرة أخرى';
 
   // Authentication Form Text

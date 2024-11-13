@@ -14,7 +14,6 @@ class ClientProfileNavBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Row(
-        mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
             child: SizedBox(

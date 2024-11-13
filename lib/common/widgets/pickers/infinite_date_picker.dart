@@ -13,7 +13,7 @@ class InfiniteDatePicker extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return SizedBox(
-      height: 250.h,
+      height: 200.h,
       width: double.infinity,
       child: Obx(() => ScrollDatePicker(
           selectedDate: DatePickerController.instance.selectedDate.value,

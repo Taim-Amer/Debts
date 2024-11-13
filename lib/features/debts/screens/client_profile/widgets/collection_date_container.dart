@@ -47,28 +47,34 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                   ],
                 ),
                 TSizes.spaceBtwSections.verticalSpace,
-                ReminderTile(
-                  icon: TImages.weakReminder,
-                  title: TArabicTexts.weakReminder,
-                  showRadio: true,
-                  value: 1,
-                  selectedValueNotifier: ClientProfileController.instance.selectedValue,
+                Expanded(
+                  child: ReminderTile(
+                    icon: TImages.weakReminder,
+                    title: TArabicTexts.weakReminder,
+                    showRadio: true,
+                    value: 1,
+                    selectedValueNotifier: ClientProfileController.instance.selectedValue,
+                  ),
                 ),
                 TSizes.spaceBtwItems.verticalSpace,
-                ReminderTile(
-                  icon: TImages.monthReminder,
-                  title: TArabicTexts.monthReminder,
-                  showRadio: true,
-                  value: 2,
-                  selectedValueNotifier: ClientProfileController.instance.selectedValue,
+                Expanded(
+                  child: ReminderTile(
+                    icon: TImages.monthReminder,
+                    title: TArabicTexts.monthReminder,
+                    showRadio: true,
+                    value: 2,
+                    selectedValueNotifier: ClientProfileController.instance.selectedValue,
+                  ),
                 ),
                 TSizes.spaceBtwItems.verticalSpace,
-                ReminderTile(
-                  icon: TImages.customizeReminder,
-                  title: TArabicTexts.customizeReminder,
-                  value: 3,
-                  showArrowIcon: true,
-                  selectedValueNotifier: ClientProfileController.instance.selectedValue,
+                Expanded(
+                  child: ReminderTile(
+                    icon: TImages.customizeReminder,
+                    title: TArabicTexts.customizeReminder,
+                    value: 3,
+                    showArrowIcon: true,
+                    selectedValueNotifier: ClientProfileController.instance.selectedValue,
+                  ),
                 ),
                 TSizes.spaceBtwSections.verticalSpace,
                 SizedBox(

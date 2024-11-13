@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/debts/models/home/my_debts_model.dart';
 import 'package:taha_debts/features/debts/repositories/home/home_repo_impl.dart';
+import 'package:taha_debts/features/notations/controllers/notations_controller.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 
 class HomeController extends GetxController {
@@ -19,6 +20,7 @@ class HomeController extends GetxController {
   void onReady() {
     super.onReady();
     getMyDebts(null);
+    NotationsController.instance.getNotes();
   }
 
   void updateStatus({required RequestState value}) {
