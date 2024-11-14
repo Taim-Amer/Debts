@@ -30,7 +30,7 @@ class SignupScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SignupHeader(),
                   TSizes.spaceBtwInputField.verticalSpace,

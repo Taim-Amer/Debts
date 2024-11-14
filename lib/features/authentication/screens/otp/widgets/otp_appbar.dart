@@ -11,9 +11,9 @@ class OtpAppbar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const BackIcon(),
+        const SizedBox(),
         Text(TAppTranslations.kOtpTitle, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
-        const SizedBox()
+        const BackIcon(),
       ],
     );
   }

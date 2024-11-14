@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
@@ -9,7 +10,8 @@ class SearchByNameTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      // textAlign: TextAlign.end,
+      controller: HomeController.instance.nameController,
+      onChanged: (value) => HomeController.instance.nameSearch(),
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.search),
         hintText: TArabicTexts.searchByName,
@@ -18,7 +20,8 @@ class SearchByNameTextField extends StatelessWidget {
         border: InputBorder.none,
       ),
       cursorColor: TColors.buttonPrimary,
-      keyboardType: TextInputType.phone,
+      enableInteractiveSelection: false,
+      keyboardType: TextInputType.text,
     );
   }
 }

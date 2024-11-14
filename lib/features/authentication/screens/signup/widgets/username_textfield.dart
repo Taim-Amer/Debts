@@ -19,11 +19,10 @@ class UsernameTextField extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(TAppTranslations.kUsername, style: Theme.of(context).textTheme.titleSmall,),
+              const Icon(Icons.person, color: TColors.buttonPrimary,),
               8.horizontalSpace,
-              const Icon(Icons.person, color: TColors.buttonPrimary,)
+              Text(TAppTranslations.kUsername, style: Theme.of(context).textTheme.titleSmall,),
             ],
           ),
         ),
@@ -31,7 +30,7 @@ class UsernameTextField extends StatelessWidget {
         TextFormField(
           controller: signupController.usernameController,
           validator: (value) => TValidator.validateEmptyText(TAppTranslations.kUsername, value),
-          textAlign: TextAlign.end,
+          // textAlign: TextAlign.end,
           decoration: InputDecoration(
             hintText: TAppTranslations.kUsername,
             hintStyle: const TextStyle(color: Colors.grey),

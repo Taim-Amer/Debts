@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/debts/models/home/my_debts_model.dart';
@@ -13,9 +14,12 @@ class HomeController extends GetxController {
   RxBool isAllSelected = true.obs;
   RxBool isTotalReceivedSelected = false.obs;
   RxBool isSettledSelected = false.obs;
+  RxBool isExpanded = false.obs;
   final myDebtsModel = MyDebtsModel().obs;
+  final nameController = TextEditingController();
 
   var getDebtsApiStatus = RequestState.begin.obs;
+  var searchNameApiStatus = RequestState.begin.obs;
 
   @override
   void onReady() {
@@ -29,11 +33,19 @@ class HomeController extends GetxController {
     getDebtsApiStatus.value = value;
   }
 
+  void searchNameUpdateStatus({required RequestState value}) {
+    searchNameApiStatus.value = value;
+  }
+
+  void setExpanded(){
+    isExpanded.value = !isExpanded.value;
+  }
+
   Future<void> getMyDebts(String? filter) async{
     updateStatus(value: RequestState.loading);
 
     try{
-      myDebtsModel.value = await HomeRepositoryImpl.instance.getMyDebts(filter);
+      myDebtsModel.value = await HomeRepositoryImpl.instance.getMyDebts(filter, null, null);
       if(myDebtsModel.value.status == true && myDebtsModel.value.debts!.isNotEmpty){
         updateStatus(value: RequestState.success);
       } else if(myDebtsModel.value.debts!.isEmpty){
@@ -57,6 +69,17 @@ class HomeController extends GetxController {
     }
     if(isSettledSelected.value == true){
       await getMyDebts("receipts_done");
+    }
+  }
+
+  Future<void> nameSearch() async{
+    searchNameUpdateStatus(value: RequestState.loading);
+    try{
+      myDebtsModel.value = await HomeRepositoryImpl.instance.getMyDebts(null, 1, nameController.text.toString());
+      searchNameUpdateStatus(value: RequestState.success);
+    }catch(error) {
+      searchNameUpdateStatus(value: RequestState.onError);
+      showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
     }
   }
 

@@ -13,6 +13,7 @@ class OtpResendCodeRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Text(TAppTranslations.kResendCodeQuestion, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),),
         TextButton(
           onPressed: () {
             OtpController.instance.resendOtp();
@@ -29,7 +30,6 @@ class OtpResendCodeRow extends StatelessWidget {
             ),
           ),
         ),
-        Text(TAppTranslations.kResendCodeQuestion, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),),
       ],
     );
   }

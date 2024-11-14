@@ -20,7 +20,11 @@ class HomeScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: Obx((){
         var isLoading = HomeController.instance.getDebtsApiStatus.value == RequestState.loading;
-        return isLoading ? const Center(child: LoadingWidget()) : HomeController.instance.getDebtsApiStatus.value == RequestState.success ? const HomeWithDataForm() : const HomeEmptyForm();
+        var isSearching = HomeController.instance.searchNameApiStatus.value == RequestState.loading;
+        return (isLoading || isSearching)
+            ? const Center(child: LoadingWidget()) : (HomeController.instance.getDebtsApiStatus.value == RequestState.success || HomeController.instance.searchNameApiStatus.value == RequestState.success)
+                ? const HomeWithDataForm()
+                : const HomeEmptyForm();
       }),
     );
   }

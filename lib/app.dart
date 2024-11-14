@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/bindings/home_binding.dart';
+import 'package:taha_debts/bindings/otp_binding.dart';
+import 'package:taha_debts/bindings/signin_binding.dart';
+import 'package:taha_debts/bindings/signup_binding.dart';
 import 'package:taha_debts/features/personalization/controllers/settings/settings_controller.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
@@ -25,6 +28,7 @@ class App extends StatelessWidget {
         getPages: AppRoutes.routes,
         translations: TAppTranslations(),
         locale: settingsController.locale.value,
+        // locale: const Locale("en"),
         initialBinding: HomeBinding(),
         // home: const DebtAdditionScreen()
       ),

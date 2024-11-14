@@ -27,7 +27,6 @@ class ClientProfileAppbar extends StatelessWidget{
           ),
           10.horizontalSpace,
           const BackIcon(),
-
         ],
       ),
     );

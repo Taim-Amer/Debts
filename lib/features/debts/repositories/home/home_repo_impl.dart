@@ -11,8 +11,16 @@ class HomeRepositoryImpl implements HomeRepository {
   final token = TCacheHelper.getData(key: "token");
 
   @override
-  Future<MyDebtsModel> getMyDebts(String? filter) async {
+  Future<MyDebtsModel> getMyDebts(String? filter, int? regionID, String? name) async {
     final dioHelper = TDioHelper();
-    return await dioHelper.get(TApiConstants.getMyDebts, token: token, queryParameters: {"": filter}).then((response) => MyDebtsModel.fromJson(response));
+
+    final queryParameters = {
+      '': filter,
+      'region_id': regionID,
+      'name' : name
+    };
+
+    return await dioHelper.get(TApiConstants.getMyDebts, token: token, queryParameters: queryParameters).then((response) => MyDebtsModel.fromJson(response));
   }
+
 }

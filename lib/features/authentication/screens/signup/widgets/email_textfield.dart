@@ -18,11 +18,10 @@ class EmailTextField extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(TAppTranslations.kEmail, style: Theme.of(context).textTheme.titleSmall,),
+              const Icon(Icons.email, color: TColors.buttonPrimary,),
               8.horizontalSpace,
-              const Icon(Icons.email, color: TColors.buttonPrimary,)
+              Text(TAppTranslations.kEmail, style: Theme.of(context).textTheme.titleSmall,),
             ],
           ),
         ),
@@ -30,7 +29,6 @@ class EmailTextField extends StatelessWidget {
         TextFormField(
           validator: (value) => TValidator.validateEmail(value),
           controller: signupController.emailController,
-          textAlign: TextAlign.end,
           decoration: InputDecoration(
             hintText: 'username1234@gmail.com',
             hintStyle: const TextStyle(color: Colors.grey),

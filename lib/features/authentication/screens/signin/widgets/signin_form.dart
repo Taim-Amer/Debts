@@ -25,11 +25,11 @@ class SigninForm extends StatelessWidget {
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                // mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(TAppTranslations.kPhone, style: Theme.of(context).textTheme.titleSmall),
-                  4.horizontalSpace,
                   SvgPicture.asset(TImages.mobile),
+                  4.horizontalSpace,
+                  Text(TAppTranslations.kPhone, style: Theme.of(context).textTheme.titleSmall),
                 ],
               ),
               TSizes.spaceBtwItems.verticalSpace,
