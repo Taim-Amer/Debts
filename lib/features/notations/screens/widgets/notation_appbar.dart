@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taha_debts/common/widgets/buttons/back_icon.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class NotationAppbar extends StatelessWidget {
@@ -11,7 +12,7 @@ class NotationAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const SizedBox(),
-        Text(TArabicTexts.notations, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
+        Text(TranslationKey.kNotations, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
         const BackIcon(),
 
       ],

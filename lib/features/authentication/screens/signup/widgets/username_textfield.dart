@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/authentication/controllers/signup/signup_controller.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -22,17 +23,17 @@ class UsernameTextField extends StatelessWidget {
             children: [
               const Icon(Icons.person, color: TColors.buttonPrimary,),
               8.horizontalSpace,
-              Text(TAppTranslations.kUsername, style: Theme.of(context).textTheme.titleSmall,),
+              Text(TranslationKey.kUsername, style: Theme.of(context).textTheme.titleSmall,),
             ],
           ),
         ),
         12.verticalSpace,
         TextFormField(
           controller: signupController.usernameController,
-          validator: (value) => TValidator.validateEmptyText(TAppTranslations.kUsername, value),
+          validator: (value) => TValidator.validateEmptyText(TranslationKey.kUsername, value),
           // textAlign: TextAlign.end,
           decoration: InputDecoration(
-            hintText: TAppTranslations.kUsername,
+            hintText: TranslationKey.kUsername,
             hintStyle: const TextStyle(color: Colors.grey),
             contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
             border: InputBorder.none,

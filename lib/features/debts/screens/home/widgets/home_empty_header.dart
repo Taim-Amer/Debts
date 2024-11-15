@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -12,7 +13,7 @@ class HomeEmptyHeader extends StatelessWidget {
     return Column(
       children: [
         SvgPicture.asset(TImages.money),
-        Text(TArabicTexts.emptyDebts, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.buttonPrimary)),
+        Text(TranslationKey.kEmptyDebts, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: TColors.buttonPrimary)),
       ],
     );
   }

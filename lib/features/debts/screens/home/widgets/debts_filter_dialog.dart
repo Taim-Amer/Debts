@@ -7,6 +7,7 @@ import 'package:taha_debts/features/debts/controllers/client_profile_controller/
 import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/reminder_tile.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/home_filter_continue_button.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 
@@ -44,7 +45,7 @@ class DebtsFilterDialog{
                       children: [
                         Expanded(
                           child: Obx(() => TChoiceChip(
-                            text: TArabicTexts.all,
+                            text: TranslationKey.kAll,
                             selected: homeController.isAllSelected.value,
                             onSelected: (value) => homeController.isAllSelected.value = value,
                           ),
@@ -53,7 +54,7 @@ class DebtsFilterDialog{
                         TSizes.sm.horizontalSpace,
                         Expanded(
                           child: Obx(() => TChoiceChip(
-                            text: TArabicTexts.totalDebtors,
+                            text: TranslationKey.kTotalDebtors,
                             selected: homeController.isTotalDebtorsSelected.value,
                             onSelected: (value) => homeController.isTotalDebtorsSelected.value = value,
                           ),
@@ -67,7 +68,7 @@ class DebtsFilterDialog{
                       children: [
                         Expanded(
                           child: Obx(() => TChoiceChip(
-                            text: TArabicTexts.settled,
+                            text: TranslationKey.kSettled,
                             selected: homeController.isSettledSelected.value,
                             onSelected: (value) => homeController.isSettledSelected.value = value,
                           ),
@@ -76,7 +77,7 @@ class DebtsFilterDialog{
                         TSizes.sm.horizontalSpace,
                         Expanded(
                           child: Obx(() => TChoiceChip(
-                            text: TArabicTexts.totalReceived,
+                            text: TranslationKey.kTotalReceived,
                             selected: homeController.isTotalReceivedSelected.value,
                             onSelected: (value) => homeController.isTotalReceivedSelected.value = value,
                           ),
@@ -85,7 +86,7 @@ class DebtsFilterDialog{
                       ],
                     ),
                     TSizes.spaceBtwSections.verticalSpace,
-                    InfiniteDatePicker(),
+                    const InfiniteDatePicker(),
                     ReminderTile(
                       // icon: TImages.customizeReminder,
                       title: "من الأعلى إلى الأدنى",

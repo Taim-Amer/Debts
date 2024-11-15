@@ -6,6 +6,7 @@ import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/language_changing_container.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/setting_appbar.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/settings_tile.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -28,17 +29,17 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   SvgPicture.asset(TImages.translate),
                   8.horizontalSpace,
-                  Text(TArabicTexts.languageChange, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
+                  Text(TranslationKey.kLanguageChange, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.grey)),
                 ],
               ),
               TSizes.spaceBtwSections.verticalSpace,
               const LanguageChangingContainer(),
               TSizes.spaceBtwSections.verticalSpace,
               const Divider(),
-              SettingsTile(title: TArabicTexts.notifications, icon: TImages.notifications, showSwitch: true,),
-              SettingsTile(title: TArabicTexts.privacyPolicy, icon: TImages.information,),
-              SettingsTile(title: TArabicTexts.about, icon: TImages.about,),
-              SettingsTile(title: TArabicTexts.out, icon: TImages.logout,),
+              SettingsTile(title: TranslationKey.kNotifications, icon: TImages.notifications, showSwitch: true,),
+              SettingsTile(title: TranslationKey.kPrivacyPolicy, icon: TImages.information,),
+              SettingsTile(title: TranslationKey.kAbout, icon: TImages.about,),
+              SettingsTile(title: TranslationKey.kOut, icon: TImages.logout,),
             ],
           ),
         ),

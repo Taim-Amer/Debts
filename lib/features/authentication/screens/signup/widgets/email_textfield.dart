@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/authentication/controllers/signup/signup_controller.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/validators/validation.dart';
@@ -21,7 +22,7 @@ class EmailTextField extends StatelessWidget {
             children: [
               const Icon(Icons.email, color: TColors.buttonPrimary,),
               8.horizontalSpace,
-              Text(TAppTranslations.kEmail, style: Theme.of(context).textTheme.titleSmall,),
+              Text(TranslationKey.kEmail, style: Theme.of(context).textTheme.titleSmall,),
             ],
           ),
         ),

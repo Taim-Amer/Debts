@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
-import 'package:taha_debts/utils/device/device_utility.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 
 class ClientProfileNavBar extends StatelessWidget {
@@ -29,7 +28,7 @@ class ClientProfileNavBar extends StatelessWidget {
                   backgroundColor: TColors.greenColor,
                   side: const BorderSide(color: TColors.greenColor, width: 2),
                 ),
-                child: Text(TArabicTexts.payment, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: Colors.white)),
+                child: Text(TranslationKey.kPayment, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: Colors.white)),
               ),
             ),
           ),
@@ -39,7 +38,7 @@ class ClientProfileNavBar extends StatelessWidget {
                   height: 55.h,
                   child: OutlinedButton(
                       onPressed: () => Get.toNamed(AppRoutes.addDebt),
-                      child: Flexible(child: Center(child: Text(TArabicTexts.buying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))))),
+                      child: Flexible(child: Center(child: Text(TranslationKey.kBuying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))))),
         ],
       ),
     );

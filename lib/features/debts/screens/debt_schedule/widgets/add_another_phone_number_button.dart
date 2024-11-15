@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class AddAnotherPhoneNumberButton extends StatelessWidget {
   const AddAnotherPhoneNumberButton({super.key});
@@ -11,7 +11,7 @@ class AddAnotherPhoneNumberButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         const Icon(Icons.add, size: 20, color: TColors.buttonPrimary,),
-        Text(TArabicTexts.addAnotherPhone, style: const TextStyle(color: TColors.buttonPrimary),),
+        Text(TranslationKey.kAddAnotherPhone, style: const TextStyle(color: TColors.buttonPrimary),),
       ],
     ));
   }

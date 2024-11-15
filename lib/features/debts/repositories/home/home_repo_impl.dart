@@ -11,12 +11,12 @@ class HomeRepositoryImpl implements HomeRepository {
   final token = TCacheHelper.getData(key: "token");
 
   @override
-  Future<MyDebtsModel> getMyDebts(String? filter, int? regionID, String? name) async {
+  Future<MyDebtsModel> getMyDebts(String? filter, int? region, String? name) async {
     final dioHelper = TDioHelper();
 
     final queryParameters = {
       '': filter,
-      'region_id': regionID,
+      'region_id': region,
       'name' : name
     };
 

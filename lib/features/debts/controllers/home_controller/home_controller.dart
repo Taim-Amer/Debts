@@ -15,6 +15,7 @@ class HomeController extends GetxController {
   RxBool isTotalReceivedSelected = false.obs;
   RxBool isSettledSelected = false.obs;
   RxBool isExpanded = false.obs;
+  RxInt? region;
   final myDebtsModel = MyDebtsModel().obs;
   final nameController = TextEditingController();
 
@@ -72,15 +73,15 @@ class HomeController extends GetxController {
     }
   }
 
-  Future<void> nameSearch() async{
+  Future<void> nameSearch(int? regionID) async{
     searchNameUpdateStatus(value: RequestState.loading);
     try{
-      myDebtsModel.value = await HomeRepositoryImpl.instance.getMyDebts(null, 1, nameController.text.toString());
+      myDebtsModel.value = await HomeRepositoryImpl.instance.getMyDebts(null, regionID, nameController.text.toString());
+      region?.value = regionID!;
       searchNameUpdateStatus(value: RequestState.success);
     }catch(error) {
       searchNameUpdateStatus(value: RequestState.onError);
       showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
     }
   }
-
 }

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/features/personalization/controllers/settings/settings_controller.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/language_radio_tile.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -25,7 +26,7 @@ class LanguageChangingContainer extends StatelessWidget {
         children: [
           Obx(() => Expanded(
             child: LanguageRadioTile(
-              title: TArabicTexts.arabic,
+              title: TranslationKey.kArabic,
               value: 1,
               groupValue: SettingsController.instance.selectedLanguage.value,
               onChanged: (value) => SettingsController.instance.setSelectedRadio(1),
@@ -34,7 +35,7 @@ class LanguageChangingContainer extends StatelessWidget {
           40.verticalSpace,
           Obx(() => Expanded(
             child: LanguageRadioTile(
-              title: TArabicTexts.english,
+              title: TranslationKey.kEnglish,
               value: 2,
               groupValue: SettingsController.instance.selectedLanguage.value,
               onChanged: (value) => SettingsController.instance.setSelectedRadio(2),

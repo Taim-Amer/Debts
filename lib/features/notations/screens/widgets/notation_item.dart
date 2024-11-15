@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/formatters/formatter.dart';
@@ -22,7 +23,7 @@ class NotationItem extends StatelessWidget {
               children: [
                 const Icon(Icons.note, color: TColors.buttonPrimary, size: 21,),
                 8.horizontalSpace,
-                Text(TArabicTexts.notations, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
+                Text(TranslationKey.kNotations, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: TColors.buttonPrimary, fontSize: 18),),
               ],
             ),
             Text(date, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.buttonPrimary, fontSize: 14),),

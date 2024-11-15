@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/widgets/fields/text_field_widget.dart';
 import 'package:taha_debts/features/debts/controllers/additions_controller/additions_controller.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -18,13 +19,13 @@ class PayAdditionRow extends StatelessWidget {
             flex: 2,
             child: TextFieldWidget(
               controller: AdditionsController.instance.amountController,
-              title: TAppTranslations.kAmount,
+              title: TranslationKey.kAmount,
               hint: "0.00 IQD",
               titleColor: TColors.grey,
               hintColor: TColors.greenColor,
               hintSize: 14,
               radius: 6,
-              validator: (value) => TValidator.validateEmptyText(TAppTranslations.kAmount, value),
+              validator: (value) => TValidator.validateEmptyText(TranslationKey.kAmount, value),
             )),
         8.horizontalSpace,
         Expanded(
@@ -36,7 +37,7 @@ class PayAdditionRow extends StatelessWidget {
               titleColor: TColors.grey,
               hintSize: 14,
               radius: 6,
-              validator: (value) => TValidator.validateEmptyText(TAppTranslations.kGoodsDescription, value),
+              validator: (value) => TValidator.validateEmptyText(TranslationKey.kGoodsDescription, value),
               keyboardType: TextInputType.text,
             )),
       ],

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/authentication/controllers/signin/signin_controller.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -19,12 +20,12 @@ class OtpHeader extends StatelessWidget {
       children: [
         SvgPicture.asset(TImages.lock),
         TSizes.spaceBtwSections.verticalSpace,
-        Text(TAppTranslations.kVerificationCode, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),),
+        Text(TranslationKey.kVerificationCode, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),),
         8.verticalSpace,
         Text(
-          "${TAppTranslations.kOtpEnter}($code)",
+          "${TranslationKey.kOtpEnter}($code)",
           style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),
-          textAlign: TextAlign.center, // Center-align the text
+          textAlign: TextAlign.center,
         ),
       ],
     );

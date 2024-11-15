@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
@@ -36,7 +37,7 @@ class _AddressSponsorAnimatedContainerState extends State<AddressSponsorAnimated
                   8.horizontalSpace,
                   Flexible(
                     child: Text(
-                      TArabicTexts.sponsorAddress,
+                      TranslationKey.kSponsorAddress,
                       style: Theme.of(context).textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taha_debts/features/authentication/controllers/otp/otp_controller.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 
@@ -13,13 +14,13 @@ class OtpResendCodeRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(TAppTranslations.kResendCodeQuestion, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),),
+        Text(TranslationKey.kResendCodeQuestion, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16),),
         TextButton(
           onPressed: () {
             OtpController.instance.resendOtp();
           },
           child: Text(
-            TAppTranslations.kResendCode,
+            TranslationKey.kResendCode,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontSize: 16,
               color: TColors.buttonSecondary,

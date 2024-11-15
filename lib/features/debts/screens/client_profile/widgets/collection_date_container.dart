@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/reminder_tile.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
@@ -37,7 +38,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                   children: [
                     SizedBox(width: 24.w),
                     Text(
-                      TArabicTexts.reminderBy,
+                      TranslationKey.kReminderBy,
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
                     ),
                     IconButton(
@@ -50,7 +51,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                 Expanded(
                   child: ReminderTile(
                     icon: TImages.weakReminder,
-                    title: TArabicTexts.weakReminder,
+                    title: TranslationKey.kWeakReminder,
                     showRadio: true,
                     value: 1,
                     selectedValueNotifier: ClientProfileController.instance.selectedValue,
@@ -60,7 +61,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                 Expanded(
                   child: ReminderTile(
                     icon: TImages.monthReminder,
-                    title: TArabicTexts.monthReminder,
+                    title: TranslationKey.kMonthReminder,
                     showRadio: true,
                     value: 2,
                     selectedValueNotifier: ClientProfileController.instance.selectedValue,
@@ -70,7 +71,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                 Expanded(
                   child: ReminderTile(
                     icon: TImages.customizeReminder,
-                    title: TArabicTexts.customizeReminder,
+                    title: TranslationKey.kCustomizeReminder,
                     value: 3,
                     showArrowIcon: true,
                     selectedValueNotifier: ClientProfileController.instance.selectedValue,
@@ -82,7 +83,7 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
                   height: 44.h,
                   child: ElevatedButton(
                     onPressed: () => ClientProfileController.instance.selectReminder(),
-                    child: Text(TArabicTexts.tcontinue),
+                    child: Text(TranslationKey.kTcontinue),
                   ),
                 ),
               ],
@@ -107,9 +108,9 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
           padding: const EdgeInsets.all(TSizes.sm),
           child: Column(
             children: [
-              Text(TArabicTexts.collectionDate, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.buttonPrimary, fontWeight: FontWeight.w700)),
+              Text(TranslationKey.kCollectionDate, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.buttonPrimary, fontWeight: FontWeight.w700)),
               5.verticalSpace,
-              Text(TAppTranslations.kUndefined, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
+              Text(TranslationKey.kUndefined, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
               // Text(TFormatter.formatData(TCacheHelper.getData(key: "collection_date").isNotEmpty
               //     ? DateTime.parse(TCacheHelper.getData(key: "collection_date"))
               //     : null), style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
