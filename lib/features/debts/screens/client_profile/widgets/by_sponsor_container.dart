@@ -64,16 +64,15 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
           borderColor: TColors.grey,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
-            height: isExpanded ? 140.h : 0,
+            height: isExpanded ? 130.h : 0,
             padding: EdgeInsets.all(10.w),
             curve: Curves.easeIn,
             child: isExpanded ? SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(TSizes.sm),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Text("أسم الكفيل: ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName}", style: Theme.of(context).textTheme.bodyLarge),
                     Text("${TranslationKey.kSponsorName}  : ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName}", style: Theme.of(context).textTheme.bodyLarge),
                     14.verticalSpace,
                     Text("${TranslationKey.kSponsorAddress}  : ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorRegion}", style: Theme.of(context).textTheme.bodyLarge),
