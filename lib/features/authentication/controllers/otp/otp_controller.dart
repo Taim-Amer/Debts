@@ -22,9 +22,15 @@ class OtpController extends GetxController{
   Future<void> verify() async{
     updateStatus(value: RequestState.loading);
     try{
-      await OtpRepositoryImpl.instance.verify(phone, codeController.text);
+      final response = await OtpRepositoryImpl.instance.verify(phone, codeController.text);
       updateStatus(value: RequestState.success);
-      Get.toNamed(AppRoutes.signup);
+      if(TCacheHelper.getData(key: "isNewAccount") == true){
+        Get.toNamed(AppRoutes.signup);
+      } else if(TCacheHelper.getData(key: "isNewAccount") == false){
+        TCacheHelper.saveData(key: "token", value: response.token);
+        TCacheHelper.saveData(key: "firstPage", value: "home");
+        Get.offAllNamed(AppRoutes.home);
+      }
     }catch(error){
       updateStatus(value: RequestState.onError);
       showToast(TArabicTexts.errorMessage, ToastState.error);

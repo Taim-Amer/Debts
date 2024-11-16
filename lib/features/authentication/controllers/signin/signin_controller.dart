@@ -39,12 +39,10 @@ class SignInController extends GetxController {
     try {
       final response = await SigninRepositoryImpl.instance.signin(phoneController.text.trim());
       updateStatus(value: RequestState.success);
-      if(response.isNewAccount == true){
-        showToast("تم ارسال رمز التوثيق بنجاح", ToastState.success);
-        Get.toNamed(AppRoutes.otp);
-      }else{
-        Get.offAllNamed(AppRoutes.home);
-      }
+
+      showToast("تم ارسال رمز التوثيق بنجاح", ToastState.success);
+      Get.toNamed(AppRoutes.otp);
+      TCacheHelper.saveData(key: "isNewAccount", value: response.isNewAccount);
       TCacheHelper.saveData(key: "phone", value: phoneController.text.trim());
     } catch (error) {
       updateStatus(value: RequestState.onError);

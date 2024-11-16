@@ -22,7 +22,7 @@ class DebtsFilterDialog{
       isScrollControlled: true,
       builder: (context) {
         return SizedBox(
-          height: 700.h,
+          height: 500.h,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w, vertical: TSizes.lg.h),
             child: ConstrainedBox(
@@ -87,23 +87,23 @@ class DebtsFilterDialog{
                     ),
                     TSizes.spaceBtwSections.verticalSpace,
                     const InfiniteDatePicker(),
-                    ReminderTile(
-                      // icon: TImages.customizeReminder,
-                      title: "من الأعلى إلى الأدنى",
-                      value: 1,
-                      showRadio: true,
-                      // showArrowIcon: true,
-                      selectedValueNotifier: ClientProfileController.instance.selectedValue,
-                    ),
-                    TSizes.lg.verticalSpace,
-                    ReminderTile(
-                      // icon: TImages.customizeReminder,
-                      title: "من الأدنى إلى الأعلى",
-                      value: 2,
-                      showRadio: true,
-                      // showArrowIcon: true,
-                      selectedValueNotifier: ClientProfileController.instance.selectedValue,
-                    ),
+                    // ReminderTile(
+                    //   // icon: TImages.customizeReminder,
+                    //   title: "من الأعلى إلى الأدنى",
+                    //   value: 1,
+                    //   showRadio: true,
+                    //   // showArrowIcon: true,
+                    //   selectedValueNotifier: ClientProfileController.instance.selectedValue,
+                    // ),
+                    // TSizes.lg.verticalSpace,
+                    // ReminderTile(
+                    //   // icon: TImages.customizeReminder,
+                    //   title: "من الأدنى إلى الأعلى",
+                    //   value: 2,
+                    //   showRadio: true,
+                    //   // showArrowIcon: true,
+                    //   selectedValueNotifier: ClientProfileController.instance.selectedValue,
+                    // ),
                     TSizes.spaceBtwSections.verticalSpace,
                     const HomeFilterContinueButton()
                   ],

@@ -14,3 +14,5 @@ class GeneralBindings extends Bindings{
     // ---Verify binding
   }
 }
+
+// TCacheHelper.saveData(key: "firstPage", value: "home");
