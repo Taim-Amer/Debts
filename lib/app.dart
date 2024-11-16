@@ -22,12 +22,12 @@ class App extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        initialRoute: AppRoutes.signin,
+        initialRoute: AppRoutes.home,
         getPages: AppRoutes.routes,
         translations: TAppTranslations(),
         locale: settingsController.locale.value,
         // locale: const Locale("en"),
-        initialBinding: SigninBinding(),
+        initialBinding: HomeBinding(),
         // home: const DebtAdditionScreen()
       ),
     );

@@ -58,6 +58,14 @@ class HomeController extends GetxController {
     }
   }
 
+  void selectFilter(int index) {
+    isAllSelected.value = index == 0;
+    isTotalDebtorsSelected.value = index == 1;
+    isTotalReceivedSelected.value = index == 2;
+    isSettledSelected.value = index == 3;
+    debtFilter();
+  }
+
   Future<void> debtFilter() async{
     if(isAllSelected.value == true){
       await getMyDebts(null);
@@ -78,7 +86,11 @@ class HomeController extends GetxController {
     try{
       myDebtsModel.value = await HomeRepositoryImpl.instance.getMyDebts(null, regionID, nameController.text.toString());
       region?.value = regionID!;
-      searchNameUpdateStatus(value: RequestState.success);
+      if(myDebtsModel.value.debts!.isNotEmpty){
+        searchNameUpdateStatus(value: RequestState.success);
+      } else if(myDebtsModel.value.debts!.isEmpty){
+        searchNameUpdateStatus(value: RequestState.noData);
+      }
     }catch(error) {
       searchNameUpdateStatus(value: RequestState.onError);
       showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);

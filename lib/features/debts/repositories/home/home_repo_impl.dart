@@ -15,7 +15,7 @@ class HomeRepositoryImpl implements HomeRepository {
     final dioHelper = TDioHelper();
 
     final queryParameters = {
-      '': filter,
+      'type': filter,
       'region_id': region,
       'name' : name
     };

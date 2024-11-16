@@ -59,8 +59,13 @@ class DebtScheduleController extends GetxController {
     }
 
     int? pageNumber = int.tryParse(pageNumberController.text);
+    int? monthlyPayment = int.tryParse(monthlyPaymentController.text);
+
+    List<String> phoneList = [];
+    phoneList.add(clientNumberController.text);
+
     try{
-      await DebtScheduleRepositoryImpl.instance.createDebt(clientNameController.text, clientNumberController.text, selectedClientId.value, selectedGoodsId.value, pageNumber!, amountController.text, goodsDescriptionController.text, monthlyPaymentController.text, sponsorNameController.text, sponsorNumberController.text, selectedSponsorId.value);
+      await DebtScheduleRepositoryImpl.instance.createDebt(clientNameController.text, phoneList[0], selectedClientId.value, selectedGoodsId.value, pageNumber!, amountController.text, goodsDescriptionController.text, monthlyPayment, sponsorNameController.text, sponsorNumberController.text, selectedSponsorId.value);
       updateStatus(value: RequestState.success);
       showToast("تم اضافة دين جديد", ToastState.success);
       Get.offAllNamed(AppRoutes.home);
@@ -73,20 +78,25 @@ class DebtScheduleController extends GetxController {
 
   Future<void> addNewDebtItem() async {
     int pageNumber = int.tryParse(pageNumberController.text) ?? Random().nextInt(100);
+    int? monthlyPayment = int.tryParse(monthlyPaymentController.text);
+
+    List<String> phoneList = [];
+
+    phoneList.add(clientNumberController.text);
 
     try {
       final response = await DebtScheduleRepositoryImpl.instance.createDebt(
         clientNameController.text,
-        clientNumberController.text.toString(),
-        selectedClientId.value ?? 0,
-        selectedGoodsId.value ?? 0,
+        phoneList[0],
+        selectedClientId.value,
+        selectedGoodsId.value,
         pageNumber,
         amountController.text,
         goodsDescriptionController.text,
-        monthlyPaymentController.text,
+        monthlyPayment,
         sponsorNameController.text,
         sponsorNumberController.text.toString(),
-        selectedSponsorId.value ?? 0,
+        selectedSponsorId.value,
       );
 
       if (response.status == true) {

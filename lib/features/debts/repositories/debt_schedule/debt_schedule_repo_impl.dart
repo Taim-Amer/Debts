@@ -27,19 +27,9 @@ class DebtScheduleRepositoryImpl implements DebtScheduleRepository {
   }
 
   @override
-  Future<CreateDebtModel> createDebt(
-      String clientName,
-      String clientPhone,
-      int regionId,
-      int recordId,
-      int pageNumber,
-      String amount,
-      String goodsDescription,
-      String monthlyPayment,
-      String sponsorName,
-      String sponsorPhone,
-      int sponsorRegionId) async {
+  Future<CreateDebtModel> createDebt(String clientName, String clientPhone, int regionId, int recordId, int pageNumber, String amount, String? goodsDescription, int? monthlyPayment, String? sponsorName, String? sponsorPhone, int? sponsorRegionId) async{
     final dioHelper = TDioHelper();
+    print(monthlyPayment);
     return await dioHelper.post(TApiConstants.createDebt, token: token,{
       "customer_name": clientName,
       "customer_phone": clientPhone,
@@ -48,7 +38,7 @@ class DebtScheduleRepositoryImpl implements DebtScheduleRepository {
       "page_number": pageNumber,
       "amount": amount,
       "goods_description": goodsDescription,
-      "monthly_payment": monthlyPayment,
+      "monthly_payment": monthlyPayment ?? 0,
       "sponsor_name": sponsorName,
       "sponsor_phone": sponsorPhone,
       "sponsor_region": sponsorRegionId,

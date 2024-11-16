@@ -3,13 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/chips/choice_chip.dart';
 import 'package:taha_debts/common/widgets/pickers/infinite_date_picker.dart';
-import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
-import 'package:taha_debts/features/debts/screens/client_profile/widgets/reminder_tile.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/home_filter_continue_button.dart';
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class DebtsFilterDialog{
 
