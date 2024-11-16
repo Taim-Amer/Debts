@@ -10,7 +10,7 @@ class GoodsDescriptionTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldWidget(
       title: TranslationKey.kProductDescription,
-      hint: 'أثاث منزل',
+      hint: TranslationKey.kHouseFurniture,
       controller: DebtScheduleController.instance.goodsDescriptionController,
       keyboardType: TextInputType.text,
     );

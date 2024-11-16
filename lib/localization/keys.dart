@@ -78,4 +78,6 @@ class TranslationKey{
   static String get kLogout => "logout".tr;
   static String get kLogoutQuastion => "logoutQuastion".tr;
   static String get kClose => "close".tr;
+  static String get kRestAccount => "restAccount".tr;
+  static String get kHouseFurniture => "houseFurniture".tr;
 }

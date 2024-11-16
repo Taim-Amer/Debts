@@ -70,11 +70,13 @@ class TArabicTexts {
   static String get customizeReminder => 'تخصيص التذكير';
   static String get notationAdd => 'إضافة ملاحظة';
   static String get sponsorName => 'اسم الممول';
+  static String get restAccount => 'باقي الحساب';
 
   // Additions
   static String get addNewCollection => 'إضافة مجموعة جديدة';
   static String get productsName => 'اسم المنتج';
   static String get productsDescription => 'وصف المنتج';
+  static String get houseFurniture => 'أثاث منزل';
 
   // Notifications
   static String get notifications => 'الإشعارات';
@@ -163,11 +165,13 @@ class TEnglishTexts {
   static String get customizeReminder => 'Customize Reminder';
   static String get notationAdd => 'Add Notation';
   static String get sponsorName => 'Sponsor Name';
+  static String get restAccount => 'The rest of the account';
 
   // Additions
   static String get addNewCollection => 'Add New Collection';
   static String get productsName => 'Product Name';
   static String get productsDescription => 'Product Description';
+  static String get houseFurniture => 'House Furniture';
 
   // Notifications
   static String get notifications => 'Notifications';

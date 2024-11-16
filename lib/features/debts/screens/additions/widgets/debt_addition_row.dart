@@ -32,7 +32,7 @@ class DebtAdditionRow extends StatelessWidget {
           flex: 3,
           child: TextFieldWidget(
             controller: AdditionsController.instance.debtGoodsDescriptionController,
-            title: TArabicTexts.productsDescription,
+            title: TranslationKey.kProductDescription,
             hint: TranslationKey.kGoodsDescription2,
             titleColor: TColors.grey,
             hintSize: 14,

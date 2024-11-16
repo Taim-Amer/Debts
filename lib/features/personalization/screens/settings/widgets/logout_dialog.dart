@@ -8,13 +8,15 @@ import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 Future<dynamic> showLogoutDialog(BuildContext context) async {
+  final dark = THelperFunctions.isDarkMode(context);
   return await showDialog(
     context: context,
     builder: (context) {
       return Dialog(
-        backgroundColor: Colors.white,
+        backgroundColor: dark ? TColors.dark : Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),

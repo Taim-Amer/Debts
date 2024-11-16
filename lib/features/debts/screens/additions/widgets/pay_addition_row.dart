@@ -32,8 +32,8 @@ class PayAdditionRow extends StatelessWidget {
             flex: 3,
             child: TextFieldWidget(
               controller: AdditionsController.instance.goodsDescriptionController,
-              title: TArabicTexts.productsDescription,
-              hint: TArabicTexts.productsName,
+              title: TranslationKey.kProductDescription,
+              hint: TranslationKey.kProductsName,
               titleColor: TColors.grey,
               hintSize: 14,
               radius: 6,

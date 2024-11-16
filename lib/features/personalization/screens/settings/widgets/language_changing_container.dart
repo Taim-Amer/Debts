@@ -28,7 +28,7 @@ class LanguageChangingContainer extends StatelessWidget {
             child: LanguageRadioTile(
               title: TranslationKey.kArabic,
               value: 1,
-              groupValue: SettingsController.instance.selectedLanguage.value,
+              groupValue: SettingsController.instance.selectedLanguage?.value ?? 2,
               onChanged: (value) => SettingsController.instance.setSelectedRadio(1),
             ),
           )),
@@ -37,7 +37,7 @@ class LanguageChangingContainer extends StatelessWidget {
             child: LanguageRadioTile(
               title: TranslationKey.kEnglish,
               value: 2,
-              groupValue: SettingsController.instance.selectedLanguage.value,
+              groupValue: SettingsController.instance.selectedLanguage?.value ?? 2,
               onChanged: (value) => SettingsController.instance.setSelectedRadio(2),
             ),
           )),

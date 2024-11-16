@@ -32,7 +32,6 @@ class App extends StatelessWidget {
         locale: Locale(language),
         fallbackLocale: const Locale('en'),
         initialBinding: GeneralBindings(),
-        // home: const DebtAdditionScreen()
       ),
     );
   }

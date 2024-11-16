@@ -81,7 +81,9 @@ class TAppTranslations extends Translations {
       'goodsDescription2' : TEnglishTexts.goodsDescription2,
       'logout' : TEnglishTexts.logout,
       'logoutQuastion' : TEnglishTexts.logoutQuastion,
-      'close' : TEnglishTexts.close
+      'close' : TEnglishTexts.close,
+      'restAccount' : TEnglishTexts.restAccount,
+      'houseFurniture' : TEnglishTexts.houseFurniture
     },
     'ar': {
       'next': TArabicTexts.next,
@@ -160,7 +162,9 @@ class TAppTranslations extends Translations {
       'goodsDescription2' : TArabicTexts.goodsDescription2,
       'logout' : TArabicTexts.logout,
       'logoutQuastion' : TArabicTexts.logoutQuastion,
-      'close' : TArabicTexts.close
+      'close' : TArabicTexts.close,
+      'restAccount' : TArabicTexts.restAccount,
+      'houseFurniture' : TArabicTexts.houseFurniture
     },
   };
 }

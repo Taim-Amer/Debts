@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/localization/keys.dart';
-import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 
@@ -42,7 +41,7 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: TSizes.xs),
                   child: Text(
-                    TranslationKey.kBySponsor,
+                    "${TranslationKey.kBySponsor} : ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName}",
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),
                   ),
                 ),
@@ -74,11 +73,12 @@ class _BySponsorContainerState extends State<BySponsorContainer> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("أسم الكفيل: ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName}", style: Theme.of(context).textTheme.bodyLarge),
+                    // Text("أسم الكفيل: ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName}", style: Theme.of(context).textTheme.bodyLarge),
+                    Text("${TranslationKey.kSponsorName}  : ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName}", style: Theme.of(context).textTheme.bodyLarge),
                     14.verticalSpace,
-                    Text("عنوان الكفيل : ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorRegion}", style: Theme.of(context).textTheme.bodyLarge),
+                    Text("${TranslationKey.kSponsorAddress}  : ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorRegion}", style: Theme.of(context).textTheme.bodyLarge),
                     14.verticalSpace,
-                    Text("رقم الهاتف: ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorPhone}", style: Theme.of(context).textTheme.bodyLarge),
+                    Text("${TranslationKey.kPhone}  : ${ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorPhone}", style: Theme.of(context).textTheme.bodyLarge),
                   ],
                 ),
               ),
