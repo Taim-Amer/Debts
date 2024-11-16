@@ -7,6 +7,7 @@ import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/add_new_
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/add_new_item_button.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/amount_textfield.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/animated_sponsor_address_text_field.dart';
+import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/another_number_animated_textfield.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/client_name_textfield.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/client_phone_textfield.dart';
 import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/debts_schedule_appbar.dart';
@@ -38,6 +39,8 @@ class DebtScheduleScreen extends StatelessWidget {
                 const AddressClientAnimatedContainer(),
                 TSizes.sm.verticalSpace,
                 const ClientPhoneTextField(),
+                TSizes.sm.verticalSpace,
+                const AnotherNumberAnimatedTextfield(),
                 TSizes.sm.verticalSpace,
                 const AddAnotherPhoneNumberButton(),
                 TSizes.sm.verticalSpace,

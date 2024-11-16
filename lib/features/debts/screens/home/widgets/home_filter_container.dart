@@ -44,12 +44,12 @@ class HomeFilterContainer extends StatelessWidget {
           Positioned(
               left: 0,
               top: -1,
-              child: TRoundedContainer(
+              child: count != null ? TRoundedContainer(
                 backgroundColor: TColors.redColor,
                 width: 18.w,
                 height: 18.h,
                 child: Center(child: Text(count.toString(), style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 8, fontWeight: FontWeight.w400, color: TColors.white),)),
-              ),
+              ) : const SizedBox(),
           ),
         ],
       ) : TRoundedContainer(

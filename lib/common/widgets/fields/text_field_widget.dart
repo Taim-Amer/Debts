@@ -5,7 +5,7 @@ import 'package:taha_debts/utils/constants/colors.dart';
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
     super.key,
-    required this.title,
+    this.title,
     required this.hint,
     this.icon,
     this.hintColor = TColors.grey,
@@ -17,7 +17,7 @@ class TextFieldWidget extends StatelessWidget {
     this.keyboardType = TextInputType.phone,
   });
 
-  final String title;
+  final String? title;
   final String hint;
   final IconData? icon;
   final Color? hintColor;
@@ -35,15 +35,14 @@ class TextFieldWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Row(
-            // mainAxisAlignment: MainAxisAlignment.end,
             children: [
               if (icon != null) ...[
                 Icon(icon, color: TColors.buttonPrimary),
                 8.horizontalSpace,
               ],
-              Flexible(
+              if (title != null) Flexible(
                 child: Text(
-                  title,
+                  title!,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(color: titleColor),
                   overflow: TextOverflow.ellipsis,
                 ),

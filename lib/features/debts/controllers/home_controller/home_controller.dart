@@ -24,10 +24,10 @@ class HomeController extends GetxController {
 
   @override
   void onReady() {
-    super.onReady();
     getMyDebts(null);
     NotationsController.instance.getNotes();
     ProfileController.instance.getUserProfile();
+    super.onReady();
   }
 
   void updateStatus({required RequestState value}) {

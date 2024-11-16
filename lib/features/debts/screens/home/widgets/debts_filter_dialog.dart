@@ -19,7 +19,7 @@ class DebtsFilterDialog{
       isScrollControlled: true,
       builder: (context) {
         return SizedBox(
-          height: 500.h,
+          height: 600.h,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w, vertical: TSizes.lg.h),
             child: ConstrainedBox(

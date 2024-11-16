@@ -1,18 +1,20 @@
 import 'package:get/get.dart';
-import 'package:taha_debts/features/authentication/controllers/signin/signin_controller.dart';
-import 'package:taha_debts/features/authentication/repositories/signin/signin_repo_impl.dart';
+import 'package:taha_debts/bindings/home_binding.dart';
+import 'package:taha_debts/bindings/signin_binding.dart';
+import 'package:taha_debts/utils/router/app_router.dart';
+import 'package:taha_debts/utils/storage/cache_helper.dart';
 
-class GeneralBindings extends Bindings{
+class GeneralBindings extends Bindings {
   @override
   void dependencies() {
-    // Get.put(NetworkManager());
+    String? token = TCacheHelper.getData(key: "token");
 
-    // ---Signin binding
-    Get.put(SignInController());
-    Get.put(SigninRepositoryImpl());
-
-    // ---Verify binding
+    if (token != null) {
+      Get.offAllNamed(AppRoutes.home);
+      Get.put<HomeBinding>(HomeBinding());
+    } else {
+      Get.offAllNamed(AppRoutes.signin);
+      Get.put<SigninBinding>(SigninBinding());
+    }
   }
 }
-
-// TCacheHelper.saveData(key: "firstPage", value: "home");

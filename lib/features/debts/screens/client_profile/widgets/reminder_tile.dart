@@ -76,6 +76,7 @@ class _ReminderTileState extends State<ReminderTile> {
                     backgroundColor: dark ? TColors.dark : TColors.lightGrey,
                     showBorder: dark ? true : false,
                     child: TextFormField(
+                      controller: ClientProfileController.instance.noteController,
                       maxLines: 7,
                       textAlign: TextAlign.right,
                       decoration: InputDecoration(

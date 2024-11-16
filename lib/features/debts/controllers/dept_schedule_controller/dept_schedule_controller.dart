@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
+import 'package:taha_debts/features/debts/controllers/home_controller/home_controller.dart';
 import 'package:taha_debts/features/debts/models/debt_schedule/records_model.dart';
 import 'package:taha_debts/features/debts/models/debt_schedule/regions_model.dart';
 import 'package:taha_debts/features/debts/repositories/debt_schedule/debt_schedule_repo_impl.dart';
@@ -29,17 +30,23 @@ class DebtScheduleController extends GetxController {
   final monthlyPaymentController = TextEditingController();
   final amountController = TextEditingController();
   final sponsorNameController = TextEditingController();
+  final anotherNumberController = TextEditingController();
 
   GlobalKey<FormState> debtScheduleKey = GlobalKey<FormState>();
 
   RxInt selectedGoodsId = RxInt(1);
   RxInt selectedSponsorId = RxInt(1);
   RxInt selectedClientId = RxInt(1);
+  RxBool anotherNumber = RxBool(false);
 
   var createDebtApiStatus = RequestState.begin.obs;
 
   void updateStatus({required RequestState value}) {
     createDebtApiStatus.value = value;
+  }
+
+  void updateAnotherNumber(){
+    anotherNumber.value = !anotherNumber.value;
   }
 
   Future<void> getRegions() async {
@@ -63,9 +70,12 @@ class DebtScheduleController extends GetxController {
 
     List<String> phoneList = [];
     phoneList.add(clientNumberController.text);
+    phoneList.add(anotherNumberController.text);
+    // phoneList.addIf(anotherNumberController.text != null ,anotherNumberController.text);
 
     try{
-      await DebtScheduleRepositoryImpl.instance.createDebt(clientNameController.text, phoneList[0], selectedClientId.value, selectedGoodsId.value, pageNumber!, amountController.text, goodsDescriptionController.text, monthlyPayment, sponsorNameController.text, sponsorNumberController.text, selectedSponsorId.value);
+      await DebtScheduleRepositoryImpl.instance.createDebt(clientNameController.text, phoneList, selectedClientId.value, selectedGoodsId.value, pageNumber!, amountController.text, goodsDescriptionController.text, monthlyPayment, sponsorNameController.text, sponsorNumberController.text, selectedSponsorId.value);
+      HomeController.instance.getMyDebts(null);
       updateStatus(value: RequestState.success);
       showToast("تم اضافة دين جديد", ToastState.success);
       Get.offAllNamed(AppRoutes.home);
@@ -87,7 +97,7 @@ class DebtScheduleController extends GetxController {
     try {
       final response = await DebtScheduleRepositoryImpl.instance.createDebt(
         clientNameController.text,
-        phoneList[0],
+        phoneList,
         selectedClientId.value,
         selectedGoodsId.value,
         pageNumber,
@@ -100,6 +110,7 @@ class DebtScheduleController extends GetxController {
       );
 
       if (response.status == true) {
+        HomeController.instance.getMyDebts(null);
         updateStatus(value: RequestState.success);
         showToast("تم اضافة دين جديد", ToastState.success);
         Get.offAndToNamed(AppRoutes.debtSchedule);

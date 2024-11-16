@@ -1,9 +1,10 @@
 import 'dart:ui';
-
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/personalization/repositories/profile/profile_repo_impl.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
+import 'package:taha_debts/utils/router/app_router.dart';
+import 'package:taha_debts/utils/storage/cache_helper.dart';
 
 class SettingsController extends GetxController{
   static SettingsController get instance => Get.find();
@@ -19,15 +20,13 @@ class SettingsController extends GetxController{
   void setSelectedRadio(value){
     selectedLanguage.value = value;
     if(value == 1){
-      print(value);
       locale.value = const Locale('ar');
-      print(Get.locale);
+      TCacheHelper.saveData(key: "locale", value: "ar");
       Get.updateLocale(locale.value);
 
     }else if(value == 2){
-      print(value);
       locale.value =  const Locale('en');
-      print(Get.locale);
+      TCacheHelper.saveData(key: "locale", value: "en");
       Get.updateLocale(locale.value);
     }
   }
@@ -37,8 +36,8 @@ class SettingsController extends GetxController{
 
     try {
       await ProfileRepositoryImpl.instance.logout();
-      showToast("========================================", ToastState.success);
-      ///============================= navigate to first screen
+      TCacheHelper.removeData(key: "token");
+      Get.offAllNamed(AppRoutes.signin);
       updateLogoutStatus(value: RequestState.success);
     }catch(error){
       updateLogoutStatus(value: RequestState.onError);

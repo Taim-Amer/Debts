@@ -113,7 +113,7 @@ class TEnglishTexts {
   static String get otpTitle => 'OTP Verification';
   static String get username => 'Username';
   static String get email => 'Email';
-  static String get otpEnter => '====== ';
+  static String get otpEnter => 'Enter the five-digit number sent to the following number: 000-000';
   static String get logout => 'Logout ';
   static String get logoutQuastion => 'Do you want to logout ?';
 
@@ -155,7 +155,7 @@ class TEnglishTexts {
   static String get collectionDate => 'Collection Date';
   static String get payment => 'Payment';
   static String get buying => 'Buying';
-  static String get transactions => 'Transactions';
+  static String get transactions => 'Transactions :';
   static String get reminderBy => 'Reminder By';
   static String get undefined => 'Undefined';
   static String get weakReminder => 'Weak Reminder';

@@ -45,13 +45,6 @@ class ClientProfileScreen extends StatelessWidget {
                         Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? TSizes.md.verticalSpace : const SizedBox()),
                         const CollectionDateContainer(),
                         TSizes.spaceBtwSections.verticalSpace,
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: Text(
-                            TranslationKey.kTransactions,
-                            style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),
-                          ),
-                        ),
                         const TransactionsList(),
                       ],
                     ),

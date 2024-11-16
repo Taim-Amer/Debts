@@ -11,8 +11,8 @@ class NotationsController extends GetxController{
 
   @override
   void onReady() {
-    super.onReady();
     getNotes();
+    super.onReady();
   }
 
   void updateStatus({required RequestState value}) {

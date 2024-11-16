@@ -19,7 +19,6 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: const HomeFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: Obx((){
-        print(HomeController.instance.searchNameApiStatus.value);
         var isLoading = HomeController.instance.getDebtsApiStatus.value == RequestState.loading;
         var isSearching = HomeController.instance.searchNameApiStatus.value == RequestState.loading;
         return (isLoading || isSearching)

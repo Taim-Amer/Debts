@@ -5,8 +5,7 @@ import 'package:taha_debts/features/notations/repositories/notations_repo_impl.d
 class NotationsBinding extends Bindings{
   @override
   void dependencies() {
-    Get.lazyPut<NotationsController>(() => NotationsController());
-    Get.lazyPut<NotationsRepositoryImpl>(() => NotationsRepositoryImpl());
+    Get.put<NotationsController>(NotationsController());
+    Get.put<NotationsRepositoryImpl>(NotationsRepositoryImpl());
   }
-
 }
