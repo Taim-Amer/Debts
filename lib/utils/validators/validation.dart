@@ -1,21 +1,23 @@
+import 'package:taha_debts/localization/keys.dart';
+
 class TValidator {
 
   static String? validateEmptyText(String? fieldName, String? value){
     if(value == null || value.isEmpty){
-      return 'يجب ادخال $fieldName';
+      return '${TranslationKey.kEmptyValidation}$fieldName';
     }
     return null;
   }
 
   static String? validateEmail(String? value) {
     if(value == null || value.isEmpty){
-      return "يجب ادخال البريد الالكتروني" ;
+      return TranslationKey.kEmptyValidation;
     }
 
     final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
     if(!emailRegExp.hasMatch(value)){
-      return "البريد الالكتروني غير مقبول" ;
+      return TranslationKey.kEmailInvalid;
     }
     return null;
   }
@@ -46,8 +48,7 @@ class TValidator {
 
   static String? validatePhoneNumber(String? value) {
     if(value == null || value.isEmpty){
-      // return "Phone number is required" ;
-      return "ادخل رقم الهاتف" ;
+      return TranslationKey.kPhoneValidation ;
     }
 
     // final phoneRegExp = RegExp(r'^\d{10}$');

@@ -80,4 +80,7 @@ class TranslationKey{
   static String get kClose => "close".tr;
   static String get kRestAccount => "restAccount".tr;
   static String get kHouseFurniture => "houseFurniture".tr;
+  static String get kPhoneValidation => "phoneValidation".tr;
+  static String get kEmptyValidation => "emptyValidation".tr;
+  static String get kEmailInvalid => "emailInvalid".tr;
 }

@@ -91,6 +91,12 @@ class TArabicTexts {
   static String get out => 'خروج';
   static String get accountInfo => 'معلومات الحساب';
   static String get close => 'إغلاق';
+
+  // Validation
+  static String get phoneValidation => 'ادخل رقم الهاتف';
+  static String get emptyValidation => 'يجب ادخال ';
+  static String get emailValidation => 'يجب ادخال البريد الالكتروني';
+  static String get emailInvalid => "البريد الالكتروني غير مقبول";
 }
 
 class TEnglishTexts {
@@ -186,4 +192,11 @@ class TEnglishTexts {
   static String get out => 'Log Out';
   static String get accountInfo => 'Account Info';
   static String get close => 'Close';
+
+  // Validation
+  static String get phoneValidation => 'Phone number is required';
+  static String get emptyValidation => 'You must Enter';
+  static String get emailValidation => 'The Email is Required';
+  static String get emailInvalid => "The Email Address is Invalid";
+
 }

@@ -83,7 +83,11 @@ class TAppTranslations extends Translations {
       'logoutQuastion' : TEnglishTexts.logoutQuastion,
       'close' : TEnglishTexts.close,
       'restAccount' : TEnglishTexts.restAccount,
-      'houseFurniture' : TEnglishTexts.houseFurniture
+      'houseFurniture' : TEnglishTexts.houseFurniture,
+      'phoneValidation' : TEnglishTexts.phoneValidation,
+      'emptyValidation' : TEnglishTexts.emptyValidation,
+      'emailValidation' : TEnglishTexts.emailValidation,
+      'emailInvalid' : TEnglishTexts.emailInvalid
     },
     'ar': {
       'next': TArabicTexts.next,
@@ -164,7 +168,11 @@ class TAppTranslations extends Translations {
       'logoutQuastion' : TArabicTexts.logoutQuastion,
       'close' : TArabicTexts.close,
       'restAccount' : TArabicTexts.restAccount,
-      'houseFurniture' : TArabicTexts.houseFurniture
+      'houseFurniture' : TArabicTexts.houseFurniture,
+      'phoneValidation' : TArabicTexts.phoneValidation,
+      'emptyValidation' : TArabicTexts.emptyValidation,
+      'emailValidation' : TArabicTexts.emailValidation,
+      'emailInvalid' : TArabicTexts.emailInvalid
     },
   };
 }
