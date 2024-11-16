@@ -23,4 +23,11 @@ class ProfileRepositoryImpl implements ProfileRepository{
 
     return dioHelper.post(TApiConstants.editProfile, {"name" : newName}, token: token).then((response) => print(response));
   }
+
+  @override
+  Future<void> logout() async{
+    final dioHelper = TDioHelper();
+
+    return dioHelper.get(TApiConstants.logout, token: token).then((response) => print(response));
+  }
 }

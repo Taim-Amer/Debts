@@ -31,4 +31,6 @@ class TApiConstants {
   static const String selectReminder = "user/select_reminder";
 
   static const String getNotes = "user/get_notes";
+
+  static const String logout = "user/logout";
 }

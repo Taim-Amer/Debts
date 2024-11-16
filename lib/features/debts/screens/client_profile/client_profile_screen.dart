@@ -36,27 +36,24 @@ class ClientProfileScreen extends StatelessWidget {
                     delegate: _ClientProfileAppbarDelegate(),
                   ),
                   SliverToBoxAdapter(
-                    child: Padding(
-                      padding: TSpacingStyle.paddingWithAppBarHeight,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const ClientProfileHeader(),
-                          TSizes.md.verticalSpace,
-                          Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? const BySponsorContainer() : const SizedBox()),
-                          Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? TSizes.md.verticalSpace : const SizedBox()),
-                          const CollectionDateContainer(),
-                          TSizes.spaceBtwSections.verticalSpace,
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Text(
-                              TranslationKey.kTransactions,
-                              style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),
-                            ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const ClientProfileHeader(),
+                        TSizes.md.verticalSpace,
+                        Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? const BySponsorContainer() : const SizedBox()),
+                        Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? TSizes.md.verticalSpace : const SizedBox()),
+                        const CollectionDateContainer(),
+                        TSizes.spaceBtwSections.verticalSpace,
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Text(
+                            TranslationKey.kTransactions,
+                            style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20),
                           ),
-                          const TransactionsList(),
-                        ],
-                      ),
+                        ),
+                        const TransactionsList(),
+                      ],
                     ),
                   ),
                 ],

@@ -4,13 +4,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
 import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/language_changing_container.dart';
+import 'package:taha_debts/features/personalization/screens/settings/widgets/logout_dialog.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/setting_appbar.dart';
 import 'package:taha_debts/features/personalization/screens/settings/widgets/settings_tile.dart';
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -39,7 +40,7 @@ class SettingsScreen extends StatelessWidget {
               SettingsTile(title: TranslationKey.kNotifications, icon: TImages.notifications, showSwitch: true,),
               SettingsTile(title: TranslationKey.kPrivacyPolicy, icon: TImages.information,),
               SettingsTile(title: TranslationKey.kAbout, icon: TImages.about,),
-              SettingsTile(title: TranslationKey.kOut, icon: TImages.logout,),
+              SettingsTile(title: TranslationKey.kOut, icon: TImages.logout2, function: () => showLogoutDialog(context)),
             ],
           ),
         ),
@@ -47,3 +48,5 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 }
+
+

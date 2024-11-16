@@ -168,6 +168,9 @@ class $AssetsImagesUserGen {
 class $AssetsLogosAuthGen {
   const $AssetsLogosAuthGen();
 
+  /// File path: assets/logos/auth/Group.svg
+  String get group => 'assets/logos/auth/Group.svg';
+
   /// File path: assets/logos/auth/lock.svg
   String get lock => 'assets/logos/auth/lock.svg';
 
@@ -175,7 +178,7 @@ class $AssetsLogosAuthGen {
   String get nounLogin => 'assets/logos/auth/noun-login.svg';
 
   /// List of all assets
-  List<String> get values => [lock, nounLogin];
+  List<String> get values => [group, lock, nounLogin];
 }
 
 class $AssetsLogosHomeGen {

@@ -9,6 +9,7 @@ class TImages {
   static const String lock = "assets/logos/auth/lock.svg";
   static const String mobile = "assets/icons/auth/bxs_mobile.svg";
   static const String loginShape = "assets/images/shapes/Group.svg";
+  static const String logout = "assets/logos/auth/Group.svg";
 
   // Flags
   static const String jordan = "assets/icons/flags/jordan.png";
@@ -42,7 +43,7 @@ class TImages {
   static const String translate = "assets/icons/global/Combined-Shape.svg";
   static const String notifications = "assets/icons/global/Vector.svg";
   static const String information = "assets/icons/global/Group 97.svg";
-  static const String logout = "assets/icons/global/Group (1).svg";
+  static const String logout2 = "assets/icons/global/Group (1).svg";
   static const String about = "assets/icons/global/Group.svg";
   static const String userProfile = "assets/logos/profile/Vector.svg";
 

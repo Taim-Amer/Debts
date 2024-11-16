@@ -75,4 +75,7 @@ class TranslationKey{
   static String get kOtpEnter => "otpEnter".tr;
   static String get kGoodsDescription => "goodsDescription".tr;
   static String get kGoodsDescription2 => "goodsDescription2".tr;
+  static String get kLogout => "logout".tr;
+  static String get kLogoutQuastion => "logoutQuastion".tr;
+  static String get kClose => "close".tr;
 }

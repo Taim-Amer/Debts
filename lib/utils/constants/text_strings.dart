@@ -21,6 +21,8 @@ class TArabicTexts {
   static String get username => 'اسم المستخدم';
   static String get email => 'البريد الإلكتروني';
   static String get otpEnter => 'أدخل الرقم المكون من خمس خانات الذي أرسل إلى\nالرقم التالي : 000-000 ';
+  static String get logout => 'تسجيل الخروج';
+  static String get logoutQuastion => 'هل تريد تسجل الخروج من حسابك ؟';
 
   // Home
   static String get clientName => 'اسم العميل';
@@ -86,6 +88,7 @@ class TArabicTexts {
   static String get about => 'حول';
   static String get out => 'خروج';
   static String get accountInfo => 'معلومات الحساب';
+  static String get close => 'إغلاق';
 }
 
 class TEnglishTexts {
@@ -111,6 +114,8 @@ class TEnglishTexts {
   static String get username => 'Username';
   static String get email => 'Email';
   static String get otpEnter => '====== ';
+  static String get logout => 'Logout ';
+  static String get logoutQuastion => 'Do you want to logout ?';
 
   // Home
   static String get clientName => 'Client Name';
@@ -176,4 +181,5 @@ class TEnglishTexts {
   static String get about => 'About';
   static String get out => 'Log Out';
   static String get accountInfo => 'Account Info';
+  static String get close => 'Close';
 }

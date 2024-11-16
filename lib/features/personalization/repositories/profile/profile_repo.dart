@@ -5,4 +5,6 @@ abstract class ProfileRepository{
   Future<UserProfileModel> getProfile();
 
   Future<void> editProfile(String newName);
+
+  Future<void> logout();
 }
