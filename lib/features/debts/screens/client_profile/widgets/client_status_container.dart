@@ -4,7 +4,6 @@ import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_conta
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class ClientStatusContainer extends StatefulWidget {
   const ClientStatusContainer({super.key});
