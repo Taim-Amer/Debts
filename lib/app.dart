@@ -14,10 +14,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settingsController = Get.put(SettingsController());
+    Get.put<SettingsController>(SettingsController());
     String? token = TCacheHelper.getData(key: "token");
     String initialRoute = token != null ? AppRoutes.home : AppRoutes.signin;
-    String language = TCacheHelper.getData(key: "locale");
+    String? language = TCacheHelper.getData(key: "locale");
 
     return ScreenUtilInit(
       designSize: Size(THelperFunctions.screenWidth(context), THelperFunctions.screenHeight(context)),
@@ -29,7 +29,7 @@ class App extends StatelessWidget {
         initialRoute: initialRoute,
         getPages: AppRoutes.routes,
         translations: TAppTranslations(),
-        locale: Locale(language),
+        locale: Locale(language ?? 'en'),
         fallbackLocale: const Locale('en'),
         initialBinding: GeneralBindings(),
       ),

@@ -38,7 +38,7 @@ class ClientProfileNavBar extends StatelessWidget {
                   height: 55.h,
                   child: OutlinedButton(
                       onPressed: () => Get.toNamed(AppRoutes.addDebt),
-                      child: Flexible(child: Center(child: Text(TranslationKey.kBuying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor))))))),
+                      child: Center(child: Text(TranslationKey.kBuying, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14, color: TColors.redColor)))))),
         ],
       ),
     );

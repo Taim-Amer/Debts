@@ -30,65 +30,67 @@ class BorrowerRow extends StatelessWidget {
           }
         });
       },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              TCircularContainer(
-                width: 34,
-                height: 34,
-                backgroundColor: TColors.lightGrey,
-                child: Text(name[0], style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.black),),
-              ),
-              19.horizontalSpace,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text(name, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14)),
-                      10.horizontalSpace,
-                      TRoundedContainer(
-                        width: 16.w,
-                        height: 16.h,
-                        radius: 10.r,
-                        backgroundColor: (int.tryParse(amount) ?? 0) > 1000000
-                            ? TColors.redColor
-                            : (int.tryParse(amount) ?? 0) > 500000
-                            ? TColors.yellowColor
-                            : TColors.greenColor,
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Icon(Icons.calendar_month, color: TColors.softGrey, size: 12,),
-                      3.horizontalSpace,
-                      Text(lastUpdate, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
-
-                    ],
-                  )
-                ],
-              ),
-
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(amount, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: (int.tryParse(amount) ?? 0) > 1000000
-                  ? TColors.redColor
-                  : (int.tryParse(amount) ?? 0) > 500000
-                  ? TColors.yellowColor
-                  : TColors.greenColor,)),
-              Text(TArabicTexts.debt, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
-            ],
-          ),
-        ],
+      child: TRoundedContainer(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TCircularContainer(
+                  width: 34,
+                  height: 34,
+                  backgroundColor: TColors.lightGrey,
+                  child: Text(name[0], style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.black),),
+                ),
+                19.horizontalSpace,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(name, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14)),
+                        10.horizontalSpace,
+                        TRoundedContainer(
+                          width: 16.w,
+                          height: 16.h,
+                          radius: 10.r,
+                          backgroundColor: (int.tryParse(amount) ?? 0) > 1000000
+                              ? TColors.redColor
+                              : (int.tryParse(amount) ?? 0) > 500000
+                              ? TColors.yellowColor
+                              : TColors.greenColor,
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.calendar_month, color: TColors.softGrey, size: 12,),
+                        3.horizontalSpace,
+                        Text(lastUpdate, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
+        
+                      ],
+                    )
+                  ],
+                ),
+        
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(amount, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: (int.tryParse(amount) ?? 0) > 1000000
+                    ? TColors.redColor
+                    : (int.tryParse(amount) ?? 0) > 500000
+                    ? TColors.yellowColor
+                    : TColors.greenColor,)),
+                Text(TArabicTexts.debt, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.softGrey, fontWeight: FontWeight.w400)),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

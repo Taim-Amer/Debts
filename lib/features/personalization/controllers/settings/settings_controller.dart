@@ -10,7 +10,6 @@ class SettingsController extends GetxController{
   static SettingsController get instance => Get.find();
 
   RxInt selectedLanguage = 2.obs;
-  // RxInt? selectedLanguage;
   Rx<Locale> locale = const Locale("en").obs;
   var logoutApiStatus = RequestState.begin.obs;
   var themeMode = ThemeMode.system.obs;

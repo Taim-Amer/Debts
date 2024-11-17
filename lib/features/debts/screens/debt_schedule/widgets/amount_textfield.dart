@@ -14,7 +14,7 @@ class AmountTextField extends StatelessWidget {
       hint: '1000.000 IQD',
       controller: DebtScheduleController.instance.amountController,
       keyboardType: TextInputType.number,
-      validator: (value) => TValidator.validateEmptyText("المبلغ", value),
+      validator: (value) => TValidator.validateEmptyText(" ${TranslationKey.kAmount}", value),
     );
   }
 }

@@ -10,10 +10,8 @@ import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_profile_navbar.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/collection_date_container.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/transactions_list.dart';
-import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class ClientProfileScreen extends StatelessWidget {
   const ClientProfileScreen({super.key});

@@ -11,10 +11,10 @@ class ClientNameTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldWidget(
       title: TranslationKey.kClientName,
-      hint: "اسم العميل الكامل",
+      hint: TranslationKey.kClientName,
       icon: Icons.person,
       controller: DebtScheduleController.instance.clientNameController,
-      validator: (value) => TValidator.validateEmptyText("اسم العميل", value),
+      validator: (value) => TValidator.validateEmptyText(" ${TranslationKey.kClientName}", value),
       keyboardType: TextInputType.name,
     );
   }

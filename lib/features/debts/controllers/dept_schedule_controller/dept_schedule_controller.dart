@@ -70,7 +70,10 @@ class DebtScheduleController extends GetxController {
 
     List<String> phoneList = [];
     phoneList.add(clientNumberController.text);
-    phoneList.add(anotherNumberController.text);
+    if (anotherNumberController.text.isNotEmpty) {
+      phoneList.add(anotherNumberController.text);
+    }
+
     // phoneList.addIf(anotherNumberController.text != null ,anotherNumberController.text);
 
     try{
@@ -93,6 +96,9 @@ class DebtScheduleController extends GetxController {
     List<String> phoneList = [];
 
     phoneList.add(clientNumberController.text);
+    if (anotherNumberController.text.isNotEmpty) {
+      phoneList.add(anotherNumberController.text);
+    }
 
     try {
       final response = await DebtScheduleRepositoryImpl.instance.createDebt(
@@ -123,5 +129,4 @@ class DebtScheduleController extends GetxController {
       }
     }
   }
-
 }

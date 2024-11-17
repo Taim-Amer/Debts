@@ -15,15 +15,14 @@ class HomeBinding extends Bindings{
   @override
   void dependencies() {
 
-    // من احل اسم المستخدم يلي بالهوم
     Get.lazyPut(() => ProfileController());
     Get.lazyPut(() => ProfileRepositoryImpl());
     
     Get.put<HomeController>(HomeController());
     Get.put<HomeRepositoryImpl>(HomeRepositoryImpl());
 
-    Get.lazyPut<DebtScheduleController>(() => DebtScheduleController());
-    Get.lazyPut<DebtScheduleRepositoryImpl>(() => DebtScheduleRepositoryImpl());
+    Get.put<DebtScheduleController>(DebtScheduleController());
+    Get.put<DebtScheduleRepositoryImpl>(DebtScheduleRepositoryImpl());
 
     Get.put(DatePickerController());
 
@@ -33,6 +32,5 @@ class HomeBinding extends Bindings{
     Get.lazyPut<ClientProfileController>(() => ClientProfileController());
     Get.lazyPut<ClientProfileRepositoryImpl>(() => ClientProfileRepositoryImpl());
     
-    // Get.lazyPut<DatePickerController>(() => DatePickerController());
   }
 }

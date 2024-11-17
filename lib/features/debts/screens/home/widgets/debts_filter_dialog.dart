@@ -57,7 +57,6 @@ class DebtsFilterDialog{
                           ),
                           ),
                         ),
-
                       ],
                     ),
                     TSizes.sm.verticalSpace,

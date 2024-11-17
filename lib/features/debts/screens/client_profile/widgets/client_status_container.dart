@@ -33,21 +33,19 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
             width: 100.w,
             padding: const EdgeInsets.all(TSizes.sm),
             backgroundColor: const Color(0xFFBFE3FF),
-            child: Flexible(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    TranslationKey.kClientStatus,
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary),
-                  ),
-                  Icon(
-                    isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down_sharp,
-                    color: TColors.buttonPrimary,
-                    size: TSizes.iconSm,
-                  ),
-                ],
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  TranslationKey.kClientStatus,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 12, color: TColors.buttonPrimary),
+                ),
+                Icon(
+                  isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down_sharp,
+                  color: TColors.buttonPrimary,
+                  size: TSizes.iconSm,
+                ),
+              ],
             ),
           ),
         ),

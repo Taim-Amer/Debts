@@ -121,5 +121,6 @@ class AppRoutes {
         binding: SettingsBinding(),
         transition: Transition.rightToLeft
     ),
+
   ];
 }
