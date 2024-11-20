@@ -34,6 +34,7 @@ class DebtAdditionRow extends StatelessWidget {
             controller: AdditionsController.instance.debtGoodsDescriptionController,
             title: TranslationKey.kProductDescription,
             hint: TranslationKey.kGoodsDescription2,
+            keyboardType: TextInputType.text,
             titleColor: TColors.grey,
             hintSize: 14,
             radius: 6,

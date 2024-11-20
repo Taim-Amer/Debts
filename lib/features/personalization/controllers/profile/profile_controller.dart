@@ -4,6 +4,7 @@ import 'package:scroll_date_picker/scroll_date_picker.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/personalization/models/profile/user_profile_model.dart';
 import 'package:taha_debts/features/personalization/repositories/profile/profile_repo_impl.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 
 class ProfileController extends GetxController{
@@ -48,7 +49,7 @@ class ProfileController extends GetxController{
     
     await ProfileRepositoryImpl.instance.editProfile(newNameController.text).then((response) => print(""));
     updateEditProfileStatus(value: RequestState.success);
-    showToast("تم تعديل الاسم بنجاح", ToastState.success);
+    showToast(TranslationKey.kNameUpdatedMessage, ToastState.success);
     Get.back();
     await getUserProfile();
   }

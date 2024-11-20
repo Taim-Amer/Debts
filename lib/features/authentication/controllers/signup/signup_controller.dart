@@ -33,10 +33,10 @@ class SignupController extends GetxController{
       updateStatus(value: RequestState.success);
       TCacheHelper.saveData(key: "token", value: response.token);
       Get.offAllNamed(AppRoutes.home);
-      showToast("تم انشاء الحساب بنجاح", ToastState.success);
+      showToast(TranslationKey.kNewAccountMessage, ToastState.success);
     }catch (error){
       updateStatus(value: RequestState.onError);
-      showToast(TranslationKey.kErrorMessage, ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.error);
     }
   }
 }

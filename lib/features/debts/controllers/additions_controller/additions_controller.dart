@@ -45,11 +45,12 @@ class AdditionsController extends GetxController{
     try{
       final response = await AdditionsRepositoryImpl.instance.addPayment(id, amount!, goodsDescriptionController.text);
       if(response.status == true){
-          showToast("تم اضافة عملية الدفع بنجاح", ToastState.success);
-        }
+        updatePaymentStatus(value: RequestState.success);
+        showToast(TranslationKey.kNewPaymentMessage, ToastState.success);
+      }
     } catch(error){
       TLoggerHelper.error(error.toString());
-      showToast(TranslationKey.kErrorMessage, ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.error);
     }
   }
 
@@ -68,12 +69,12 @@ class AdditionsController extends GetxController{
       final response = await AdditionsRepositoryImpl.instance.addDebt(id, amount!, debtGoodsDescriptionController.text);
       if(response.status == true){
         updateDebtStatus(value: RequestState.success);
-        showToast("تم اضافة دين جديد بنجاح", ToastState.success);
+        showToast(TranslationKey.kNewDebtMessage, ToastState.success);
       }
     } catch(error){
       TLoggerHelper.error(error.toString());
       updateDebtStatus(value: RequestState.onError);
-      showToast(TranslationKey.kErrorMessage, ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.error);
     }
 
   }

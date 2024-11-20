@@ -17,7 +17,11 @@ class PayAdditionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Obx(() => AdditionsController.instance.addPaymentApiStatus.value == RequestState.loading ? const LoadingWidget() : const PayAdditionNavbar()),
+      floatingActionButton: Obx(() {
+        Widget current;
+        AdditionsController.instance.addPaymentApiStatus.value == RequestState.loading ? current = const LoadingWidget() : current = const PayAdditionNavbar();
+        return current;
+      }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SingleChildScrollView(
         child: Padding(

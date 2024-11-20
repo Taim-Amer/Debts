@@ -83,4 +83,11 @@ class TranslationKey{
   static String get kPhoneValidation => "phoneValidation".tr;
   static String get kEmptyValidation => "emptyValidation".tr;
   static String get kEmailInvalid => "emailInvalid".tr;
+  static String get kNameUpdatedMessage => "nameUpdatedMessage".tr;
+  static String get kReminderAddMessage => "reminderAddMessage".tr;
+  static String get kNewDebtMessage => "newDebtMessage".tr;
+  static String get kNewPaymentMessage => "newPaymentMessage".tr;
+  static String get kNewAccountMessage => "newAccountMessage".tr;
+  static String get kVerificationCodeMessage => "verificationCodeMessage".tr;
+  static String get kNewDebtCreateMessage => "newDebtCreateMessage".tr;
 }

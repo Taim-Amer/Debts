@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/authentication/repositories/signin/signin_repo_impl.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
@@ -40,7 +41,7 @@ class SignInController extends GetxController {
       final response = await SigninRepositoryImpl.instance.signin(phoneController.text.trim());
       updateStatus(value: RequestState.success);
 
-      showToast("تم ارسال رمز التوثيق بنجاح", ToastState.success);
+      showToast(TranslationKey.kVerificationCodeMessage, ToastState.success);
       Get.toNamed(AppRoutes.otp);
       TCacheHelper.saveData(key: "isNewAccount", value: response.isNewAccount);
       TCacheHelper.saveData(key: "phone", value: phoneController.text.trim());

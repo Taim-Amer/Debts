@@ -30,9 +30,9 @@ class TArabicTexts {
   static String get clientPhone => 'هاتف العميل';
   static String get pageNumber => 'رقم الصفحة';
   static String get records => 'السجلات';
-  static String get addSponsor => 'إضافة ممول';
-  static String get sponsorPhone => 'هاتف الممول';
-  static String get sponsorAddress => 'عنوان الممول';
+  static String get addSponsor => 'إضافة كفيل';
+  static String get sponsorPhone => 'هاتف الكفيل';
+  static String get sponsorAddress => 'عنوان الكفيل';
   static String get amount => 'المبلغ';
   static String get productDescription => 'وصف المنتج';
   static String get initialPayment => 'الدفعة الأولية';
@@ -43,8 +43,8 @@ class TArabicTexts {
   static String get totalDebts => 'إجمالي الديون';
   static String get notations => 'الملاحظات';
   static String get nonPayers => 'غير المدفوعين';
-  static String get country => 'الدولة';
-  static String get filter => 'تصفية';
+  static String get country => 'المنطقة';
+  static String get filter => 'فلتر';
   static String get searchByName => 'البحث بالاسم';
   static String get day => 'اليوم';
   static String get debt => 'دين';
@@ -57,7 +57,7 @@ class TArabicTexts {
 
   // Client Profile
   static String get clientInformation => 'معلومات العميل';
-  static String get bySponsor => 'بواسطة الممول';
+  static String get bySponsor => 'بواسطة الكفيل';
   static String get clientStatus => 'حالة العميل';
   static String get collectionDate => 'تاريخ التحصيل';
   static String get payment => 'الدفع';
@@ -69,7 +69,7 @@ class TArabicTexts {
   static String get monthReminder => 'تذكير شهري';
   static String get customizeReminder => 'تخصيص التذكير';
   static String get notationAdd => 'إضافة ملاحظة';
-  static String get sponsorName => 'اسم الممول';
+  static String get sponsorName => 'اسم الكفيل';
   static String get restAccount => 'باقي الحساب';
 
   // Additions
@@ -97,6 +97,15 @@ class TArabicTexts {
   static String get emptyValidation => 'يجب ادخال ';
   static String get emailValidation => 'يجب ادخال البريد الالكتروني';
   static String get emailInvalid => "البريد الالكتروني غير مقبول";
+
+  // Alerts
+  static String get nameUpdatedMessage => "تم تعديل الاسم بنجاح";
+  static String get reminderAddMessage => "تم اضافة التذكير بنجاح";
+  static String get newDebtMessage => "تم اضافة دين جديد";
+  static String get newPaymentMessage => "تم اضافة دفع جديد";
+  static String get newAccountMessage => "تم انشاء حساب جديد";
+  static String get verificationCodeMessage => "تم ارسال رمز التوثيق بنجاح";
+  static String get newDebtCreateMessage => "تم انشاء دين جديد";
 }
 
 class TEnglishTexts {
@@ -198,5 +207,14 @@ class TEnglishTexts {
   static String get emptyValidation => 'You must Enter';
   static String get emailValidation => 'The Email is Required';
   static String get emailInvalid => "The Email Address is Invalid";
+
+  // Alerts
+  static String get nameUpdatedMessage => "The name has been successfully updated.";
+  static String get reminderAddMessage => "The reminder has been successfully added.";
+  static String get newDebtMessage => "A new debt has been successfully added.";
+  static String get newPaymentMessage => "The payment transaction has been successfully added.";
+  static String get newAccountMessage => "The account has been successfully created.";
+  static String get verificationCodeMessage => "The verification code has been successfully sent.";
+  static String get newDebtCreateMessage => "A new debt has been created.";
 
 }

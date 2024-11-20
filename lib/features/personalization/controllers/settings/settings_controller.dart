@@ -62,7 +62,7 @@ class SettingsController extends GetxController{
       updateLogoutStatus(value: RequestState.success);
     }catch(error){
       updateLogoutStatus(value: RequestState.onError);
-      showToast(TranslationKey.kErrorMessage, ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.error);
     }
   }
 }

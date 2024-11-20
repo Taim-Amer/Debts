@@ -55,7 +55,7 @@ class HomeController extends GetxController {
       }
     } catch(error){
       updateStatus(value: RequestState.onError);
-      showToast(TranslationKey.kErrorMessage, ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.error);
     }
   }
 
@@ -94,7 +94,7 @@ class HomeController extends GetxController {
       }
     }catch(error) {
       searchNameUpdateStatus(value: RequestState.onError);
-      showToast(TranslationKey.kErrorMessage, ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.error);
     }
   }
 }

@@ -81,11 +81,11 @@ class DebtScheduleController extends GetxController {
       await DebtScheduleRepositoryImpl.instance.createDebt(clientNameController.text, phoneList, selectedClientId.value, selectedGoodsId.value, pageNumber!, amountController.text, goodsDescriptionController.text, monthlyPayment, sponsorNameController.text, sponsorNumberController.text, selectedSponsorId.value);
       HomeController.instance.getMyDebts(null);
       updateStatus(value: RequestState.success);
-      showToast("تم اضافة دين جديد", ToastState.success);
+      showToast(TranslationKey.kNewDebtCreateMessage, ToastState.success);
       Get.offAllNamed(AppRoutes.home);
     }catch (error){
       TLoggerHelper.error(error.toString());
-      showToast(TranslationKey.kErrorMessage, ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.error);
       updateStatus(value: RequestState.onError);
     }
   }
@@ -119,7 +119,7 @@ class DebtScheduleController extends GetxController {
       if (response.status == true) {
         HomeController.instance.getMyDebts(null);
         updateStatus(value: RequestState.success);
-        showToast("تم اضافة دين جديد", ToastState.success);
+        showToast(TranslationKey.kNewDebtCreateMessage, ToastState.success);
         Get.offAndToNamed(AppRoutes.debtSchedule);
       } else if (response.status == null) {
         showToast("يجب اكمال هذا الطلب اولا", ToastState.warning);

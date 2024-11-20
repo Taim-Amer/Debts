@@ -87,7 +87,14 @@ class TAppTranslations extends Translations {
       'phoneValidation' : TEnglishTexts.phoneValidation,
       'emptyValidation' : TEnglishTexts.emptyValidation,
       'emailValidation' : TEnglishTexts.emailValidation,
-      'emailInvalid' : TEnglishTexts.emailInvalid
+      'emailInvalid' : TEnglishTexts.emailInvalid,
+      'nameUpdatedMessage' : TEnglishTexts.nameUpdatedMessage,
+      'reminderAddMessage' : TEnglishTexts.reminderAddMessage,
+      'newDebtMessage' : TEnglishTexts.newDebtMessage,
+      'newPaymentMessage' : TEnglishTexts.newPaymentMessage,
+      'newAccountMessage' : TEnglishTexts.newAccountMessage,
+      'verificationCodeMessage' : TEnglishTexts.verificationCodeMessage,
+      'newDebtCreateMessage' : TEnglishTexts.newDebtCreateMessage,
     },
     'ar': {
       'next': TArabicTexts.next,
@@ -172,7 +179,14 @@ class TAppTranslations extends Translations {
       'phoneValidation' : TArabicTexts.phoneValidation,
       'emptyValidation' : TArabicTexts.emptyValidation,
       'emailValidation' : TArabicTexts.emailValidation,
-      'emailInvalid' : TArabicTexts.emailInvalid
+      'emailInvalid' : TArabicTexts.emailInvalid,
+      'nameUpdatedMessage' : TArabicTexts.nameUpdatedMessage,
+      'reminderAddMessage' : TArabicTexts.reminderAddMessage,
+      'newDebtMessage' : TArabicTexts.newDebtMessage,
+      'newPaymentMessage' : TArabicTexts.newPaymentMessage,
+      'newAccountMessage' : TArabicTexts.newAccountMessage,
+      'verificationCodeMessage' : TArabicTexts.verificationCodeMessage,
+      'newDebtCreateMessage' : TArabicTexts.newDebtCreateMessage,
     },
   };
 }

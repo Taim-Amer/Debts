@@ -32,7 +32,7 @@ class ClientProfileController extends GetxController{
     }catch(error){
       TLoggerHelper.warning(error.toString());
       updateStatus(value: RequestState.onError);
-      showToast(TranslationKey.kErrorMessage, ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.error);
     }
   }
 
@@ -49,7 +49,7 @@ class ClientProfileController extends GetxController{
       if(type == "specific_date"){
         TCacheHelper.saveData(key: "collection_date", value: DatePickerController.instance.selectedDate);
       }
-      showToast("تم اضافة التنبيه بنجاح", ToastState.success);
+      showToast(TranslationKey.kReminderAddMessage, ToastState.success);
       Get.back();
     } catch(error){
       TLoggerHelper.debug(error.toString());
