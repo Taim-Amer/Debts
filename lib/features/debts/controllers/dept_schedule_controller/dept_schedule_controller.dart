@@ -7,6 +7,7 @@ import 'package:taha_debts/features/debts/controllers/home_controller/home_contr
 import 'package:taha_debts/features/debts/models/debt_schedule/records_model.dart';
 import 'package:taha_debts/features/debts/models/debt_schedule/regions_model.dart';
 import 'package:taha_debts/features/debts/repositories/debt_schedule/debt_schedule_repo_impl.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/logging/logger.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
@@ -84,7 +85,7 @@ class DebtScheduleController extends GetxController {
       Get.offAllNamed(AppRoutes.home);
     }catch (error){
       TLoggerHelper.error(error.toString());
-      showToast("حدث خطأ ما يرجى التأكد من البيانات المدخلة ثم اعادة المحاولة", ToastState.error);
+      showToast(TranslationKey.kErrorMessage, ToastState.success);
       updateStatus(value: RequestState.onError);
     }
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/personalization/repositories/profile/profile_repo_impl.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
@@ -61,7 +62,7 @@ class SettingsController extends GetxController{
       updateLogoutStatus(value: RequestState.success);
     }catch(error){
       updateLogoutStatus(value: RequestState.onError);
-      showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.success);
+      showToast(TranslationKey.kErrorMessage, ToastState.success);
     }
   }
 }

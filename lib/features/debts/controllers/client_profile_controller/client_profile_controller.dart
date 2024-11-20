@@ -5,6 +5,7 @@ import 'package:taha_debts/features/debts/controllers/client_profile_controller/
 import 'package:taha_debts/features/debts/models/client_profile/client_profile_model.dart';
 import 'package:taha_debts/features/debts/repositories/client_profile/client_profile_repo_impl.dart';
 import 'package:taha_debts/features/notations/controllers/notations_controller.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/logging/logger.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
@@ -31,7 +32,7 @@ class ClientProfileController extends GetxController{
     }catch(error){
       TLoggerHelper.warning(error.toString());
       updateStatus(value: RequestState.onError);
-      showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
+      showToast(TranslationKey.kErrorMessage, ToastState.success);
     }
   }
 

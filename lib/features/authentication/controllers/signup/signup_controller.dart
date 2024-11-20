@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/authentication/repositories/signup/signup_repo_impl.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 import 'package:taha_debts/utils/storage/cache_helper.dart';
@@ -35,7 +36,7 @@ class SignupController extends GetxController{
       showToast("تم انشاء الحساب بنجاح", ToastState.success);
     }catch (error){
       updateStatus(value: RequestState.onError);
-      showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
+      showToast(TranslationKey.kErrorMessage, ToastState.success);
     }
   }
 }

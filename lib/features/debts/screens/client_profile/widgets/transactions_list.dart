@@ -4,7 +4,6 @@ import 'package:taha_debts/features/debts/controllers/client_profile_controller/
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_debts_row.dart';
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/device/device_utility.dart';
 
 class TransactionsList extends StatelessWidget {
   const TransactionsList({super.key});
@@ -24,12 +23,12 @@ class TransactionsList extends StatelessWidget {
           ],
         ) : const SizedBox(),
         SizedBox(
-          height: TDeviceUtils.getScreenHeight() - kToolbarHeight,
+          height: 280.h,
           child: ListView.separated(
             shrinkWrap: true,
             itemCount: clientProfileModel.payments?.length ?? 0,
             separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
-            physics: const NeverScrollableScrollPhysics(),
+            // physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) => ClientDebtsRow(
               isDebt: clientProfileModel.payments?[index].type == "debt" ? true : false,
               goodsDescription: clientProfileModel.payments?[index].goodsDescription.toString() ?? "",

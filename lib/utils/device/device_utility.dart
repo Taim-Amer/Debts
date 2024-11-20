@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class TDeviceUtils  {
 
@@ -103,11 +102,11 @@ class TDeviceUtils  {
     return Platform.isAndroid;
   }
 
-  static void launchUrl(String url) async {
-    if(await canLaunchUrlString(url)){
-      await launchUrlString(url);
-    } else {
-      throw "Could not launch $url";
-    }
-  }
+  // static void launchUrl(String url) async {
+  //   if(await canLaunchUrlString(url)){
+  //     await launchUrlString(url);
+  //   } else {
+  //     throw "Could not launch $url";
+  //   }
+  // }
 }

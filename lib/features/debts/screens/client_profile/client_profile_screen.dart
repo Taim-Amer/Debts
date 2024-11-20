@@ -28,6 +28,7 @@ class ClientProfileScreen extends StatelessWidget {
             : Padding(
               padding: TSpacingStyle.paddingWithAppBarHeight,
               child: CustomScrollView(
+                physics: const NeverScrollableScrollPhysics(),
                 slivers: [
                   SliverPersistentHeader(
                     pinned: true,

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/alerts/toast.dart';
 import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/features/debts/repositories/additions/additions_repo_impl.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/logging/logger.dart';
 
@@ -48,7 +49,7 @@ class AdditionsController extends GetxController{
         }
     } catch(error){
       TLoggerHelper.error(error.toString());
-      showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
+      showToast(TranslationKey.kErrorMessage, ToastState.success);
     }
   }
 
@@ -72,7 +73,7 @@ class AdditionsController extends GetxController{
     } catch(error){
       TLoggerHelper.error(error.toString());
       updateDebtStatus(value: RequestState.onError);
-      showToast("حدث خطأ ما يرجى اعادة المحاولة", ToastState.error);
+      showToast(TranslationKey.kErrorMessage, ToastState.success);
     }
 
   }

@@ -7,6 +7,7 @@ import 'package:taha_debts/features/debts/controllers/client_profile_controller/
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'package:taha_debts/utils/router/app_router.dart';
 
 class BorrowerRow extends StatelessWidget {
@@ -20,6 +21,7 @@ class BorrowerRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: () {
         ClientProfileController.instance.getClientProfile(id);
@@ -31,6 +33,7 @@ class BorrowerRow extends StatelessWidget {
         });
       },
       child: TRoundedContainer(
+        backgroundColor: dark ? Colors.black : TColors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
