@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "903529616247",
+    "project_id": "debt-39eb8",
+    "storage_bucket": "debt-39eb8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903529616247:android:114ffd5854113f36054772",
+        "android_client_info": {
+          "package_name": "com.example.taha_debts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaDJk9b6otRgbAJsyds5acU9KKdUZnEx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
