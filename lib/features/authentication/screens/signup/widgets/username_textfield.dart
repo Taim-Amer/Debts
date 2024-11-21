@@ -29,9 +29,9 @@ class UsernameTextField extends StatelessWidget {
         ),
         12.verticalSpace,
         TextFormField(
+          enableInteractiveSelection: false,
           controller: signupController.usernameController,
-          validator: (value) => TValidator.validateEmptyText(TranslationKey.kUsername, value),
-          // textAlign: TextAlign.end,
+          validator: (value) => TValidator.validateEmptyText(" ${TranslationKey.kUsername}", value),
           decoration: InputDecoration(
             hintText: TranslationKey.kUsername,
             hintStyle: const TextStyle(color: Colors.grey),

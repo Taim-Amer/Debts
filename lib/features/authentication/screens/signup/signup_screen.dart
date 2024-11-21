@@ -9,11 +9,9 @@ import 'package:taha_debts/features/authentication/screens/signup/widgets/email_
 import 'package:taha_debts/features/authentication/screens/signup/widgets/signup_header.dart';
 import 'package:taha_debts/features/authentication/screens/signup/widgets/username_textfield.dart';
 import 'package:taha_debts/localization/keys.dart';
-import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
@@ -31,7 +29,6 @@ class SignupScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SignupHeader(),
                   TSizes.spaceBtwInputField.verticalSpace,

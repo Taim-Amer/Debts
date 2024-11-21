@@ -72,4 +72,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'debt-39eb8.firebasestorage.app',
     iosBundleId: 'com.example.tahaDebts',
   );
+
 }

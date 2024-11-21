@@ -18,7 +18,6 @@ class OtpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final otpController = Get.find<OtpController>();
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(

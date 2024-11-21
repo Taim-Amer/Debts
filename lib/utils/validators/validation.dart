@@ -11,7 +11,7 @@ class TValidator {
 
   static String? validateEmail(String? value) {
     if(value == null || value.isEmpty){
-      return TranslationKey.kEmptyValidation;
+      return TranslationKey.kEmailInvalid;
     }
 
     final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');

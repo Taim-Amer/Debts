@@ -28,6 +28,7 @@ class EmailTextField extends StatelessWidget {
         ),
         12.verticalSpace,
         TextFormField(
+          enableInteractiveSelection: false,
           validator: (value) => TValidator.validateEmail(value),
           controller: signupController.emailController,
           decoration: InputDecoration(
