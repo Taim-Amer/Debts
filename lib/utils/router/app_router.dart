@@ -4,6 +4,7 @@ import 'package:taha_debts/bindings/client_profile_binding.dart';
 import 'package:taha_debts/bindings/debt_schedule_binding.dart';
 import 'package:taha_debts/bindings/home_binding.dart';
 import 'package:taha_debts/bindings/notations_binding.dart';
+import 'package:taha_debts/bindings/notifications_binding.dart';
 import 'package:taha_debts/bindings/otp_binding.dart';
 import 'package:taha_debts/bindings/profile_binding.dart';
 import 'package:taha_debts/bindings/settings_binding.dart';
@@ -18,6 +19,7 @@ import 'package:taha_debts/features/debts/screens/client_profile/client_profile_
 import 'package:taha_debts/features/debts/screens/debt_schedule/debt_schedule_screen.dart';
 import 'package:taha_debts/features/debts/screens/home/home_screen.dart';
 import 'package:taha_debts/features/notations/screens/notations_screen.dart';
+import 'package:taha_debts/features/notifications/screens/notifications_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile/profile_screen.dart';
 import 'package:taha_debts/features/personalization/screens/profile_edit/profile_edit_screen.dart';
 import 'package:taha_debts/features/personalization/screens/settings/settings_screen.dart';
@@ -125,8 +127,8 @@ class AppRoutes {
 
     GetPage(
         name: notification,
-        page: () => const SettingsScreen(),
-        binding: SettingsBinding(),
+        page: () => const NotificationsScreen(),
+        binding: NotificationBinding(),
         transition: Transition.rightToLeft
     ),
 
