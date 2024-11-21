@@ -15,23 +15,29 @@ class ClientProfileController extends GetxController{
 
   var selectedValue = ValueNotifier<int?>(null);
   var getClientProfileStatus = RequestState.begin.obs;
+  var updateColorStatus = RequestState.begin.obs;
+
   final clientProfileModel = ClientProfileModel().obs;
   final noteController = TextEditingController();
 
-  void updateStatus({required RequestState value}) {
+  void updateGetProfileStatus({required RequestState value}) {
     getClientProfileStatus.value = value;
+  }
+
+  void updateColorsStatus({required RequestState value}) {
+    updateColorStatus.value = value;
   }
   
   Future<void> getClientProfile(int id) async{
-    updateStatus(value: RequestState.loading);
+    updateGetProfileStatus(value: RequestState.loading);
 
     try{
       clientProfileModel.value = await ClientProfileRepositoryImpl.instance.getClientProfile(id);
-      updateStatus(value: RequestState.success);
+      updateGetProfileStatus(value: RequestState.success);
       TCacheHelper.saveData(key: "client_id", value: id);
     }catch(error){
       TLoggerHelper.warning(error.toString());
-      updateStatus(value: RequestState.onError);
+      updateGetProfileStatus(value: RequestState.onError);
       showToast(TranslationKey.kErrorMessage, ToastState.error);
     }
   }
@@ -53,6 +59,22 @@ class ClientProfileController extends GetxController{
       Get.back();
     } catch(error){
       TLoggerHelper.debug(error.toString());
+    }
+  }
+
+  Future<void> updateClientStatus(String? status) async{
+    updateColorsStatus(value: RequestState.begin);
+    try{
+      final response = await ClientProfileRepositoryImpl.instance.updateProfile(
+        status: status!,
+        id: clientProfileModel.value.customer!.id!,
+      );
+      if(response.status == true){
+        updateColorsStatus(value: RequestState.success);
+      }
+      getClientProfile(clientProfileModel.value.customer!.id!);
+    } catch(error){
+      updateColorsStatus(value: RequestState.onError);
     }
   }
 }
