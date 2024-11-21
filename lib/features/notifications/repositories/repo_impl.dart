@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:taha_debts/features/notifications/models/notification_model.dart';
 import 'package:taha_debts/features/notifications/repositories/repo.dart';
 import 'package:taha_debts/utils/api/dio_helper.dart';
 import 'package:taha_debts/utils/constants/api_constants.dart';
@@ -19,5 +20,11 @@ class NotificationRepositoryImpl implements NotificationRepository{
     } catch(error){
       TLoggerHelper.info(error.toString());
     }
+  }
+
+  @override
+  Future<NotificationModel> getNotifications() async{
+    final dioHelper = TDioHelper();
+    return await dioHelper.get(TApiConstants.getNotification, token: token).then((response) => NotificationModel.fromJson(response));
   }
 }

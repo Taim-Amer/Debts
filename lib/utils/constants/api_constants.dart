@@ -36,5 +36,7 @@ class TApiConstants {
 
   static const String sendNotification = "user/send_notification_to_users";
 
+  static const String getNotification = "user/get_notifications";
+
   static const String logout = "user/logout";
 }

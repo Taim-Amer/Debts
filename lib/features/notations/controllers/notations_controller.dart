@@ -7,7 +7,7 @@ class NotationsController extends GetxController{
   static NotationsController get instance => Get.find();
 
   var getNotesStatus = RequestState.begin.obs;
-  final notesModel = NotesModel().obs;
+  var notesModel = NotesModel().obs;
 
   @override
   void onReady() {
