@@ -75,8 +75,6 @@ class DebtScheduleController extends GetxController {
       phoneList.add(anotherNumberController.text);
     }
 
-    // phoneList.addIf(anotherNumberController.text != null ,anotherNumberController.text);
-
     try{
       await DebtScheduleRepositoryImpl.instance.createDebt(clientNameController.text, phoneList, selectedClientId.value, selectedGoodsId.value, pageNumber!, amountController.text, goodsDescriptionController.text, monthlyPayment, sponsorNameController.text, sponsorNumberController.text, selectedSponsorId.value);
       HomeController.instance.getMyDebts(null);

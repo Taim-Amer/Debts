@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/bindings/general_bindings.dart';
-import 'package:taha_debts/bindings/signup_binding.dart';
 import 'package:taha_debts/features/personalization/controllers/settings/settings_controller.dart';
 import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';

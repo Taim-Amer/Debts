@@ -8,7 +8,6 @@ import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/storage/cache_helper.dart';
 
 class CollectionDateContainer extends StatefulWidget {
   const CollectionDateContainer({super.key});
@@ -108,11 +107,10 @@ class CollectionDateContainerState extends State<CollectionDateContainer> {
           child: Column(
             children: [
               Text(TranslationKey.kCollectionDate, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.buttonPrimary, fontWeight: FontWeight.w700)),
-              5.verticalSpace,
-              Text(TCacheHelper.getData(key: "collection_date") ?? TranslationKey.kUndefined, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
+              // 5.verticalSpace,
+              // Text(TCacheHelper.getData(key: "collection_date") ?? TranslationKey.kUndefined, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
               // Text(TFormatter.formatData(TCacheHelper.getData(key: "collection_date").isNotEmpty
-              //     ? DateTime.parse(TCacheHelper.getData(key: "collection_date"))
-              //     : null), style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
+              //     ? DateTime.parse(TCacheHelper.getData(key: "collection_date")) : null), style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.grey, fontWeight: FontWeight.w400)),
             ],
           ),
         ),
