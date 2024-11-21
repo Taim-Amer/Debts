@@ -1,11 +1,24 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:taha_debts/utils/logging/logger.dart';
 
 class THelperFunctions {
 
   static void showSnackBar(String message) {
     ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  static viewNotification(RemoteMessage message) {
+    TLoggerHelper.info('Message data: ${message.notification!.body}');
+    Get.snackbar("", "",
+        titleText: Text(
+          "${message.notification!.title}",
+        ),
+        messageText: Text(
+          "${message.notification!.body}",
+        ));
   }
 
   static void showAlert(String title, String message) {

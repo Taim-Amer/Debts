@@ -25,13 +25,6 @@ class SignInController extends GetxController {
   Future<void> signin() async {
     updateStatus(value: RequestState.loading);
 
-    // final isConnected = await NetworkManager.instance.isConnected();
-    // if (!isConnected) {
-    //   updateStatus(value: RequestState.onError);
-    //   showToast("No internet connection", ToastState.error);
-    //   return;
-    // }
-
     if (!signinFormKey.currentState!.validate()) {
       updateStatus(value: RequestState.begin);
       return;

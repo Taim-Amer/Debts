@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/common/widgets/icons/circular_icon.dart';
-import 'package:taha_debts/features/notifications/controllers/notification_controller.dart';
+import 'package:taha_debts/features/debts/screens/home/widgets/notification_icon.dart';
 import 'package:taha_debts/features/personalization/controllers/profile/profile_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -30,14 +31,11 @@ class HomeAppbar extends StatelessWidget {
         Obx(() => Text(ProfileController.instance.userProfileModel.value.data?.name ?? "", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: const Color(0xFF6D6E72)))),
         const Spacer(),
         IconButton(
-            onPressed: (){
-              Get.toNamed(AppRoutes.settings);
-            },
+            onPressed: () => Get.toNamed(AppRoutes.settings),
             icon: const Icon(Icons.settings, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
-        IconButton(
-            onPressed: () => NotificationController.instance.sendNotification(),
-            icon: const Icon(Icons.notifications, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
+        const NotificationIcon()
       ],
     );
   }
 }
+

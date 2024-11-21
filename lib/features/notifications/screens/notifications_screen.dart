@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:taha_debts/app.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
 import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
@@ -7,7 +9,9 @@ import 'package:taha_debts/features/notifications/controllers/notification_contr
 import 'package:taha_debts/features/notifications/screens/widgets/notification_item.dart';
 import 'package:taha_debts/features/notifications/screens/widgets/notifications_appbar.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
+import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/device/device_utility.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
@@ -18,9 +22,9 @@ class NotificationsScreen extends StatelessWidget {
       appBar: const TAppBar(title: NotificationsAppbar(),),
       body:  Obx(() => NotificationController.instance.getNotificationStatus.value == RequestState.loading  ? const Center(child: LoadingWidget()) : SingleChildScrollView(
         child: Padding(
-          padding: TSpacingStyle.paddingWithAppBarHeight,
+          padding: EdgeInsets.all(TSizes.defaultSpace.h),
           child: SizedBox(
-            height: TDeviceUtils.getScreenHeight() - TDeviceUtils.getAppBarHeight(),
+            height: TDeviceUtils.getScreenHeight() - (TDeviceUtils.getAppBarHeight() + 50),
             child: ListView.separated(
               itemCount: NotificationController.instance.notificationsModel.value.data?.length ?? 0,
               itemBuilder: (context, index) => NotificationItem(
@@ -28,8 +32,7 @@ class NotificationsScreen extends StatelessWidget {
                 body: NotificationController.instance.notificationsModel.value.data?[index].body ?? "",
                 time: NotificationController.instance.notificationsModel.value.data?[index].time ?? "",
               ),
-              separatorBuilder: (context, _) => const Divider(color: Color(0xFFE3E3E3),
-              ),
+              separatorBuilder: (context, _) => const Divider(color: Color(0xFFE3E3E3)),
             ),
           ),
         ),

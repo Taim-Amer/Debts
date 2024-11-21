@@ -26,11 +26,15 @@ class NotificationItem extends StatelessWidget {
             Text(time.toString(), style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14),),
           ],
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 7.h),
-          child: Text(body.toString(), style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14, fontWeight: FontWeight.w400)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 7.h),
+              child: Text(body.toString(), style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: TColors.grey, fontSize: 14, fontWeight: FontWeight.w400)),
+            ),
+          ],
         ),
-        const Divider(color: Color(0xFFE3E3E3),)
       ],
     );
   }
