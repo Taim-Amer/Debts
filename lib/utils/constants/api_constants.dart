@@ -34,5 +34,7 @@ class TApiConstants {
 
   static const String updateClientProfile = "user/update_customer_profile";
 
+  static const String sendNotification = "user/send_notification_to_users";
+
   static const String logout = "user/logout";
 }

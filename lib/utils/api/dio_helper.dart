@@ -79,6 +79,9 @@ class TDioHelper {
 
   Map<String, dynamic> _handleResponse(Response response) {
     if (response.statusCode == 200) {
+      if (response.data == null || response.data.isEmpty) {
+        throw Exception("Received empty response body");
+      }
       return response.data is Map ? response.data : json.decode(response.data);
     } else {
       throw Exception("Failed to load data: ${response.statusCode}");

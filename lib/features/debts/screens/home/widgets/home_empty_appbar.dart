@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/icons/circular_icon.dart';
-import 'package:taha_debts/features/notifications/screens/notifications_screen.dart';
+import 'package:taha_debts/features/notifications/controllers/notification_controller.dart';
 import 'package:taha_debts/features/personalization/controllers/profile/profile_controller.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
@@ -35,9 +35,7 @@ class HomeAppbar extends StatelessWidget {
             },
             icon: const Icon(Icons.settings, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
         IconButton(
-            onPressed: (){
-              Get.to(const NotificationsScreen(), transition: Transition.rightToLeft);
-            },
+            onPressed: () => NotificationController.instance.sendNotification(),
             icon: const Icon(Icons.notifications, size: TSizes.iconMd, color: TColors.buttonPrimary,)),
       ],
     );
