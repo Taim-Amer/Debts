@@ -75,6 +75,7 @@ class ClientProfileController extends GetxController{
       getClientProfile(clientProfileModel.value.customer!.id!);
     } catch(error){
       updateColorsStatus(value: RequestState.onError);
+      TLoggerHelper.warning(error.toString());
     }
   }
 }

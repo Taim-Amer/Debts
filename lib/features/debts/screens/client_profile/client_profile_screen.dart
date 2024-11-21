@@ -19,60 +19,35 @@ class ClientProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Obx(() => ClientProfileController.instance.getClientProfileStatus.value == RequestState.loading
-          ? const Center(child: LoadingWidget())
-          : const ClientProfileNavBar()),
+      bottomNavigationBar: Obx(() => ClientProfileController.instance.getClientProfileStatus.value == RequestState.loading ? const Center(child: LoadingWidget()) : const ClientProfileNavBar()),
       body: Obx(() {
         return ClientProfileController.instance.getClientProfileStatus.value == RequestState.loading
             ? const Center(child: LoadingWidget())
-            : Padding(
-              padding: TSpacingStyle.paddingWithAppBarHeight,
-              child: CustomScrollView(
-                physics: const NeverScrollableScrollPhysics(),
-                slivers: [
-                  SliverPersistentHeader(
-                    pinned: true,
-                    delegate: _ClientProfileAppbarDelegate(),
-                  ),
-                  SliverToBoxAdapter(
+            : SingleChildScrollView(
+                child: Padding(
+                    padding: TSpacingStyle.paddingWithAppBarHeight,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const ClientProfileHeader(),
-                        TSizes.md.verticalSpace,
+                        Stack(
+                          children: [
+                            const ClientProfileAppbar(),
+                            const ClientProfileHeader(),
+                            TSizes.md.verticalSpace,
+                          ],
+                        ),
                         Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? const BySponsorContainer() : const SizedBox()),
-                        Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null ? TSizes.md.verticalSpace : const SizedBox()),
+                        Obx(() => ClientProfileController.instance.clientProfileModel.value.customer?.sponsor?.sponsorName != null
+                            ? TSizes.md.verticalSpace
+                            : const SizedBox()),
                         const CollectionDateContainer(),
                         TSizes.spaceBtwSections.verticalSpace,
                         const TransactionsList(),
                       ],
                     ),
-                  ),
-                ],
-              ),
-            );
+                ),
+              );
       }),
     );
-  }
-}
-
-class _ClientProfileAppbarDelegate extends SliverPersistentHeaderDelegate {
-  @override
-  double get minExtent => 56.h;
-  @override
-  double get maxExtent => 56.h;
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return const Stack(
-      children: [
-        ClientProfileAppbar(),
-      ],
-    );
-  }
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
   }
 }

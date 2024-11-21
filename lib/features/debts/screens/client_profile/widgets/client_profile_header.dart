@@ -13,24 +13,27 @@ class ClientProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final clientProfileModel = ClientProfileController.instance.clientProfileModel;
-    return Column(
-      children: [
-        SvgPicture.asset(TImages.profile),
-        TSizes.xs.verticalSpace,
-        Text("${clientProfileModel.value.customer?.name}: ${clientProfileModel.value.customer?.pageNumber}", style: Theme.of(context).textTheme.headlineMedium),
-        TSizes.sm.verticalSpace,
-        Text(TFormatter.formatPhoneNumber(clientProfileModel.value.customer?.phone?.first ?? ""), style: Theme.of(context).textTheme.headlineSmall,),
-        TSizes.sm.verticalSpace,
-        Text(TFormatter.formatPhoneNumber(clientProfileModel.value.customer?.phone?.last ?? ""), style: Theme.of(context).textTheme.headlineSmall,),
-        TSizes.md.verticalSpace,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.location_on, size: TSizes.iconMd, color: TColors.buttonPrimary,),
-            Text(clientProfileModel.value.customer?.customerRegion.toString() ?? "", style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),),
-          ],
-        ),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(top: TSizes.spaceBtwSections.h, bottom: TSizes.sm.h),
+      child: Column(
+        children: [
+          SvgPicture.asset(TImages.profile),
+          TSizes.xs.verticalSpace,
+          Text("${clientProfileModel.value.customer?.name}: ${clientProfileModel.value.customer?.pageNumber}", style: Theme.of(context).textTheme.headlineMedium),
+          TSizes.sm.verticalSpace,
+          Text(TFormatter.formatPhoneNumber(clientProfileModel.value.customer?.phone?.first ?? ""), style: Theme.of(context).textTheme.headlineSmall,),
+          TSizes.sm.verticalSpace,
+          Text(TFormatter.formatPhoneNumber(clientProfileModel.value.customer?.phone?.last ?? ""), style: Theme.of(context).textTheme.headlineSmall,),
+          TSizes.md.verticalSpace,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.location_on, size: TSizes.iconMd, color: TColors.buttonPrimary,),
+              Text(clientProfileModel.value.customer?.customerRegion.toString() ?? "", style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

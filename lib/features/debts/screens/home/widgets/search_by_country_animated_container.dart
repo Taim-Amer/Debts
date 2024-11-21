@@ -7,7 +7,6 @@ import 'package:taha_debts/features/debts/controllers/home_controller/home_contr
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
-import 'package:taha_debts/utils/logging/logger.dart';
 
 class SearchByCountryAnimatedContainer extends StatefulWidget {
   const SearchByCountryAnimatedContainer({super.key});
@@ -105,8 +104,6 @@ class _SearchByCountryAnimatedContainerState extends State<SearchByCountryAnimat
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: DebtScheduleController.instance.regionsModel.value.data?.length ?? 0,
                   itemBuilder: (context, index) {
-                    print(DebtScheduleController.instance.regionsModel.value.data?[index].title);
-                    print(DebtScheduleController.instance.regionsModel.value.data?[index].id);
                     return countryCodeItemBuilder(index);
                   },
                 ),
@@ -131,7 +128,6 @@ class _SearchByCountryAnimatedContainerState extends State<SearchByCountryAnimat
           DebtScheduleController.instance.selectedSponsorId.value = regionData?.id ?? 0;
           isExpanded = false;
         });
-        print(DebtScheduleController.instance.selectedSponsorId.value = regionData?.id ?? 0);
       },
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 5.h),
@@ -153,7 +149,6 @@ class _SearchByCountryAnimatedContainerState extends State<SearchByCountryAnimat
                     isExpanded = false;
                     HomeController.instance.nameSearch(regionData?.id);
                   });
-                  TLoggerHelper.info("Changed Selected ID: $value");
                 }
               },
             ),
