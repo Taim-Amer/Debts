@@ -20,7 +20,7 @@ class NotationsScreen extends StatelessWidget {
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
           child: SizedBox(
-            height: TDeviceUtils.getScreenHeight(),
+            height: TDeviceUtils.getScreenHeight() - TDeviceUtils.getAppBarHeight(),
             child: ListView.separated(
               itemCount: NotationsController.instance.notesModel.value.data?.length ?? 0,
               itemBuilder: (context, index) => NotationItem(
