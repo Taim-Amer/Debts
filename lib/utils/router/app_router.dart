@@ -35,6 +35,7 @@ class AppRoutes {
   static const clientProfile = '/clientProfile';
   static const notations = '/notations';
   static const settings = '/settings';
+  static const notification = '/notification';
 
   static List<GetPage> routes = [
 
@@ -117,6 +118,13 @@ class AppRoutes {
 
     GetPage(
         name: settings,
+        page: () => const SettingsScreen(),
+        binding: SettingsBinding(),
+        transition: Transition.rightToLeft
+    ),
+
+    GetPage(
+        name: notification,
         page: () => const SettingsScreen(),
         binding: SettingsBinding(),
         transition: Transition.rightToLeft

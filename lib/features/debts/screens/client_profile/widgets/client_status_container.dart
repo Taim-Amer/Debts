@@ -5,6 +5,7 @@ import 'package:taha_debts/features/debts/controllers/client_profile_controller/
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
+import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class ClientStatusContainer extends StatefulWidget {
   const ClientStatusContainer({super.key});
@@ -24,6 +25,7 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Column(
       children: [
         GestureDetector(
@@ -52,7 +54,7 @@ class _ClientStatusContainerState extends State<ClientStatusContainer> {
         10.verticalSpace,
         TRoundedContainer(
           width: 92.w,
-          backgroundColor: Colors.white,
+          backgroundColor: dark ? TColors.darkGrey : Colors.white,
           showShadow: isExpanded,
           boxShadow: [
             BoxShadow(

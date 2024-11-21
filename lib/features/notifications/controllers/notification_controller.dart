@@ -10,6 +10,12 @@ class NotificationController extends GetxController{
   var getNotificationStatus = RequestState.begin.obs;
   var notificationsModel = NotificationModel().obs;
 
+  @override
+  void onReady() {
+    getNotifications();
+    super.onReady();
+  }
+
   void updateGetNotificationStatus({required RequestState value}){
     getNotificationStatus.value = value;
   }
