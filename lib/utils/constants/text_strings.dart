@@ -65,7 +65,7 @@ class TArabicTexts {
   static String get transactions => 'المعاملات';
   static String get reminderBy => 'التذكير بواسطة';
   static String get undefined => 'غير معرف';
-  static String get weakReminder => 'تذكير ضعيف';
+  static String get weakReminder => 'تذكير أسبوعي';
   static String get monthReminder => 'تذكير شهري';
   static String get customizeReminder => 'تخصيص التذكير';
   static String get notationAdd => 'إضافة ملاحظة';

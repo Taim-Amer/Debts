@@ -12,13 +12,12 @@ class ClientProfileNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.symmetric(horizontal:  TSizes.defaultSpace),
       child: Row(
         children: [
           Expanded(
             child: SizedBox(
               height: 55.h,
-              // height: TDeviceUtils.getBottomNavigationBarHeight(),
               child: ElevatedButton(
                 onPressed: () {
                   Get.toNamed(AppRoutes.addPayment);

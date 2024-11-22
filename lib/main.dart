@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:taha_debts/app.dart';
 import 'package:taha_debts/firebase_options.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
-import 'package:taha_debts/utils/logging/logger.dart';
 import 'utils/storage/cache_helper.dart';
 
 Future<void> main() async{
@@ -22,7 +21,7 @@ Future<void> main() async{
     THelperFunctions.viewNotification(message);
   });
 
-  TLoggerHelper.info(TCacheHelper.getData(key: 'fcmToken'));
+  // TLoggerHelper.info(TCacheHelper.getData(key: 'fcmToken'));
   
   Get.testMode = true;
 
