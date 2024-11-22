@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/styles/spacing_styles.dart';
-import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/by_sponsor_container.dart';
 import 'package:taha_debts/features/debts/screens/client_profile/widgets/client_profile_appbar.dart';

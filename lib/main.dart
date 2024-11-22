@@ -21,8 +21,6 @@ Future<void> main() async{
     THelperFunctions.viewNotification(message);
   });
 
-  // TLoggerHelper.info(TCacheHelper.getData(key: 'fcmToken'));
-  
   Get.testMode = true;
 
   runApp(const App());

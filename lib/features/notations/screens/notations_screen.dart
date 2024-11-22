@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/appbar/appbar.dart';
-import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/notations/controllers/notations_controller.dart';
 import 'package:taha_debts/features/notations/screens/widgets/notation_appbar.dart';
 import 'package:taha_debts/features/notations/screens/widgets/notation_item.dart';

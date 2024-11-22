@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/common/widgets/pickers/infinite_date_picker.dart';
 import 'package:taha_debts/features/debts/controllers/client_profile_controller/client_profile_controller.dart';
+import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/constants/text_strings.dart';
@@ -57,7 +56,7 @@ class _ReminderTileState extends State<ReminderTile> {
                     children: [
                       SizedBox(width: 24.w),
                       Text(
-                        TArabicTexts.customizeReminder,
+                        TranslationKey.kCustomizeReminder,
                         style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18, color: TColors.buttonPrimary),
                       ),
                       IconButton(
@@ -69,25 +68,25 @@ class _ReminderTileState extends State<ReminderTile> {
                   TSizes.spaceBtwItems.verticalSpace,
                   const InfiniteDatePicker(),
 
-                  // TSizes.spaceBtwSections.verticalSpace,
                   TRoundedContainer(
                     width: 350.w,
                     height: 165.h,
                     backgroundColor: dark ? TColors.dark : TColors.lightGrey,
                     showBorder: dark ? true : false,
                     child: TextFormField(
+                      enableInteractiveSelection: false,
                       controller: ClientProfileController.instance.noteController,
                       maxLines: 7,
-                      textAlign: TextAlign.right,
+                      // textAlign: TextAlign.right,
                       decoration: InputDecoration(
-                        hintText: TArabicTexts.notationAdd,
+                        hintText: TranslationKey.kNotationAdd,
                         border: const OutlineInputBorder(),
                       ),
                     ),
                   ),
 
                   TSizes.spaceBtwSections.verticalSpace,
-                  SizedBox(height: 50.h, width: 350.w, child: ElevatedButton(onPressed: () => ClientProfileController.instance.selectReminder(), child: Text(TArabicTexts.tcontinue)),)
+                  SizedBox(height: 50.h, width: 350.w, child: ElevatedButton(onPressed: () => ClientProfileController.instance.selectReminder(), child: Text(TranslationKey.kTcontinue)),)
                 ],
               ),
             ),
@@ -100,6 +99,9 @@ class _ReminderTileState extends State<ReminderTile> {
   @override
   void initState() {
     super.initState();
+    if (widget.selectedValueNotifier != null && widget.selectedValueNotifier!.value == null) {
+      widget.selectedValueNotifier!.value = widget.value;
+    }
     widget.selectedValueNotifier?.addListener(_updateSelected);
   }
 

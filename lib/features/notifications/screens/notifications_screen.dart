@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/common/widgets/appbar/appbar.dart';
-import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/notifications/controllers/notification_controller.dart';
 import 'package:taha_debts/features/notifications/screens/widgets/notification_item.dart';
 import 'package:taha_debts/features/notifications/screens/widgets/notifications_appbar.dart';

@@ -21,9 +21,9 @@ class App extends StatelessWidget {
 
     return ScreenUtilInit(
       designSize: Size(THelperFunctions.screenWidth(context), THelperFunctions.screenHeight(context)),
-      builder: (_, child) =>  GetMaterialApp(
+      builder: (_, child) =>  Obx(() => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
+        themeMode: SettingsController.instance.themeMode.value,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
         initialRoute: initialRoute,
@@ -32,7 +32,7 @@ class App extends StatelessWidget {
         locale: Locale(language ?? 'en'),
         fallbackLocale: const Locale('en'),
         initialBinding: GeneralBindings(),
-      ),
+      )),
     );
   }
 }

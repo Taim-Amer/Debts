@@ -6,6 +6,7 @@ class DatePickerController extends GetxController {
   Rx<DateTime> selectedDate = DateTime.now().obs;
 
   void updateSelectedDate(DateTime date) {
+    print('==========================');
     selectedDate.value = date;
   }
 }

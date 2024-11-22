@@ -25,7 +25,7 @@ class THelperFunctions {
   }
 
   static viewNotification(RemoteMessage message) async {
-    await Future.delayed(Duration(milliseconds: 500)); // تأخير بسيط
+    await Future.delayed(const Duration(milliseconds: 500)); // تأخير بسيط
     if (message.notification != null) {
       Get.snackbar(
         message.notification!.title ?? "No Title",
@@ -34,8 +34,8 @@ class THelperFunctions {
         backgroundColor: Colors.black.withOpacity(0.8),
         colorText: Colors.white,
         borderRadius: 10,
-        margin: EdgeInsets.all(10),
-        duration: Duration(seconds: 3),
+        margin: const EdgeInsets.all(10),
+        duration: const Duration(seconds: 3),
       );
     } else {
       TLoggerHelper.info('No notification data in message');
