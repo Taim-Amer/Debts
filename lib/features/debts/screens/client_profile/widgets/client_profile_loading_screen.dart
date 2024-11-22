@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:taha_debts/common/widgets/buttons/back_icon.dart';
 import 'package:taha_debts/common/widgets/loaders/shimmer_loader.dart';
-import 'package:taha_debts/localization/keys.dart';
-import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/router/app_router.dart';
 
 class ClientProfileLoadingScreen extends StatelessWidget {
   const ClientProfileLoadingScreen({super.key});
@@ -14,7 +9,7 @@ class ClientProfileLoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(automaticallyImplyLeading: false,),
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
         child: Padding(
@@ -23,8 +18,6 @@ class ClientProfileLoadingScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ShimmerLoader(width: 150.h, height: 150.h),
-              // TSizes.spaceBtwInputField.verticalSpace,
-              // ShimmerLoader(width: 150.h, height: 30.h),
               TSizes.spaceBtwInputField.verticalSpace,
               ShimmerLoader(width: 150.h, height: 30.h),
               TSizes.spaceBtwInputField.verticalSpace,

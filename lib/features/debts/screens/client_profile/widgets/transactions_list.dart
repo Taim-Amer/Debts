@@ -23,7 +23,7 @@ class TransactionsList extends StatelessWidget {
           ],
         ) : const SizedBox(),
         SizedBox(
-          height: 320.h,
+          height: 350.h,
           child: ListView.separated(
             shrinkWrap: true,
             itemCount: clientProfileModel.payments?.length ?? 0,
