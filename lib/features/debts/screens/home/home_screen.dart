@@ -6,6 +6,7 @@ import 'package:taha_debts/features/debts/controllers/home_controller/home_contr
 import 'package:taha_debts/features/debts/screens/home/widgets/home_empty_appbar.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/home_empty_form.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/home_floating_action_button.dart';
+import 'package:taha_debts/features/debts/screens/home/widgets/home_loading_screen.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/home_with_data_form.dart';
 import 'package:taha_debts/utils/constants/enums.dart';
 
@@ -22,7 +23,7 @@ class HomeScreen extends StatelessWidget {
         var isLoading = HomeController.instance.getDebtsApiStatus.value == RequestState.loading;
         var isSearching = HomeController.instance.searchNameApiStatus.value == RequestState.loading;
         return (isLoading || isSearching)
-            ? const Center(child: LoadingWidget()) : (HomeController.instance.getDebtsApiStatus.value == RequestState.success || HomeController.instance.searchNameApiStatus.value == RequestState.success)
+            ? const HomeLoadingScreen() : (HomeController.instance.getDebtsApiStatus.value == RequestState.success || HomeController.instance.searchNameApiStatus.value == RequestState.success)
                 ? const HomeWithDataForm() : const HomeEmptyForm();
                 // : HomeController.instance.searchNameApiStatus.value == RequestState.noData ? const HomeEmptyForm() : const Center(child: Text("No Data"));
       }),
