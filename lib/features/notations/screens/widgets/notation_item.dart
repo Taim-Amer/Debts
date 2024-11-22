@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
-import 'package:taha_debts/utils/formatters/formatter.dart';
 
 class NotationItem extends StatelessWidget {
   const NotationItem({super.key, required this.date, required this.description});

@@ -7,8 +7,10 @@ import 'package:taha_debts/firebase_options.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 import 'utils/storage/cache_helper.dart';
 
-Future<void> main() async {
+Future<void> main() async{
+
   WidgetsFlutterBinding.ensureInitialized();
+
   await TCacheHelper.init();
 
   await Firebase.initializeApp(
@@ -23,4 +25,3 @@ Future<void> main() async {
 
   runApp(const App());
 }
-

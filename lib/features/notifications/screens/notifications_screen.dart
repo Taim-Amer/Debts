@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:taha_debts/app.dart';
-import 'package:taha_debts/common/styles/spacing_styles.dart';
 import 'package:taha_debts/common/widgets/appbar/appbar.dart';
 import 'package:taha_debts/common/widgets/loaders/loading_widget.dart';
 import 'package:taha_debts/features/notifications/controllers/notification_controller.dart';
@@ -11,7 +9,6 @@ import 'package:taha_debts/features/notifications/screens/widgets/notifications_
 import 'package:taha_debts/utils/constants/enums.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/device/device_utility.dart';
-import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});

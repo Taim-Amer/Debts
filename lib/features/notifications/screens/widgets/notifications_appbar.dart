@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taha_debts/common/widgets/buttons/back_icon.dart';
 import 'package:taha_debts/localization/keys.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class NotificationsAppbar extends StatelessWidget {
   const NotificationsAppbar({super.key});

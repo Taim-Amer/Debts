@@ -1,13 +1,27 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/logging/logger.dart';
 
 class THelperFunctions {
 
   static void showSnackBar(String message) {
-    ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(Get.context!).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.r),
+        ),
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.only(
+          bottom: 5.0,
+        ),
+      ),
+    );
   }
 
   static viewNotification(RemoteMessage message) {

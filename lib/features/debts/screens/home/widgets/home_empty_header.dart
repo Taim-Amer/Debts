@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/image_strings.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class HomeEmptyHeader extends StatelessWidget {
   const HomeEmptyHeader({super.key});

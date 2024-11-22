@@ -39,7 +39,7 @@ class SettingsController extends GetxController{
   }
 
   void setSelectedRadio(value){
-    selectedLanguage?.value = value;
+    selectedLanguage.value = value;
     if(value == 1){
       locale.value = const Locale('ar');
       TCacheHelper.saveData(key: "locale", value: "ar");

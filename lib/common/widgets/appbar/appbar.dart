@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:taha_debts/common/widgets/buttons/back_icon.dart';
-import 'package:taha_debts/utils/constants/colors.dart';
-import 'package:taha_debts/utils/constants/sizes.dart';
 import 'package:taha_debts/utils/device/device_utility.dart';
 
 class TAppBar extends StatelessWidget implements PreferredSizeWidget {

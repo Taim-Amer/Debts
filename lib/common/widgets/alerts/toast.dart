@@ -5,25 +5,25 @@ import 'package:taha_debts/utils/constants/enums.dart';
 
 void showToast(String txt, ToastState toastState) => Fluttertoast.showToast(
     msg: txt,
-    toastLength: Toast.LENGTH_LONG,
-    gravity: ToastGravity.BOTTOM,
-    timeInSecForIosWeb: 100,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.SNACKBAR,
+    timeInSecForIosWeb: 80,
     backgroundColor: chooseToastColor(toastState),
     textColor: Colors.white,
-    fontSize: 16.0);
-
+    fontSize: 16.0,
+);
 
 Color chooseToastColor(ToastState state) {
   Color color;
   switch (state) {
     case ToastState.success:
-      color = TColors.success;
+      color = TColors.greenColor;
       break;
     case ToastState.error:
-      color = TColors.error;
+      color = TColors.redColor;
       break;
     case ToastState.warning:
-      color = TColors.warning;
+      color = TColors.yellowColor;
       break;
   }
   return color;

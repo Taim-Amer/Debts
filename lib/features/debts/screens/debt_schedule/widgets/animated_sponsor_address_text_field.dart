@@ -6,9 +6,7 @@ import 'package:taha_debts/features/debts/screens/debt_schedule/widgets/address_
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
-import 'package:taha_debts/utils/validators/validation.dart';
 
 class AnimatedSponsorAddressTextField extends StatefulWidget {
   const AnimatedSponsorAddressTextField({super.key});

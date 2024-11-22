@@ -4,7 +4,6 @@ import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_conta
 import 'package:taha_debts/features/debts/controllers/dept_schedule_controller/dept_schedule_controller.dart';
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 
 class AddNewItemButton extends StatelessWidget {
   const AddNewItemButton({super.key});

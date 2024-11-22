@@ -3,9 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:taha_debts/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:taha_debts/localization/keys.dart';
-import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/validators/validation.dart';
 
 class UsernameTextField extends StatelessWidget {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:taha_debts/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:taha_debts/common/widgets/icons/circular_icon.dart';
 import 'package:taha_debts/features/debts/screens/home/widgets/notification_icon.dart';
 import 'package:taha_debts/features/personalization/controllers/profile/profile_controller.dart';

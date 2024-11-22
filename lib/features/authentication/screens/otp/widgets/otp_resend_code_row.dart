@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taha_debts/features/authentication/controllers/otp/otp_controller.dart';
 import 'package:taha_debts/localization/keys.dart';
-import 'package:taha_debts/localization/translations.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 
 class OtpResendCodeRow extends StatelessWidget {

@@ -7,7 +7,6 @@ import 'package:taha_debts/features/personalization/screens/settings/widgets/lan
 import 'package:taha_debts/localization/keys.dart';
 import 'package:taha_debts/utils/constants/colors.dart';
 import 'package:taha_debts/utils/constants/sizes.dart';
-import 'package:taha_debts/utils/constants/text_strings.dart';
 import 'package:taha_debts/utils/helpers/helper_functions.dart';
 
 class LanguageChangingContainer extends StatelessWidget {
@@ -28,7 +27,7 @@ class LanguageChangingContainer extends StatelessWidget {
             child: LanguageRadioTile(
               title: TranslationKey.kArabic,
               value: 1,
-              groupValue: SettingsController.instance.selectedLanguage?.value ?? 2,
+              groupValue: SettingsController.instance.selectedLanguage.value ?? 2,
               onChanged: (value) => SettingsController.instance.setSelectedRadio(1),
             ),
           )),
@@ -37,7 +36,7 @@ class LanguageChangingContainer extends StatelessWidget {
             child: LanguageRadioTile(
               title: TranslationKey.kEnglish,
               value: 2,
-              groupValue: SettingsController.instance.selectedLanguage?.value ?? 2,
+              groupValue: SettingsController.instance.selectedLanguage.value ?? 2,
               onChanged: (value) => SettingsController.instance.setSelectedRadio(2),
             ),
           )),
