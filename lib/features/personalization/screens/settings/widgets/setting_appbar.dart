@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:taha_debts/common/widgets/buttons/back_icon.dart';
-import 'package:taha_debts/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:taha_debts/common/widgets/icons/circular_icon.dart';
 import 'package:taha_debts/features/personalization/controllers/settings/settings_controller.dart';
 import 'package:taha_debts/localization/keys.dart';

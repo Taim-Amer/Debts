@@ -54,7 +54,7 @@ class ClientProfileScreen extends StatelessWidget {
                       ),
                   ),
                 ),
-                    );
+        );
       }),
     );
   }
