@@ -35,7 +35,7 @@ class SignInController extends GetxController {
       updateStatus(value: RequestState.success);
 
       showToast(TranslationKey.kVerificationCodeMessage, ToastState.success);
-      Get.toNamed(AppRoutes.otp);
+      Get.toNamed(AppRoutes.otp); 
       TCacheHelper.saveData(key: "isNewAccount", value: response.isNewAccount);
       TCacheHelper.saveData(key: "phone", value: phoneController.text.trim());
     } catch (error) {
